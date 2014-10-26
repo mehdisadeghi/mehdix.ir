@@ -1,0 +1,19 @@
+@import  'http://fonts.googleapis.com/earlyaccess/droidarabicnaskh.css';
+
+body {
+    /* RTL styles */
+    font-family: 'Droid Arabic Naskh', serif;
+    direction: rtl;
+    }
+
+.highlight {
+    direction: ltr;
+    }
+    
+.site-title {
+    float: right;
+    }
+
+.site-nav {
+    float: left;
+    }

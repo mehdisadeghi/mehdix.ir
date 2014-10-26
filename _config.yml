@@ -1,0 +1,18 @@
+# Site settings
+title: آواز دُهُل
+email: sadeghi@mehdix.org
+description: > # this means to ignore newlines until "baseurl:"
+  اینجا سکوی انتشار مطالبی در مورد دانش تولید نرم‌افزار و ایده‌ها و علایق و دیدگاه‌های شخصی‌ام است،
+   بویژه راه‌حل‌های مهندسی که باعث رشد و پیشرفتم شده است و می‌تواند مورد استفاده دیگران هم قرار بگیرد.
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://mehdix.org" # the base hostname & protocol for your site
+twitter_username: mehdisadeghii
+github_username:  mehdisadeghi
+
+fullname: Mehdi Sadeghi
+encoding: utf-8
+
+timezone: Europe/Berlin
+
+# Build settings
+markdown: kramdown
