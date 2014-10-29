@@ -16,4 +16,13 @@ body {
 
 .site-nav {
     float: left;
+
+    @include media-query($on-palm) {
+        right: inherit;
+        left: 30px;
+    }
+}
+
+.footer-col {
+    float: right;
     }

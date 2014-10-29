@@ -1,18 +1,32 @@
 # Site settings
-title: آواز دُهُل
+title: "آواز دُهُل"
+motto: "شنیدن از دور خوش است"
+author: Mehdi Sadeghi
 email: sadeghi@mehdix.org
+baseurl: "/gh/" # the subpath of your site, e.g. /blog/
+url: "http://mehdix.org" # the base hostname & protocol for your site
+keywords: "python, programming, hobby, persian, پایتون"
+copyright: "Commons Attribution 4.0 International"
+robot: ""
 description: > # this means to ignore newlines until "baseurl:"
   اینجا سکوی انتشار مطالبی در مورد دانش تولید نرم‌افزار و ایده‌ها و علایق و دیدگاه‌های شخصی‌ام است،
    بویژه راه‌حل‌های مهندسی که باعث رشد و پیشرفتم شده است و می‌تواند مورد استفاده دیگران هم قرار بگیرد.
-baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://mehdix.org" # the base hostname & protocol for your site
+
 twitter_username: mehdisadeghii
 github_username:  mehdisadeghi
-
 fullname: Mehdi Sadeghi
-encoding: utf-8
+favicon: "img/favicon.png"
 
-timezone: Europe/Berlin
 
 # Build settings
 markdown: kramdown
+encoding: utf-8
+timezone: Europe/Berlin
+
+defaults:
+  -
+    scope:
+      path: "" # an empty string here means all files in the project
+      type: "posts"
+    values:
+      layout: "default"

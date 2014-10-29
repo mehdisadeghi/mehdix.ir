@@ -5,13 +5,15 @@
     <h2 class="footer-heading">{{ site.title }}</h2>
 
     <div class="footer-col-wrapper">
-      <div class="footer-col  footer-col-1">
+      <!--div class="footer-col  footer-col-1">
         <ul class="contact-list">
           <li>{{ site.title }}</li>
-          <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+          <li><a href="mailto:{{ site.email }}"> تماس</a></li>
         </ul>
+      </div-->
+      <div class="footer-col  footer-col-3">
+        <p class="text">{{ site.description }}</p>
       </div>
-
       <div class="footer-col  footer-col-2">
         <ul class="social-media-list">
           {% if site.github_username %}
@@ -23,7 +25,7 @@
                 </svg>
               </span>
 
-              <span class="username">{{ site.github_username }}</span>
+              <span class="username">پروژه‌ها</span>
             </a>
           </li>
           {% endif %}
@@ -38,16 +40,19 @@
                 </svg>
               </span>
 
-              <span class="username">{{ site.twitter_username }}</span>
+              <span class="username">توئیت</span>
             </a>
+          </li>
+          <li>
+            <a href="{{ "/feed.xml" | prepend: site.baseurl }}"><span class="icon icon--feed">
+              <img src="{{ '/img/50.png' | prepend: site.baseurl }}" />
+            </span><span class="username">خوراک</span></a>
           </li>
           {% endif %}
         </ul>
       </div>
 
-      <div class="footer-col  footer-col-3">
-        <p class="text">{{ site.description }}</p>
-      </div>
+
     </div>
   </div>
 </footer>
