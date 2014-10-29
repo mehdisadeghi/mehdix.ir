@@ -16,13 +16,34 @@ body {
 
 .site-nav {
     float: left;
-
     @include media-query($on-palm) {
-        right: inherit;
-        left: 30px;
+        right: -webkit-calc(88% - (#{$spacing-unit} / 2));
+        right:         calc(88% - (#{$spacing-unit} / 2));
     }
 }
 
 .footer-col {
     float: right;
     }
+
+#forkme {
+    @include media-query($on-palm){
+        display: none;
+    }
+}
+
+
+
+/* Reset */
+/* Source: http://stackoverflow.com/a/21652935/157216 */
+html, body { height: 100%; margin: 0; padding: 0; }
+
+/* Essentials */
+.container { display: table; }
+.content { display: table-row; height: 100%; }
+.content-body { display: table-cell; }
+
+/* Aestetics */
+.container { width: 100%; height: 100%; }
+.header, .footer { padding: 10px 20px; background: #f7f7f7; }
+.content-body { padding: 20px; background: #e7e7e7; }

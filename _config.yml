@@ -3,7 +3,7 @@ title: "آواز دُهُل"
 motto: "شنیدن از دور خوش است"
 author: Mehdi Sadeghi
 email: sadeghi@mehdix.org
-baseurl: "/gh/" # the subpath of your site, e.g. /blog/
+baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://mehdix.org" # the base hostname & protocol for your site
 keywords: "python, programming, hobby, persian, پایتون"
 copyright: "Commons Attribution 4.0 International"

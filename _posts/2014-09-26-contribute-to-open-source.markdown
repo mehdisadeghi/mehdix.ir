@@ -1,7 +1,7 @@
 ---
 layout: post
 title: مشارکت موثر در پروژه‌های متن‌باز
-category: مشارکت
+category: opensource
 tags: اوپن‌سورس مشارکت فرهنگ
 ---
 
