@@ -1,4 +1,4 @@
 mehdix.org
 ==========
 
-Project files for my personal weblog.
+This is my RTL personal weblog files written with [Jekyll](http://jekyllrb.com/).
