@@ -47,5 +47,5 @@ $on-laptop:        800px;
         "layout",
         "syntax-highlighting",
         "rtl",
-	"custom.css"
+	"ux-theme"
 ;

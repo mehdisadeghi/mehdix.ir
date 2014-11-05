@@ -10,20 +10,6 @@ h1, h2:not(.footer-heading), h3, h4, h5, h6 {
     color: #1ABC9C;
 }
 
-/* Reset */
-/* Source: http://stackoverflow.com/a/21652935/157216 */
-html, body { height: 100%; margin: 0; padding: 0; }
-
-/* Essentials */
-.container { display: table; }
-.content { display: table-row; height: 100%; }
-.content-body { display: table-cell; }
-
-/* Aestetics */
-.container { width: 100%; height: 100%; }
-.header, .footer { padding: 10px 20px; background: #f7f7f7; }
-.content-body { padding: 20px; background: #e7e7e7; }
-
 .footnotes {
     font-size: small;
 }
@@ -61,7 +47,7 @@ html, body { height: 100%; margin: 0; padding: 0; }
 
 /* Overwrite colors for header and footer */
 .site-title, .site-title:visited {
-    /*color: white;*/
+    color: white;
 }
 
 .site-title a, .site-footer a {
@@ -69,7 +55,7 @@ html, body { height: 100%; margin: 0; padding: 0; }
 }
 
 /* gradient */
-.site-footer_forlater {
+.site-footer {
   background: linear-gradient(#5F538D, black); /* Standard syntax */
 } 
 
@@ -83,14 +69,14 @@ linear-gradient(90deg, transparent 50%, rgba(255,255,255,.19) 50%);
 background-size: 13px, 29px, 37px, 53px;
 }
 
-body_forlater{
+body{
 background-color: #fff; 
 background-image: 
 linear-gradient(90deg, transparent 79px, #abced4 79px, #abced4 81px, transparent 81px),
 linear-gradient(#eee .1em, transparent .1em);
 background-size: 100% 1.2em;}
 
-.site-header_forlater, .site-footer_forlater{
+.site-header, .site-footer{
 background:
 radial-gradient(black 15%, transparent 16%) 0 0,
 radial-gradient(black 15%, transparent 16%) 8px 8px,

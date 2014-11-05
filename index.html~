@@ -12,7 +12,7 @@ layout: default
         <span class="post-meta"><span class="date">{{ post.date | date: "%b %-d, %Y" }}</span></span>
 
         <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+          <a class="post-link post-title" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
         </h2>
         {{ post.excerpt }}<!--a href="{{ post.url | prepend: site.baseurl }}"> ادامه مطلب </a-->
       </li>
