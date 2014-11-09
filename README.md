@@ -1,4 +1,4 @@
-mehdix.org
-==========
+mehdix.ir
+=========
 
-This is my RTL personal [weblog](http://mehdix.org) files written with [Jekyll](http://jekyllrb.com/).
+This is the source code of my personal pesian [website](http://mehdix.ir). This website is produced using [Jekyll](http://jekyllrb.com/) static site generator.
