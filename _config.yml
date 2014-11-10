@@ -38,3 +38,6 @@ defaults:
     values:
       layout: post
       author: "مهدی صادقی"
+
+gems:
+  - jekyll-sitemap
