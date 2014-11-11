@@ -18,6 +18,9 @@ fullname: "مهدی صادقی"
 favicon: "img/favicon.png"
 
 
+#outputting
+permalink: /:title.html
+
 # Build settings
 markdown: kramdown
 encoding: utf-8
