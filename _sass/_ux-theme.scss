@@ -54,27 +54,12 @@ h1, h2:not(.footer-heading), h3, h4, h5, h6 {
     color: white;
 }
 
-/* gradient */
-.site-footer {
-  background: linear-gradient(#5F538D, black); /* Standard syntax */
-} 
-
-/* Trying some fancy CSS3 backgrounds, checkout http://lea.verou.me/css3patterns/ */
-.somediv{
-background-color: #026873;
-background-image: linear-gradient(90deg, rgba(255,255,255,.07) 50%, transparent 50%),
-linear-gradient(90deg, rgba(255,255,255,.13) 50%, transparent 50%),
-linear-gradient(90deg, transparent 50%, rgba(255,255,255,.17) 50%),
-linear-gradient(90deg, transparent 50%, rgba(255,255,255,.19) 50%);
-background-size: 13px, 29px, 37px, 53px;
-}
-
 body{
-background-color: #fff; 
-background-image: 
-linear-gradient(90deg, transparent 79px, #abced4 79px, #abced4 81px, transparent 81px),
-linear-gradient(#eee .1em, transparent .1em);
-background-size: 100% 1.2em;}
+    background-color: #fff; 
+    background-image: linear-gradient(90deg, transparent 98%, #abced4 98%, #abced4 98.3%, transparent 98.3%) /* Vertical line */,
+                      linear-gradient(#eee .1em, transparent .1em) /* Horizontal lines */;
+    background-size: 100% 1.2em;
+}
 
 .site-header, .site-footer{
 background:
