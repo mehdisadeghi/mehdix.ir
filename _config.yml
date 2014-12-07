@@ -46,3 +46,4 @@ defaults:
 
 gems:
   - jekyll-sitemap
+  - jalalidate

@@ -1,0 +1,1 @@
+/home/mehdix/workspace/jekyll-hinduarabic/hinduarabic.rb
