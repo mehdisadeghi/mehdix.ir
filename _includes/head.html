@@ -19,4 +19,7 @@
          {{ page.style }}
      </style>
     {% endif %}
+    {% if page.url == "/404.html" %}
+    <meta http-equiv="refresh" content="5; url=/">
+    {% endif %} 
 </head>
