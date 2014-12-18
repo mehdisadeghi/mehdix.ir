@@ -32,3 +32,16 @@ body {
         display: none;
     }
 }
+
+blockquote {
+    border-left: none;
+    padding-right: $spacing-unit / 2;
+    padding-left: none;
+}
+
+blockquote p {
+    border-right: 4px solid #1ABC9C;
+    padding-right: $spacing-unit / 2;
+}
+
+

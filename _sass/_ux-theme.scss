@@ -151,3 +151,41 @@ background-size:16px 16px;}
         width: 363px;
     }
 }
+
+/* Style for glyphs in quotation marks, courtesy of EnigmaRM http://stackoverflow.com/a/16326442/157216 */
+blockquote {
+    font-size: 18px;
+    font-style: italic;
+    width: 50%;
+    margin: 0.25em 0;
+    padding: 0.35em 40px;
+    line-height: 1.45;
+    position: relative;
+    color: #383838;
+}
+
+blockquote:after {
+    display: block;
+    content: "\201C";
+    font-size: 14em;
+    position: absolute;
+    top: -25px;
+    color: #1ABC9C;
+}
+
+blockquote cite {
+    color: #999999;
+    font-size: 14px;
+    display: block;
+    margin-top: 5px;
+}
+
+blockquote cite:before {
+    content: "\2014 \2009";
+}
+
+blockquote p {
+    border-right: none;
+    padding-right: 6em;
+    color: dimgrey;
+}
