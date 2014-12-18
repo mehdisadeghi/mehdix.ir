@@ -14,12 +14,18 @@
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
     <link rel="icon" href="{{ site.baseurl | append: site.favicon}}">
 
-    {% if page.style %}
+    {% if page.style%}
      <style type="text/css">
          {{ page.style }}
      </style>
     {% endif %}
     {% if page.url == "/404.html" %}
+
+    {% if post.style%}
+     <style type="text/css">
+         {{ post.style }}
+     </style>
+    {% endif %}
     <meta http-equiv="refresh" content="5; url=/">
     {% endif %} 
 </head>
