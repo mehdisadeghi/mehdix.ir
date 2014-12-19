@@ -169,8 +169,9 @@ blockquote:after {
     content: "\201C";
     font-size: 13em;
     position: absolute;
-    top: -25px;
+    
     color: #1ABC9C;
+    font-family: times;
 }
 
 blockquote cite {
