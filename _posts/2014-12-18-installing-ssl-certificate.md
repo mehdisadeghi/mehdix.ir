@@ -98,6 +98,6 @@ sudo service nginx restart
 
 و این هم رنگ خوش سبز *https* در کروم:
 
-![image](/assets/postimages/https.png)
+![image](assets/postimages/https.png)
 
 
