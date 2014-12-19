@@ -70,8 +70,11 @@ radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 8px 9px;
 background-color:#282828;
 background-size:16px 16px;}
 
-/* To adapt different screen sizes, mostly for code blocks */
+pre {
+    overflow-x: auto;
+}
 
+/* To adapt different screen sizes, mostly for code blocks */
 @media screen and (max-width: 240px){
     pre {
         width: 200px;
