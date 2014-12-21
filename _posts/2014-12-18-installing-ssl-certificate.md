@@ -13,6 +13,7 @@ style: "article p img {width: 200px;}"
 #بسته آموزشی گیت‌هاب
 من در این راهنما از یک سرور شخصی روی [DigitalOcean](https://digitalocean.com) و همچنین یک گواهینامه SSL از namecheap.com استفاده کردم. من برای تهیه اینها پولی پرداخت نکردم، بلکه اینها رو از طریق [بسته آموزشی گیت‌هاب](https://education.github.com) بدست آوردم. برای اینکار فقط کافیه یک ایمیل دانشگاهی داشته باشید و در پروژه‌ی بالا ثبت نام کنید و به سرویس‌های مختلفی برای تقریبا یک سال به رایگان دسترسی پیدا کنید.
 
+{: .center}
 ![image](https://education.github.com/assets/sdp-backpack-6f872c4211af1bac3aef0c6e2b5fbb7a.png "Github Developer Pack")
 
 #خرید گواهینامه
