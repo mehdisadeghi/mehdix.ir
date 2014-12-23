@@ -26,6 +26,6 @@
          {{ post.style }}
      </style>
     {% endif %}
-    <meta http-equiv="refresh" content="5; url={{site.baseurl}}/">
+    <meta http-equiv="refresh" content="5; url='{{site.url | append:site.baseurl}}/'">
     {% endif %} 
 </head>
