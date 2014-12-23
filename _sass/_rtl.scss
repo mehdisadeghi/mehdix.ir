@@ -44,4 +44,7 @@ blockquote p {
     padding-right: $spacing-unit / 2;
 }
 
-
+/* Correcting direction for code blocks */
+.code, .highlighter-coderay {
+    direction: ltr;
+}
