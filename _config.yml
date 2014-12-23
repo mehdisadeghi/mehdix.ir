@@ -25,6 +25,8 @@ permalink: /:title.html
 
 # Build settings
 markdown: kramdown
+kramdown:
+    coderay_line_numbers: nil
 encoding: utf-8
 timezone: Europe/Berlin
 
@@ -47,3 +49,4 @@ defaults:
 gems:
   - jekyll-sitemap
   - jalalidate
+  - coderay
