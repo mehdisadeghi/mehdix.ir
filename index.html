@@ -9,7 +9,7 @@ layout: default
   <ul class="post-list">
     {% for post in site.posts %}
       <li>
-        <span class="post-meta"><span class="date">{{ post.date | date: "%b %-d, %Y" }}</span></span>
+        <span class="post-meta"><span class="date">{{ post.date | jdate: "%A %d %b %Y" | habify }}</span></span>
 
         <h2>
           <a class="post-link" href="{{ site.baseurl | urljoin: post.url}}">{{ post.title }}</a>
