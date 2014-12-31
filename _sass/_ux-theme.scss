@@ -46,7 +46,7 @@ h1, h2:not(.footer-heading), h3, h4, h5, h6 {
 
 /* Contrast for header and footer */
 .site-header, .site-footer{
-    background-color: #5F538D;/*#00539F; #1ABC9C rgba(53, 47, 47, 1);*/
+    border-top: none;
     color: white;
 }
 
@@ -60,9 +60,11 @@ h1, h2:not(.footer-heading), h3, h4, h5, h6 {
 }
 
 body{
+//    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAbUlEQVQYV2NkAIJPnz7N5OPjSwexkQGyOCOIA5NEVowuTrxCoq3G5i6QGLqbGUGCv+78MmZTYTv79etXyb9//zbAFIL43Nzcz0F8RpAimKkgxTBPwEyEGYKhENkpyIagWI3uXgyF6ArQTQU5CQBpnVERV0s6SgAAAABJRU5ErkJggg==") repeat;
+
     background-color: #fff; 
-    background-image: linear-gradient(90deg, transparent 98%, #abced4 98%, #abced4 98.3%, transparent 98.3%), /* Vertical line */
-                      linear-gradient(#eee .1em, transparent .1em); /* Horizontal lines */
+    background-image: linear-gradient(90deg, transparent 98%, #abced4 98%, #abced4 98.3%, transparent 98.3%),
+    linear-gradient(#eee .1em, transparent .1em);
     background-size: 100% 1.2em;
 }
 
