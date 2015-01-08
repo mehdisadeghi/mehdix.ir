@@ -227,6 +227,14 @@ html, body { height: 100%; margin: 0; padding: 0; }
 .post-content {
     margin-bottom: $spacing-unit;
 
+    h1 {
+        font-size: 34px;
+
+        @include media-query($on-laptop) {
+            font-size: 36px;
+        }
+    }
+
     h2 {
         font-size: 32px;
 
