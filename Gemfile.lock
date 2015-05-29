@@ -1,0 +1,23 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    coderay (1.1.0)
+    jalalidate (0.3.3)
+    jekyll-sitemap (0.8.1)
+    jekyll-tagging (0.6.0)
+      ruby-nuggets
+    nuggets (1.0.0)
+    ruby-nuggets (1.0.0)
+      nuggets (= 1.0.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  coderay
+  jalalidate
+  jekyll-sitemap
+  jekyll-tagging
+
+BUNDLED WITH
+   1.10.1
