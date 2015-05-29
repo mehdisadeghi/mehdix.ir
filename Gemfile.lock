@@ -1,14 +1,35 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    celluloid (0.16.0)
+      timers (~> 4.0.0)
     coderay (1.1.0)
+    ffi (1.9.8)
+    hitimes (1.2.2)
     jalalidate (0.3.3)
     jekyll-sitemap (0.8.1)
     jekyll-tagging (0.6.0)
       ruby-nuggets
+    jekyll-watch (1.2.1)
+      listen (~> 2.7)
+    kramdown (1.7.0)
+    listen (2.10.0)
+      celluloid (~> 0.16.0)
+      rb-fsevent (>= 0.9.3)
+      rb-inotify (>= 0.9)
     nuggets (1.0.0)
+    posix-spawn (0.3.11)
+    pygments.rb (0.6.3)
+      posix-spawn (~> 0.3.6)
+      yajl-ruby (~> 1.2.0)
+    rb-fsevent (0.9.5)
+    rb-inotify (0.9.5)
+      ffi (>= 0.5.0)
     ruby-nuggets (1.0.0)
       nuggets (= 1.0.0)
+    timers (4.0.1)
+      hitimes
+    yajl-ruby (1.2.1)
 
 PLATFORMS
   ruby
@@ -18,6 +39,10 @@ DEPENDENCIES
   jalalidate
   jekyll-sitemap
   jekyll-tagging
+  jekyll-watch
+  kramdown
+  pygments.rb
+  yajl-ruby
 
 BUNDLED WITH
    1.10.1
