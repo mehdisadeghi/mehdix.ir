@@ -60,6 +60,7 @@ h1, h2:not(.footer-heading), h3, h4, h5, h6 {
 }
 
 body{
+line-height: normal;
 //    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAbUlEQVQYV2NkAIJPnz7N5OPjSwexkQGyOCOIA5NEVowuTrxCoq3G5i6QGLqbGUGCv+78MmZTYTv79etXyb9//zbAFIL43Nzcz0F8RpAimKkgxTBPwEyEGYKhENkpyIagWI3uXgyF6ArQTQU5CQBpnVERV0s6SgAAAABJRU5ErkJggg==") repeat;
 
     background-color: #fff; 
@@ -164,42 +165,35 @@ pre {
 
 /* Style for glyphs in quotation marks, courtesy of EnigmaRM http://stackoverflow.com/a/16326442/157216 */
 blockquote {
-    font-size: 18px;
-    font-style: italic;
-    width: 75%;
-    margin: 0.25em 0;
-    padding: 0.35em 40px;
-    line-height: 1.45;
-    position: relative;
-    color: #383838;
+font-size: 23px;
+font-style: italic;
+width: 500px;
+margin: 0.25em 0;
+padding: 0.35em 80px;
+line-height: 1.45;
+position: relative;
 }
 
 blockquote:after {
-    display: block;
-    content: "\201C";
-    font-size: 13em;
-    position: absolute;
-    top: -95px;
-    top: calc(100% - .8em);
-    color: #1ABC9C;
-    font-family: times;
+display: block;
+/*content: "\201C";*/
+font-size: 80px;
+position: absolute;
+right: 20px;
+margin-left: 10px;
+top: -20px;
+color: #7a7a7a;
 }
 
 blockquote cite {
-    color: #999999;
-    font-size: 14px;
-    display: block;
-    margin-top: 5px;
+color: #999999;
+font-size: 14px;
+display: block;
+margin-top: 5px;
 }
-
+ 
 blockquote cite:before {
-    content: "\2014 \2009";
-}
-
-blockquote p {
-    border-right: none;
-    padding-right: 6em;
-    color: dimgrey;
+content: "\2014 \2009";
 }
 
 /* Fix incorrect video sizes in post content (which messes the gradient lines */
