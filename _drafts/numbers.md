@@ -43,9 +43,24 @@ uuid: 64421da5-100c-4911-821d-299b92534131
 ---------
 امیدوارم توانسته باشم اهمیت ارقام و اعداد و بکارگیری دقیق آنها را بیان کرده باشم. ملتی که بتواند از اعداد و واحدهای مناسب در محاورات و اسناد خودش استفاده کند و همه افرادش این «سواد» مهم را داشته باشند می‌تواند با سرعت و دقت بسیار زیادی دست به انتقال دانش و تجربه بزند بدون اینکه دست به دامن سعی و خطا‏[^1] بشود و عمر و وقت گرانبها را بیهوده تلف بکند و آهنگ رشد خودش را کند کند.
 
+به عنوان حسن خطام این مطلب نموداری که از ورودی و خروجی حسابم ساختم رو اینجا اضافه می‌کنم. من اعداد رو در یک رقم دلخواه ضرب کردم تا رقم واقعی مشخص نشود. شما بررسی کنید که آیا این نمودار الگوی منظمی داره یا نه، من که نظمی نمی‌بینم.
+
 
 [^1]: Trial and error
 [^2]:[پیمانه در ویکی‌پدیای فارسی](http://fa.wikipedia.org/wiki/پیمانه_(واحد))
 
-<script src="Chart.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/dygraph/1.1.1/dygraph-combined.js"></script>
+
+<div id="graphdiv" class="center" style="margin:0 auto;direction:ltr;font-family:Times"></div>
+
+<script type="text/javascript">
+  g = new Dygraph(
+    document.getElementById("graphdiv"),
+    "assets/kontostats25.csv",
+    {
+    showRoller: true,
+rollPeriod: 15
+    }
+  );
+</script>
 
