@@ -2,22 +2,30 @@
 # Only the main Sass file needs front matter (the dashes are enough)
 ---
 @charset "utf-8";
+/* Droid Arabic Naskh */
+@import url(https://fonts.googleapis.com/earlyaccess/droidarabicnaskh.css);
 
-
+//$brand-color-1: #3498DB;#ffc400, old green: #ffcc00
+// red #E3825B
+//color: black;
+//font-size: larger;
+//font-weight: bold;
+// lightcoral & burlywood
 
 // Our variables
-$base-font-family: Helvetica, Arial, sans-serif;
+$base-font-family: 'Droid Arabic Naskh', Arial, sans-serif;
 $base-font-size:   16px;
 $small-font-size:  $base-font-size * 0.875;
-$base-line-height: 1.5;
-
+$base-line-height: normal;
 $spacing-unit:     30px;
 
+$brand-color:      #E4A100; //ffcc00;
+//$anti-color:       #F1D591;
 $text-color:       #111;
-$background-color: #fdfdfd;
-$brand-color:      #2a7ae2;
+$background-color: burlywood; // Khaki #E3825B;
+//$header-color:     white;
 
-$grey-color:       #828282;
+$grey-color:       gray;
 $grey-color-light: lighten($grey-color, 40%);
 $grey-color-dark:  darken($grey-color, 25%);
 
@@ -45,8 +53,6 @@ $on-laptop:        800px;
 @import
         "base",
         "layout",
-        "syntax-highlighting",
-	"print",
-        "rtl",
+	      "print",
         "ux-theme"
 ;
