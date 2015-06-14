@@ -1,28 +1,42 @@
-# This references the default Ruby container from
-# the Docker Hub.
-# https://registry.hub.docker.com/_/ruby/
-# If you want to use a specific version you would use a tag:
-# ruby:2.2.2
-box: ruby
-# You can also use services such as databases. Read more on our dev center:
-# http://devcenter.wercker.com/docs/services/index.html
-# services:
-    # - postgres
-    # http://devcenter.wercker.com/docs/services/postgresql.html
-
-    # - mongodb
-    # http://devcenter.wercker.com/docs/services/mongodb.html
-
-# This is the build pipeline. Pipelines are the core of wercker
-# Read more about pipelines on our dev center
-# http://devcenter.wercker.com/docs/pipelines/index.html
+box: wercker/ruby
 build:
-    # Steps make up the actions in your pipeline
-    # Read more about steps on our dev center:
-    # http://devcenter.wercker.com/docs/steps/index.html
-    steps:
-        - bundle-install
-        - script:
-            name: rspec
-            code: bundle exec rspec
+  steps:
+    # Install dependencies
+    - bundle-install
 
+    # Execute jeykyll doctor command to validate the
+    # site against a list of known issues.
+    - script:
+        name: jekyll doctor
+        code: bundle exec jekyll doctor
+    - script:
+        name: sass compile
+        code: bundle exec sass --style compressed assets/scss/styles.scss:assets/css/styles.min.css --debug-info
+
+    # Generate staging, no drafts in here
+    - script:
+        name: generate staging site
+        code: |-
+          bundle exec jekyll build --trace --destination ./_staging
+          ls -l ./_staging
+    # Do not allow indexing on staging
+    - create-file:
+        name: generate staging robots.txt
+        filename: ./_staging/robots.txt
+        content: |-
+          # Go away! This is a staging version
+          # of born2code.net, no need to index it.
+          User-agent: *
+          Disallow: /
+    - script:
+        name: generate production site
+        code: |-
+          bundle exec jekyll build --trace --destination ./_production
+          ls -l ./_production
+    - create-file:
+        name: generate production robots.txt
+        filename: ./_production/robots.txt
+        content: |-
+          User-agent: *
+          Allow: /
+          Sitemap: http://mehdix.ir/sitemap.xml
