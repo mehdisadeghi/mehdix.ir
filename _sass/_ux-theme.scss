@@ -106,7 +106,15 @@ h1, h2:not(.footer-heading), h3, h4, h5, h6 {
   border-style: dotted;
   border-radius: 10px;
   border-color: $brand-color;
+}
+
+.post-image {
+  text-align: center;
+  img {
+    width: 50%;
+    display: inline;
   }
+}
 
 /* Style for glyphs in quotation marks, courtesy of EnigmaRM http://stackoverflow.com/a/16326442/157216 */
 blockquote {
