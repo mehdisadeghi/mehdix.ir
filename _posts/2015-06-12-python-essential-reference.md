@@ -19,6 +19,6 @@ uuid: fd821302-ef22-40da-9a6d-58a1806afc51
 با این مقدمه می‌خواهم یک کتاب خوب در مورد برنامه‌نویسی به زبان پایتون معرفی کنم. آقای David M. Beazley کتابی دارد بنام Python Essential Reference (Fourth Edition) که برای حرفه‌ای ها نوشته شده است. در این کتاب به صورتی جامع و کاربردی به زبان پایتون پرداخته شده است. حشو و زوائدی در کار نیست. با خواندن این کتاب من نکته‌های زیادی یاد گرفتم و همچنان آنرا به عنوان یک کتاب مرجع هنگام برنامه‌نویسی پایتون کنار دستم دارم و دائم به آن روجوع می‌کنم. در انتهای کتاب نکات پایتون ۳ نیز شرح داده شده است.
 
 {:.center}
-[![image not found](assets/python_essential_reference_4th_edition.jpg "Python Essential Reference 4th Edition")](http://www.goodreads.com/book/show/6666430-python-essential-reference)
+[![image not found](assets/pimg/python_essential_reference_4th_edition.jpg "Python Essential Reference 4th Edition")](http://www.goodreads.com/book/show/6666430-python-essential-reference)
 
 من نسخه چاپی و اصل این کتاب را به زبان انگلیسی تهیه کرده‌ام ولی شاید تهیه نسخه دیجیتالی یا نسخه مناسب کتاب‌خوان‌های الکترونیکی ساده‌تر باشد (خرید کتاب اصل یا تهیه کپی بدون رضایت نویسنده بحث مفصلی است که از حوصله این نوشته کوتاه خارج است).
