@@ -93,6 +93,7 @@ mehdi@debian:~$ ls -l foo.txt
 -rw------- 1 mehdi mehdi 0 Aug 30 22:42 foo.txt
 ~~~
 
+پی‌نوشت: من در این مطلب از کتاب بسیار خوب The Linux Command Line کمک گرفتم که از [سایت کتاب](http://linuxcommand.org) به رایگان قابل [دانلود](http://sourceforge.net/projects/linuxcommand/files/TLCL/13.07/TLCL-13.07.pdf/download) است.
 
 [^1]: Multi-tasking
 [^2]: inode
