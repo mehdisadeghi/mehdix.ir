@@ -34,12 +34,13 @@ a:hover{
 }
 
 h1, h2:not(.footer-heading), h3, h4, h5, h6 {
-  color: $brand-color;
+  color: darken($header-color, 20%);
 }
 
 .post-title, a.post-link {
-  color: $brand-color;
+  color: darken($brand-color, 10%);
 }
+
 
 /* Center page titles */
 .post-title {
@@ -70,6 +71,12 @@ h1, h2:not(.footer-heading), h3, h4, h5, h6 {
 /* Dotted bottom border for links */
 .post-content p a:hover {
   border-bottom: 1px dotted;
+  color: $brand-color;
+}
+
+.post-content a {
+ border-bottom: 1px dotted;
+ color: darken($brand-color, 10%);
 }
 
 .site-footer{
@@ -232,6 +239,14 @@ pre {
 
 #post-list {
   list-style: none;
+}
+
+#post-list a {
+  color: $text-color;
+}
+
+#post-list a:hover {
+  color: $brand-color;
 }
 
 .list-meta-col {
