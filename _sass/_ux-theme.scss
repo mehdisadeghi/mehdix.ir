@@ -29,9 +29,8 @@ ul, ol {
   direction: ltr;
 }
 
-/* Global changes */
-a, a:visited{
-  color: $brand-color;
+a:hover{
+  text-decoration:none;
 }
 
 h1, h2:not(.footer-heading), h3, h4, h5, h6 {
@@ -39,7 +38,7 @@ h1, h2:not(.footer-heading), h3, h4, h5, h6 {
 }
 
 .post-title, a.post-link{
-  //color: $header-color;
+  color: $brand-color;
 }
 
 /* Center page titles */
@@ -70,7 +69,6 @@ h1, h2:not(.footer-heading), h3, h4, h5, h6 {
 
 /* Dotted bottom border for links */
 .post-content p a:hover{
-  text-decoration: none;
   border-bottom: 1px dotted;
 }
 
@@ -118,13 +116,10 @@ h1, h2:not(.footer-heading), h3, h4, h5, h6 {
 
 /* Style for glyphs in quotation marks, courtesy of EnigmaRM http://stackoverflow.com/a/16326442/157216 */
 blockquote {
-  //color: $anti-color;
   border-left: none;
   padding-right: $spacing-unit / 2;
   padding-left: none;
-  font-size: 23px;
-  font-style: italic;
-  width: 500px;
+  font-size: 20px;
   margin: 0.25em 0;
   padding: 0.35em 80px;
   line-height: 1.45;
@@ -134,36 +129,6 @@ blockquote {
 blockquote p {
   border-right: 4px solid $brand-color;
   padding-right: $spacing-unit / 2;
-}
-
-blockquote:after {
-  display: block;
-  /*content: "\201C";*/
-  font-size: 80px;
-  position: absolute;
-  right: 20px;
-  margin-left: 10px;
-  top: -20px;
-  color: #7a7a7a;
-}
-
-blockquote cite {
-  color: #999999;
-  font-size: 14px;
-  display: block;
-  margin-top: 5px;
-}
-
-blockquote cite:before {
-  content: "\2014 \2009";
-}
-
-
-body{
-  //line-height: normal;
-  //background-image: linear-gradient(90deg, transparent 98%, #abced4 98%, #abced4 98.3%, transparent 98.3%),
-  //linear-gradient(#eee .1em, transparent .1em);
-  //background-size: 100% 1.2em;
 }
 
 .site-header, .site-footer{
