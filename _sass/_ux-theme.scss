@@ -19,7 +19,7 @@ ul, ol {
 }
 
 #forkme {
-  @include media-query($on-palm){
+  @include media-query($on-palm) {
     display: none;
   }
 }
@@ -37,7 +37,7 @@ h1, h2:not(.footer-heading), h3, h4, h5, h6 {
   color: $brand-color;
 }
 
-.post-title, a.post-link{
+.post-title, a.post-link {
   color: $brand-color;
 }
 
@@ -68,7 +68,7 @@ h1, h2:not(.footer-heading), h3, h4, h5, h6 {
 }
 
 /* Dotted bottom border for links */
-.post-content p a:hover{
+.post-content p a:hover {
   border-bottom: 1px dotted;
 }
 
@@ -77,7 +77,7 @@ h1, h2:not(.footer-heading), h3, h4, h5, h6 {
 }
 
 /* Contrast for header and footer */
-.site-header, .site-footer{
+.site-header, .site-footer {
   border-top: none;
   color: white;
 }
@@ -96,7 +96,7 @@ h1, h2:not(.footer-heading), h3, h4, h5, h6 {
 }
 
 /* Fix incorrect video sizes in post content (which messes the gradient lines */
-.post-content iframe{
+.post-content iframe {
   width: 100%
 }
 
@@ -131,96 +131,111 @@ blockquote p {
   padding-right: $spacing-unit / 2;
 }
 
-.site-header, .site-footer{
+.site-header, .site-footer {
   background:
   radial-gradient(black 15%, transparent 16%) 0 0,
   radial-gradient(black 15%, transparent 16%) 8px 8px,
   radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0 1px,
   radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 8px 9px;
   background-color:#282828;
-  background-size:16px 16px;}
+  background-size:16px 16px;
+}
 
+pre {
+  overflow-x: auto;
+}
+
+/* To adapt different screen sizes, mostly for code blocks */
+@media screen and (max-width: 240px){
   pre {
-    overflow-x: auto;
+    width: 200px;
   }
+}
 
-  /* To adapt different screen sizes, mostly for code blocks */
-  @media screen and (max-width: 240px){
-    pre {
-      width: 200px;
-    }
+
+@media screen and (min-width: 240px) and (max-width: 280px){
+  pre {
+    width: 240px;
   }
+}
 
-
-  @media screen and (min-width: 240px) and (max-width: 280px){
-    pre {
-      width: 240px;
-    }
+/*Including Apple iPhone 5 */
+@media screen and (min-width: 280px) and (max-width: 320px){
+  pre {
+    width: 260px;
   }
+}
 
-  /*Including Apple iPhone 5 */
-  @media screen and (min-width: 280px) and (max-width: 320px){
-    pre {
-      width: 260px;
-    }
+/*Including Apple iPhone 5 */
+@media screen and (min-width: 321px) and (max-width: 360px) {
+  pre {
+    width: 300px;
   }
+}
 
-  /*Including Apple iPhone 5 */
-  @media screen and (min-width: 321px) and (max-width: 360px) {
-    pre {
-      width: 300px;
-    }
+@media screen and (min-width: 361px) and (max-width: 400px) {
+  pre {
+    width: 340px;
   }
+}
 
-  @media screen and (min-width: 361px) and (max-width: 400px) {
-    pre {
-      width: 340px;
-    }
+/* Nexus 4 */
+@media screen and (min-width: 384px) and (max-width: 384px) {
+  pre {
+    width: 330px;
   }
+}
 
-  /* Nexus 4 */
-  @media screen and (min-width: 384px) and (max-width: 384px) {
-    pre {
-      width: 330px;
-    }
+
+@media screen and (min-width: 401px) and (max-width: 540px) {
+  pre {
+    width: 365px;
   }
+}
 
-
-  @media screen and (min-width: 401px) and (max-width: 540px) {
-    pre {
-      width: 365px;
-    }
+@media screen and (min-width: 541px) and (max-width: 640px) {
+  pre {
+    width: 500px;
   }
+}
 
-  @media screen and (min-width: 541px) and (max-width: 640px) {
-    pre {
-      width: 500px;
-    }
+@media screen and (min-width: 641px) and (max-width: 768px) {
+  pre {
+    width: 600px;
   }
+}
 
-  @media screen and (min-width: 641px) and (max-width: 768px) {
-    pre {
-      width: 600px;
-    }
+/* iPad */
+@media screen and (min-width: 768px) and (max-width: 768px) {
+  pre {
+    width: 705px;
   }
+}
 
-  /* iPad */
-  @media screen and (min-width: 768px) and (max-width: 768px) {
-    pre {
-      width: 705px;
-    }
+/* Apple iPhone 6 */
+@media screen and (min-width: 375px) and (max-width: 375px) {
+  pre {
+    width: 323px;
   }
+}
 
-  /* Apple iPhone 6 */
-  @media screen and (min-width: 375px) and (max-width: 375px) {
-    pre {
-      width: 323px;
-    }
+/* Apple iPhone 6 Plus */
+@media screen and (min-width: 414px) and (max-width: 414px) {
+  pre {
+    width: 363px;
   }
+}
 
-  /* Apple iPhone 6 Plus */
-  @media screen and (min-width: 414px) and (max-width: 414px) {
-    pre {
-      width: 363px;
-    }
-  }
+.pagination {
+
+}
+
+#post-list {
+  list-style: none;
+}
+
+.list-meta-col {
+    display: inline-block;
+    width: 150px;
+    text-align: right;
+}
