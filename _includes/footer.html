@@ -2,7 +2,7 @@
 
   <div class="wrapper">
     <div class="footer-col">
-      <img id="gravatar" class="circle" src="{{ site.baseurl}}/assets/img/me.png" alt="Error loading gravatar. Something went wrong.">
+      <img id="gravatar" class="circle" src={{ "assets/img/me.png" | prepend: site.baseurl }} alt="Error loading gravatar. Something went wrong.">
     </div>
     <h2 class="footer-heading">معرفی</h2>
 
@@ -49,19 +49,19 @@
       </li>
       <li>
         <a href="https://feedburner.google.com/fb/a/mailverify?uri=mehdixir&amp;loc=en_US"><span class="icon icon--feed">
-          <img src="{{ '/assets/img/feed_gray_50.png' | prepend: site.baseurl }}" />
+          <img src="{{ 'assets/img/feed_gray_50.png' | prepend: site.baseurl }}" />
         </span><span class="username">خبرنامه</span></a>
       </li>
       <li>
         <a href="http://feeds.feedburner.com/mehdixir"><span class="icon icon--feed">
-          <img src="{{ '/assets/img/feed_gray_50.png' | prepend: site.baseurl }}" />
+          <img src="{{ 'assets/img/feed_gray_50.png' | prepend: site.baseurl }}" />
         </span><span class="username">خوراک</span></a>
       </li>
       <li>
         <a href="http://pgp.mit.edu/pks/lookup?op=get&search=0x44D3C8F7140D55CF" title="کلید عمومی"><span class="icon icon--feed">
 
         </span><!--span class="username">140D55CF</span></a-->
-        <span class="icon"><a href="http://validator.w3.org/feed/check.cgi?url=http%3A//mehdix.ir/feed.xml"><img src="assets/img/valid-atom.png" alt="[Valid Atom 1.0]" title="Validate my Atom 1.0 feed" /></a></span>
+        <span class="icon"><a href="http://validator.w3.org/feed/check.cgi?url=http%3A//mehdix.ir/feed.xml"><img src={{"assets/img/valid-atom.png" | prepend: site.baseurl }} alt="[Valid Atom 1.0]" title="Validate my Atom 1.0 feed" /></a></span>
 <span class="icon"><a href="https://app.wercker.com/project/bykey/7cdfaf1d4ea865468f4965954ed95247"><img src="https://app.wercker.com/status/7cdfaf1d4ea865468f4965954ed95247/s" alt="image not found." title="wercker status" /></a>
 </span>
       </li>
