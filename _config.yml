@@ -3,7 +3,7 @@ title: "مهدی صادقی"
 motto: "در مورد نرم‌افزار و ایده‌هایم"
 author: Mehdi Sadeghi
 email: sadeghi@mehdix.org
-baseurl: "" # the subpath of your site, e.g. /blog/
+baseurl: "/" # the subpath of your site, e.g. /blog/
 url: "http://mehdix.ir" # the base hostname & protocol for your site
 keywords: "کامپیوتر، برنامه‌نویسی، پایتون، علم"
 copyright: "Commons Attribution 4.0 International"
@@ -29,6 +29,12 @@ kramdown:
     coderay_line_numbers: nil
 encoding: utf-8
 timezone: Europe/Berlin
+
+paginate: 5
+paginate_path: "/page:num/"
+
+tag_page_layout: tag_page
+tag_page_dir: tag
 
 defaults:
   -

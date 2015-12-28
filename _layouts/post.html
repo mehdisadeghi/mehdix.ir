@@ -12,16 +12,25 @@ layout: default
     {{ content }}
   </article>
   
-  <div style="border-top:1px dotted;">
-  <p>
-  {% if page.next %}
-  	<a href="{{ page.next.url }}" style="float: left"> {{ page.next.title }} >> </a>
-  {% endif %}
 
-  {% if page.previous %}
-  	<a href="{{ page.previous.url }}" style="margin-right:0px;">&#60&#60	 {{ page.previous.title }}</a>
-  {% endif %}
-  </p>
+  <small id="post-tags">
+    {% for tag in page.tags %}
+    <i class="icon-tags"></i>
+    <a rel="tag" href="{{ tag | tag_url }}">{{tag}}</a> &nbsp
+    {% endfor %}
+  </small>
+
+  <div style="border-top:1px dotted;">
+    <p>
+      {% if page.next %}
+      <a href="{{ page.next.url }}" style="float: left"> {{ page.next.title }} >> </a>
+      {% endif %}
+
+      {% if page.previous %}
+      <a href="{{ page.previous.url }}" style="margin-right:0px;">&#60&#60	 {{ page.previous.title }}</a>
+      {% endif %}
+    </p>
   </div>
+
   {% include disqus.html %}
 </div>
