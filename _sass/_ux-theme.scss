@@ -3,16 +3,16 @@ ul, ol {
   list-style-type: persian;
 }
 
-a{
+a {
   color: $text-color;
 }
 
-a:hover{
+a:hover {
   text-decoration:none;
   color: $brand-color;
 }
 
-a:visited{
+a:visited {
   color: darken($brand-color, 20%);
 }
 
@@ -28,9 +28,10 @@ blockquote {
   padding-left: none;
   font-size: 20px;
   margin: 0.25em 0;
-  padding: 0.35em 80px;
+  padding: 0.35em;
   line-height: 1.45;
   position: relative;
+  background-color: lighten($grey-color, 47%);
 }
 
 blockquote p {
