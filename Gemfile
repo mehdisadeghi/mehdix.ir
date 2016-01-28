@@ -3,6 +3,7 @@ source "https://rubygems.org"
 gem 'jekyll'
 gem 'jekyll-sitemap'
 gem 'jekyll-tagging'
+gem 'jekyll-paginate'
 gem 'jalalidate'
 gem 'coderay'
 gem 'kramdown'
