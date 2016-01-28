@@ -3,7 +3,7 @@ title: "مهدی صادقی"
 motto: "در مورد نرم‌افزار و ایده‌هایم"
 author: Mehdi Sadeghi
 email: sadeghi@mehdix.org
-baseurl: "/" # the subpath of your site, e.g. /blog/
+baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://mehdix.ir" # the base hostname & protocol for your site
 keywords: "کامپیوتر، برنامه‌نویسی، پایتون، علم"
 copyright: "Commons Attribution 4.0 International"
@@ -17,7 +17,7 @@ long_description: >
 twitter_username: mehdisadeghii
 github_username:  mehdisadeghi
 fullname: "مهدی صادقی"
-favicon: "img/favicon.png"
+favicon: "assets/img/favicon.png"
 
 
 #outputting
@@ -56,4 +56,5 @@ gems:
   - jekyll-sitemap
   - jalalidate
   - coderay
+  - jekyll-paginate
 
