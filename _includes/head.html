@@ -10,9 +10,9 @@
     <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title}} {% endif %}</title>
     <meta name="description" content="{{ site.description }}">
 
-    <link rel="stylesheet" href="{{ "css/main.css" | prepend: site.baseurl }}">
-    <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
-    <link rel="icon" href="{{ site.baseurl | append: site.favicon}}">
+    <link rel="stylesheet" href="{{ site.baseurl | urljoin: 'assets/css/main.css' }}">
+    <link rel="canonical" href="{{ site.url | urljoin: site.baseurl, page.url }}">
+    <link rel="icon" href="{{ site.baseurl | urljoin: site.favicon}}">
 
     {% if page.style%}
      <style type="text/css">
@@ -26,6 +26,6 @@
          {{ post.style }}
      </style>
     {% endif %}
-    <meta http-equiv="refresh" content="5; url='{{site.url | append:site.baseurl}}/'">
+    <meta http-equiv="refresh" content="5; url='{{ site.baseurl | urljoin: site.url }}/'">
     {% endif %} 
 </head>

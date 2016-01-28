@@ -2,7 +2,7 @@
 
   <div class="wrapper">
 
-    <a class="site-title" href="{{ site.baseurl | urljoin: '/'}}">{{ site.title }}</a>
+    <a class="site-title" href="{{ site.baseurl | urljoin: '/'}}/">{{ site.title }}</a>
     <small> {{ site.motto }} </small>
 
     {% if site.pages.size > 3 %}
@@ -19,7 +19,7 @@
         <div class="trigger">
           {% for page in site.pages %}
             {% if page.title and page.publish %}
-            <a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
+            <a class="page-link" href="{{ site.baseurl | urljoin: page.url }}">{{ page.title }}</a>
             {% endif %}
           {% endfor %}
         </div>
