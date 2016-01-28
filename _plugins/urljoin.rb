@@ -1,7 +1,7 @@
 module Jekyll
   module URLJoinFilter
-    def urljoin(first, second)
-      File.join(first, second)
+    def urljoin(*args)
+      File.join(args.join('/').split('/').uniq)
     end
   end
 end
