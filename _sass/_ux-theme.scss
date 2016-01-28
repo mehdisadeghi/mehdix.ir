@@ -263,12 +263,12 @@ pre {
   }
 
   /* Tag cloud sets. Numbers demonstrate repeat frequency for each tag */
-
+  
   #post-tags  {
     vertical-align: middle;
 
     > i {
-      background-image: url('/assets/img/noun_4018.png');
+      background-image: url($assets-dir + '/img/noun_4018.png');
       display: inline-block;
       width: 14px;
       height: 14px;

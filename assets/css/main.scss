@@ -36,6 +36,8 @@ $grey-color-dark:  darken($grey-color, 25%);
 $on-palm:          600px;
 $on-laptop:        800px;
 
+// Store asset directory to be used in imports
+$assets-dir:	   '{{ site.baseurl | urljoin: "assets" }}';
 
 
 // Use media queries like this:
@@ -55,6 +57,7 @@ $on-laptop:        800px;
 @import
         "base",
         "layout",
-	      "print",
+	"print",
         "ux-theme"
 ;
+
