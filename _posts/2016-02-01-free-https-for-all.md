@@ -32,11 +32,13 @@ $ ./letsencrypt-auto --help
 ~~~
 
 اگر آپاچی داریم دستورش این است:
+
 ~~~bash
 ./letsencrypt-auto --apache
 ~~~
 
 اگر هم سرور دیگری داریم و فقط فایل‌های گواهینامه را می‌خواهیم روش کار اینست:
+
 ~~~bash
 ./letsencrypt-auto certonly --webroot -w /var/www/example -d example.com -d www.example.com
 ~~~
@@ -54,4 +56,5 @@ $ ./letsencrypt-auto --help
 
 من همین امروز برای سه تا وبسایت گواهینامه معتبر ساختم و از شر گواهینامه‌های Self Signed خلاص شدم :)
 
+{: .center}
 ![image](assets/pimg/mehdix.org_letsencrypt.png)
