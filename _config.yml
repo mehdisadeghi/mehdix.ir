@@ -51,6 +51,12 @@ defaults:
     values:
       layout: post
       author: "مهدی صادقی"
+  -
+    scope:
+      path: ""
+      type: projects
+    values:
+      layout: project
 
 gems:
   - jekyll-sitemap
@@ -58,3 +64,6 @@ gems:
   - coderay
   - jekyll-paginate
 
+collections:
+  projects:
+    output: true
