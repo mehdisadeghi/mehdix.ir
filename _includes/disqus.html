@@ -1,23 +1,10 @@
 <!-- An element a visitor can click if they <3 comments! -->
 <button class="show-comments">نمایش نظرات</button>
 
-<!-- The empty element required for Disqus to loads comments into --><div id="disqus_thread"></div>
-<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-<script type="text/javascript">
-$(document).ready(function() {
-    $('.show-comments').on('click', function(){
-          var disqus_shortname = 'mehdix';
+<!-- The empty element required for Disqus to loads comments into -->
+<div id="disqus_thread"></div>
 
-          // ajax request to load the disqus javascript
-          $.ajax({
-                  type: "GET",
-                  url: "http://" + disqus_shortname + ".disqus.com/embed.js",
-                  dataType: "script",
-                  cache: true
-          });
-          // hide the button once comments load
-          $(this).fadeOut();
-    });
-});
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="{{ site.baseurl | urljoin: 'assets/js/disqus.js' }}"></script>
+
+<noscript> Please enable JavaScript to view disqus comments. </noscript>
