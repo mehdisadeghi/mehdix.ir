@@ -238,6 +238,14 @@ APPEND cryptdevice=UUID=<uuid of the /dev/sda2>:lvm root=/dev/mapper/X1-root rw
 # iw dev # to get name of the wireless card
 # wifi-menu -o wlp3s0
 ~~~~
+آپدیت: متوجه شدم که با هر بار ریبوت وایرلس خودکار وصل نمی‌شود و باید با دستور بالا وصل بشوم. برای رفع این مشکل با دستور netctl سرویسی برای راه‌اندازی خودکار وایرلس به systemd اضافه کردم که مشکل را حل کرد:
+
+~~~~
+# netctl list # get the name of connections
+# netctl enable <connectionn name here>
+~~~~
+اگر در اسم فایل فاصله و کاما وجود دارد قبلشان یک بک‌اسلش اضافه کنید.
+
 
 # گام بعدی
 گام بعدی نصب gnome-shell روی لپ تاپ است که در مقاله‌ای دیگر می‌نویسم.
