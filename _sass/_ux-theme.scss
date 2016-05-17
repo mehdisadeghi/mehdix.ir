@@ -48,8 +48,17 @@ pre {
   pre {
     width: 200px;
   }
+
+  li .list-meta-col {
+    display: none;
+  }
 }
 
+@media screen and (max-width: 540px){
+  li .list-meta-col {
+    display: none;
+  }
+}
 
 @media screen and (min-width: 240px) and (max-width: 280px){
   pre {
@@ -235,7 +244,7 @@ pre {
 
   .list-meta-col {
     display: inline-block;
-    width: 150px;
+    width: 160px;
     text-align: right;
   }
 
