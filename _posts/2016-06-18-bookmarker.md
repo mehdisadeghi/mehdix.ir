@@ -23,4 +23,4 @@ uuid: 29e00ded-3fd4-418f-a449-9ccbda0bf92e
 !["Something went wrong."](assets/pimg/bookmarker.png "بوکمارکر فقط گلچین‌ها را جستجو می کند.")
 
 # صفحه اختصاصی پروژه
-برای اطلاعات بیشتر به ‏‎[صفحه پروژه](projects/bookmarker) مراجعه کنید.
+برای اطلاعات بیشتر به ‏‎[صفحه پروژه](projects/bookmarker) مراجعه کنید. افزونه را می‌توانید از ‏‏‬[اپ استور کروم‮‮](https://chrome.google.com/webstore/detail/dogmmdcflcflabibfbecmfgaaobifimo) نصب کنید.

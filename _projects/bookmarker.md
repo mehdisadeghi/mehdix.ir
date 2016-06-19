@@ -13,6 +13,9 @@ comments: false
 #### داده‌های مورد استفاده
 بوکمارکر تنها از API کروم استفاده می‌کند و داده‌ای ندارد و ذخیره نمی‌کند.
 
+#### نصب
+بوکمارکر را می‌توان از ‬فروشگاه آنلاین گوگل روی کرومیوم یا کروم ‎‬[نصب](https://chrome.google.com/webstore/detail/dogmmdcflcflabibfbecmfgaaobifimo) کرد.
+
 #### ریپازیتوری
 بوکمارکر روی گیت‌هاب [هاست](https://github.com/mehdisadeghi/bookmarker) شده است.
 
