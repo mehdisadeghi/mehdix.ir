@@ -1,0 +1,316 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+		]
+	},
+	"buffers":
+	[
+		{
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "_posts/2016-01-29-omar-khayyam-in-yaml-format.md",
+			"settings":
+			{
+				"buffer_size": 3006,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 92.0,
+		"last_filter": "install",
+		"selected_items":
+		[
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"jeky",
+				"Jekyll: New post from template"
+			],
+			[
+				"jekyll",
+				"Jekyll: New template"
+			],
+			[
+				"settings",
+				"Preferences: Settings - User"
+			],
+			[
+				"prject settings",
+				"Jekyll Utility: Migrate project settings"
+			],
+			[
+				"package install",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/mehdi/Projects/mehdix.ir",
+		"/home/mehdi/Projects/mehdix.ir/_posts",
+		"/home/mehdi/Projects/mehdix.ir/_projects"
+	],
+	"file_history":
+	[
+		"/home/mehdi/Projects/mehdix.ir/mehdix.sublime-project",
+		"/home/mehdi/Projects/mehdix.ir/_templates/post.yaml",
+		"/home/mehdi/Projects/mehdix.ir/_templates/project.yaml",
+		"/home/mehdi/Projects/mehdix.ir/_posts/2016-07-31-test2.markdown",
+		"/home/mehdi/Projects/mehdix.ir/_drafts/test.markdown",
+		"/home/mehdi/Projects/mehdix.ir/_posts/2016-06-18-bookmarker.md",
+		"/home/mehdi/Projects/mehdix.ir/_posts/2016-05-22-plug-up-yubikey-4-hardware-keys.md",
+		"/home/mehdi/Projects/mehdix.ir/_posts/2016-05-17-python-zen.md",
+		"/home/mehdi/Projects/mehdix.ir/_posts/2016-05-16-installing-gnome-shell-on-archlinux.md",
+		"/home/mehdi/Projects/mehdix.ir/_posts/2016-05-15-archlinux_installation_with_lucks_and_lvm.md",
+		"/home/mehdi/Projects/mehdix.ir/_posts/2016-02-07-saaghibot-released.markdown",
+		"/home/mehdi/Projects/mehdix.ir/_posts/2016-02-01-free-https-for-all.md",
+		"/home/mehdi/Projects/mehdix.ir/_posts/2016-01-29-omar-khayyam-in-yaml-format.md",
+		"/home/mehdi/Projects/mehdix.ir/_posts/2016-01-26-irc-with-screen.md",
+		"/home/mehdi/Projects/mehdix.ir/_posts/2016-01-13-css-list-style-type.md",
+		"/home/mehdi/Projects/mehdix.ir/_posts/2016-01-02-pagination.md",
+		"/home/mehdi/Projects/mehdix.ir/_posts/2015-8-30-linux-permissions-made-simple-part-two.markdown",
+		"/home/mehdi/Projects/mehdix.ir/_posts/2015-12-29-link-tagging.md",
+		"/home/mehdi/Projects/mehdix.ir/_posts/2015-1-8-linux-permissions-made-simple.markdown",
+		"/home/mehdi/Projects/mehdix.ir/_posts/2015-08-12-wercker-intro.md",
+		"/home/mehdi/Projects/mehdix.ir/_posts/2015-06-20-distraction-free-reading.md",
+		"/home/mehdi/Projects/mehdix.ir/_posts/2015-06-19-professors-against-plagiarism.md",
+		"/home/mehdi/Projects/mehdix.ir/_posts/2014-11-10-publishing-with-jekyll.md",
+		"/home/mehdi/Projects/mehdix.ir/_posts/2014-11-11-contribute-to-opensource.md",
+		"/home/mehdi/Projects/mehdix.ir/_posts/2014-11-16-decentralized-social-networks.md",
+		"/home/mehdi/Projects/mehdix.ir/_posts/2014-11-30-weblog-with-jekyll-and-github.md",
+		"/home/mehdi/Projects/mehdix.ir/_posts/2014-12-09-jekyll-jalali-plugin.md",
+		"/home/mehdi/Projects/mehdix.ir/_posts/2014-12-18-installing-ssl-certificate.md",
+		"/home/mehdi/Projects/mehdix.ir/_posts/2014-12-19-jekyll-structure.md",
+		"/home/mehdi/Projects/mehdix.ir/_posts/2014-12-21-kramdown.md",
+		"/home/mehdi/Projects/mehdix.ir/_posts/2014-12-28-urljoin.md",
+		"/home/mehdi/Projects/mehdix.ir/_posts/2014-12-30-rosetta-mission.md",
+		"/home/mehdi/Projects/mehdix.ir/_posts/2015-05-25-suse.md",
+		"/home/mehdi/Projects/mehdix.ir/_posts/2015-05-31-rtl-feed.md",
+		"/home/mehdi/Projects/mehdix.ir/_posts/2015-06-05-numbers.md",
+		"/home/mehdi/Projects/mehdix.ir/_posts/2015-06-12-python-essential-reference.md",
+		"/home/mehdi/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+		"/home/mehdi/aidin19jun.txt",
+		"/run/media/mehdi/Vault/Backup/Acer-Aspire-V3-571G/Artworks/glyphicons_free/_license.txt",
+		"/run/media/mehdi/Vault/Backup/Acer-Aspire-V3-571G/Artworks/glyphicons_free/_changelog.txt",
+		"/home/mehdi/Downloads/to_aidin.gpg",
+		"/home/mehdi/.cache/.fr-1V9Fwz/tocc-1.0.1/COPYING",
+		"/home/mehdi/Downloads/format",
+		"/home/mehdi/Projects/simphony/simphony-metadata/yaml_files/cuba.yml",
+		"/home/mehdi/Projects/simphony/simphony-metadata/yaml_files/simphony_metadata.yml",
+		"/home/mehdi/Documents/devcon26may",
+		"/home/mehdi/dev_con_9_june"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"bird_black_32_0.png",
+			"bird_black_32_0.png ",
+			"_static"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "_posts/2016-01-29-omar-khayyam-in-yaml-format.md",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 3006,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2281,
+								2281
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Markdown/Markdown.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 270.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "mehdix.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 269.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
