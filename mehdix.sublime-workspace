@@ -8,17 +8,26 @@
 	"buffers":
 	[
 		{
+			"file": "_projects/iranconstitution.md",
 			"settings":
 			{
-				"buffer_size": 0,
+				"buffer_size": 526,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "_posts/2016-01-29-omar-khayyam-in-yaml-format.md",
+			"file": "_posts/2016-08-07-iran-constitution.md",
 			"settings":
 			{
-				"buffer_size": 3006,
+				"buffer_size": 3925,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "_posts/2014-11-10-publishing-with-jekyll.md",
+			"settings":
+			{
+				"buffer_size": 3808,
 				"line_ending": "Unix"
 			}
 		}
@@ -30,10 +39,18 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 92.0,
-		"last_filter": "install",
+		"height": 152.0,
+		"last_filter": "settings",
 		"selected_items":
 		[
+			[
+				"settings",
+				"Preferences: Package Control Settings – User"
+			],
+			[
+				"jekyll",
+				"Jekyll: New post"
+			],
 			[
 				"install",
 				"Package Control: Install Package"
@@ -41,14 +58,6 @@
 			[
 				"jeky",
 				"Jekyll: New post from template"
-			],
-			[
-				"jekyll",
-				"Jekyll: New template"
-			],
-			[
-				"settings",
-				"Preferences: Settings - User"
 			],
 			[
 				"prject settings",
@@ -86,6 +95,10 @@
 	],
 	"file_history":
 	[
+		"/home/mehdi/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+		"/home/mehdi/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
+		"/home/mehdi/.config/sublime-text-3/Packages/Package Control/Package Control.sublime-settings",
+		"/home/mehdi/.config/sublime-text-3/Packages/User/Package Control.sublime-settings",
 		"/home/mehdi/Projects/mehdix.ir/mehdix.sublime-project",
 		"/home/mehdi/Projects/mehdix.ir/_templates/post.yaml",
 		"/home/mehdi/Projects/mehdix.ir/_templates/project.yaml",
@@ -122,7 +135,6 @@
 		"/home/mehdi/Projects/mehdix.ir/_posts/2015-05-31-rtl-feed.md",
 		"/home/mehdi/Projects/mehdix.ir/_posts/2015-06-05-numbers.md",
 		"/home/mehdi/Projects/mehdix.ir/_posts/2015-06-12-python-essential-reference.md",
-		"/home/mehdi/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
 		"/home/mehdi/aidin19jun.txt",
 		"/run/media/mehdi/Vault/Backup/Acer-Aspire-V3-571G/Artworks/glyphicons_free/_license.txt",
 		"/run/media/mehdi/Vault/Backup/Acer-Aspire-V3-571G/Artworks/glyphicons_free/_changelog.txt",
@@ -170,15 +182,44 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 2,
 			"sheets":
 			[
 				{
 					"buffer": 0,
+					"file": "_projects/iranconstitution.md",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 0,
+						"buffer_size": 526,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								190,
+								190
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Markdown/Markdown.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "_posts/2016-08-07-iran-constitution.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3925,
 						"regions":
 						{
 						},
@@ -191,7 +232,7 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
+							"syntax": "Packages/Markdown/Markdown.sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -201,20 +242,20 @@
 					"type": "text"
 				},
 				{
-					"buffer": 1,
-					"file": "_posts/2016-01-29-omar-khayyam-in-yaml-format.md",
-					"semi_transient": true,
+					"buffer": 2,
+					"file": "_posts/2014-11-10-publishing-with-jekyll.md",
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3006,
+						"buffer_size": 3808,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2281,
-								2281
+								58,
+								58
 							]
 						],
 						"settings":
@@ -222,7 +263,7 @@
 							"syntax": "Packages/Markdown/Markdown.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 270.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -308,7 +349,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 269.0,
+	"side_bar_width": 482.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
