@@ -2,7 +2,7 @@
 title: قانون اساسی
 publish: true
 repo_url: https://github.com/mehdisadeghi/iranconstitution
-comments: false
+comments: true
 ---
 
 قانون اساسی جمهوری اسلامی ایران در فرمت `YAML`.
