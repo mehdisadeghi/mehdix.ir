@@ -1,7 +1,7 @@
 ---
 title: برچسب‌زنی به لینک‌ها
-categories: []
 tags: [تگ, برچسب, لینک, اطلاعات]
+category: متادیتا
 published: True
 uuid: 878bc0fb-4258-4c46-9df6-f11899350dbe
 ---

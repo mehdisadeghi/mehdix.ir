@@ -1,6 +1,6 @@
 ---
 title: پلاگین تاریخ جلالی برای جکیل
-category: opensource
+category: جکیل
 tags: اوپن‌سورس مشارکت
 uuid: 3813a043-9697-4761-a72b-08612af533e6
 ---

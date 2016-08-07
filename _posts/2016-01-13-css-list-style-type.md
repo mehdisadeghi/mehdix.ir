@@ -1,6 +1,6 @@
 ---
 title: لیستی با حروف ابجد
-categories: []
+category: وب
 tags: [ابجد, css, list-style-type, counter-style, شماره‌گذاری, استیل]
 published: True
 uuid: 7e35945f-ed23-4e1e-ab83-1aacff21a23b

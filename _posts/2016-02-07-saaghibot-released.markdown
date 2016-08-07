@@ -3,6 +3,7 @@ title: انتشار ساقی‌بات
 layout: post
 tags: تلگرام بات telegram bot ساقی SaaghiBot
 uuid: ac09dbf5-7bec-47ca-a3ce-763fa62356ae
+category: پروژه
 ---
 بعد از سپری کردن یک آخر هفته پرکار بالاخره اولین ربات تلگرام من آماده شد. [ساقی‌بات](https://telegram.me/SaaghiBot) از این لحظه آماده استفاده است.
 

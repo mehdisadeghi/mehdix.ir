@@ -2,7 +2,7 @@
 date: 18 Dec 2014
 title: طریقه نصب گواهینامه SSL روی سرور شخصی
 tags: ssl امنیت
-category: راهنما
+category: امنیت
 style: "article p img {width: 200px;}"
 uuid: e367a6cc-329f-4a68-a995-d7aa579db246
 ---

@@ -1,7 +1,7 @@
 ---
 title: پیشگفتار
 date:   2014-11-02 13:24:00
-category: general
+category: جکیل
 tags: وبلاگ جکیل هکر
 uuid: 41384071-8740-4b76-a669-ced3734bfb2f
 ---

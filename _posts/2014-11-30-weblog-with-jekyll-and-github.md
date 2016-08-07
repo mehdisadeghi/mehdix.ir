@@ -1,6 +1,6 @@
 ---
 title: ساخت وبلاگ با گیت‌هاب و جکیل
-category: general
+category: جکیل
 tags: وبلاگ جکیل هکر
 uuid: 5178dec6-36be-4097-8997-75f5d4c4841a
 ---
