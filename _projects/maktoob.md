@@ -11,14 +11,13 @@ comments: false
 مکتوب با کمک `JavaScript` نوشته شده است.
 
 #### داده‌های مورد استفاده
-مکتوب تنها از API کروم و Readability.js استفاده می‌کند و داده‌ای ندارد و ذخیره نمی‌کند.
+مکتوب تنها از API کروم و [Readability.js](https://github.com/mozilla/readability) استفاده می‌کند و داده‌ای ندارد و ذخیره نمی‌کند.
 
 #### نصب
 مکتوب را می‌توان از ‬فروشگاه آنلاین گوگل روی کرومیوم یا کروم ‎‬[نصب](https://chrome.google.com/webstore/detail/maktoob/oahgddeaidcccjknakhbamebomknkdfo) کرد.
 
 #### ریپازیتوری
- روی گیت‌هاب [هاست](https://github.com/mehdisadeghi/maktoob) شده است.
+روی گیت‌هاب [هاست](https://github.com/mehdisadeghi/maktoob) شده است.
 
 #### گزارش مشکلات و پیشنهادات
 مشکلات را در گیت‌هاب [گزارش](https://github.com/mehdisadeghi/maktoob/issues) کنید.
-
