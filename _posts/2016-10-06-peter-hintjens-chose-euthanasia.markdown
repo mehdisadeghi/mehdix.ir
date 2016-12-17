@@ -1,5 +1,5 @@
 ---
-title: پیتر هینتجنز اتانازی را انتخاب کرد
+title: پیتر هینتجنز اُتانازی را انتخاب کرد
 tags: ZMQ 0MQ اتانازی مرگ شکرگزاری RIP Pieter Hintjens
 uuid: 1d1e13af-0be7-4015-b65d-824ee9011007
 category: 
