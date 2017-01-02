@@ -1,7 +1,7 @@
 ---
 title: گواهینامه SSL/TLS مجّانی برای همه
 category: امنیت
-tags: SSL TLS گواهینامه https رایگان آزاد امنیت وب
+tags: ssl TLS گواهینامه https رایگان آزاد امنیت وب
 published: True
 uuid: 7cc163df-feba-48a6-9f1e-cca6511f4ecc
 ---
