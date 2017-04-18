@@ -3,3 +3,4 @@ _site/
 .bundle
 *~
 *.log
+vendor
