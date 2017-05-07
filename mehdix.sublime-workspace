@@ -8,26 +8,9 @@
 	"buffers":
 	[
 		{
-			"file": "_projects/iranconstitution.md",
 			"settings":
 			{
-				"buffer_size": 526,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "_posts/2016-08-07-iran-constitution.md",
-			"settings":
-			{
-				"buffer_size": 3925,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "_posts/2014-11-10-publishing-with-jekyll.md",
-			"settings":
-			{
-				"buffer_size": 3808,
+				"buffer_size": 0,
 				"line_ending": "Unix"
 			}
 		}
@@ -40,9 +23,13 @@
 	"command_palette":
 	{
 		"height": 152.0,
-		"last_filter": "settings",
+		"last_filter": "install",
 		"selected_items":
 		[
+			[
+				"install",
+				"Package Control: Install Package"
+			],
 			[
 				"settings",
 				"Preferences: Package Control Settings – User"
@@ -50,10 +37,6 @@
 			[
 				"jekyll",
 				"Jekyll: New post"
-			],
-			[
-				"install",
-				"Package Control: Install Package"
 			],
 			[
 				"jeky",
@@ -68,7 +51,7 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 449.0
+		"width": 485.0
 	},
 	"console":
 	{
@@ -90,11 +73,13 @@
 	"expanded_folders":
 	[
 		"/home/mehdi/Projects/mehdix.ir",
-		"/home/mehdi/Projects/mehdix.ir/_posts",
-		"/home/mehdi/Projects/mehdix.ir/_projects"
+		"/home/mehdi/Projects/mehdix.ir/_drafts"
 	],
 	"file_history":
 	[
+		"/home/mehdi/Projects/mehdix.ir/_projects/iranconstitution.md",
+		"/home/mehdi/Projects/mehdix.ir/_posts/2016-08-07-iran-constitution.md",
+		"/home/mehdi/Projects/mehdix.ir/_posts/2014-11-10-publishing-with-jekyll.md",
 		"/home/mehdi/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
 		"/home/mehdi/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
 		"/home/mehdi/.config/sublime-text-3/Packages/Package Control/Package Control.sublime-settings",
@@ -121,7 +106,6 @@
 		"/home/mehdi/Projects/mehdix.ir/_posts/2015-08-12-wercker-intro.md",
 		"/home/mehdi/Projects/mehdix.ir/_posts/2015-06-20-distraction-free-reading.md",
 		"/home/mehdi/Projects/mehdix.ir/_posts/2015-06-19-professors-against-plagiarism.md",
-		"/home/mehdi/Projects/mehdix.ir/_posts/2014-11-10-publishing-with-jekyll.md",
 		"/home/mehdi/Projects/mehdix.ir/_posts/2014-11-11-contribute-to-opensource.md",
 		"/home/mehdi/Projects/mehdix.ir/_posts/2014-11-16-decentralized-social-networks.md",
 		"/home/mehdi/Projects/mehdix.ir/_posts/2014-11-30-weblog-with-jekyll-and-github.md",
@@ -182,44 +166,15 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "_projects/iranconstitution.md",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 526,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								190,
-								190
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Markdown/Markdown.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "_posts/2016-08-07-iran-constitution.md",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3925,
+						"buffer_size": 0,
 						"regions":
 						{
 						},
@@ -232,35 +187,7 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/Markdown/Markdown.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "_posts/2014-11-10-publishing-with-jekyll.md",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3808,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								58,
-								58
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Markdown/Markdown.sublime-syntax"
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -349,7 +276,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 482.0,
+	"side_bar_width": 344.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
