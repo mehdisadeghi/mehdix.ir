@@ -273,3 +273,9 @@ html, body { height: 100%; margin: 0; padding: 0; }
 table, td, th{
     border: 1px dotted;
 }
+
+.image-caption {
+    text-align: center;
+    color: $grey-color;
+    margin-top: $spacing-unit / 3;
+}
