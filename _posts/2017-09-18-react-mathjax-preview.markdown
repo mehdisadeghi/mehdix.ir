@@ -48,8 +48,7 @@ class Demo extends Component {
 اگر با مرورگر لوکال‌هاست پورت ۳۰۰۰ را باز کنید خروجی باید چیزی شبیه عکس زیر باشد:
 
 {: .center}
-
-![''](assets/pimg/mathjax-preview.png '')
+![](assets/pimg/mathjax-preview.png)
 
 
 طبق روال همیشه ‬[سورس][سورس] برنامه روی گیت‌هاب است.
