@@ -38,6 +38,20 @@ class Demo extends Component {
   }
 }
 ```
+
+همراه سورس برنامه یک دموی کوچک هم هست که به روش زیر می‌توانید اجرا کنید:
+
+    git clone https://github.com/mehdisadeghi/react-mathjax-preview && cd react-mathjax-preview
+    npm install
+    npm run start
+
+اگر با مرورگر لوکال‌هاست پورت ۳۰۰۰ را باز کنید خروجی باید چیزی شبیه عکس زیر باشد:
+
+{: .center}
+
+![''](assets/pimg/mathjax-preview.png '')
+
+
 طبق روال همیشه ‬[سورس][سورس] برنامه روی گیت‌هاب است.
 
 [ریکت]: https://facebook.github.io/react/
