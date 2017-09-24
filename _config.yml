@@ -38,3 +38,6 @@ collections:
 
 plugins:
   - jekyll-markright
+
+disqus: true
+google_analytics_id: UA-57282325-1
