@@ -18,9 +18,10 @@ long_description: >
 twitter_username: mehdisadeghii
 github_username:  mehdisadeghi
 fullname: "مهدی صادقی"
-favicon: "assets/img/favicon.png"
+favicon: "assets/img/me.png"
 
 theme: "jekyll-theme-mehdix-rtl"
+markdown: "Markright"
 
 permalink: :title.html
 timezone: Europe/Berlin
@@ -34,3 +35,6 @@ tag_page_dir: tag
 collections:
   projects:
     output: true
+
+plugins:
+  - jekyll-markright

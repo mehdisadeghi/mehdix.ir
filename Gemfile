@@ -21,6 +21,7 @@ gem "jekyll-theme-mehdix-rtl", "0.1.1"
 group :jekyll_plugins do
    gem "jekyll-feed", "~> 0.6"
    gem "jekyll-tagging", :require => 'jekyll/tagging'
+   gem "jekyll-markright"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
