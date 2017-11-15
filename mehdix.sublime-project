@@ -12,7 +12,8 @@
 			"jekyll_posts_path": "/home/mehdi/Projects/mehdix.ir/_posts",
 			"jekyll_drafts_path": "/home/mehdi/Projects/mehdix.ir/_drafts",
             "jekyll_uploads_path": "/home/mehdi/Projects/mehdix.ir/assets",
-            "jekyll_templates_path": "/home/mehdi/Projects/mehdix.ir/_templates"
+            "jekyll_templates_path": "/home/mehdi/Projects/mehdix.ir/_templates",
+            "jekyll_markdown_extension": "md"
 		}
 	}
 }
