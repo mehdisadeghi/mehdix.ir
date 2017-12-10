@@ -43,7 +43,7 @@ GEM
       jekyll (~> 3.3)
     jekyll-tagging (1.1.0)
       nuggets
-    jekyll-theme-mehdix-rtl (0.1.8)
+    jekyll-theme-mehdix-rtl (0.1.9)
       jekyll (~> 3.3)
       jekyll-default-layout (~> 0.1)
       jekyll-hinduarabic (~> 0.1)
