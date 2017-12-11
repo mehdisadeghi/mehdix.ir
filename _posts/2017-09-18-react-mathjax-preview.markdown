@@ -1,7 +1,7 @@
 ---
 title: تولید فرمولهای زیبای ریاضی در وب
 category: پروژه
-tags: react mathjax ریاضی فرمول
+tags: react mathjax ریاضی فرمول پروژه
 uuid: 335ef169-0331-4ae5-a1f0-bc775412e798
 ---
 

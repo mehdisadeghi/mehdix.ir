@@ -1,6 +1,6 @@
 ---
 title:  چالش جدید، تعمیر pygtk
-category: essay
+category: یادداشت
 tags: pygtk rtl bug
 uuid: 5e3fbde8-42e6-4d4e-b367-c805fc887c7f
 ---
