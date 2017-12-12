@@ -3,7 +3,7 @@ motto: در مورد نرم‌افزار و ایده‌هایم
 author: Mehdi Sadeghi
 email: sadeghi@mehdix.org
 baseurl:  # the subpath of your site, e.g. /blog
-url: http://mehdix.ir # the base hostname & protocol for your site
+url: //mehdix.ir # the base hostname & protocol for your site
 keywords: کامپیوتر، برنامه‌نویسی، پایتون، علم
 copyright: Commons Attribution 4.0 International
 robot: ""
