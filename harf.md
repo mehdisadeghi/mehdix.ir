@@ -18,6 +18,7 @@ published: true
 </style>
 
 <form id="contactForm" name="contact" netlify>
+		<input name="bot-field" style="display:none">
     <label for="name">اسمت </label>
     <input id="name" type="text" name="name">
     <label for="email">ایمیلت </label>
