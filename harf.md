@@ -8,7 +8,7 @@ published: true
 اگر راه گم کردی و به این صفحه منتشر نشده رسیدی نمی‌دونم واقعا باید بهت چی بگم! به هر حال می‌تونی از فرم زیر برای ارسال پیام به من استفاده کنی. البته اگر پای مرگ و زندگی در میونه بهت پیشنهاد می‌کنم منتظر جواب من نباشی چون احتمالا وقتی ببینمش دخلت اومده!
 
 <style>
-#contactForm {
+#harf {
   display: grid;
   grid-template-columns: 0fr 1fr;
   grid-template-rows: 1fr 1fr 3fr;
@@ -17,7 +17,7 @@ published: true
 
 </style>
 
-<form id="contactForm" name="contact" netlify>
+<form id="harf" name="harf" netlify>
 		<input name="bot-field" style="display:none">
     <label for="name">اسمت </label>
     <input id="name" type="text" name="name">
