@@ -130,7 +130,7 @@ layout: default
 [^1]: Static Site Generator
 [^2]: Template Language
 [^3]: Layout
-[^4]: [Front Matter](Front Matter - http://jekyllrb.com/docs/frontmatter/)
+[^4]: [Front Matter](http://jekyllrb.com/docs/frontmatter/)
 [^5]: [Liquid](https://github.com/Shopify/liquid/wiki)
 [^6]: Pagination
 
