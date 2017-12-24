@@ -65,7 +65,7 @@ def main():
     '''Update comments.'''
     netlify_comments = get_comments()
     for uuid, comments in netlify_comments.items():
-        with open(os.path.join(COMMENT_DIR, f'{uuid}.yml'), 'a+') as file:
+        with open(os.path.join(COMMENT_DIR, f'{uuid}.yml'), 'a+', encoding='utf8') as file:
             update_comments(file, comments)
 
 
