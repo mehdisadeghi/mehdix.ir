@@ -14,6 +14,8 @@
             "jekyll_uploads_path": "/home/mehdi/Projects/mehdix.ir/assets",
             "jekyll_templates_path": "/home/mehdi/Projects/mehdix.ir/_templates",
             "jekyll_markdown_extension": "md"
-		}
+		},
+		"tab_size": 2,
+		"indent_with_spaces": true
 	}
 }

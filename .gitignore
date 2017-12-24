@@ -4,3 +4,4 @@ _site/
 *~
 *.log
 vendor
+*.sublime-workspace
