@@ -9,7 +9,12 @@ install:
 - pip install pyyaml
 script: python rebuild_comments.py
 after_success:
-- ./push.sh
+- git config credential.helper "store --file=.git/credentials"
+- echo "https://${GH_TOKEN}:@github.com" > .git/credentials
+- git checkout master
+- git add ./_data/comments
+- git commit --message "Update comments - Travis $TRAVIS_BUILD_NUMBER"
+- git push
 env:
   matrix:
   - NETLIFY_SITE_ID=1a868305-2645-4c6f-a0ec-4d5b9f8e0ae5 NETLIFY_FORM_ID=5a3ef81a8c8f334bcdcb6d34 GH_USERNAME=mehdisadeghi GH_REPO=mehdix.ir COMMENT_DIR=./_data/comments
