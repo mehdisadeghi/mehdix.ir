@@ -1,13 +1,14 @@
 '''Netlify comments processing script.'''
 import os
 import json
+import pathlib
 import hashlib
 from collections import OrderedDict
 
 import yaml
 import requests
 
-COMMENT_DIR = './_data/comments'
+COMMENT_DIR = os.environ.get('COMMENT_DIR', './_data/comments')
 
 ACCESS_TOKEN = os.environ.get('NETLIFY_ACCESS_TOKEN')
 FORM_ID = os.environ.get('NETLIFY_FORM_ID')
@@ -64,6 +65,7 @@ def update_comments(file, comments):
 def main():
     '''Update comments.'''
     netlify_comments = get_comments()
+    pathlib.Path(COMMENT_DIR).mkdir(parents=True, exist_ok=True)
     for uuid, comments in netlify_comments.items():
         with open(os.path.join(COMMENT_DIR, f'{uuid}.yml'), 'a+', encoding='utf8') as file:
             update_comments(file, comments)

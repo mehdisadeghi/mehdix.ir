@@ -12,7 +12,7 @@ after_scucces:
 - ./push.sh
 env:
   matrix:
-  - NETLIFY_SITE_ID=1a868305-2645-4c6f-a0ec-4d5b9f8e0ae5 NETLIFY_FORM_ID=5a3ef81a8c8f334bcdcb6d34 GH_USERNAME=mehdisadeghi GH_REPO=mehdix.ir
+  - NETLIFY_SITE_ID=1a868305-2645-4c6f-a0ec-4d5b9f8e0ae5 NETLIFY_FORM_ID=5a3ef81a8c8f334bcdcb6d34 GH_USERNAME=mehdisadeghi GH_REPO=mehdix.ir COMMENT_DIR=./_data/comments
   global:
   - secure: KBBsjzNr5ZqQi5a42zxLgpbWDtjbqG9I6J/cm2B+3JL8xDR3GAoqAsKfZgljEwmlf5WVyk42IcytSMRlj2Hm5Ke9YdYJbagi/e/Qrs0WTu1AU9bwN6xwHyGK5FJdl/9ObO3KRqZfq8bK5CXYvEBq0ZFt6Tp1vI1r9bBwm5xO7io=
   - secure: NcGL/ZQ/COoD1I2xFdWkn2d0/L84TNG9RZ/PRSVJ/gIEx29wiHrJiLrm6YeTBe2zIEEJdCBmpnKXfGxOmGAUsS2wUm32rqFkPxAeLKtBdCz9u1L+wbGenL/AeVANQRC/Enz+NU/YwJT3VrU5TWkGEeMaAuihFkqVDK02vedHc08=
