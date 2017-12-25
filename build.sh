@@ -4,9 +4,6 @@
 # Exit on any error
 set -e
 
-git remote add origin https://github.com/mehdisadeghi/mehdix.ir
-git remote -v
-
 echo "Install python deps for building comments."
 pip install requests pyyaml
 
@@ -28,7 +25,7 @@ git commit --message "Netlify - Update static comments." > /dev/null
 
 if [ $? -eq 0 ]; then
 	echo "Pushing new comments."
-	git push --set-upstream origin master
+	git push origin HEAD:master
 fi
 
 echo "Building the website."

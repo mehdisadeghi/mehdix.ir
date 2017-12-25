@@ -52,8 +52,9 @@ def update_comments(file, comments):
     '''Update comments in the YAML data files of each post.'''
     file.seek(0)
     old_comments = yaml.load(file) or []
-    old_comment_ids = [cmnt['page_uuid'] for cmnt in old_comments]
-    new_comments = list(filter(lambda x: x['page_uuid'] not in old_comment_ids,
+    # Use comment date as ID
+    old_comment_ids = [cmnt['date'] for cmnt in old_comments]
+    new_comments = list(filter(lambda x: x['date'] not in old_comment_ids,
         map(transform_comment, comments)))
     if new_comments:
         yaml.dump(new_comments,
@@ -66,9 +67,9 @@ def main():
     '''Update comments.'''
     netlify_comments = get_comments()
     pathlib.Path(COMMENT_DIR).mkdir(parents=True, exist_ok=True)
-    for uuid, comments in netlify_comments.items():
-        with open(os.path.join(COMMENT_DIR, f'{uuid}.yml'), 'a+', encoding='utf8') as file:
-            update_comments(file, comments)
+    for page_uuid, page_comments in netlify_comments.items():
+        with open(os.path.join(COMMENT_DIR, f'{page_uuid}.yml'), 'a+', encoding='utf8') as file:
+            update_comments(file, page_comments)
 
 
 if __name__ == '__main__':
