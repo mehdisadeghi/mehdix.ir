@@ -11,6 +11,8 @@ echo "Build static comments if there are any."
 python rebuild_comments.py
 
 echo "Set git credentials."
+git config --global user.email "netlify@netlify.com"
+git config --global user.name "Netlify"
 git config credential.helper "store --file=.git/credentials"
 echo "https://${GH_TOKEN}:@github.com" > .git/credentials
 
