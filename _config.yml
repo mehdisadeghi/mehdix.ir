@@ -16,9 +16,15 @@ long_description: > # this means to ignore newlines until "baseurl:"
   بویژه راه‌حل‌های مهندسی که باعث رشد و پیشرفتم شده است و می‌تواند مورد استفاده دیگران هم قرار بگیرد.
 
 twitter_username: mehdisadeghii
+twitter:
+  username: mehdisadeghii
 github_username:  mehdisadeghi
+github:
+  username: mehdisadeghi
 fullname: مهدی صادقی
 favicon: assets/img/me.png
+logo: assets/img/me.png
+lang: fa_IR
 
 theme: jekyll-theme-mehdix-rtl
 markdown: Markright
@@ -38,6 +44,7 @@ collections:
 
 plugins:
   - jekyll-markright
+  - jekyll-seo-tag
 
 comment_system: static
 #disqus_shortname: mehdix
