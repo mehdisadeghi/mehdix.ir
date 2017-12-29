@@ -7,7 +7,10 @@ from collections import OrderedDict
 
 import yaml
 import requests
+from cryptography.fernet import Fernet
 
+
+SECRET = os.environ['SECRET']
 COMMENT_DIR = os.environ.get('COMMENT_DIR', './_data/comments')
 
 ACCESS_TOKEN = os.environ.get('NETLIFY_ACCESS_TOKEN')
@@ -44,8 +47,23 @@ def transform_comment(netlify_comment):
             'date': netlify_comment['created_at'],
             'name': data['name'],
             'email': hashlib.md5(data['email'].encode('ascii')).hexdigest(),
+            'bucket': encrypt(data['email']),
             'website': data['website'],
             'message': data['message']}
+
+
+def encrypt(data):
+	'''Encrypt the data using SECRET key.'''
+	f = Fernet(SECRET)
+	s = json.dumps(data)
+	return f.encrypt(s.encode('utf8'))
+
+
+def decrypt(text):
+	'''Decrypt the text using SECRET.'''
+	f = Fernet(SECRET)
+	s = f.decrypt(f)
+	return json.loads(s.decode('utf8'))
 
 
 def update_comments(file, comments):

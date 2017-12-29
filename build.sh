@@ -5,7 +5,7 @@
 set -e
 
 echo "Install python deps for building comments."
-pip install requests pyyaml
+pip install requests pyyaml cryptography
 
 echo "Build static comments if there are any."
 python rebuild_comments.py
