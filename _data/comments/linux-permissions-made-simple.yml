@@ -1,0 +1,98 @@
+- bucket: !!binary |
+    Z0FBQUFBQmFSN19RR281bVRfWV8wVDlqbEJtUEpoRU9kcUVCT1NyejF1blI1YThXLUtKdmpYT2Nz
+    QmZob1lyNHNxTEdUeWctMlF2LTFFRDF5WVdlZDJZTUlRUjVjZ3A5UnZtWTFzNVBNVlFGdWwtYzVL
+    bi00Y1U9
+  date: 2015-05-20 16:25:14+00:00
+  email: 828660373d12f35d2a929536344c64ee
+  message: '<p>سلام<br>مطلب خیلی خوب و بدرد بخوری نوشتی ، من اینو به عنوان رفرنس به
+    چند تا از دوستانی که تازه با لینوکس و مباحث مرتبط بهش آشنا و درگیر شدن معرفی کردم
+    ، از قول خودم و اونها ازت تشکر می کنم.<br>یه سوال هم خودم ازت دارم ، چطور میشه
+    کاری کرد که پرمیشن هایی که روی فایل ها اعمال شدن طور دیگه ای اعمال بشن ، صبر کن
+    برای روشن تر شدن موضوع یک مثال بزنم : فرض کن همین الان یه کوول دیسک به سیستمت
+    متصل کنم ، با فرض اینکه قبلا مجوز تمام فایل ها رو 777  اعمال کرده باشم  ،  ٬الان٬
+    مجوز تمام فایل ها 644 شده!  /n  نظرت در مورد ست کردن پرمیشن هنگام مونت کردن یک
+    فایل سیستم چیه؟ اگر چیزی در موردش می دونی که حس می کنی به درد من و دوستام که از
+    مراجعه کنندگان به این رفرنس هستیم می خوره حتما بگو.</p><p>تشکر</p>'
+  name: kave mohammadi
+  page_date: 2015-01-08 00:00:00 +0100
+  page_id: /linux-permissions-made-simple
+  page_title: حق دسترسی فایل‌ها در لینوکس به زبان ساده
+  page_uuid: 4e824eb2-91bf-43ce-8efc-b4f007026f72
+  website: https://disqus.com/by/kavemohammadi/
+- bucket: !!binary |
+    Z0FBQUFBQmFSN19RWlh5VWJnWTBRbTBkNzRxejUwTkptRFpfbnpnTTNnZkhKYVBUV2pfNXFReDVX
+    c0dlWXJEalhub1lSYzlZQWtUWDF5LW92azBkMm1WMktSanNYeVhkM2paQUZDd3hWQkhCaUJ0VHV5
+    VWNTc3c9
+  date: 2015-05-24 13:03:15+00:00
+  email: 9a6fe434e31c7dd56d09ac05da2bee36
+  message: <p>باعث خوشحالیه که مطلب به دردتون خورده. در مورد مثالی که زدی نوع پارتیشن
+    روی کول‌دیسک رو عنوان نکردی. یک مثال قابل تولید هم برای من اگر بگی می‌تونم امتحان
+    کنم ببینم دقیقا مشکل چیه.</p>
+  name: Mehdi Sadeghi
+  page_date: 2015-01-08 00:00:00 +0100
+  page_id: /linux-permissions-made-simple
+  page_title: حق دسترسی فایل‌ها در لینوکس به زبان ساده
+  page_uuid: 4e824eb2-91bf-43ce-8efc-b4f007026f72
+  website: https://disqus.com/by/mehdisadeghi/
+- bucket: !!binary |
+    Z0FBQUFBQmFSN19RTzFST2swMmh6eXFLSjU4S2xldl9CMlJvdEh2R1JaSU9yTlhNRERwVHBneVRR
+    el9Jc2NGSk5xaGVDTWQzY1hpMjBFS25oT0lyR0FFMzEwRTE0S1VWYnhwVFVmbDZQLUZ2YUNiQ01y
+    bmlETDg9
+  date: 2015-06-04 11:48:46+00:00
+  email: 828660373d12f35d2a929536344c64ee
+  message: '<p>نوع فایل سیستم رو  ex4  در نظر بگیر</p><p>سعی می کنم سوالم رو روشنتر
+    بیان کنم</p><p>مثال : فرض کن من یک کول دیسک دارم که از قبل پرمیشن تمام فایل هاش
+    رو ۷۷۷ گذاشتم ، در سیستم یکی از دوستانم (در اینجا مثلا شما ) کول دیسک رو به پورت
+    usb  می زنم و فایل سیستم مونت می شه ولی فایل ها با پرمیشنی غیر از چیزی که قبلا
+    ست کرده بودم نمایش داده میشن مثلا read only  میشن یا حالت اجرایی ازشون گرفته میشه.<br>می
+    خوام بدونم چطور میشه فهمید که چطور میشه اینکارو کرد ، منظورم اینه که هنگام مونت
+    کردن بگیم که مثلا همه ی فایل ها این device فقط خواندنی مونت بشن<br>تشکر</p>'
+  name: kave mohammadi
+  page_date: 2015-01-08 00:00:00 +0100
+  page_id: /linux-permissions-made-simple
+  page_title: حق دسترسی فایل‌ها در لینوکس به زبان ساده
+  page_uuid: 4e824eb2-91bf-43ce-8efc-b4f007026f72
+  website: https://disqus.com/by/kavemohammadi/
+- bucket: !!binary |
+    Z0FBQUFBQmFSN19RamI5My15dXRnYm1JZ3hQRlZzVk1zVGlCeHRSR3I0T29vRzB5NUpSTUpZOGJj
+    Wnp5NnQ3eU9VZHppSGRmbmkzdTNOZUdLN3Q5Nzk4OXRKTmxtSWJETlhPTm5ibTNES3NDMHBtY2d4
+    cWE4VEk9
+  date: 2015-06-06 08:56:43+00:00
+  email: 9a6fe434e31c7dd56d09ac05da2bee36
+  message: <p>من در این مورد مقداری مطالعه کردم ولی تنها نکته‌ای که بهش رسیدم همون
+    حدس اولم بود. این مشکلیه که با پارتیشن‌های FAT و NTFS پیش می‌آد. چون اونا مدل
+    پرمیشن لینوکس رو ساپورت نمی‌کنند. اما در مورد این مشکل با ext4 اطلاعی ندارم.</p>
+  name: Mehdi Sadeghi
+  page_date: 2015-01-08 00:00:00 +0100
+  page_id: /linux-permissions-made-simple
+  page_title: حق دسترسی فایل‌ها در لینوکس به زبان ساده
+  page_uuid: 4e824eb2-91bf-43ce-8efc-b4f007026f72
+  website: https://disqus.com/by/mehdisadeghi/
+- bucket: !!binary |
+    Z0FBQUFBQmFSN19RY1E3UE94em5rRDlyclh3ZEpadUhxczNZYjlWZUxONlF6Wko5RHBZQUg5YWo0
+    UFhYQzA4amdOZm50dmJsdTBrdk9UVjJnUHVvWWtoUnNfcTBzVWRkQ0lGWmRZelRKazNsMV9Kb0JJ
+    N2dTbnM9
+  date: 2015-08-26 17:59:59+00:00
+  email: 5c966c79771ee4c0760cb9729e0a9a60
+  message: <p>سپاس از شما. مطلب خیلی مفید و بلیغی بود. خواهش می کنم در مورد دسترسی
+    هایی که با عدد مشخص میشه هم یه توضیحی بدید. مثلا 777 ، 755 و ...</p>
+  name: مهدی ربانی
+  page_date: 2015-01-08 00:00:00 +0100
+  page_id: /linux-permissions-made-simple
+  page_title: حق دسترسی فایل‌ها در لینوکس به زبان ساده
+  page_uuid: 4e824eb2-91bf-43ce-8efc-b4f007026f72
+  website: https://disqus.com/by/mahdirabbani0/
+- bucket: !!binary |
+    Z0FBQUFBQmFSN19RX0tka2lqYm9uc2F0SFN5dWZyNHpETFBjaTFlQmZaZmpLT2d6SHhDWE41M3hq
+    SDdYSmdFQnA4YmFVNWhNU0R6eXBudW5sbkZCXzI5NTZaRlItQ1FsVkRXME9nNExvQWUxQVQ1NmN2
+    ZVpUbWM9
+  date: 2015-08-30 20:55:48+00:00
+  email: 9a6fe434e31c7dd56d09ac05da2bee36
+  message: '<p>مطلبی در این مورد نوشتم، ببین: <a href="http://mehdix.ir/linux-permissions-made-simple-part-two.html"
+    rel="nofollow noopener" title="http://mehdix.ir/linux-permissions-made-simple-part-two.html">http://mehdix.ir/linux-perm...</a></p>'
+  name: Mehdi Sadeghi
+  page_date: 2015-01-08 00:00:00 +0100
+  page_id: /linux-permissions-made-simple
+  page_title: حق دسترسی فایل‌ها در لینوکس به زبان ساده
+  page_uuid: 4e824eb2-91bf-43ce-8efc-b4f007026f72
+  website: https://disqus.com/by/mehdisadeghi/

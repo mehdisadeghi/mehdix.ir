@@ -86,8 +86,10 @@ def main():
     netlify_comments = get_comments()
     pathlib.Path(COMMENT_DIR).mkdir(parents=True, exist_ok=True)
     for page_uuid, page_comments in netlify_comments.items():
-        with open(os.path.join(COMMENT_DIR, f'{page_uuid}.yml'), 'a+', encoding='utf8') as file:
-            update_comments(file, page_comments)
+        if page_comments:
+            uid = os.path.basename(page_comments[0]['data']['page_id'])
+            with open(os.path.join(COMMENT_DIR, f'{uid}.yml'), 'a+', encoding='utf8') as file:
+                update_comments(file, page_comments)
 
 
 if __name__ == '__main__':
