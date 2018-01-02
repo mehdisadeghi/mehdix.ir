@@ -5,3 +5,5 @@ _site/
 *.log
 vendor
 *.sublime-workspace
+__pycache__
+.jekyll-metadata
