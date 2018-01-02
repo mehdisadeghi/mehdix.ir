@@ -42,10 +42,6 @@ collections:
   projects:
     output: true
 
-plugins:
-  - jekyll-markright
-  - jekyll-seo-tag
-
 comment_system: static
 #disqus_shortname: mehdix
 google_analytics_id: UA-57282325-1

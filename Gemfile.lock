@@ -1,20 +1,11 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (5.1.4)
-      concurrent-ruby (~> 1.0, >= 1.0.2)
-      i18n (~> 0.7)
-      minitest (~> 5.1)
-      tzinfo (~> 1.1)
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
     colorator (1.1.0)
-    concurrent-ruby (1.0.5)
     ffi (1.9.18)
     forwardable-extended (2.6.0)
-    i18n (0.9.1)
-      concurrent-ruby (~> 1.0)
-    iniparser (0.1.0)
     jalalidate (0.3.6)
     jekyll (3.6.2)
       addressable (~> 2.4)
@@ -34,8 +25,6 @@ GEM
     jekyll-hinduarabic (0.1.0)
     jekyll-jalali (0.1.2)
       jalalidate (~> 0.3)
-    jekyll-markright (0.1.0)
-      markdown (~> 1.2)
     jekyll-paginate (1.1.0)
     jekyll-sass-converter (1.5.1)
       sass (~> 3.4)
@@ -48,7 +37,7 @@ GEM
     jekyll-tagging-related_posts (1.0.0)
       jekyll (~> 3.0)
       jekyll-tagging (~> 1.0)
-    jekyll-theme-mehdix-rtl (0.2.0)
+    jekyll-theme-mehdix-rtl (0.2.1)
       jekyll (~> 3.3)
       jekyll-default-layout (~> 0.1)
       jekyll-hinduarabic (~> 0.1)
@@ -69,42 +58,25 @@ GEM
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
       ruby_dep (~> 1.2)
-    logutils (0.6.1)
-    markdown (1.2.0)
-      kramdown (>= 1.5.0)
-      props (>= 1.1.2)
-      textutils (>= 0.10.0)
     mercenary (0.3.6)
     mini_portile2 (2.3.0)
-    minitest (5.11.0)
     nokogiri (1.8.1)
       mini_portile2 (~> 2.3.0)
     nuggets (1.5.0)
     pathutil (0.16.1)
       forwardable-extended (~> 2.6)
-    props (1.2.0)
-      iniparser (>= 0.1.0)
     public_suffix (3.0.1)
     rb-fsevent (0.10.2)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
     rouge (2.2.1)
     ruby_dep (1.5.0)
-    rubyzip (1.2.1)
     safe_yaml (1.0.4)
     sass (3.5.4)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
-    textutils (1.4.0)
-      activesupport
-      logutils (>= 0.6.1)
-      props (>= 1.1.2)
-      rubyzip (>= 1.0.0)
-    thread_safe (0.3.6)
-    tzinfo (1.2.4)
-      thread_safe (~> 0.1)
 
 PLATFORMS
   ruby
@@ -112,9 +84,8 @@ PLATFORMS
 DEPENDENCIES
   jekyll (~> 3.5)
   jekyll-feed (~> 0.6)
-  jekyll-markright
   jekyll-tagging
-  jekyll-theme-mehdix-rtl (~> 0.1)
+  jekyll-theme-mehdix-rtl (~> 0.2)
   tzinfo-data
 
 BUNDLED WITH
