@@ -28,7 +28,6 @@ logo: assets/img/me.png
 lang: fa_IR
 
 theme: jekyll-theme-mehdix-rtl
-markdown: Markright
 
 permalink: :title.html
 timezone: Europe/Berlin
