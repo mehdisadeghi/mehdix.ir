@@ -62,8 +62,8 @@ def encrypt(data):
 def decrypt(text):
 	'''Decrypt the text using SECRET.'''
 	f = Fernet(SECRET)
-	s = f.decrypt(f)
-	return json.loads(s.decode('utf8'))
+	s = f.decrypt(text.decode('utf8'))
+	return json.loads(s)
 
 
 def update_comments(file, comments):
