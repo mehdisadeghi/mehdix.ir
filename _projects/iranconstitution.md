@@ -1,5 +1,6 @@
 ---
 title: قانون اساسی
+layout: project
 publish: true
 repo_url: https://github.com/mehdisadeghi/iranconstitution
 comments: true

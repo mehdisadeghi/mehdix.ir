@@ -42,13 +42,6 @@ collections:
   projects:
     output: true
 
-defaults:
--
-  scope:
-    collections: projects
-  values:
-    layout: project
-
 comment_system: static
 #disqus_shortname: mehdix
 google_analytics_id: UA-57282325-1

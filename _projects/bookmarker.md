@@ -1,5 +1,6 @@
 ---
 title: بوکمارکر
+layout: project
 publish: true
 repo_url: https://github.com/mehdisadeghi/bookmarker
 comments: false

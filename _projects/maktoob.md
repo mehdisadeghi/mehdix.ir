@@ -1,5 +1,6 @@
 ---
 title: مکتوب
+layout: project
 publish: true
 repo_url: https://github.com/mehdisadeghi/maktoob
 comments: false

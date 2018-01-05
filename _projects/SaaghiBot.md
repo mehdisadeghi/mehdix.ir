@@ -1,5 +1,6 @@
 ---
 title: ساقی‌بات
+layout: project
 publish: true
 repo_url: https://github.com/mehdisadeghi/SaaghiBot
 comments: true
