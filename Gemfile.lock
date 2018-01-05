@@ -22,7 +22,7 @@ GEM
       jekyll (~> 3.0)
     jekyll-feed (0.9.2)
       jekyll (~> 3.3)
-    jekyll-hinduarabic (0.1.0)
+    jekyll-hinduarabic (0.1.1)
     jekyll-jalali (0.1.2)
       jalalidate (~> 0.3)
     jekyll-paginate (1.1.0)
@@ -37,7 +37,7 @@ GEM
     jekyll-tagging-related_posts (1.0.0)
       jekyll (~> 3.0)
       jekyll-tagging (~> 1.0)
-    jekyll-theme-mehdix-rtl (0.2.4)
+    jekyll-theme-mehdix-rtl (1.0.0)
       jekyll (~> 3.3)
       jekyll-default-layout (~> 0.1)
       jekyll-hinduarabic (~> 0.1)
@@ -85,7 +85,7 @@ DEPENDENCIES
   jekyll (~> 3.5)
   jekyll-feed (~> 0.6)
   jekyll-tagging
-  jekyll-theme-mehdix-rtl (~> 0.2)
+  jekyll-theme-mehdix-rtl (~> 1.0)
   tzinfo-data
 
 BUNDLED WITH

@@ -32,7 +32,7 @@ theme: jekyll-theme-mehdix-rtl
 permalink: :title.html
 timezone: Europe/Berlin
 
-paginate: 5
+paginate: 20
 paginate_path: /page:num/
 
 tag_page_layout: tag_page
@@ -41,6 +41,13 @@ tag_page_dir: tag
 collections:
   projects:
     output: true
+
+defaults:
+-
+  scope:
+    collections: projects
+  values:
+    layout: project
 
 comment_system: static
 #disqus_shortname: mehdix
