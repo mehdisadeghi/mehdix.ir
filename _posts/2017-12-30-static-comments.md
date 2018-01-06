@@ -152,7 +152,7 @@ uuid: 821f0087-e296-49de-bc23-2140df503eed
 [فایربیس]: http://firebase.google.com/
 [فایرپلاگین]: https://github.com/mimming/firebase-jekyll-comments
 [نتلیفای]: /netlify.html
-[دی‌ان‌سیمپل‮]: http://dnsimple.com/
+[دی‌ان‌سیمپل]: http://dnsimple.com/
 [ورکر]: /wercker-intro.html
 [شل]: https://github.com/mehdisadeghi/mehdix.ir/blob/master/build.sh
 [پایتون]: https://github.com/mehdisadeghi/mehdix.ir/blob/master/rebuild_comments.py
