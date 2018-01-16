@@ -1,5 +1,5 @@
 ---
-title: پرسش و پاسخی با آلن کی
+title: معرفی آلن کی
 tags: PARC Smalltalk OO
 category: یادداشت
 uuid: 1fcf455c-1643-45d1-91e2-aa295c03aa37
