@@ -26,7 +26,6 @@ def get_comments():
     '''Get a map of post_uuid => list of comment dicts.'''
     raw_comments = requests.get(f'{SITE}/forms/{FORM_ID}/submissions',
                                 params={'access_token': ACCESS_TOKEN})
-    print(raw_comments)
     comments = json.loads(raw_comments.content.decode('utf-8'))
     comments.sort(key=lambda x: x['number'])
     result = OrderedDict()
@@ -93,3 +92,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+    print('Done.')
