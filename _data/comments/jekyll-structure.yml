@@ -1,9 +1,11 @@
 - bucket: !!binary |
-    Z0FBQUFBQmFSN19RNExWS05lR0xlQjJsQVZ5aXpkMmliRmhOMllaTDZBbzh6ZFZVYXB3LU5sNkFP
-    NDNJX2NtaWtzRWxCN2l3dmZTMzRWa1BMMk82OEZscFEzc2NVMjNjVHBFZ3lFQlM2Rl8xbUo2dnR6
-    amc3eTg9
-  date: 2017-01-25 21:35:16+00:00
+    Z0FBQUFBQmFaSHVHcFVXNHc4VHdqZElFR0NPcGlSTWZlblRKT0EwN3pUUVhvUEx5ajNYMlZOMTN3
+    a0lCUnppdkNNY1BVRFlBVXRGOE1LYVQ1ZXVXUW9ET0xjSHkxZnpWWTBGUzNpd05GcDVVX1Z3Tktq
+    SmFRRVk9
+  created_at: 2017-01-25 21:35:16+00:00
+  disqus: true
   email: 6a8fbf37460310d7d25f79972f3d0228
+  id: '3119984932'
   message: '<p>سلام مهدی جان، آقا ممنون از به اشتراک گذاشتن مطالب خوبت. من با تمپلیت
     شما یه وبلاگ جکیل زدم ولی هنوز در دو مورد گیر داره: تگ ها و دیسکاس. قیافه تگ ها
     درست هست صفحه های مربوط به تگ ها هم درست میشه و در فولدر tag قرار میگیره ولی متاسفانه
@@ -14,17 +16,15 @@
     من کامنت) این رو کجا باید تنظیم کرد؟ دوم اینکه شنیدم دیسکاس ایران فیلتر شده، اگر
     بله چه چیز دیگه ای جایگزین پیشنهاد می کنی؟ پیشاپیش ممنون از جوابت.</p>'
   name: aasiaeet
-  page_date: 2014-12-19 00:00:00 +0100
-  page_id: /jekyll-structure
-  page_title: وبلاگ جکیل روی دامنه شخصی
-  page_uuid: 51c37d6c-cec3-4a94-8310-2690ec53f728
   website: https://disqus.com/by/aasiaeet/
 - bucket: !!binary |
-    Z0FBQUFBQmFSN19RLW51UGhJMXVIRzU1aW9VT2xhd2Q3VDN0dk9JRlgwZkt1VUNITzU4ZTQxQTdD
-    YUIzcU53QVJYRkZmbVprVF9xSVpCMHZpby1wcXNJT0xFcFVvbTBKcWJ4UjJRRVFqYmtqWU5nQmpn
-    TXhuajg9
-  date: 2017-01-25 22:46:08+00:00
+    Z0FBQUFBQmFaSHVHMkxtUzNFWmRweDhJOGtDOFRSY1VtU2F1RUhHTEFjNjZtSVRnVmFCZWc4NmlN
+    ZWlhR3oyS1cwN2lPUDZRWFpZYWxhck5kb051aU5qR240Vnh3VVk1VHBZcFFqVm1JckN4RWo3bFVu
+    ZlMyLXc9
+  created_at: 2017-01-25 22:46:08+00:00
+  disqus: true
   email: 9a6fe434e31c7dd56d09ac05da2bee36
+  id: '3120102692'
   message: '<p>سلام، مشکلی که در مورد تگ گفتی من اواخر برام پیش اومد. جکیل آپدیت شده
     به ورژن سه و جم تگ مثل اینکه هنوز توی ریپازیتوری روبی آپدیت نشده. اینجا رو ببین:
     <a href="https://github.com/pattex/jekyll-tagging/issues/56" rel="nofollow noopener"
@@ -36,48 +36,42 @@
     دیگری هم یه برنامه ساده است که باید خودت هاست کنی بنام «ایسو» <a href="https://posativ.org/isso/"
     rel="nofollow noopener" title="https://posativ.org/isso/">https://posativ.org/isso/</a>.</p>'
   name: Mehdi Sadeghi
-  page_date: 2014-12-19 00:00:00 +0100
-  page_id: /jekyll-structure
-  page_title: وبلاگ جکیل روی دامنه شخصی
-  page_uuid: 51c37d6c-cec3-4a94-8310-2690ec53f728
   website: https://disqus.com/by/mehdisadeghi/
 - bucket: !!binary |
-    Z0FBQUFBQmFSN19RSVk2RzYxRVQ2aUxZRnppcFp3ZWNqUnU4Um0zQnlYWG4tX1A2SkhKX3djZEhm
-    SWxUcmIxRFl6WEttYVpXNU5qZlh6MnpiVTZ3bHo3VHJzQjc3X09sQUxaZTgyc2F3am9MXzZhRWtV
-    b0Vqc289
-  date: 2017-01-26 23:07:55+00:00
+    Z0FBQUFBQmFaSHVHSUZ3dVhlaUxheDBsYnhXcENmbGJGYjVNUmZYa0ZQYlZNejI3MzlweGNMWmdf
+    amxYRjZLSnpBZW82TmU3MkJOV21jWUh1cjRvc2d2X1lfQjQyc2pzU182S0U1a1phaFFEbEJJamNw
+    WjUtSGc9
+  created_at: 2017-01-26 23:07:55+00:00
+  disqus: true
   email: 6a8fbf37460310d7d25f79972f3d0228
+  id: '3122133330'
   message: <p>سلام مجدد، ممنون از پاسخت. فقط من به جایی که اشاره کرده بودی برای تگ
     رفتم ولی با پیشنهادهای اونا مشکلم حل نشد. ولی به نظر میرسه بلاگ شما کار می کنه.
     شما دقیقا کدوم راه رو استفاده کردی؟ برای جایگزین های دیسکاس هم ممنون بررسیشون
     می کنم.</p>
   name: aasiaeet
-  page_date: 2014-12-19 00:00:00 +0100
-  page_id: /jekyll-structure
-  page_title: وبلاگ جکیل روی دامنه شخصی
-  page_uuid: 51c37d6c-cec3-4a94-8310-2690ec53f728
   website: https://disqus.com/by/aasiaeet/
 - bucket: !!binary |
-    Z0FBQUFBQmFSN19RRHBrV0tYTVNUQXkxV2E3ZktVMndRNUN2VHc3bXR6RXIzMjFGOEstSDFTRnFZ
-    bWVJQndrN3ZUUkljQWhqeVpYYU56ZHJlbDlHU19uNVRnWFNKVlV5b2YzVnU0X2dXUERQaW5BQ3By
-    OGNoRDA9
-  date: 2017-01-27 07:53:06+00:00
+    Z0FBQUFBQmFaSHVHMGRtX2pUV1BSUEkyMWp5MUFVYXMzQUtOSGZiRTZLMWxSeHhvNE1vS0l0SEJv
+    RkZRMmRSV2V3dEczOUh1ZE8tckhTYlc4aGxuSXVBaHc5S2x3STB2VUUwRmVPSXdjenV5emZEcEJT
+    eU1aTjA9
+  created_at: 2017-01-27 07:53:06+00:00
+  disqus: true
   email: 9a6fe434e31c7dd56d09ac05da2bee36
+  id: '3122650941'
   message: <p>خب پس احتمالا مشکلت اصلا اون نیست. تنها چیزی که الان به ذهنم می‌رسه
     کنترل دقیق کانفیگ فایل‌هاست و اینکه مسیرهایی که ست کردی آخرش اسلش داره یا نه.
     این trailing slash سردردهای ناجور درست می‌کنه دیدنش هم سخته.</p>
   name: Mehdi Sadeghi
-  page_date: 2014-12-19 00:00:00 +0100
-  page_id: /jekyll-structure
-  page_title: وبلاگ جکیل روی دامنه شخصی
-  page_uuid: 51c37d6c-cec3-4a94-8310-2690ec53f728
   website: https://disqus.com/by/mehdisadeghi/
 - bucket: !!binary |
-    Z0FBQUFBQmFSN19RUXl3a2J3anM3dHpBZjVhTVdpUHZkWVZhd2VCY05WaG1QSHdNcW1mUkx2NGhC
-    Vm9xOUhoMW0tNXlBcTJpY2o4bHZFUnZOUWhQbE9HdkNpODRSeHplVE5OU0VxbVlSMHZ1T25fWmRU
-    RE9OSE09
-  date: 2017-01-30 04:10:42+00:00
+    Z0FBQUFBQmFaSHVHVm1oQ0dkSmJ4ZWlBZ1JrYUFHUWxvb1lGSi1ibWZiMnpUREZSYjRFaFc1RkJC
+    M1hUQWZneXVDRWF1Z0RhZUZXSHp3ei11Z09JcXhJZE04eUtmdW15c1hmNjVyN3E0Zmg2MkhCMnhV
+    VmQxOUk9
+  created_at: 2017-01-30 04:10:42+00:00
+  disqus: true
   email: 6a8fbf37460310d7d25f79972f3d0228
+  id: '3127555043'
   message: '<p>اقا دستت درد نکنه. مشکل تگ ها حل شد اینجا می ذارم شاید به درد کسی بخوره:
     <br>مشکل من این بود که صفحات مربوط به تگ ساخته می شد، در فولدر درست هم قرار می
     گرفت ولی لینک ها خراب بود. <br>من هنوز نمی دونم چرا ولی این مشکل فقط روی لوکالم
@@ -89,30 +83,26 @@
     دیسکاس برای فارسی کردنش رو هم توی سایت دیسکاس میشه پیدا کرد. ولی هنوز نتونستم
     مشکل اینکه میگه unsafe to load رو حل بکنم. <br>بازم ممنون</p>'
   name: aasiaeet
-  page_date: 2014-12-19 00:00:00 +0100
-  page_id: /jekyll-structure
-  page_title: وبلاگ جکیل روی دامنه شخصی
-  page_uuid: 51c37d6c-cec3-4a94-8310-2690ec53f728
   website: https://disqus.com/by/aasiaeet/
 - bucket: !!binary |
-    Z0FBQUFBQmFSN19RYXlhSGhJSUxnVFFrYVVibWRwQm1keXdlU3BLSjRvUWJYN1RlSnMzT0pQY29y
-    TWZxSExTZGZBRVJydE9FYkJKMEp5R2JWaDdXejM3MUowaEh5V1dQMDhtT1dXLWp0T3o5ZlJMeUY0
-    SWxOTzA9
-  date: 2017-01-30 09:04:11+00:00
+    Z0FBQUFBQmFaSHVHOTdNSDlGOTRFU1hTbWtNbHFjcVNMNmV3YnpUX2ZpR3dFS1d4Z3ZRUHF3X01t
+    RzdtZk5YRXpwaGk0Q1JYWHg0M3NGanZMa0hVOFBkdEpmOHBhQmYybDdLZEhzVVBPNHBrbjZ4aF90
+    bWlwMWM9
+  created_at: 2017-01-30 09:04:11+00:00
+  disqus: true
   email: 9a6fe434e31c7dd56d09ac05da2bee36
+  id: '3127768252'
   message: <p>خوشحالم که مشکل رو حل کردی و ممنون بابت اطلاع‌رسانی!</p>
   name: Mehdi Sadeghi
-  page_date: 2014-12-19 00:00:00 +0100
-  page_id: /jekyll-structure
-  page_title: وبلاگ جکیل روی دامنه شخصی
-  page_uuid: 51c37d6c-cec3-4a94-8310-2690ec53f728
   website: https://disqus.com/by/mehdisadeghi/
 - bucket: !!binary |
-    Z0FBQUFBQmFSN19RblRPSVlGcVA1cGpUZ1FtcWl2bFFEcnZwYnZvR00tdjRaZWdkaVM2YnktRng5
-    eldmeE54cnpBTFludUV4T0FsOHJMMmQ3TExpMkI3M1oyS2FNbzNpVjlfQzg1alRSblJMTUhtYk1j
-    SzBDYzQ9
-  date: 2017-01-30 12:21:42+00:00
+    Z0FBQUFBQmFaSHVHZXA3YlpfOXFDa3RBN2U0YUpyY3pUVkowNmpycFpMbno5SmRVbE1hZldBazY5
+    VnAwRnV0WUt3bjVra29lYncteXVDNHdndjBVNllYa0VRM1pYa0lxU3Myc3VkQ1diMkRzLW1LNjda
+    QU84TFU9
+  created_at: 2017-01-30 12:21:42+00:00
+  disqus: true
   email: 9a6fe434e31c7dd56d09ac05da2bee36
+  id: '3127928680'
   message: <p>راستی در مورد مشکل «unsafe to load» بیشتر توضیح بده. اگر منظورت اینکه
     که براوزر، مثلا کروم، این خطا رو می‌ده مربوطه به لود اسکریپت‌هایی که کروم فکر
     می‌کنه خطرناکند. مثلا اواخر من این ارور رو روی یک وبسایتی که اداره می‌کنم می‌گرفتم
@@ -121,70 +111,58 @@
     بودن که تبلیغی رو لود کنه که حتی در سایت نمایش داده نمی‌شد. گوگل یک ایمیل هشدار
     برام فرستاد و من اون اسکریپت رو حذف کردم و درست شد.</p>
   name: Mehdi Sadeghi
-  page_date: 2014-12-19 00:00:00 +0100
-  page_id: /jekyll-structure
-  page_title: وبلاگ جکیل روی دامنه شخصی
-  page_uuid: 51c37d6c-cec3-4a94-8310-2690ec53f728
   website: https://disqus.com/by/mehdisadeghi/
 - bucket: !!binary |
-    Z0FBQUFBQmFSN19RdFBjUmRQU29yQkM0Wmh1akh1MnUxUEI5WGpzYmY2TTFFUG96NnB0YWZFN1FK
-    dklzMGRWVklDbDU4b0NEZGloNVJMV0NkTFhlaHBMVDN5N0c3clNfMHd1WVduaXdZUHByN0w3WEY2
-    QzNaZDA9
-  date: 2017-02-09 10:10:58+00:00
+    Z0FBQUFBQmFaSHVHd01QOThkcTdKbTJqS0drOUs0blRpVEFFTXZLU2Y3bE1TYl9MZzltWUhkXzhV
+    UEVTNnpMZUU0aE13QllueGY4WEJiS01EUWcwMXlpNU42dXBuSV84TThtY3NZYzBTSXYwZEJSZFdM
+    X0IyejA9
+  created_at: 2017-02-09 10:10:58+00:00
+  disqus: true
   email: e9d32eabf738da90865c4d273116c5f7
+  id: '3145613916'
   message: <p>سلام دوست عزیز، بابت این پست خیلی ممنونم<br>من پروژه رو فورک کردم اسمش
     رو به فرم <a href="http://username.github.io" rel="nofollow noopener" title="username.github.io">username.github.io</a>
     تغییر دادم ولی ارور Page build failed دریافت میکنم ممنون میشم اگه بتونید کمکم
     کنید.<br><a href="http://itsmahdi.github.io" rel="nofollow noopener" title="itsmahdi.github.io">itsmahdi.github.io</a></p>
   name: Mahdi Pourghasem
-  page_date: 2014-12-19 00:00:00 +0100
-  page_id: /jekyll-structure
-  page_title: وبلاگ جکیل روی دامنه شخصی
-  page_uuid: 51c37d6c-cec3-4a94-8310-2690ec53f728
   website: https://disqus.com/by/mahdipourghasem/
 - bucket: !!binary |
-    Z0FBQUFBQmFSN19RNVJ1NDJXR09lSVY1MzdfYzU0V1llYXRDWVN3U0lVdTdSdTJzU04zbGxITTFN
-    QnlUU3BJRDNzZFVxV3g4RWU0dXNzZXhrQWFJNFJ2eGRrN0tRRjRqZ2hLTW5PUUtDeHpXWUU2YXhn
-    TVNkNVk9
-  date: 2017-02-09 11:29:24+00:00
+    Z0FBQUFBQmFaSHVHTVJfb2thU2lrcXdmc2dJTlJJWEh6OVJVZzJRbW0xOTVpbmljVVBpZU9jWmtC
+    dnlYSGROZnVfcldlM01RWUJOWVJ6Sk4yZS1QMEE2dHlOYjRrTHA5a19zUGtROFkxdmlocDZtbEFm
+    VklEaEE9
+  created_at: 2017-02-09 11:29:24+00:00
+  disqus: true
   email: 9a6fe434e31c7dd56d09ac05da2bee36
+  id: '3145676945'
   message: <p>سلام مهدی جان. اگر قصد بیلد به روش من رو داری باید اسم ریپازیتوری جکیلت
     متفاوت از یوزرنیم گیت‌هابت باشه در غیر اینصورت گیت‌هاب خودش بیلد می‌کنه که فاقد
     جم‌های روبی است که ما استفاده کردیم و درست بیلد نمی‌شه.</p>
   name: Mehdi Sadeghi
-  page_date: 2014-12-19 00:00:00 +0100
-  page_id: /jekyll-structure
-  page_title: وبلاگ جکیل روی دامنه شخصی
-  page_uuid: 51c37d6c-cec3-4a94-8310-2690ec53f728
   website: https://disqus.com/by/mehdisadeghi/
 - bucket: !!binary |
-    Z0FBQUFBQmFSN19RRjd3WjZQNVF3blhXc1ludE91UzNzcWVEOFozUjFVXzFQZzlvZzBoX0xHQlFj
-    RmFFVTE2enNaemhDVHRDYVVXVzExa2dZdExsRXVWMU9ZYzdwU0hMMXhSaUxhUkRlUUFVbGhheUpN
-    LWhMZTA9
-  date: 2017-02-09 11:55:54+00:00
+    Z0FBQUFBQmFaSHVHMHFOYkhXY0tEbUdHcnZ4UURDQlNUbnhSM3dsTkZ6MWJrMzY3UmhnMWVhMVky
+    Q1BUelQ4SXZaRDFRTGdQWnF5VkhKNGRpbDJnUTVYQkRoSXZzaVJaVVhYZEgtbXNYM0NydTRXSjFK
+    bzZQQlU9
+  created_at: 2017-02-09 11:55:54+00:00
+  disqus: true
   email: e9d32eabf738da90865c4d273116c5f7
+  id: '3145706272'
   message: <p>آهان، ممنونم از راهنمایی، راستش فقط نیاز داشتم که وبلاگم راست به چپ
     باشه<br>چطور میتونم فقط از افزونه هاRTL شما استفاده کنم تا یه بلاگ توی گیتهابم
     با اسم یوزرنیم خودم بسازم؟</p>
   name: Mahdi Pourghasem
-  page_date: 2014-12-19 00:00:00 +0100
-  page_id: /jekyll-structure
-  page_title: وبلاگ جکیل روی دامنه شخصی
-  page_uuid: 51c37d6c-cec3-4a94-8310-2690ec53f728
   website: https://disqus.com/by/mahdipourghasem/
 - bucket: !!binary |
-    Z0FBQUFBQmFSN19RcVJwQVFJUTJ0THJYTnJzckU0UmZZSTJnTi1NMVNNc1lSUi1EbnJBY3hUUlBQ
-    blllQnJoZ2s3d1RMY0tqQlhZcFQ5VTdLZVV5STNublRpdHd4aGpUM05hMEprVW5WLXVOelZOVTlD
-    eEJsb009
-  date: 2017-02-09 12:13:03+00:00
+    Z0FBQUFBQmFaSHVHRjV0aXVpYWdpeFhfdnl6UE1HNkFXUzFNSUlEQ3ZZeDMxZjB1Q2pUUEtVNnJD
+    cXdGNlBzcHhjMUM5a18xeXVac2JzemNHMjM3bkRFQXdpbWkzSFJkdy1uOXRpMUk1NDJBbXRfeDM2
+    MTFBV3c9
+  created_at: 2017-02-09 12:13:03+00:00
+  disqus: true
   email: 9a6fe434e31c7dd56d09ac05da2bee36
+  id: '3145727705'
   message: <p>شما از هیچ افزونه‌ای روی گیت‌هاب نمی‌تونی استفاده کنی. اگر فقط راست
     به چپ احتیاج داری که یک dir=rtl تو تگ html بذار همه چی راست به چپ می‌شه. اگر از
     چیزی بیشتر از افزونه‌های پیش‌فرض گیت‌هاب می‌خوای استفاده کنی باید از یک بیلد خاص
     استفاده کنی. کل داستان اینجا هم همینه.</p>
   name: Mehdi Sadeghi
-  page_date: 2014-12-19 00:00:00 +0100
-  page_id: /jekyll-structure
-  page_title: وبلاگ جکیل روی دامنه شخصی
-  page_uuid: 51c37d6c-cec3-4a94-8310-2690ec53f728
   website: https://disqus.com/by/mehdisadeghi/

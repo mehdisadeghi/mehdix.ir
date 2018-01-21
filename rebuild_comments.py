@@ -26,30 +26,29 @@ def get_comments():
     '''Get a map of post_uuid => list of comment dicts.'''
     raw_comments = requests.get(f'{SITE}/forms/{FORM_ID}/submissions',
                                 params={'access_token': ACCESS_TOKEN})
+    print(raw_comments)
     comments = json.loads(raw_comments.content.decode('utf-8'))
     comments.sort(key=lambda x: x['number'])
     result = OrderedDict()
     for comment in comments:
-        key = comment['data']['page_uuid']
+        key = comment['data']['page_id']
         if key not in result:
             result[key] = []
         result[key].append(comment)
     return result
 
 
-def transform_comment(netlify_comment):
+def transform_comment(comment):
     '''Convert Netlify form data to a normal comment.'''
-    data = netlify_comment['data']
-    return {'page_id': data['page_id'],
-            'page_uuid': data['page_uuid'],
-            'page_date': data['page_date'],
-            'page_title': data['page_title'],
-            'date': netlify_comment['created_at'],
-            'name': data['name'],
-            'email': hashlib.md5(data['email'].encode('ascii')).hexdigest(),
-            'bucket': encrypt(data['email']),
-            'website': data['website'],
-            'message': data['message']}
+    return {'id': comment['id'],
+            'created_at': comment['created_at'],
+            'reply_to': comment['data'].get('reply-to'),
+            'page_id': comment['data']['page_id'],
+            'name': comment['data']['name'],
+            'email': hashlib.md5(comment['data']['email'].encode('ascii')).hexdigest(),
+            'bucket': encrypt(comment['data']['email']),
+            'website': comment['data']['website'],
+            'message': comment['data']['message']}
 
 
 def encrypt(data):
@@ -71,8 +70,8 @@ def update_comments(file, comments):
     file.seek(0)
     old_comments = yaml.load(file) or []
     # Use comment date as ID
-    old_comment_ids = [cmnt['date'] for cmnt in old_comments]
-    new_comments = list(filter(lambda x: x['date'] not in old_comment_ids,
+    old_comment_ids = [cmnt['created_at'] for cmnt in old_comments]
+    new_comments = list(filter(lambda x: x['created_at'] not in old_comment_ids,
         map(transform_comment, comments)))
     if new_comments:
         yaml.dump(new_comments,

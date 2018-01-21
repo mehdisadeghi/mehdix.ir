@@ -1,46 +1,43 @@
 - bucket: !!binary |
-    Z0FBQUFBQmFSN19YSktrRVlfSnZzeVd2V1Y3QVBINjhiUWpHSEhiN3hyZ0tkOG5WcW1HTGh4OUxk
-    Y2lqT2VNdUREOXdBUTB0SVJ4UmxfWHI5cmZMUi1HODFQbDNqS1pGejc5enRoVW9qLWd1M00tR2Ut
-    VTU1dDg9
-  date: '2017-12-25T00:27:51.936Z'
+    Z0FBQUFBQmFaSHVrYzdUb2hwU3ZDb0xGaHJBQTR3WDhZZ3ZVWkh5VmZIX3YtZFJVUTlGc3NwLTJE
+    VHc0d3lpeEdIWkc5ak5ya0kwNzkyRmlacHN2eXVPRjdOUFllX0ZIT2VUTXdZZGJQZmFxM0NnX2J2
+    SUMtZU09
+  created_at: '2017-12-25T00:27:51.936Z'
   email: 9a6fe434e31c7dd56d09ac05da2bee36
+  id: 5a40460745c4ff66548e002d
   message: این دیدگاه صرفا یک دیدگاه آزمایشی است. وبسایت استاتیک دردسر دارد ولی آموزنده
     است.
   name: مهدی صادقی
-  page_date: 2014-11-02 13:24:00 +0000
   page_id: /publishing-with-jekyll
-  page_title: پیشگفتار
-  page_uuid: 41384071-8740-4b76-a669-ced3734bfb2f
+  reply_to: null
   website: https://mehdix.ir
 - bucket: !!binary |
-    Z0FBQUFBQmFSN19YNk5XMU9tMUhZNENkdEx3ZmpfRVF3Unc1VEhiNHFiaVJYVnNHNmxaZ0RoMW9U
-    cThLT0ZMc3BsQzdYOEpvajJONmdheWRSazFkdUtGanQxQm05cWIyaVVyMVN4cVAycGFPTlRHVzJX
-    WnlxTEk9
-  date: '2017-12-25T22:27:13.004Z'
+    Z0FBQUFBQmFaSHVrWTIxX3pNdG9OUElSRjNMeGVDemhiaTVCNmV0b2lwdzdIUE9ISVdBdm9PZU1w
+    eUVxX0tiLVhjZnl6cFNKZ1g1eE1JYXo3N0RHWV9WVjA0RVZic2E3dE1SekFGTXJ4ZW0taGMwZHBE
+    X1VBV1E9
+  created_at: '2017-12-25T22:27:13.004Z'
   email: 9a6fe434e31c7dd56d09ac05da2bee36
+  id: 5a417b41e0fafd329fd9326c
   message: کامنت‌دونی استاتیک ساختن مشکلات خودش را دارد که شاید هیچوقت کاملا حل نشود.
     ولی از جایی که دیسکاس سنگین است و تراکر دارد و بدون قندشکن هم در ایران باز نمی‌شود
     فعلا با همین نسخه دست‌ساز جایگزینش می‌کنم. البته می‌دانم که مشکلات زیادی دارد
     ولی اینجا هم برو بیای خاصی در کار نیست و استاتیک «کول»تر است.
   name: مهدی صادقی
-  page_date: 2014-11-02 13:24:00 +0000
   page_id: /publishing-with-jekyll
-  page_title: پیشگفتار
-  page_uuid: 41384071-8740-4b76-a669-ced3734bfb2f
+  reply_to: null
   website: https://mehdix.ir
 - bucket: !!binary |
-    Z0FBQUFBQmFSN19YMkhGdzZLX0JKTDg0Mnp6c01CT3dYelNsSXJKZUNHNVVVTFVLTEJkZ1pRNl92
-    WVpLRzNSM2JBSExUNEZFUDZHMDR3NEI0TUdOSE5oaWZNWlFJNlRiMG1zaTFiZ2FoSF9haUl4eHRI
-    VDFGTVU9
-  date: '2017-12-25T23:49:30.354Z'
+    Z0FBQUFBQmFaSHVrMEwtanktcTF3WU5MUTVaTW1kbUVQcF9lYjI4WUk3c1NXMm9YbEdETDVEdEhM
+    c21EOElQVENhd200LXlBaHJNTVNGMTRWYlJuS0hyQkQ1Vk85LXBQRTczLUVzNWVqZ0V5eHVMbVpR
+    Rk5CS1E9
+  created_at: '2017-12-25T23:49:30.354Z'
   email: 9a6fe434e31c7dd56d09ac05da2bee36
+  id: 5a418e8a218599497112ddaf
   message: تا اینجای کار که ظاهرا مشکل رفع شده است. منظور اینکه الان با ثبت این کامنت
     یک بیلد تریگر می‌شود و به تبع آن کامنتها از نو ساخته شده و سایت بروز می‌شود. کمی
     پیچیده است اما کار می‌کند! مهمترین چیزی که باقی مانده است انتقال کامنتهای قدیمی
     به سیستم جدید است.
   name: مهدی صادقی
-  page_date: 2014-11-02 13:24:00 +0000
   page_id: /publishing-with-jekyll
-  page_title: پیشگفتار
-  page_uuid: 41384071-8740-4b76-a669-ced3734bfb2f
+  reply_to: null
   website: https://mehdix.ir

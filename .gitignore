@@ -7,3 +7,4 @@ vendor
 *.sublime-workspace
 __pycache__
 .jekyll-metadata
+env.sh
