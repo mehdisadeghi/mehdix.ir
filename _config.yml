@@ -15,10 +15,8 @@ long_description: > # this means to ignore newlines until "baseurl:"
   اینجا سکوی انتشار مطالبی در مورد دانش تولید نرم‌افزار و ایده‌ها و علایق شخصی‌ام است،
   بویژه راه‌حل‌های مهندسی که باعث رشد و پیشرفتم شده است و می‌تواند مورد استفاده دیگران هم قرار بگیرد.
 
-twitter_username: mehdisadeghii
 twitter:
-  username: mehdisadeghii
-github_username:  mehdisadeghi
+  username: msadeghii
 github:
   username: mehdisadeghi
   repository: mehdix.ir
