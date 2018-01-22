@@ -26,6 +26,9 @@ git commit --message "Netlify - Update static comments." > /dev/null
 if [ $? -eq 0 ]; then
 	echo "Pushing new comments."
 	git push origin HEAD:master
+else
+  echo "Something went wrong while committing"
+  git status
 fi
 
 echo "Building the website."
