@@ -51,7 +51,7 @@ GEM
     jekyll-tagging-related_posts (1.0.0)
       jekyll (~> 3.0)
       jekyll-tagging (~> 1.0)
-    jekyll-theme-mehdix-rtl (2.0.0)
+    jekyll-theme-mehdix-rtl (2.0.1)
       jekyll (~> 3.3)
       jekyll-default-layout (~> 0.1)
       jekyll-hinduarabic (~> 0.1)
