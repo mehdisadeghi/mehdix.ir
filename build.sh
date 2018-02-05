@@ -20,7 +20,7 @@ echo "https://${GH_TOKEN}:@github.com" > .git/credentials
 # Disable exiting on errors automatically
 set +e
 
-git add ./_data/comments
+git add ./_source/_data/comments
 git commit --message "Netlify - Update static comments." > /dev/null
 
 if [ $? -eq 0 ]; then
