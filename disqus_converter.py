@@ -8,7 +8,7 @@ import xmltodict
 from rebuild_comments import encrypt
 
 
-COMMENT_DIR = os.environ.get('COMMENT_DIR', './_data/comments')
+COMMENT_DIR = os.environ.get('COMMENT_DIR', './_source/_data/comments')
 
 
 def get_disqus_threads(infile):

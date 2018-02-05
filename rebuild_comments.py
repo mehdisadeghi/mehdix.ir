@@ -11,7 +11,7 @@ from cryptography.fernet import Fernet
 
 
 SECRET = os.environ['SECRET']
-COMMENT_DIR = os.environ.get('COMMENT_DIR', './_data/comments')
+COMMENT_DIR = os.environ.get('COMMENT_DIR', './_source/_data/comments')
 
 ACCESS_TOKEN = os.environ.get('NETLIFY_ACCESS_TOKEN')
 FORM_ID = os.environ.get('NETLIFY_FORM_ID')
