@@ -26,3 +26,18 @@
   page_id: /theme-rework
   reply_to: null
   website: https://mehdix.ir
+- bucket: !!binary |
+    Z0FBQUFBQmFlT1Q5SlFoa2RUbzkxOUdScW0tbmNEdWRFSzFGNnQ3T1ZkZEZ2LThWWmtpNUNkYjVL
+    VnQwUUJoc3dhb1FzalJHUjRZakg1LXdLc1I5bU9HMFYyRXF4cFd6VE9yem5hUHdObF9zS2p3dHVi
+    bVdBU009
+  created_at: '2018-01-23T08:41:16.010Z'
+  email: 0371f5b900b484368f9e1717d7d965b1
+  id: 5a66f52c6883417653a69b5b
+  message: از جایی که تنها کسی هستی که در مورد کامنت‌های استاتیک پرسیده بودی گفتم
+    پیشرفت کار رو بهت اطلاع بدم! از بین مشکلاتی که داشتم مشکل ریپلای رو حل کردم. اگر
+    درست کار کنه باید این جواب رو از طریق ایمیل دریافت کنی. [اینجا](https://mehdix.ir/reply-to-comments.html)
+    در موردش نوشتم.
+  name: مهدی
+  page_id: /theme-rework
+  reply_to: 5a53756a4307536fe4088eb5
+  website: https://mehdix.ir

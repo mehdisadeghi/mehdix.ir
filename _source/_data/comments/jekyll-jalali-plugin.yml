@@ -301,3 +301,16 @@
   page_id: /jekyll-jalali-plugin
   reply_to: null
   website: https://mehdix.ir
+- bucket: !!binary |
+    Z0FBQUFBQmFlT1Q5MGVMSDczS0g2M0xUel81YjBuT2U1T05tVGdYVlVEYU5POFd6MEFkODVIWHRw
+    WC1fYVRZWTJXTXcya1VQcnJ6a01lX2dMMUFKcENlTkotRHBjWFdJV3hoekg3aXFhMmJEX25HeUNN
+    blduTDA9
+  created_at: '2018-01-27T11:07:33.441Z'
+  email: f37edf9bcd83c48588719cc27347dae0
+  id: 5a6c5d751921a15a92da31b8
+  message: "عالی بود :) \r\nبنده هم برای [وبلاگم](https://soroushsharing.gitlab.io/)\
+    \ از [Hugo ](https://gohugo.io/)استفاده  می کنم و کاملا راضی هستم.\r\n"
+  name: AntiSec
+  page_id: /jekyll-jalali-plugin
+  reply_to: ''
+  website: https://soroushsharing.gitlab.io/
