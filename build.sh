@@ -24,6 +24,8 @@ git add ./_source/_data/comments
 git commit --message "Netlify - Update static comments." > /dev/null
 
 if [ $? -eq 0 ]; then
+  git remote -v
+  git status
 	echo "Pushing new comments."
 	git push origin HEAD:master
 else
