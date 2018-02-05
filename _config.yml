@@ -1,3 +1,4 @@
+source: _source
 title: مهدی صادقی
 motto: در مورد نرم‌افزار و ایده‌هایم
 author: مهدی صادقی
@@ -44,3 +45,4 @@ comment_system: static
 #disqus_shortname: mehdix
 google_analytics_id: UA-57282325-1
 feedburner_id: mehdixir
+

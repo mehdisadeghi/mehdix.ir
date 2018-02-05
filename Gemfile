@@ -11,7 +11,7 @@ source "https://rubygems.org"
 gem "jekyll", "~> 3.5"
 
 # This is the default theme for new Jekyll sites. You may change this to anything you like.
-gem "jekyll-theme-mehdix-rtl", "~> 1.0"
+gem "jekyll-theme-mehdix-rtl", "~> 2.0"#, :path => '../jekyll-theme-mehdix-rtl'
 
 # If you want to use GitHub Pages, remove the "gem "jekyll"" above and
 # uncomment the line below. To upgrade, run `bundle update github-pages`.
@@ -20,7 +20,8 @@ gem "jekyll-theme-mehdix-rtl", "~> 1.0"
 # If you have any plugins, put them here!
 group :jekyll_plugins do
   gem "jekyll-feed", "~> 0.6"
-  gem "jekyll-tagging", :require => 'jekyll/tagging'
+  #gem "jekyll-tagging", :require => 'jekyll/tagging', :path => "../forks/jekyll-tagging"
+  #gem "jekyll-tagging-lite", :path => "../forks/jekyll-tagging-lite"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

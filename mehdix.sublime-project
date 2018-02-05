@@ -3,19 +3,22 @@
 	[
 		{
 			"path": "."
+		},
+		{
+			"path": "/home/mehdi/Projects/forks/jekyll-tagging"
 		}
 	],
 	"settings":
 	{
 		"Jekyll":
 		{
-			"jekyll_posts_path": "/home/mehdi/Projects/mehdix.ir/_posts",
-			"jekyll_drafts_path": "/home/mehdi/Projects/mehdix.ir/_drafts",
-            "jekyll_uploads_path": "/home/mehdi/Projects/mehdix.ir/assets",
-            "jekyll_templates_path": "/home/mehdi/Projects/mehdix.ir/_templates",
-            "jekyll_markdown_extension": "md"
+			"jekyll_drafts_path": "/home/mehdi/Projects/mehdix.ir/_source/_drafts",
+			"jekyll_markdown_extension": "md",
+			"jekyll_posts_path": "/home/mehdi/Projects/mehdix.ir/_source/_posts",
+			"jekyll_templates_path": "/home/mehdi/Projects/mehdix.ir/_source/_templates",
+			"jekyll_uploads_path": "/home/mehdi/Projects/mehdix.ir/_source/assets"
 		},
-		"tab_size": 2,
-		"indent_with_spaces": true
+		"indent_with_spaces": true,
+		"tab_size": 2
 	}
 }
