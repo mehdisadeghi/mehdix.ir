@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="fa">
+  
+  <head><meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="author" content="مهدی صادقی" />
+<meta name="copyright" content="Commons Attribution 4.0 International" />
+<meta name="robot" content="" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="description" content="سکوی انتشار مطالبی در مورد دانش تولید نرم‌افزار و ایده‌ها و علایق شخصی‌ام." />
+
+<link rel="canonical" href="https://mehdix.ir/publishing-with-jekyll.html" />
+<link rel="icon" href="https://mehdix.ir/assets/img/me.png" />
+<link rel="stylesheet" href="https://mehdix.ir/assets/css/main.css" />
+<link rel="stylesheet" href="https://mehdix.ir/assets/fonts/fontawesomev5.0.2.css" />
+<meta name="keywords" content='لینوکس,آرچ,قفل,رمز,امنیت' /><title>نصب قدم به قدم آرچ‌لینوکس با رمزگزاری - مهدی صادقی</title><!-- Begin Jekyll SEO tag v2.4.0 -->
+<title>نصب قدم به قدم آرچ‌لینوکس با رمزگزاری | مهدی صادقی</title>
+<meta name="generator" content="Jekyll v3.7.2" />
+<meta property="og:title" content="نصب قدم به قدم آرچ‌لینوکس با رمزگزاری" />
+<meta name="author" content="مهدی صادقی" />
+<meta property="og:locale" content="fa_IR" />
+<meta name="description" content="یک لپ‌تاپ لنووی x250 با هارددیسک SSD در اختیار دارم و تصمیم گرفتم که روی آن آرچ‌لینوکس نصب کنم. در ضمن می‌خواهم که کل دیسک رمزگزاری شده، پارتیشن‌ها با GPT و دیسک‌های lvm باشند. منبع همه‌ی موارد ویکی بی‌نظیر آرچ‌لینوکس است." />
+<meta property="og:description" content="یک لپ‌تاپ لنووی x250 با هارددیسک SSD در اختیار دارم و تصمیم گرفتم که روی آن آرچ‌لینوکس نصب کنم. در ضمن می‌خواهم که کل دیسک رمزگزاری شده، پارتیشن‌ها با GPT و دیسک‌های lvm باشند. منبع همه‌ی موارد ویکی بی‌نظیر آرچ‌لینوکس است." />
+<link rel="canonical" href="https://mehdix.ir/archlinux_installation_with_lucks_and_lvm.html" />
+<meta property="og:url" content="https://mehdix.ir/archlinux_installation_with_lucks_and_lvm.html" />
+<meta property="og:site_name" content="مهدی صادقی" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2016-05-15T00:00:00+02:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@msadeghii" />
+<meta name="twitter:creator" content="@مهدی صادقی" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://mehdix.ir/archlinux_installation_with_lucks_and_lvm.html"},"url":"https://mehdix.ir/archlinux_installation_with_lucks_and_lvm.html","author":{"@type":"Person","name":"مهدی صادقی"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://mehdix.ir/assets/img/me.png"},"name":"مهدی صادقی"},"description":"یک لپ‌تاپ لنووی x250 با هارددیسک SSD در اختیار دارم و تصمیم گرفتم که روی آن آرچ‌لینوکس نصب کنم. در ضمن می‌خواهم که کل دیسک رمزگزاری شده، پارتیشن‌ها با GPT و دیسک‌های lvm باشند. منبع همه‌ی موارد ویکی بی‌نظیر آرچ‌لینوکس است.","headline":"نصب قدم به قدم آرچ‌لینوکس با رمزگزاری","dateModified":"2016-05-15T00:00:00+02:00","datePublished":"2016-05-15T00:00:00+02:00","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  </head>
+
+  <body><header>
+  <div class="wrapper">
+    <a class="site-title" href="https://mehdix.ir/">مهدی صادقی</a>
+    <small id="motto"> در مورد نرم‌افزار و ایده‌هایم </small>
+  </div>
+</header>
+<main>
+      <div class="wrapper">
+
+<article class="post-content">
+
+  <div class="post-header">
+    <h1 class="post-title">نصب قدم به قدم آرچ‌لینوکس با رمزگزاری</h1>
+    <p>
+      <i class="fas fa-calendar"></i>
+      یک‌شنبه ۲۶ اردیبهشت ۱۳۹۵<br>
+      
+      <i class="fas fa-stopwatch"></i>
+      ۶ دقیقه مطالعه
+    </p>
+  </div>
+
+  <p>یک لپ‌تاپ لنووی x250 با هارددیسک SSD در اختیار دارم و تصمیم گرفتم که روی آن آرچ‌لینوکس نصب کنم. در ضمن می‌خواهم که کل دیسک رمزگزاری شده، پارتیشن‌ها با GPT و دیسک‌های lvm باشند. منبع همه‌ی موارد ویکی بی‌نظیر آرچ‌لینوکس است.</p>
+
+<h2 id="ساختن-فلش-دیسک-بوتشو">ساختن فلش دیسک بوت‌شو</h2>
+<p>اول ایزوی آرچ را دانلود کردم و روی فلش کپی کردم. نکته‌ی جالب اینکه بدانید هر ایزویی که در یک ویرچوال ماشین و یا از یک سی‌دی یا دی‌وی‌دی بوت می‌شود لزوما از روی فلش دیسک بوت نمی‌شود. یک ایمیج برای اینکه از روی فلش و هارد دیسک بوت شود باید پارتیشن‌تیبل و پارتیشن‌ها را شبیه سازی بکند. بگذریم، فایل دانلودی را با ابزار قدرتمند <code class="highlighter-rouge">dd</code> روی فلش می‌ریزم:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dd if=archlinux-2016.05.01-dual.iso of=/dev/mmcblk0 bs=4m
+</code></pre></div></div>
+
+<blockquote>
+  <p>dd شوخی بردار نیست. آدرس اشتباه بدهیم هارد اشتباهی را نابود کرده‌ایم.</p>
+</blockquote>
+
+<h2 id="آماده-کردن-هاردیسک">آماده کردن هاردیسک</h2>
+<p>بعد از بوت از روی فلش دیسک اول می‌روم سراغ دیسک تا آنرا GPT کنیم که جایگزین امروزی MBR است.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># fdisk -l # Print list of hard disks
+# fdisk /dev/sda
+# Command (m for help): g # Creates a GPT partition table
+# Command (m for help): w # Save changes and exit
+</code></pre></div></div>
+
+<p>با ابزار <code class="highlighter-rouge">fdisk</code> جدول پارتیشن را به GPT تغییر دادیم. الان هرپارتیشنی روی دیسک بوده باشد نابود شده است.</p>
+
+<p>حالا با ابزار <code class="highlighter-rouge">parted</code> پارتیشن بوت و یک پارتیشن خالی بزرگ می‌سازم:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>parted
+(parted) print # List partitions
+(parted) mkpart ESP ext4 1MiB 513MiB
+(parted) set 1 boot on
+(parted) mkpart ext4 513MiB 100%
+</code></pre></div></div>
+
+<h3 id="ساخت-پارتیشن-رمزگزاری-شده-luks">ساخت پارتیشن رمزگزاری شده LUKS</h3>
+
+<p>با دستورات بالا اول پارتیشن کوچکی برای بوت ساختیم، بعد آنرا لیبل بوت زدیم و بعد هم در فضای باقی مانده یک دیسک بزرگ ساختیم. حالا نوبت رمزگذاری است. اینکار را با LUKS انجام می‌دهیم. توجه کنید که سناریوهای مختلفی برای اینکار وجود دارد. من تصمیم گرفتم که یک پارتیشن بوت معمولی بسازم و بعد در یک پارتیشن ثانویه با کمک LUKS یک پارتیشن رمزگزاری شده بوجود بیاورم. این مرحله را با کمک ابزار <code class="highlighter-rouge">cryptsetup</code> انجام می‌دهیم:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cryptsetup luksFormat /dev/sda2
+</code></pre></div></div>
+
+<p>دستور بالا از من یک پسورد می‌خواهد که دوبار وارد می‌کنم. حالا می‌توانم قفل این پارتیشن را باز کنم:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cryptsetup open --type luks /dev/sda2 lvm
+</code></pre></div></div>
+
+<p>این دستور پسورد را می‌پرسد و بعد در مسیر <code class="highlighter-rouge">/dev/mapper/lvm</code> پارتیشن قفل باز شده را در اختیار ما می‌گذارد. باید توجه داشت هرچند که همچنان پارتیشن اصلی در مسیر <code class="highlighter-rouge">/dev/sda2</code> وجود دارد اما محتوای آن رمزگزاری شده است و نامفهوم.</p>
+
+<blockquote>
+  <p>نکته مهم: اگر روی دیسک از پیش داده‌های مهم وجود دارد باید ابتدا به روش صحیح نابود بشوند.</p>
+</blockquote>
+
+<h3 id="پارتیشنبندی-با-lvm">پارتیشن‌بندی با LVM</h3>
+
+<p>حالا ما یک دیسک مجازی در مسیر بالا داریم که روی آن با <code class="highlighter-rouge">Logical Volume Management (LVM)</code> پارتیشن‌بندی انجام می‌دهیم. یک مقدمه کوتاه در مورد lvm. کاری که این روش مدیریت پارتیشن‌ها انجام می‌دهید اینست که وابستگی مستقیم پارتیشن فیزیکی را از پارتیشن نهایی از میان برمی‌دارد. یعنی مهم نیست که هاردیسک کجاست یا چند هاردیسک وجود دارد، ما همواره می‌توانیم که پارتیشن منطقی بسازیم که اجزای اصلی سازنده‌اش روی یک یا چند هاردیسک پخش شده باشد. در این روش به سادگی می‌توان اندازه پارتیشن را کم و زیاد کرد حتی هنگامی که سیستم در حال کار است. همچنین می‌توان فضای ذخیره‌سازی جدید به سیستم اضافه کرد و آنرا بین پارتیشن‌های مختلف تقسیم کرد.</p>
+
+<p>پارتیشن‌بندی با lvm سه مرحله دارد. اولین مرحله ایجاد یک <code class="highlighter-rouge">Physical Volume (PV)</code> است. PVها قطعاتی هستند مثل قطعات بازی لگو که ما با آنها <code class="highlighter-rouge">Volume Group (VG)</code> می‌سازیم. VGها معادل یک هارددیسک مجازی هستند. تصور کنید که من با چند هاردیسک یک دیسک مجازی بزرگ بسازیم. هر هارددیسک من می‌شود یک PV که با آنها می‌توانم یک یا چند VG بسازم. به راحتی می‌شود به یک VG دیسک‌های جدید اضافه کرد.</p>
+
+<p>اگر VG معادل هاردیسک باشد در مرحله بعدی به معادل یک پارتیشن معمولی نیاز داریم که به آن <code class="highlighter-rouge">Logical Volume (LV)</code> گفته می‌شود. LV فضای مورد نیازش را از VG برمی‌دارد و مثل یک پارتیشن معمولی است.</p>
+
+<p>با توضیحات بالا می‌رویم سراغ ساختن پارتیشن‌ها. اول PV و بعد VG و بعد LVهای مورد نیاز:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># pvcreate /dev/mapper/lvm
+# vgcreate X1 /dev/mapper/lvm
+# lvcreate -L 8G X1 -n swap
+# lvcreate -L 50G X1 -n root
+# lvcreate -l 100%FREE X1 -n home
+</code></pre></div></div>
+
+<p>سطر اول دستورات بالا روی دیسک قفل‌باز شده (که خودش اینجا یک دیسک مجازی است چرا که پارتیشن اصلی در مسیر <code class="highlighter-rouge">/dev/sda2</code> قرار دارد.) یک PV می‌سازد. خط دوم روی آن PV یک VG بنام X1 می‌سازد. خط‌های بعدی هم روی آن VG پارتیشن‌ها را می‌سازند. خط آخر کل فضای باقی مانده را به یک پارتیشن بنام home می‌دهد. پس خلاصه کار می‌شود:</p>
+
+<ol>
+  <li>یک PV بساز</li>
+  <li>یک VG بساز</li>
+  <li>چند LV بساز (پارتیشن معمولی)</li>
+</ol>
+
+<p>حالا نوبت فرمت کردن پارتیشن‌هاست. دقت کنید که همه مسیرها مجازی هستند (<code class="highlighter-rouge">/dev/mapper/X1-something</code>):</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># mkfs.ext4 /dev/mapper/X1-root
+# mkfs.ext4 /dev/mapper/X1-home
+# mkswap /dev/mapper/X1-swap
+</code></pre></div></div>
+
+<p>با وارد کردن دستور lvdisplay می‌تواند لیست پارتیشن‌های ساخته شده را دید. اگر دستور lvm را وارد کنید محیط اینتراکتیو می‌شود و می‌توانید همه دستورات مرتبط را با help ببینید. حالا هم پارتیشن‌ها را ماونت می‌کنم و می‌روم سراغ پارتیشن بوت:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># mount /dev/mapper/X1-root /mnt
+# mkdir /mnt/home
+# mount /dev/mapper/X1-home /mnt/home
+# swapon /dev/mapper/X1-swap
+</code></pre></div></div>
+
+<p>حالا نوبت پارتیشن بوت است که باید روی یک درایو رمزگزاری نشده قرار داشته باشد که ما همان ابتدا ساختیم. آنرا هم آماده و ماونت می‌کنیم و می‌رویم سروقت نصب آرچ:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># mkfs.ext2 /dev/sda1
+# mkdir /mnt/boot
+# mount /dev/sda1 /mnt/boot
+</code></pre></div></div>
+
+<p>بعد بلافاصله می‌رویم سراغ تنظیمات اینترنت:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># iw dev # Get a list of devices
+# wifi-menu -o wlp3s0
+</code></pre></div></div>
+
+<p>من اینترنت را از روتر وایرلس خانه‌ام می‌گیرم. خط دوم لیست مودم‌های وایرلس را می‌دهد و در خط سوم اسم مودم را که از دستور دوم بدست آورده‌ام وارد می‌کنم. در اینجا اگر همه‌چیز درست پیش برود دیالوگی نمایش داده می‌شود و می‌توان شبکه درست را انتخاب و پسورد آنرا وارد کرد. بعد باید اینترنت وصل شده باشد. حالا زمان سیستم را درست می‌کنیم:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># timedatect set-ntp true
+</code></pre></div></div>
+
+<h2 id="نصب-بیس-آرچ">نصب بیس آرچ</h2>
+<p>حالا نوبت نصب بسته‌های بیس آرچ است، شامل base و base-devel:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># pacstrap -i /mnt base base-devel
+</code></pre></div></div>
+
+<p>دقت کنید که ما در مراحل قبلی پارتیشن‌هایمان را در مسیر <code class="highlighter-rouge">/mnt</code> ماونت کرده‌ایم. بعد از اتمام نصب باید fstab را ایجاد کنیم:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># genfstab -U /mnt &gt;&gt; /mnt/etc/fstab
+</code></pre></div></div>
+
+<p>در مرحله بعدی فایل تنظیمات شبکه را کپی می‌کنیم و به مسیر <code class="highlighter-rouge">/mnt</code> تغییر مسیر می‌دهیم و نصب را دنبال می‌کنیم:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># cp /etc/netct/wlp3s0-HomeNet /mnt/etc/netctl/
+# arch-chroot /mnt /bin/bash
+</code></pre></div></div>
+
+<p>اول باید تنظیمات زبان را انجام دهیم. در فایل <code class="highlighter-rouge">/etc/locate.gen</code> خطوط مربوط به زبانهایی که می‌خواهیم را از کامنت خارج می‌کنیم و تنظیمات زبان را تولید می‌کنیم:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># vi /etc/locale.gen # uncommet en_US.UTF-8 UTF-8 fa_IR UTF-8
+# locale-gen
+</code></pre></div></div>
+<p>فایل تنظیمات محلی را هم می‌سازیم و یکی از گزینه‌های انتخابی مرحله قبل را در اولین خط آن وارد می‌کنیم:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># vi /etc/locate.conf # add LANG=en_US.UTF-8 or fa_IR
+</code></pre></div></div>
+
+<p>حالا انتخاب ناحیه زمانی:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># tzselect
+# ln -s /usr/share/zoneinfo/Asia/Tehran /etc/localtime
+</code></pre></div></div>
+
+<h2 id="تولید-ایمج-بوت">تولید ایمج بوت</h2>
+
+<p>حالا وقت ساختن ایمیج بوت است به کمک <code class="highlighter-rouge">mkinitcpio</code>. اینجای کار باید تنظیمات را برای بوت صحیح از پارتیشن رمزگزاری شده اصلاح کنیم. فایل mkinitcpio.conf  را باز می‌کنیم و می‌رویم سراغ مهمترین بخش فایل بنام HOOKS:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># vi /etc/mkinitcpio.conf # find HOOKS section
+
+HOOKS="... encrypt lvm2 ... filesystems ..."
+
+# mkinitcpio -p linux
+</code></pre></div></div>
+
+<p>مقدار HOOKS را طوری تغییر می‌دهیم که دو مقدار encrypt و lvm2 قبل از filesystems و بعد از سایر مقادیر قرار بگیرند. دستور آخر فایل تنظیمات را می‌خواند و ایمیج بوت را در مسیر <code class="highlighter-rouge">/boot</code> می‌سازد.</p>
+
+<h3 id="پارامترهای-کرنل">پارامترهای کرنل</h3>
+<p>برای اینکه کرنل بتواند پارتیشن رمزگزاری شده را بفهمد و پسورد آنرا بخواهد باید تنظیماتی به آن بدهیم. برای اینکار باید تصمیم بگیریم که کدام بارگزار را می‌خواهیم نصب کنیم چون هر کدام تنظیماتشان را جداگانه ذخیره می‌کنند. برای این لپ‌تاپ من تصمیم گرفتم Syslinux را نصب کنم. اول خود پکیج باید نصب شود:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># pacman -S syslinux gptfdisk
+</code></pre></div></div>
+
+<p>حالا باید پارامتر لازم برای اینکه کرنل پارتیشن ما را پیدا کند و بخواند را به فایل تنظیمات syslinux اضافه کنیم:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># vi /boot/syslinux/syslinux.cfg
+# Go to "LABEL arch" section and edit line with APPEND
+</code></pre></div></div>
+
+<p>در این فایل باید منوی آرچ را پیدا کنیم که محتوای آن چیزی است شبیه به این:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>LABEL arch
+   MENU ....
+   LINUX ...
+   APPEND root=/dev/sda3 rw
+   INITRD ...
+</code></pre></div></div>
+
+<p>سه نقطه‌ها را من گذاشته‌ام، برای ما مهم نیستند. خطی که باید تغییر کند خط APPEND است که ما آنرا با مقدار زیر جایگزین می‌کنیم:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>APPEND cryptdevice=UUID=&lt;uuid of the /dev/sda2&gt;:lvm root=/dev/mapper/X1-root rw
+</code></pre></div></div>
+
+<p>مقدار uuid را برای <code class="highlighter-rouge">/dev/sda2</code> به کمک دستور <code class="highlighter-rouge">blkid</code> بدست می‌آید. حالا به کمک اسکریپتی که همراه با syslinux نصب شده (که جزو آرچ است نه آپ‌استریم) بوت لودر را نصب می‌کنیم:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># syslinux-install_update -i -a -m
+</code></pre></div></div>
+
+<p>حالا تنظیمات پیش از ریبوت کردن را انجام می‌دهیم:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># vi /etc/hostname # pick up a name
+# pacman -S iw wpa_supplicant dialog # installs it inside chroot environment
+# passwd # pick up a password
+</code></pre></div></div>
+
+<h2 id="ریبوت">ریبوت</h2>
+
+<p>حالا از chroot خارج می‌شویم و ریبوت می‌کنیم:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># exit # exit from chroot
+# umount -R /mnt # unmount everything
+# reboot
+</code></pre></div></div>
+
+<p>بعد از حبس کردن نفسم و بوت شدن کامپیوتر تایید می‌کنم که دستورات بالا بدون نقص کار کردند. اول منوی بوت syslinux ظاهر شد و بعد از انتخاب بوت آرچ پسورد پارتیشن رمزگزاری شده ازم خواسته شد. بعد از وارد کردن اون سیستم بوت شد و لاگین آرچ ظاهر شد! هورا!</p>
+
+<p>بعد از بوت وایرلس کار نمی‌کرد. حتما چیزی رو جا انداختم بهرحال با دو دستور ساده درست شد:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># iw dev # to get name of the wireless card
+# wifi-menu -o wlp3s0
+</code></pre></div></div>
+<p>آپدیت: متوجه شدم که با هر بار ریبوت وایرلس خودکار وصل نمی‌شود و باید با دستور بالا وصل بشوم. برای رفع این مشکل با دستور netctl سرویسی برای راه‌اندازی خودکار وایرلس به systemd اضافه کردم که مشکل را حل کرد:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># netctl list # get the name of connections
+# netctl enable &lt;connectionn name here&gt;
+</code></pre></div></div>
+<p>اگر در اسم فایل فاصله و کاما وجود دارد قبلشان یک بک‌اسلش اضافه کنید.</p>
+
+<h2 id="گام-بعدی">گام بعدی</h2>
+<p>گام بعدی نصب gnome-shell روی لپ تاپ است که در مقاله‌ای دیگر می‌نویسم.</p>
+
+
+
+  
+    <div id="related-posts">
+      <h3>مطالب مرتبط</h3>
+      <ul>
+        
+          <li><a href="/installing-gnome-shell-on-archlinux.html">نصب نوم ۳ روی آرچ‌لینوکس</a></li>
+        
+          <li><a href="/linux-permissions-made-simple-part-two.html">حق دسترسی فایل‌ها در لینوکس به زبان ساده (۲)</a></li>
+        
+          <li><a href="/suse.html">سوزه یا زوزه</a></li>
+        
+          <li><a href="/linux-permissions-made-simple.html">حق دسترسی فایل‌ها در لینوکس به زبان ساده</a></li>
+        
+          <li><a href="/netlify.html">فعالسازی HTTPS به کمک Netlify</a></li>
+        
+        </ul>
+    </div>
+  
+
+  <small id="post-tags">
+    
+      <i class="fas fa-tag"></i>
+      <a rel="tag" href="/tag/%D9%84%DB%8C%D9%86%D9%88%DA%A9%D8%B3.html">لینوکس</a>
+    
+      <i class="fas fa-tag"></i>
+      <a rel="tag" href="/tag/%D8%A2%D8%B1%DA%86.html">آرچ</a>
+    
+      <i class="fas fa-tag"></i>
+      <a rel="tag" href="/tag/%D9%82%D9%81%D9%84.html">قفل</a>
+    
+      <i class="fas fa-tag"></i>
+      <a rel="tag" href="/tag/%D8%B1%D9%85%D8%B2.html">رمز</a>
+    
+      <i class="fas fa-tag"></i>
+      <a rel="tag" href="/tag/%D8%A7%D9%85%D9%86%DB%8C%D8%AA.html">امنیت</a>
+    
+
+    <i class="fas fa-code"></i>
+    
+    
+    <a href="https://raw.githubusercontent.com/mehdisadeghi/mehdix.ir/master/_source/_posts/2016-05-15-archlinux_installation_with_lucks_and_lvm.md">سورس</a>
+    
+  </small>
+
+  <nav class="pagination">
+    
+      <a href="https://mehdix.ir/installing-gnome-shell-on-archlinux.html" class="pagination--pager" title="نصب نوم ۳ روی آرچ‌لینوکس">قبلی</a>
+    
+
+    
+      <a href="https://mehdix.ir/saaghibot-released.html" class="pagination--pager" title="انتشار ساقی‌بات">بعدی </a>
+    
+  </nav>
+
+  <section>
+    
+      
+<section id="static-comments">
+  
+  
+  
+
+  <form id="comment-form" name="comment" netlify-honeypot="bot-field" netlify>
+    <input name="bot-field" style="display:none">
+    <input name="page_id" style="display:none" value="/archlinux_installation_with_lucks_and_lvm">
+    <input id="reply-to" name="reply-to" style="display:none">
+    <label for="message">دیدگاه<sup class="required">*</sup> &nbsp;<small>می‌توانید با <a href="http://commonmark.org/help/" target="_">مارک‌داون</a> هم بنویسید.</small><br><small id="replyToVisualClue"></small>
+      <textarea id="message" name="message" required alt="no!!" onkeyup="preview()"></textarea>
+      <div id="preview"></div>
+    </label>
+    <label for="name">نام<sup class="required">*</sup>
+      <input id="name" type="text" name="name" required>
+    </label>
+    <label for="email">ایمیل<sup class="required">*</sup>
+      <input id="email" type="email" name="email" required>
+    </label>
+    <label for="website">وبسایت
+      <input id="website" type="url" name="website">
+    </label>
+    <div style="text-align:left">
+      <button type="submit" class="button">ارسال</button>
+    </div>
+  </form>
+
+</section>
+<script src="https://mehdix.ir/assets/js/showdown.min.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+  function preview() {
+    var converter = new showdown.Converter();
+    var markdown = document.getElementById("message").value;
+    document.getElementById("preview").innerHTML = converter.makeHtml(markdown);
+  }
+
+  function replyTo(commentID) {
+    var comment = document.getElementById(commentID);
+    document.getElementById("reply-to").value = comment.querySelector("span[commentId]").innerText;
+    document.getElementById("replyToVisualClue").innerText = "[در جواب " + comment.querySelector("span[commenter]").innerText + "]";
+  }
+</script>
+    
+  </section>
+
+</article>
+</div>
+    </main><footer>
+
+  <div class="wrapper">
+
+    
+
+    <p id="footer-description">بچه که بودیم همیشه برای بازی خونه می‌ساختیم. حالا هم نمونه‌اش رو در وب ساختم. اینجا سکوی انتشار مطالبی در مورد دانش تولید نرم‌افزار و ایده‌ها و علایق شخصی‌ام است، بویژه راه‌حل‌های مهندسی که باعث رشد و پیشرفتم شده است و می‌تواند مورد استفاده دیگران هم قرار بگیرد.
+</p>
+
+    <ul class="social-media-list">
+      
+      <li>
+        <i class="fab fa-github"></i>
+        <a href="https://github.com/mehdisadeghi">
+          <span class="username social-media-text">پروژه‌ها</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <i class="fab fa-twitter-square"></i>
+        <a href="https://twitter.com/msadeghii">
+          <span class="username social-media-text">توئیت‌ها</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <i class="fas fa-rss"></i>
+        <a href="https://feedburner.google.com/fb/a/mailverify?uri=mehdixir&amp;loc=en_US">
+          <span class="username social-media-text">خبرنامه</span></a>
+      </li>
+      <li>
+        <i class="fas fa-rss"></i>
+        <a href="http://feeds.feedburner.com/mehdixir">
+        <span class="username social-media-text">خوراک</span></a>
+      </li>
+      
+      
+        <li>
+          <i class="fas fa-envelope-open"></i>
+          <a href="mailto:sadeghi@mehdix.org">
+            <span class="username social-media-text">تماس</span></a></li>
+      
+    </ul>
+
+  <div id="footer-extra">
+    <small id="license">
+  <i class="fab fa-creative-commons"></i>
+  مطالب این وبلاگ تحت مجوز
+  <a rel="license" href="http://creativecommons.org/licenses/by/4.0/deed.fa">
+    کریتیو کامنز اتریبیوشن ۴.۰ اینترنشنال
+  </a>قرار دارد.
+</small>
+    <a id="atom" href="https://validator.w3.org/feed/check.cgi?url=https://mehdix.ir/feed.xml"><img src=https://mehdix.ir/assets/img/valid-atom.png alt="[Valid Atom 1.0]" title="Validate my Atom 1.0 feed" /></a>
+  </div>
+
+  </div>
+
+  <small id="build-time">Site generated on Tue, 06 Feb 2018 02:43:37 +0100</small>
+
+</footer><script src="https://mehdix.ir/assets/js/main.js"></script>
+     <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-57282325-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+ 
+  </body>
+</html>

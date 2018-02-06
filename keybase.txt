@@ -1,0 +1,55 @@
+==================================================================
+https://keybase.io/mehdisadeghi
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://mehdix.ir
+  * I am mehdisadeghi (https://keybase.io/mehdisadeghi) on keybase.
+  * I have a public key ASDHyO9_jfn51twjitNp4hc9n35bGkkS0X7xSPI3Yjw5awo
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "eldest_kid": "0120c7c8ef7f8df9f9d6dc238ad369e2173d9f7e5b1a4912d17ef148f237623c396b0a",
+            "host": "keybase.io",
+            "kid": "0120c7c8ef7f8df9f9d6dc238ad369e2173d9f7e5b1a4912d17ef148f237623c396b0a",
+            "uid": "492c000478cdc19802e69d2f554c2c19",
+            "username": "mehdisadeghi"
+        },
+        "service": {
+            "hostname": "mehdix.ir",
+            "protocol": "http:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "client": {
+        "name": "keybase.io go client",
+        "version": "1.0.16"
+    },
+    "ctime": 1466923307,
+    "expire_in": 504576000,
+    "merkle_root": {
+        "ctime": 1466923190,
+        "hash": "1d58d1130146cb80f074d7e6fb913eab5c1000773b740565d19cc54b8ce20c376f91d4611694c6a61e2ec66d8f9983bee3f31d6a7a005072277a33bb38dbe0ca",
+        "seqno": 499229
+    },
+    "prev": "73d955f4474014276cd3ee2576263133892bb9e4959df109e13ef87fdb8e1a9f",
+    "seqno": 7,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgx8jvf435+dbcI4rTaeIXPZ9+WxpJEtF+8UjyN2I8OWsKp3BheWxvYWTFAvR7ImJvZHkiOnsia2V5Ijp7ImVsZGVzdF9raWQiOiIwMTIwYzdjOGVmN2Y4ZGY5ZjlkNmRjMjM4YWQzNjllMjE3M2Q5ZjdlNWIxYTQ5MTJkMTdlZjE0OGYyMzc2MjNjMzk2YjBhIiwiaG9zdCI6ImtleWJhc2UuaW8iLCJraWQiOiIwMTIwYzdjOGVmN2Y4ZGY5ZjlkNmRjMjM4YWQzNjllMjE3M2Q5ZjdlNWIxYTQ5MTJkMTdlZjE0OGYyMzc2MjNjMzk2YjBhIiwidWlkIjoiNDkyYzAwMDQ3OGNkYzE5ODAyZTY5ZDJmNTU0YzJjMTkiLCJ1c2VybmFtZSI6Im1laGRpc2FkZWdoaSJ9LCJzZXJ2aWNlIjp7Imhvc3RuYW1lIjoibWVoZGl4LmlyIiwicHJvdG9jb2wiOiJodHRwOiJ9LCJ0eXBlIjoid2ViX3NlcnZpY2VfYmluZGluZyIsInZlcnNpb24iOjF9LCJjbGllbnQiOnsibmFtZSI6ImtleWJhc2UuaW8gZ28gY2xpZW50IiwidmVyc2lvbiI6IjEuMC4xNiJ9LCJjdGltZSI6MTQ2NjkyMzMwNywiZXhwaXJlX2luIjo1MDQ1NzYwMDAsIm1lcmtsZV9yb290Ijp7ImN0aW1lIjoxNDY2OTIzMTkwLCJoYXNoIjoiMWQ1OGQxMTMwMTQ2Y2I4MGYwNzRkN2U2ZmI5MTNlYWI1YzEwMDA3NzNiNzQwNTY1ZDE5Y2M1NGI4Y2UyMGMzNzZmOTFkNDYxMTY5NGM2YTYxZTJlYzY2ZDhmOTk4M2JlZTNmMzFkNmE3YTAwNTA3MjI3N2EzM2JiMzhkYmUwY2EiLCJzZXFubyI6NDk5MjI5fSwicHJldiI6IjczZDk1NWY0NDc0MDE0Mjc2Y2QzZWUyNTc2MjYzMTMzODkyYmI5ZTQ5NTlkZjEwOWUxM2VmODdmZGI4ZTFhOWYiLCJzZXFubyI6NywidGFnIjoic2lnbmF0dXJlIn2jc2lnxEATw/qLQm4ouqNH8ejbFwcGHciH5bx329QV5RvU+76g6bbxghF88liL17hSCVq8YhrUghA+yI+MxjlTW88V+g0KqHNpZ190eXBlIKRoYXNogqR0eXBlCKV2YWx1ZcQgfTdjT5KLAHTAm9qzlSZYmbfpTQioqs0V3Z8lgSQcKRajdGFnzQICp3ZlcnNpb24B
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/mehdisadeghi
+
+==================================================================
+

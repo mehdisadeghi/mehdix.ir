@@ -1,0 +1,928 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+<title type="text" xml:lang="fa">مهدی صادقی</title>
+<link rel="alternate" type="text/html" href="https://mehdix.ir"/>
+<link rel="self" type="application/atom+xml" href="https://mehdix.ir/feed.xml"/>
+<updated>2018-02-06T02:43:37Z</updated>
+<id>urn:uuid:1e7d9dd8-29e4-475d-adc5-17494fb80445</id>
+<author>
+  <name>مهدی صادقی</name>
+  <uri>https://mehdix.ir</uri>
+  <email>sadeghi@mehdix.org</email>
+</author>
+<rights>Commons Attribution 4.0 International</rights>
+
+  <entry>
+    <title>بیلد سریع‌تر وبسایت</title>
+    <link rel="alternate" type="text/html" href="https://mehdix.ir/build-faster.html"/>
+    <id>urn:uuid:8ec3f320-a7ce-487c-a9c0-8d3043812dff</id>
+    <updated>2018-02-05T00:00:00Z</updated>
+    <category term="بیلد"/><category term="روبی"/><category term="کشینگ"/><category term="جکیل"/><category term="پروفایلینگ"/>
+    <content type="html">
+      <![CDATA[<div dir="rtl"><p>وبسایت من در حال حاضر حاوی ۵۶ یادداشت است. لپ‌تاپ Core i5 من حدود ۱۲ ثانیه زمان نیاز دارد تا وبسایت را بیلد کند. با انجام تغییراتی این زمان را به حدود ۳ ثانیه کاهش دادم.</p>
+
+<p>قبلا ‏<a href="merciless-simplification.html">نوشته</a> بودم که با تغییراتی به کمک پروفایلر بیلد را سریع‌تر کرده‌ام. اینبار تغییرات زیربنایی‌تری دادم که بیلد از آن هم سریع‌تر بشود. چرا که بیلد وبسایتم با همه دنگ و فنگش به حدود ۱۲ ثانیه رسیده بود و مطمئنم اگر در حال خواندن این متن هستید تصدیق خواهید کرد که چنین سرعتی اصلا قابل قبول نیست!</p>
+
+<h2 id="چه-چیزی-کند-بود">چه چیزی کند بود؟</h2>
+<p>دو چیز:</p>
+<ol>
+  <li><a href="https://github.com/pattex/jekyll-tagging">پلاگینی</a> که برای تولید تگ‌ها و تگ‌کلاود استفاده می‌کردم.</li>
+  <li>دستورات <code class="highlighter-rouge">include</code> درون قالب.</li>
+</ol>
+
+<h2 id="فورک-پلاگین-و-حل-مشکل-کندی-آن">فورک پلاگین و حل مشکل کندی آن</h2>
+<p>دفعه گذشته که روی سایت کار کردم به کمک پروفایلر متوجه شدم که این پلاگین خیلی کند است. از جایی که کارش را به خوبی انجام می‌دهد و پلاگین بهتری هم پیدا نکردم تصمیم گرفتم بهبودش بدهم. دو فکر به ذهنم رسید. یکی اینکه الگوریتم استفاده شده در پلاگین را تغییر بدهم و دیگر اینکه سعی کنم دستورات تکراری را ذخیره کنم.</p>
+
+<p>از جایی که من یک برنامه‌نویس مبتدی روبی هستم و با مقداری جستجو به راه حلی برای بهبود فوری نرسیدم، بهبود کد و الگوریتم پلاگین کار پر دردسری به نظرم رسید. البته چیزهایی دستگیرم شد. مثلا <a href="https://github.com/pattex/jekyll-tagging/blob/master/lib/jekyll/tagging.rb#L15">این خط</a> بسیار کند اجرا می‌شد و در متن فارسی اصلا کاربردی ندارد (بجز جایگزین کردن خط فاصله با خط تیره. روش بعدی بهتر بود.</p>
+
+<p>با مقدار بیشتری کند و کاو متوجه شدم وقت‌گیرترین عملیاتی که این پلاگین انجام می‌دهد تولید تگ‌کلاود است. سایت من طوری است که در صفحه‌ای که برای هر تگ تولید می‌شود این تگ‌کلاود یکبار کپی می‌شود. متوجه شدم که این عملیات بارها تکرار می‌شود و نتیجه هر بار همان است. فقط کافی بود که نتیجه را ذخیره و دوباره استفاده کنم. همینکار را هم <a href="https://github.com/mehdisadeghi/jekyll-tagging-lite/blob/master/lib/jekyll-tagging-lite.rb#L121">کردم</a>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@@tag_cloud = nil
+
+def tag_cloud(site)
+  @@tag_cloud ||= active_tag_data.map { |tag, set|
+      tag_link(tag, tag_url(tag), :class =&gt; "set-#{set}")
+    }.join(' ')
+end
+</code></pre></div></div>
+
+<p>یک متغیر استاتیک در ماژول روبی داخل پلاگین تعریف کردم تا فقط بار اول تگ‌کلاود را بسازد و دفعات بعدی همین را بازگرداند. همین تغییر حدود هفت تا هشت ثانیه روی دستگاه من در زمان بیلد صرفه‌جویی کرد.</p>
+
+<h3 id="انتشار-به-صورت-پلاگین-مجزا">انتشار به صورت پلاگین مجزا</h3>
+<p>من دوست داشتم این تغییر را به پلاگین اصلی اضافه کنم. متاسفانه به <a href="https://github.com/pattex/jekyll-tagging/issues/71">سوالی</a> که پرسیده بودم کسی جواب نداد، از طرفی پول ریکوئست‌های مرج نشده و سوالات بی‌پاسخ پیامش روشن بود، کسی وقت رسیدگی به این پروژه را ندارد. بنابراین من پروژه را فورک کردم و تحت نام <a href="https://github.com/mehdisadeghi/jekyll-tagging-lite"><code class="highlighter-rouge">jekyll-tagging-lite</code></a> منتشر کردم و از همین <a href="https://rubygems.org/gems/jekyll-tagging-lite">جم</a> در تم وبسایت استفاده کردم.</p>
+
+<h2 id="پرهیز-از-includeهای-تکراری">پرهیز از <code class="highlighter-rouge">include</code>های تکراری</h2>
+<p>هنوز هم جا داشت که بیلد سریع‌تر شود. خوشبختانه برای این قسمت قبلا کسی یک پلاگین نوشته است. بسیاری از <code class="highlighter-rouge">include</code>های استفاده شده در قالب تکراری هستند. پلاگینی بنام <a href="https://github.com/benbalter/jekyll-include-cache"><code class="highlighter-rouge">jekyll-include-cache</code></a> را به تم اضافه کردم و <code class="highlighter-rouge">inlcude</code>هایی که بعد از اولین بیلد داده‌شان تکراری است را با کمک این پلاگین کش کردم. مثلا فوتر صفحه همه‌جا تکراری است بنابراین فقط کافیست یکبار بیلد شود:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{%- include_cached footer.html -%}
+</code></pre></div></div>
+
+<h2 id="از-این-هم-سریعتر-میشود">از این هم سریع‌تر می‌شود؟</h2>
+<p>حتما می‌شود. در آینده باز هم سعی خواهم کرد بیلد را سریع‌تر کنم. آنجا که منابع و زمان محدود می‌شود چیزهای بسیاری برای یاد گرفتن هست. چه بسا زبان مورد استفاده را عوض بکنم، الگوریتم‌ها را تغییر بدهم یا تا می‌توانم بی‌رحمانه دستورالعمل‌های عبث را حذف کنم تا سرعت را افزایش بدهم. دوست دارم وبسایت در چشم برهم زدنی بلید بشود. حداقل زیر یک ثانیه. الان رسیده است به ۳.۴۸۱ ثانیه.</p>
+
+<blockquote>
+  <p>آنجا که منابع و زمان محدود می‌شود چیزهای بسیاری برای یاد گرفتن هست.</p>
+</blockquote>
+
+<p>این قصه سر دراز دارد. باز هم در این باره خواهم نوشت.</p>
+
+</div>]]>
+    </content>
+  </entry>
+
+  <entry>
+    <title>آمادگی برای مصاحبه فنی به کمک هکِررَنک</title>
+    <link rel="alternate" type="text/html" href="https://mehdix.ir/hackerrank.html"/>
+    <id>urn:uuid:</id>
+    <updated>2018-01-25T00:00:00Z</updated>
+    <category term="الگوریتم"/><category term="ساختمان داده"/><category term="مصاحبه فنی"/><category term="کاریابی"/>
+    <content type="html">
+      <![CDATA[<div dir="rtl"><p>مدتی پیش در جستجوی یک کار جدید برای برخی از شرکت‌های فناوری درخواست فرستادم. بسیاری از آنها پیش از دعوت به هر نوع مصاحبه برایم یک چالش برنامه‌نویسی در سایت <a href="http://hackerrank.com">HackerRank</a> ارسال کردند.</p>
+
+<h2 id="hackerrank">HackerRank</h2>
+<p>این سایت در سال ۲۰۱۲ تاسیس شده و محلی است برای تمرین و آزمودن مهارت‌های حیاتی دانش کامپیوتر مانند الگوریتم‌ها و ساختمان داده‌ها.</p>
+
+<h2 id="چطور-شرکتها-از-هکررنک-برای-استخدام-نیروی-کار-استفاده-میکنند">چطور شرکت‌ها از هکررنک برای استخدام نیروی کار استفاده می‌کنند؟</h2>
+<p>روش کار بدینصورت است که لینکی برای فرد ارسال می‌کنند که حاوی تعدادی سوال تئوریک و برنامه‌نویسی است و زمان مشخصی برای انجام آن در نظر گرفته شده است. به محض باز کردن لینک تایمر فعال می‌شود و باید پیش از اتمام وقت کار را انجام داد. ویژگی خوب این وبسایت اینست که برای تمرین هم می‌توان از آن استفاده کرد. اگر هم قصد استخدام دارید می‌توان چالش ساخت و برای داوطلبین ارسال کرد.</p>
+
+<h2 id="مهمترینها-الگوریتمها-و-ساختمان-داده">مهمترین‌ها:‌ الگوریتم‌ها و ساختمان داده</h2>
+<p>مسائل در گروه‌های مختلفی طبقه‌بندی شده‌اند. مهمترین آنها الگوریتم‌ها و ساختمان داده هستند. دیدن بخش Cracking the Coding Interview هم بسیار سودمند است (نام یک کتاب است که ویدیوهای مولف‌اش در این بخش نمایش داده می‌شود).</p>
+
+<h2 id="زبان-برنامهنویسی-مهم-نیست">زبان برنامه‌نویسی مهم نیست</h2>
+<p>مسائل را به زبانهای مختلفی می‌توان حل کرد، مانند پایتون، سی، جاوااسکریپت و حتی کلوژور. توجه داشته باشید که اینجا زبان برنامه‌نویسی اهمیتی ندارد، بلکه مهم قابلیت پیاده‌سازی الگوریتم مناسب برای حل مساله است. بسیاری از سوال‌های وبسایت حالتی داستان‌گونه دارند. هدف اینست که برنامه‌نویس تشخیص بدهد که کدامین الگوریتم مناسب این قصه است. یعنی قصه را کنار بزند و مشکل اصلی را کشف کند و برای حل آن به کمک الگوریتم مناسب برنامه‌ای بنویسد.</p>
+
+<h2 id="درست-بودن-الگوریتم-کافی-نیست-تایماوت">درست بودن الگوریتم کافی نیست: تایم‌اوت</h2>
+<p>هر مساله برنامه‌نویسی شامل یک ورودی و یک خروجی آزمایشی است که موقع نوشتن برنامه از آن برای کنترل صحت برنامه استفاده می‌کنیم. اما سرعت اجرای برنامه نیز مهم است. بسیاری از راه‌حل‌ها هرچند درست باشند در صورتی که در زمان مقرر خروجی را چاپ نکنند به خطا خواهند خورد. وقتی زمان محدود می‌شود اهمیت الگوریتم صحیح دوچندان می‌شود.</p>
+
+<h2 id="کامیونتی-و-مسابقات">کامیونتی و مسابقات</h2>
+<p>هرچند درخواست چالش برنامه‌نویسی چیز جدیدی نیست اما این سایت نه تنها امکان حل مسائل برنامه‌نویسی را فراهم کرده بلکه کامیونیتی خیلی فعالی هم دارد. خواندن راه‌حل سایرین در نوع خودش خیلی آموزنده است. هر چند وقت یکبار هم در وبسایت مسابقاتی برگزار می‌شود که می‌توان شرکت کرد.</p>
+
+<h2 id="گزارش-سال-۲۰۱۸-مهارتهای-برنامهسازان">گزارش سال ۲۰۱۸ مهارت‌های برنامه‌سازان</h2>
+<p>به گفته گردانندگان این وبسایت آنها ۳.۵ میلیون نفر بازدیدکننده داشته‌اند که در <a href="https://research.hackerrank.com/developer-skills/2018/?utm_medium=email&amp;utm_source=drip">نظرسنجی</a> آنها شرکت کرده‌اند. دیدن نتایج نظرسنجی سال ۲۰۱۸ آنها نیز خالی از لطف نیست. مثلا برای من جالب بود که تعداد کسانی که خودشان برنامه‌نویسی را یادگرفته‌اند بیش از کسانی بود که در دانشگاه آن را فراگرفته‌اند.</p>
+
+<p>توصیه می‌کنم حتما از این وبسایت استفاده کنید، انصافا چیز خوبی است!</p>
+
+</div>]]>
+    </content>
+  </entry>
+
+  <entry>
+    <title>آگاه‌سازی ایمیلی برای کامنت‌دونی</title>
+    <link rel="alternate" type="text/html" href="https://mehdix.ir/reply-to-comments.html"/>
+    <id>urn:uuid:1596c8cd-a0c8-419b-82ea-74ae12c02e0d</id>
+    <updated>2018-01-22T00:00:00Z</updated>
+    <category term="کامنت‌دونی"/><category term="استاتیک"/><category term="ایمیل"/><category term="نتلیفای"/>
+    <content type="html">
+      <![CDATA[<div dir="rtl"><p>طی هفته‌های گذشته کامنت‌دونی دیسکاس را با یک کامنت‌دونی دست‌ساز جایگزین کردم. این یادداشت گزارش پیشرفت کوتاهی است در مورد افزودن قابلیت جواب دادن به یک دیدگاه و اطلاع‌رسانی به نویسنده پیام اولیه در این مورد.</p>
+
+<h2 id="مروری-کلی-بر-آنچه-انجام-دادهام">مروری کلی بر آنچه انجام داده‌ام</h2>
+<p>برای پیاده‌سازی قابلیت پاسخ دادن به نظرات کاربران من به طور کلی دو کار انجام داده‌ام:</p>
+
+<ul>
+  <li>تغییرات ظاهری شامل افزودن دگمه پاسخ و نمایش تودرتوی پاسخ و دیدگاه مرجع.</li>
+  <li>نوشتن یک سرویس که گوش به زنگ ارسال پیام است و ایمیل ارسال می‌کند.</li>
+</ul>
+
+<p>البته نمایش تودرتوی پاسخ‌ها ربطی به سرویس ارسال ایمیل ندارد و مستقل است.</p>
+
+<h2 id="تغییرات-ظاهری">تغییرات ظاهری</h2>
+<p>تغییر ظاهری بخش ساده‌ی کار بود. به هر دیدگاه یک شماره‌ی یکتا اختصاص داده‌ام و دگمه‌ای برای پاسخ به هر دیدگاه اضافه کرده‌ام. با فشردن آن یک تابع جاوااسکریپت فیلدی پنهانی بنام <code class="highlighter-rouge">reply-to</code> را در فرم مقداردهی می‌کند که حاوی شماره‌ی یکتای دیدگاه مرجع است. نام نویسنده‌ی دیدگاه مرجع را نیز در فرم نمایش می‌دهم که خواننده بداند مشغول پاسخ به یک دیدگاه دیگر است.</p>
+
+<p>تغییرات کوچکی هم در اسکریپت بیلد کامنت‌ها داده‌ام که این فیلد جدید را نیز بخواند و مانند سایر مقادیر دیدگاه‌ها در مخزن گیت وبسایت ذخیره کند. بیشتر این تغییرات در <a href="https://github.com/mehdisadeghi/jekyll-theme-mehdix-rtl/blob/master/_includes/static_comments.html#L32">فایل کامنت‌دونی</a> قابل مشاهده است. (این فایل جزو تم وبسایت است نه خود این وبسایت)</p>
+
+<p>تا همین جا هم با ثبت یک دیدگاه در پاسخ یک دیدگاه دیگر، بعد از بیلد مجدد، دیدگاه جدید با کوت (نقل قول) دیدگاه ثابت منتشر می‌شود. ادامه کار مربوط به آگاه‌سازی به وسیله ایمیل است.</p>
+
+<h2 id="سرویس-ارسال-ایمیل">سرویس ارسال ایمیل</h2>
+<p>کمتر خواننده‌ای به صفحه‌ای که در آن پیامی نوشته دوباره سر می‌زند تا از سایر پاسخ‌ها مطلع بشود. به همین خاطر این قابلیت را به کامنت‌دونی اضافه کردم. از جایی که این سایت استاتیک است از خودش سرور مستقل ندارد. اما سرویس‌دهنده فعلی من امکان این را به من می‌دهد که یک <code class="highlighter-rouge">Web Hook</code> را پس از ثبت هر فرم صدا بزنم. وب‌هوک‌ها هم چیزی نیستند جز سرورهایی که گوش به زنگ دریافت <code class="highlighter-rouge">HTTP POST</code> هستند.</p>
+
+<p>ابتدا سعی کردم اینکار را به وسیله سرویس <a href="http://zapier.com">zapier</a> انجام بدم. کار را انجام دادم ولی در نهایت متوجه شدم که اجرای سرویس من با پلن رایگان آنها میسر نیست و باید ماهیانه ۲۰ دلار پرداخت کنم!</p>
+
+<p>اینجا بود که گفتم خودم یکی می‌نویسم!</p>
+
+<p>با صرف چند ساعت وقت یک برنامه‌ی ساده با Node.js نوشتم. مراحل کار برنامه این است:</p>
+
+<ul>
+  <li>برنامه به محض اجرا منتظر دریافت درخواست‌های <code class="highlighter-rouge">HTTP POST</code> می‌ماند.</li>
+  <li>با دریافت یک درخواست جدید وجود مقدار <code class="highlighter-rouge">reply-to</code> را کنترل می‌کند.</li>
+  <li>در صورت وجود، به کمک API شرکت Netlify (که سرویس‌دهنده من است) دیدگاه مرجع را دانلود می‌کند.</li>
+  <li>ایمیل کامنت‌گذار مرجع را از اطلاعات دانلود شده استخراج می‌کند.</li>
+  <li>با کمک اطلاعات دانلود شده و درخواست اولیه (که شامل جواب است) یک پیام می‌سازد.</li>
+  <li>پیام را به کامنت‌گذار مرجع ایمیل می‌کند.</li>
+</ul>
+
+<h3 id="کد-برنامه">کد برنامه</h3>
+<p>کد زیر را برای دریافت درخواست‌ها و ارسال ایمیل نوشته‌ام. تر و تمیز نیست ولی فعلا کفایت می‌کند. البته باید سروری برای اجرای آن داشت که من دارم. اگر هم از کار بیفتد اهمیتی ندارد و در کار وبسایت مانعی ایجاد نمی‌کند. برای راه‌اندازی سرور ایمیل کارهای دیگری نیاز است که من قبلا انجام داده‌ام و اینجا به آن نمی‌پردازم.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'express'</span><span class="p">)</span>
+<span class="kd">const</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'request'</span><span class="p">)</span>
+<span class="kd">const</span> <span class="nx">bodyParser</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'body-parser'</span><span class="p">)</span>
+<span class="kd">const</span> <span class="nx">sendmail</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'sendmail'</span><span class="p">)()</span>
+
+<span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">express</span><span class="p">()</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">bodyParser</span><span class="p">.</span><span class="nx">json</span><span class="p">())</span>
+
+<span class="kd">const</span> <span class="nx">ACCESS_TOKEN</span> <span class="o">=</span> <span class="s2">"xxxxxxxxxxxxxxxxxxxxxx"</span>
+<span class="kd">const</span> <span class="nx">SITE_ID</span> <span class="o">=</span> <span class="s2">"xxxxxxxxxxxxxxxxxxxxxx"</span>
+<span class="kd">const</span> <span class="nx">FORM_ID</span> <span class="o">=</span> <span class="s2">"xxxxxxxxxxxxxxxxxxxxxx"</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">'/'</span><span class="p">,</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">)</span>
+  <span class="kd">let</span> <span class="nx">replyTo</span> <span class="o">=</span> <span class="kc">false</span>
+  <span class="k">if</span> <span class="p">(</span><span class="s1">'data'</span> <span class="k">in</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">replyTo</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">[</span><span class="s1">'data'</span><span class="p">][</span><span class="s1">'reply-to'</span><span class="p">]</span>
+  <span class="p">}</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">replyTo</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">query</span> <span class="o">=</span> <span class="s2">"https://api.netlify.com/api/v1/sites/"</span> <span class="o">+</span> <span class="nx">SITE_ID</span> <span class="o">+</span> <span class="s2">"/forms/"</span> <span class="o">+</span> <span class="nx">FORM_ID</span> <span class="o">+</span> <span class="s2">"/submissions/"</span> <span class="o">+</span> <span class="nx">replyTo</span> <span class="o">+</span> <span class="s2">"?access_token="</span> <span class="o">+</span> <span class="nx">ACCESS_TOKEN</span>
+    <span class="nx">request</span><span class="p">(</span><span class="nx">query</span><span class="p">,</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">resp</span><span class="p">,</span> <span class="nx">body</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+        <span class="k">return</span>
+      <span class="p">}</span>
+      <span class="nx">body</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">body</span><span class="p">)</span>
+      <span class="kd">let</span> <span class="nx">replyeeEmail</span> <span class="o">=</span> <span class="nx">body</span><span class="p">[</span><span class="s1">'email'</span><span class="p">]</span>
+      <span class="kd">let</span> <span class="nx">replierName</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">[</span><span class="s1">'data'</span><span class="p">][</span><span class="s1">'name'</span><span class="p">]</span>
+      <span class="kd">let</span> <span class="nx">replyLink</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">[</span><span class="s1">'site_url'</span><span class="p">]</span> <span class="o">+</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">[</span><span class="s1">'data'</span><span class="p">][</span><span class="s1">'page_id'</span><span class="p">]</span> <span class="o">+</span> <span class="s2">".html#"</span> <span class="o">+</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">[</span><span class="s1">'id'</span><span class="p">]</span>
+      <span class="kd">let</span> <span class="nx">emailBody</span> <span class="o">=</span> <span class="s1">'&lt;div dir="rtl"&gt;'</span> <span class="o">+</span>
+      <span class="s2">"برای دیدگاه شما در سایت مهدیکس "</span> <span class="o">+</span> <span class="nx">replierName</span> <span class="o">+</span> <span class="s2">" "</span> <span class="o">+</span>
+      <span class="s2">"&lt;a href='"</span> <span class="o">+</span> <span class="nx">replyLink</span>  <span class="o">+</span> <span class="s2">"'&gt;"</span> <span class="o">+</span> <span class="s2">"جوابی"</span> <span class="o">+</span> <span class="s2">"&lt;/a&gt;"</span> <span class="o">+</span> <span class="s2">" نوشت:"</span> <span class="o">+</span>
+      <span class="s2">"&lt;blockquote&gt;"</span> <span class="o">+</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">[</span><span class="s1">'data'</span><span class="p">][</span><span class="s1">'message'</span><span class="p">]</span> <span class="o">+</span> <span class="s2">"&lt;/blockquoe&gt;"</span> <span class="o">+</span>
+      <span class="s1">'&lt;/div&gt;'</span>
+      <span class="nx">sendmail</span><span class="p">({</span>
+        <span class="na">from</span><span class="p">:</span> <span class="s1">'noreply@mehdix.ir'</span><span class="p">,</span>
+        <span class="na">to</span><span class="p">:</span> <span class="nx">replyeeEmail</span><span class="p">,</span>
+        <span class="na">subject</span><span class="p">:</span> <span class="s1">'پاسخی برای دیدگاه شما در سایت مهدیکس'</span><span class="p">,</span>
+        <span class="na">html</span><span class="p">:</span> <span class="nx">emailBody</span>
+      <span class="p">},</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">info</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">info</span><span class="p">)</span>
+      <span class="p">})</span>
+    <span class="p">})</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mi">3000</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Send Mail Hook listening on port 3000!'</span><span class="p">))</span>
+</code></pre></div></div>
+
+<h2 id="اگر-کسی-فیلدها-را-دستکاری-کند-چه">اگر کسی فیلدها را دستکاری کند چه؟</h2>
+<p>هیچ! پیامش نمایش داده نمی‌شود، هرچند در حال حاضر در مخزن گیت ذخیره می‌شود.</p>
+
+<p>امیدوارم که این مطلب برایتان سودمند باشد و شما هم در مورد کارهایی جالبی که می‌کنید بنویسید. اگر پسندیدید به اشتراک بگذارید یا پیامی بنویسید تا این قابلیت را با هم امتحان کنیم :)</p>
+
+</div>]]>
+    </content>
+  </entry>
+
+  <entry>
+    <title>معرفی آلن کی</title>
+    <link rel="alternate" type="text/html" href="https://mehdix.ir/alan-kay-on-hackernews.html"/>
+    <id>urn:uuid:1fcf455c-1643-45d1-91e2-aa295c03aa37</id>
+    <updated>2018-01-08T00:00:00Z</updated>
+    <category term="PARC"/><category term="Smalltalk"/><category term="OO"/>
+    <content type="html">
+      <![CDATA[<div dir="rtl"><p>من خواننده دائمی <a href="https://news.ycombinator.com/">هکرنیوز</a> هستم. تقریبا یکسال و نیم پیش <a href="https://en.wikipedia.org/wiki/Alan_Kay">آلن کی</a> یکی از مشهورترین دانشمندان کامپیوتر در قید حیات در یک صفحه «هرچی می‌خواهی بپرس» به سوالات خوانندگان جواب داد.</p>
+
+<p>آلن کی از افراد موثر در شکل‌گیری نرم‌افزارها و کامپیوترهای امروزی است. از او به عنوان خالق برنامه‌نویسی شیئ‌گرا و همچنین محیط‌های گرافیکی یاد می‌شود. یکی از اساطیری‌ترین مجموعه‌های تحقیقات کامپیوتری مرکزی بود به نام <a href="https://en.wikipedia.org/wiki/PARC_(company)">PARC</a>. آلن ده سال را در این مرکز سپری کرده است و بسیاری از قطعاتی که امروز برای ما تداعی‌کننده‌ی یک کامپیوتر هستند در این مرکز اختراع شده‌اند. از جمله رابط‌گرافیکی (GUI)، اترنت، پرینتر لیزری. زبان برنامه‌نویسی Smalltalk به عنوان اولین زبان برنامه‌نویسی شیئ‌گرا هم در این مرکز توسط آلن کی و همکارانش اختراع شد.</p>
+
+<p>با این مقدمه قصدم <a href="https://news.ycombinator.com/item?id=11939851">معرفی لینکی</a> است که آن در آن به پاسخ‌های بسیاری از خوانندگان جواب داده است. این صفحه بسیار خواندنی است. هم نگاهی است به تاریخچه‌ی علم کامپیوتر و شاید هم کمکی باشد به بهتر دیدن آینده.</p>
+
+</div>]]>
+    </content>
+  </entry>
+
+  <entry>
+    <title>دیپلوی این وبسایت با یک کلیک</title>
+    <link rel="alternate" type="text/html" href="https://mehdix.ir/one-click-netlify-deploy.html"/>
+    <id>urn:uuid:3e056a7f-d138-4d10-b895-3514dee80554</id>
+    <updated>2018-01-06T00:00:00Z</updated>
+    <category term="دیپلوی"/><category term="نتلیفای"/>
+    <content type="html">
+      <![CDATA[<div dir="rtl"><p>در یادداشت <a href="theme-rework.html">قبلی</a> شرح دادم که نسخه کاملا جدیدی از وبسایت منتشر کرده‌ام. تغییر کوچکی دادم که با یک کلیک بتوان از روی این نمونه وبسایت جدیدی ساخت.</p>
+
+<p>اگر روی دگمه زیر کلیک کنید یک وبسایت جدید با تم مهدیکس روی نتلیفای برایتان ساخته می‌شود. ناگفته پیداست که اول باید در نتلیفای ثبت نام کنید.</p>
+
+<p class="post-image"><a href="https://app.netlify.com/start/deploy?repository=https://github.com/mehdisadeghi/jekyll-theme-mehdix-rtl"><img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify" /></a></p>
+
+<p>همین دگمه را هم به <a href="https://github.com/mehdisadeghi/jekyll-theme-mehdix-rtl">مخزن</a> تم روی گیت‌هاب اضافه کرده‌ام. امیدوارم که اینکار ساختن یک وبسایت استاتیک فارسی با تقویم شمسی را بیش از پیش راحت کند.</p>
+
+</div>]]>
+    </content>
+  </entry>
+
+  <entry>
+    <title>دوباره‌نویسی تم وبسایت</title>
+    <link rel="alternate" type="text/html" href="https://mehdix.ir/theme-rework.html"/>
+    <id>urn:uuid:92f70e9e-97bc-4ce1-b71f-0e8420d858d5</id>
+    <updated>2018-01-05T00:00:00Z</updated>
+    <category term="تم"/><category term="قالب"/><category term="جکیل"/>
+    <content type="html">
+      <![CDATA[<div dir="rtl"><p>امروز بعد از چند روز کار و رفع بیشمار خرده مشکلات نسخه کاملا جدیدی از قالب وبسایتم را  منتشر کردم.</p>
+
+<h2 id="قالب-قبلی-چه-ایرادی-داشت">قالب قبلی چه ایرادی داشت؟</h2>
+<p>قالب اولیه وبسایت نسخه تغییر یافته‌ی قالب پیش‌فرض جکیل بود. اما مدتها دل‌چرکین بودم از اینکه خط به خط سایتم را خودم ننوشته‌ام. و اصلا نمی‌دانم بعضی از قسمتهای کد وب سایتم چطور کار می‌کند! بنابراین بعد از مدتها دست بکار شدم و خط به خط آن را از نو نوشتم.</p>
+
+<h1 id="چه-تغییرات-قابل-توجهی-دادهام">چه تغییرات قابل توجهی داده‌ام؟</h1>
+<p>تغییرات ظاهری شامل تغییر ترکیب رنگ هدر و فوتر و قلم‌هاست. دیزاین را تغییر داده‌ام و از رنگ‌های دلبازتری که مورد علاقه‌ام هستند استفاده کرده‌ام. اگر پرسپولیسی باشید حتما دوست خواهید داشت! قرمز رنگ مورد علاقه من است.</p>
+
+<p>دیگر اینکه کد وبسایت را به شدت ساده‌سازی کرده‌ام. هر قانون سی‌اس‌اس اضافه‌ای که به چشمم خورده پاک کرده‌ام. تگ‌های بیشماری که ضرورتی به وجودشان نبود پاک کرده‌ام و تلاش کردم از تکرار پرهیز کنم. قانونی در عالم کدنویسی هست که می‌گوید چیزهایی که فکر می‌کنید لازم دارید و در کد نگه می‌دارید هیچ‌وقت به کارتان نخواهد آمد، پس بی‌رحمانه حذفشان کنید!</p>
+
+<blockquote>
+  <p>چیزهایی که فکر می‌کنید لازم دارید و در کد نگه می‌دارید هیچ‌وقت به کارتان نخواهد آمد، پس بی‌رحمانه حذفشان کنید!</p>
+</blockquote>
+
+<p>جمله معروف دیگری هم هست که می‌گوید بهترین کد کدی است نوشته نشده است! چرا که نیازی به نگهداری ندارد. به تجربه دریافته‌ام که تولید کد و پروژه‌های ساده که همه‌فهم باشد کاری است بسیار سخت، هرچند اینگونه به نظر نمی‌رسد. یعنی باید بدانیم وقتی با یک کد یا هر نوع سیستم یا شیئی برخورد می‌کنیم که فهم آن برای ما ساده است، این سادگی «عمدی» است نه اتفاقی. این نکته ظریفی است که سالها طول کشید بفهمم.</p>
+
+<blockquote>
+  <p>سادگی عمدی است، نه اتفاقی</p>
+</blockquote>
+
+<h2 id="بکارگیری-font-awesome">بکارگیری Font Awesome</h2>
+<p>یکی از مهمترین تغییراتی که داده‌ام استفاده از <a href="https://fontawesome.com/">فونت‌آوسام</a> بجای آیکون‌هاست. فونت‌آوسام شامل تعداد زیادی آیکون و لوگوهای رایج و مفهومی است که استفاده از آن هم رایگان است. البته نسخه پرو هم دارد که شامل گلیف‌های بسیار بیشتری است که من نیازی به آنها ندارم. تمام آیکونهایی که در فوتر صفحه می‌بینید، به جز آیکون اتم، از فونت‌آوسام هستند. همه هم براحتی استایل می‌پذیرند و تغییر اندازه می‌دهند.</p>
+
+<h1 id="آیا-تکنولوژی-جدیدی-بکار-بردهام">آیا تکنولوژی جدیدی بکار برده‌ام؟</h1>
+<p>بله. از <code class="highlighter-rouge">CSS Grid</code> و <code class="highlighter-rouge">CSS Flexbox</code> استفاده کرده‌ام. این دو قابلیت جدید <code class="highlighter-rouge">CSS</code> طراحی صفحات وب را به شکلی باورنکردنی ساده می‌کنند. از این تکنولوژی‌ها می‌توان برای ایجاد چیدمان دلخواه المان‌ها استفاده کرد. اگر کد وب همین صفحه را نگاه کنید خواهید دید که در اسکلت اصلی صفحه و همچنین در فوتر به وفور از <code class="highlighter-rouge">Flexbox</code> استفاده کرده‌ام. توصیه می‌کنم حتما در مورد آنها تحقیق کنید. یادگیری‌شان ساده است و خیلی کاربردی هستند.</p>
+
+<p>قالب بازنویسی شده را به عنوان <a href="https://rubygems.org/gems/jekyll-theme-mehdix-rtl/versions/1.0.0">نسخه ۱.۰.۰</a> منتشر کردم.</p>
+
+</div>]]>
+    </content>
+  </entry>
+
+  <entry>
+    <title>کامنت‌دونی استاتیک بجای دیسکاس</title>
+    <link rel="alternate" type="text/html" href="https://mehdix.ir/static-comments.html"/>
+    <id>urn:uuid:821f0087-e296-49de-bc23-2140df503eed</id>
+    <updated>2017-12-30T00:00:00Z</updated>
+    <category term="دیسکاس"/><category term="نتلیفای"/><category term="کامنت‌دونی"/><category term="دیدگاه"/><category term="نظر"/>
+    <content type="html">
+      <![CDATA[<div dir="rtl"><p>در ادامه شرح می‌دهم چرا و چگونه سیستم نظرات وبسایت را از دیسکاس به یک سیستم دست‌ساز تقریبا استاتیک منتقل کرده‌ام.</p>
+
+<h2 id="چرا-تصمیم-گرفتم-دیسکاس-را-کنار-بگذارم">چرا تصمیم گرفتم دیسکاس را کنار بگذارم؟</h2>
+<p>به دو دلیل. اول اینکه دیسکاس بدون قند‌شکن در ایران قابل استفاده نیست. دیگر اینکه دیسکاس زیادی سنگین بود و مقدار زیادی اسکریپت غیرضروری در صفحات بارگزاری می‌کرد. سایت کم ترافیک من را بیهوده سنگین کرده بود و سود چندانی هم نداشت.</p>
+
+<p>مهمتر از همه اینها چالش ایجاد کامنت‌دونی استاتیک را دوست داشتم!</p>
+
+<h2 id="چه-آلترناتیوهایی-برای-دیسکاس-وجود-دارد">چه آلترناتیوهایی برای دیسکاس وجود دارد؟</h2>
+<p>استاتیک‌بازهای اینترنت دست به کارهای خلاقانه مختلفی برای داشتن یک کامنت‌دونی استاتیک زده‌اند. راهکارهای موجود روی سه محور اصلی می‌چرخد:</p>
+
+<ul>
+  <li>ایمیل دیدگاه‌ها</li>
+  <li>باز کردن پول‌ریکوئست در گیت‌هاب</li>
+  <li>اجرای سرور اختصاصی</li>
+</ul>
+
+<p>و همچنین:</p>
+
+<ul>
+  <li>استفاده از Firebase</li>
+  <li>صرف نظر از کامنت‌دونی</li>
+</ul>
+
+<h3 id="ارسال-نظر-با-ایمیل">ارسال نظر با ایمیل</h3>
+<p>در این روش به کمک ایمیل کاربر نظرش را ارسال می‌کند و وبلاگ‌صاحاب بعدا کامنت‌ها را به وبسایتش اضافه می‌کند. با نوشتن مقداری اسکریپت حتی می‌تواند این فرآیند را تا حدودی خودکار کرد. این روش به نوعی خالص‌ترین روش استاتیک است. برخی افراد از امکانات جیمیل مثل افزودن یک فیلتر بعد از ایمیل استفاده می‌کنند مثلا <code class="highlighter-rouge">john.doe+post42@gmail.com</code>.</p>
+
+<h3 id="گیتهاب-به-عنوان-کامنتدونی">گیت‌هاب به عنوان کامنت‌دونی</h3>
+<p>برخی افراد از ابزاری بنام <a href="https://staticman.net/">Staticman</a> استفاده می‌کنند. این برنامه به ازای هر نظر یک پول‌ریکوئست در مخزن وبسایت روی گیت‌هاب ایجاد می‌کند. نحوه تایید نظرات هم این است که وبلاگ‌صاحاب هم می‌تواند پول‌ریکوئست را مرج کند یا نکند. البته امکان مرج خودکار هم هست که در اینصورت نظرات نیاز به تایید ندارند. بعد از مرج سایت از نو ساخته شده و نظرات نمایش داده می‌شود.</p>
+
+<p>این برنامه اوپن‌سورس است و هاست رایگان هم دارد. هر کسی می‌تواند خودش هم آنرا هاست کند.</p>
+
+<h3 id="اجرای-یک-سرور-اختصاصی">اجرای یک سرور اختصاصی</h3>
+<p>این روش کم مقداری با روش قبلی همپوشانی دارد. این روش در حقیقت راه انداختن یک دیسکاس شخصی است. از اجرای یک <a href="https://github.com/mpalmer/jekyll-static-comments/blob/master/commentsubmit.php">اسکریپت PHP</a> ساده گرفته تا راه‌اندازی سروری کوچک و جمع و جور مثل <a href="https://posativ.org/isso/">isso</a> یا سرور عریض و طویلی مانند <a href="https://www.discourse.org/">Discourse</a>. هرکس بنا به ترافیک و نیاز و سلیقه‌اش یکی را انتخاب می‌کند. البته این لیست کامل نیست و پلاگین‌های جکیل و برنامه‌های ریز و درشت دیگری هم باید باشند (بیشتر ریز البته!)</p>
+
+<h3 id="استفاده-از-firebase">استفاده از Firebase</h3>
+<p><a href="http://firebase.google.com/">فایربیس</a> یکی از محصولات شرکت گوگله که ساخت اپلیکیشن‌های serverless رو ساده می‌کنه. یعنی اپلیکیشن موبایل یا وب مستقیما با فایربیس صحبت می‌کنه و می‌تونه از دیتابیس و سایر امکانات اون استفاده کنه. پیاده کردن کامنت‌دونی استاتیک به کمک فایربیس امکانپذیره. مثلا <a href="https://github.com/mimming/firebase-jekyll-comments">این پلاگین جکیل</a> یک کامنت‌دونی به کمک فایربیس می‌سازه.</p>
+
+<h3 id="صرف-نظر-از-کامنتدونی">صرف نظر از کامنت‌دونی</h3>
+<p>کم نیستند کسانی که از کامنت‌دونی صرف‌نظر می‌کنند و تعامل با خوانندگانشان را به شبکه‌های اجتماعی مانند توئیتر و یا هکرنیوز منتقل می‌کنند. عده‌ای هم که به نهایت بی‌نیازی رسیده‌اند برای دل خودشان می‌نویسند و از هرچه رنگ تعلق پذیرد آزاد شده‌اند و کلا قید کامنت‌دونی را زده‌اند!</p>
+
+<h2 id="الگوریتم-کلی-کامنتدونی-استاتیک">الگوریتم کلی کامنت‌دونی استاتیک</h2>
+<p>مهمترین تمایز کامنت‌دونی استاتیک با داینامیک در اینه که انتشار نظرات با تاخیر همراهه. چرا که سروری گوش به زنگ تغییرات در صفحه و ریفرش کردن اون نیست. اصلا امکان ریفرش کردن صفحه نیست و سایت باید ریبیلد بشه. یعنی مرحله جمع‌آوری نظرات و انتشار نظرات در وبسایت پیوسته نیستند. بنابراین یک کامنت‌دونی استاتیک به شکل زیر کار می‌کند:</p>
+
+<ul>
+  <li>جمع‌آوری نظر: ایمیل، گیت‌هاب، سرور شخصی، فایربیس</li>
+  <li>پردازش نظرات: حذف اسپم، سورت کردن و مانند اینها</li>
+  <li>تولید وبسایت:‌ ساخت دوباره صفحهات با نظرات بروز شده</li>
+</ul>
+
+<h2 id="من-کدامیک-از-روشهای-بالا-را-بکار-گرفتهام">من کدامیک از روش‌های بالا را بکار گرفته‌ام؟</h2>
+<p>هیچ‌کدام. من یک کامنت‌دونی استاتیک مبتنی بر <a href="/netlify.html">نتلیفای</a> ساختم.</p>
+
+<p>بسیاری از راهکارهایی که دیگران در وبسایت‌های استاتیکشان بکارگرفته‌اند لازمه‌اش اجرا کردن یک برنامه در یک سرور سوم است. من قصد داشتم همه چیز را در سرویس‌دهنده استاتیک وبسایتم خلاصه کنم. مدتی پیش در مورد <a href="/netlify.html">Netlify</a> نوشتم. من در حال حاضر وبسایت و مدیریت دامنه آن و بیلدسرور آن را به ترتیب از گیت‌هاب و <a href="http://dnsimple.com/">DNSimple</a> و <a href="/wercker-intro.html">ورکر</a> به نتلیفای منتقل کرده‌ام. این تغییر باعث ساده‌سازی قابل توجه وبسایت و روند بیلد کردن آن شده است.</p>
+
+<p>نتلیفای امکانی دارد برای ثبت نتایج فرم‌های HTML. یعنی بدون ایجاد سرور جداگانه می‌توان فرم‌هایی در وبسایت گنجاند و نتایج آنها را در کنترل پنل نتلیفای مشاهده کرد. اما نکته اصلی اینجاست که نتلیفای پس از ثبت نظرات می‌تواند یک بیلد تریگر کند یا فرم ثبت شده را به یک آدرس ایمیل ارسال کند یا یک سرویس خارجی را به کمک WebHook صدا بزند. من از این امکان نتلیفای برای ساخت کامنتدونی استفاده کردم.</p>
+
+<h2 id="طرح-کلی-کامنتدونی-من">طرح کلی کامنت‌دونی من</h2>
+<p>برنامه من سه بخش دارد:</p>
+
+<ol>
+  <li>جمع‌آوری نظرات ارسالی به کمک نتلیفای</li>
+  <li>پردازش نظرات و کامیت آنها در گیت‌هاب</li>
+  <li>افزودن کامنت‌دونی استاتیک به وبسایت جکیل</li>
+</ol>
+
+<h3 id="جمعآوری-به-کمک-نتلیفای">جمع‌آوری به کمک نتلیفای</h3>
+<p>این قسمت از همه ساده‌تر است. کافیست یک فرم HTML در هرکجای صفحه قرار بدهیم و به آن یک برچسب نتلیفای بزنیم:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nt">&lt;form</span> <span class="na">name=</span><span class="s">'comment'</span> <span class="na">netlify</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;label&gt;</span>دیدگاه
+      <span class="nt">&lt;textarea</span> <span class="na">id=</span><span class="s">"message"</span> <span class="na">name=</span><span class="s">"message"</span><span class="nt">&gt;&lt;/textarea&gt;</span>
+    <span class="nt">&lt;/label&gt;</span>
+    <span class="nt">&lt;label&gt;</span>نام
+      <span class="nt">&lt;input</span> <span class="na">id=</span><span class="s">"name"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">name=</span><span class="s">"name"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/label&gt;</span>
+      <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"submit"</span><span class="nt">&gt;</span>ارسال<span class="nt">&lt;/button&gt;</span>
+  <span class="nt">&lt;/form&gt;</span>
+</code></pre></div></div>
+
+<p>هر بار که این فرم به سرور ارسال بشود نتلیفای نتیجه آن را ثبت می‌کند. از طریق کنترل پنل و API می‌توان فرم‌ها و ارسال‌ها را مدیریت کرد.</p>
+
+<h3 id="پردازش-نظرات-پس-از-ثبت">پردازش نظرات پس از ثبت</h3>
+<p>برای اینکار یک <a href="https://github.com/mehdisadeghi/mehdix.ir/blob/master/build.sh">اسکریپت شل</a> و یک <a href="https://github.com/mehdisadeghi/mehdix.ir/blob/master/rebuild_comments.py">اسکریپت پایتون</a> نوشتم. با هر بار ارسال فرم، نتلیفای اسکریپت بیلد را اجرا می‌کند. این اسکریپت کارهای زیر را انجام می‌دهد:</p>
+
+<ol>
+  <li>پیش‌نیازهای اجرای اسکریپت پایتون را نصب می‌کند.</li>
+  <li>اسکریپت پایتون را جهت استخراج کامنتها از نتلیفای اجرا می‌کند.</li>
+  <li>فایلهای نظرات را به گیت‌هاب اضافه می‌کند.</li>
+  <li>سایت را از نو می‌سازد.</li>
+</ol>
+
+<p>از این جهار مرحله فقط گزینه شماره یک و دو به نتلیفای مربوط است و دیگر کاری با آن نداریم. اسکریپت پایتون ما کارهای زیر را انجام می‌دهد:</p>
+
+<ol>
+  <li>مقادیر ضروری از قبیل توکن نتلیفای و رشته‌ی سرّی را از محیط می‌خواند.</li>
+  <li>لیست نظرات را از نتلیفای دانلود می‌کند.</li>
+  <li>هر نظر را به فرمت مورد نظر وبسایت تبدیل می‌کند.</li>
+  <li>اطلاعاتی خصوصی را رمزنگاری می‌کند.</li>
+  <li>هر نظر را فایل مربوط به صفحه خودش اضافه می‌کند.</li>
+</ol>
+
+<p>حالا ما همه کامنت‌ها را به فرمت <a href="http://yaml.org/">YAML</a> تبدیل کرده‌ایم. <a href="https://github.com/mehdisadeghi/mehdix.ir/blob/master/_data/comments/13-years-old-bug-fixed.yml">هر نظر</a> فرمتی اینگونه خواهد داشت:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="pi">-</span> <span class="na">bucket</span><span class="pi">:</span> <span class="kt">!!binary</span> <span class="pi">|</span>
+    <span class="no">Z0FBQUFBQmFSN19RdWxHeU4tcGp5clR2Z2Z5d0ozZkRTRHV0OGtUYnpub1RIZ09qdkpaazVqQXZO</span>
+    <span class="no">bms5QURNQ25hcEp0cHZSaldEN01OaXBJNXQ5dUxRU215RS1HQjhOTlc5WGFEcWdfaG9hYnhpTzV5</span>
+    <span class="no">RExodlE9</span>
+  <span class="na">date</span><span class="pi">:</span> <span class="s">2017-04-12 11:00:06+00:00</span>
+  <span class="na">email</span><span class="pi">:</span> <span class="s">a84eca4314e52cf150347841e3a17cf1</span>
+  <span class="na">message</span><span class="pi">:</span> <span class="s">&lt;p&gt;بسیار عالی جناب صادقی&lt;br&gt;زحمات شما و دیگر دوستان نادیده‌گرفته نخواهد</span>
+    <span class="s">شد.&lt;br&gt;ممنون&lt;/p&gt;</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">Amir H.</span>
+  <span class="na">page_date</span><span class="pi">:</span> <span class="s">2017-04-08 00:00:00 +0200</span>
+  <span class="na">page_id</span><span class="pi">:</span> <span class="s">/13-years-old-bug-fixed</span>
+  <span class="na">page_title</span><span class="pi">:</span> <span class="s">باگ سیزده ساله تعمیر شد</span>
+  <span class="na">page_uuid</span><span class="pi">:</span> <span class="s">4b4fa077-5001-41b2-bdb3-f9f9638efdb2</span>
+  <span class="na">website</span><span class="pi">:</span> <span class="s">https://disqus.com/by/firouzian/</span>
+</code></pre></div></div>
+<p>بیشتر فیلدها گویا هستند. برخی مستقیما از فرم HTML پای همین صفحه آمده‌اند. برخی دیگر به کمک داده‌هایی که نتلیفای در اختیار می‌گذارد ساخته شده‌اند، مثلا آدرس صفحه‌ای که فرم از آنجا ارسال شده است. در مورد فیلد ایمیل و باکت جلوتر شرح می‌دهم.</p>
+
+<h3 id="افزودن-کامنتدونی-استاتیک-به-وبسایت-جکیل">افزودن کامنت‌دونی استاتیک به وبسایت جکیل</h3>
+<p>بعد از اجرای اسکریپت مرحله قبل نظرات هر پست درون <a href="https://github.com/mehdisadeghi/mehdix.ir/tree/master/_data/comments">فایلهای جداگانه</a> در مخزن وبسایت کامیت می‌شوند. تمام فیلدها را اسکریپت پایتون از دل نتلیفای بیرون کشیده و درون فایل‌ها ذخیره کرده می‌کند. حالا می‌ماند ساخت وبسایت با کامنت‌دونی. من از یک قابلیت جکیل بنام <code class="highlighter-rouge">Data Files</code> استفاده کردم. این‌ها فایل‌هایی هستند که در دایرکتوری <code class="highlighter-rouge">_data</code> ذخیره می‌شوند و در قالب می‌توان محتوای آنها را استفاده کرد. من تم وبسایت را طوری تغییر دادم که در صورتی که کامنت‌دونی استاتیک در کانفیگ جکیل فعال شده باشد زیر هر پست یک فرم تولید کند و همچنین از فایل‌ها کامنت‌های مربوط به هر مطلب را به صورت پاراگراف‌هایی قبل از فرم نظرات درج کند. جزئیات را می‌توانید با دیدن سورس همین صفحه بررسی کنید یا <a href="https://github.com/mehdisadeghi/jekyll-theme-mehdix-rtl/blob/master/_includes/static_comments.html">تم</a> را ببینید.</p>
+
+<h2 id="چالشها-و-ایدهها">چالش‌ها و ایده‌ها</h2>
+<p>مهاجرت به کامنت‌دونی استاتیک پروژه‌ی بزرگی بود و هنوز هم ادامه دارد. مشکلات زیادی داشتم که برخی از آنها را در ادامه می‌آورم.</p>
+
+<h3 id="استخراج-ایمیلها">استخراج ایمیل‌ها</h3>
+<p>ایمیل باید برای من قابل رویت باشد ولی از دید اسپمرها و سایرین پنهان باشد. از جایی که من دیتابیسی جز مخزن گیت‌هابم ندارم باید چاره‌ای برای این مشکل پیدا می‌کردم.</p>
+
+<p>من در دو فیلد ایمیل را ذخیره کرده‌ام. یکبار به صورت هش یکبار رمز. هش هم الگوریتمی یک طرفه است. بنابراین از هش نمی‌توان به ایمیل رسید. من از این هش فقط برای نمایش آواتار به کمک سرویس عالی <a href="https://en.gravatar.com/">گراواتار</a> استفاده کرده‌ام. اما اگر بخواهم خودم به ایمیل کامنت‌گذار دسترسی پیدا کنم چه؟ برای اینکار من ایمیل را رمز می‌کنم و در فیلد <code class="highlighter-rouge">bucket</code> ذخیره می‌کنم. فعلا مشکل نشت ایمیل‌ها برطرف شده ولی برای دیدن ایمیل مجبورم به شکل دستی باکت را دیکریپت کنم.</p>
+
+<h3 id="انتقال-کامنتهای-قدیمی">انتقال کامنتهای قدیمی</h3>
+<p>برای انتقال کامنتهای دیکساس به فرمت جدید یک <a href="https://github.com/mehdisadeghi/mehdix.ir/blob/master/disqus_converter.py">اسکریپت</a> دیگر پایتون نوشتم. کمی دنگ و فنگ داشت ولی کارش را انجام می‌دهد. این اسکریپت فایل XML دانلودی از سایت دیسکاس را تبدیل می‌کند به تعدادی فایل YAML با فرمتی که پیش از این دیدیم.</p>
+
+<h3 id="حذف-راحت-اسپم-و-مدیریت-کامنتها">حذف راحت اسپم و مدیریت کامنت‌ها</h3>
+<p>هنوز راه حلی ندارم. هر کامنتی مستقیما منتشر می‌شود. البته یک دیوار دفاعی ابتدایی در مقابل اسپم‌های رایج دارد.</p>
+
+<h3 id="ریپلای">ریپلای</h3>
+<p>راه حلی که برای این موضوع دارم شبیه کار گیت‌هاب است. بجای ریپلای مستقیم به نظرات، با کمک <a href="http://commonmark.org/help/">مارک‌داون</a> می‌توان با کوت کردن نوشته دیگران و قراردادن علامت <code class="highlighter-rouge">@</code> پیش از نام آنها پاسخی نوشت.</p>
+
+<h3 id="انتشار-به-صورت-پلاگین">انتشار به صورت پلاگین</h3>
+<p>در فکر انتشار کارم به صورت یک پلاگین جکیل هستم. طوری که براحتی بتوان آن را در هر وبسایتی مبتنی بر جکیل پیاده کرد.</p>
+
+<h2 id="نتیجهگیری">نتیجه‌گیری</h2>
+<p>جایگزین کردن دیسکاس با یک کامنت‌دونی خانگی و دست‌ساز برای من کار مفرّحی بود. چیزهایی یاد گرفتم و سایتم سبک‌تر شد. امیدوارم برای دیگران هم مفید باشد و اگر وبسایت استاتیک دارید به دردتان بخورد. اگر این نوشته را دوست داشتید نظر بدهید یا آن را با دوستانتان به اشتراک بگذارید.</p>
+
+</div>]]>
+    </content>
+  </entry>
+
+  <entry>
+    <title>بازگشت به فایرفاکس</title>
+    <link rel="alternate" type="text/html" href="https://mehdix.ir/return-to-firefox.html"/>
+    <id>urn:uuid:6be50825-cec7-4a44-86c6-fbcc914ad7da</id>
+    <updated>2017-12-28T00:00:00Z</updated>
+    <category term="فایرفاکس"/><category term="اینترنت"/><category term="آزادی"/>
+    <content type="html">
+      <![CDATA[<div dir="rtl"><p>یک ماهی است که بجای کرومیوم از فایرفاکس نایتلی نسخه <code class="highlighter-rouge">59.0a1</code> استفاده می‌کنم و تصمیم گرفتم گزارش کوتاهی از این سویچ بزرگ بنویسم.</p>
+
+<h3 id="مشکلات-من-با-کرومیوم">مشکلات من با کرومیوم</h3>
+<p>من به دو دلیل از کرومیوم به فایرفاکس سویچ کردم. نشتی حافظه و خطر انحصاری شدن توسعه وب.</p>
+
+<h3 id="مشکل-اول-نشتی-حافظه">مشکل اول: نشتی حافظه</h3>
+
+<p>کامپیوتر من شانزده گیگابایت حافظه رم داره. من معمولا حدود ده‌ افزونه نصب دارم و پنجاه تا صد وبسایت را در پنجره‌های مختلف باز نگه می‌دارم. مشکل این بود ظاهرا کرومیوم نشتی حافظه<sup id="fnref:mem"><a href="#fn:mem" class="footnote">1</a></sup> داشت و بعد از چند روز استفاده به تدریج حتی با بستن همه تب‌ها و کشتن همه اکستنشن‌ها هم پراسس اصلی حافظه را آزاد نمی‌کرد. مشکل به قدری شدید بود که من به دفعات مجبور به ریستارت کردن کامپیوتر می‌شدم چرا که کل حافظه در اختیار کرومیوم بود و کامپیوتر تقریبا قفل می‌شد.</p>
+
+<h3 id="مشکل-دوم-خطر-انحصاری-شدن-توسعه-وب">مشکل دوم: خطر انحصاری شدن توسعه وب</h3>
+
+<p>هکرها از گذشته مدافع تضارب آرا و آزادی وب بودند. استفاده سنگین از محصولات یک شرکت در تضاد با این موضوعه. کروم براوزر خوبی است. اما اگر همه از یک مرورگر وب استفاده کنند آزادی وب به خطر می‌افته. چرا که شرکتی که بیشترین کارها رو داره به شیوه دلخواه خودش دست به توسعه وب می‌زنه (و یا حتی دست به کشتن اون) و نیازی نمی‌بینه که معیارهای وب آزاد و رقابتی رو رعایت کنه.</p>
+
+<h3 id="فایرفاکس-چطور-به-حل-مشکلات-بالا-کمک-کرد">فایرفاکس چطور به حل مشکلات بالا کمک کرد؟</h3>
+
+<p>خوشبختانه فایرفاکس نسخه جدید نه تنها سریع‌تر شده و در بسیاری تستها بهتر یا هم‌سطح کروم ظاهر می‌شه بلکه حافظه کمتری استفاده می‌کنه و نشتی حافظه‌ی ملموسی هم نداشته.</p>
+
+<p>استفاده از فایرفاکس از این جهت مهمه که فایرفاکس متعلق به بنیاد موزیلاست که یک شرکت عام‌المنفعه است. بنابراین کسی نفع تجاری از این شرکت نمی‌بره. از طرفی موزیلا در توسعه استانداردهای وب نقش فعالی داره. مثلا اخیرا در ماجرای <a href="net-neutrality.html">DRM</a> موزیلا جزو معدود اعضای کنسرسیومی بود که بر علیه DRM رای داد. حالا هرقدر وزن موزیلا بیشتر باشه تاثیرش روی توسعه وب بیشتره.</p>
+
+<p>فایرفاکس هنوز راه زیادی در پیش داره تا فاصله‌ای که بین او و کروم بوجود آمد رو پر بکنه ولی پیشرفتهای اخیرش واقعا قابل توجه. به طور خلاصه:</p>
+
+<ul>
+  <li>مالتی‌پراسسینگ بعد از مدتها فعال شده (در نسخه‌ عادی)</li>
+  <li>رندر بخشهایی از استایل هم در پراسس‌های پس‌زمینه انجام می‌شه تا صفحات سریع‌تر لود بشن (واقعا محسوسه)</li>
+  <li>سیستم اکستنشن‌ها هم یک جراحی عظیم برای منطبق شدن با WebExtensionها پشت سر گذاشته</li>
+  <li>پلاگین‌های کروم هم روی فایرفاکس قابل نصب خواهند بود (الان هم تا حدودی امکانپذیره)</li>
+  <li>امکان گروه‌بندی تب‌ها در کانتینرهای(محفظه‌های) مختلف</li>
+</ul>
+
+<p>این آخری ویژگی خیلی مفیدیه که من رو از نصب یک پلاگین اضافه بی‌نیاز کرد. یعنی می‌شه با دو اکانت همزمان در یک وبسایت لاگین کرد به شرط اینکه در دو محفظه مختلف باز شده باشند. اگر فایرفاکس دم دست دارید راست‌کلیک کنید و Open Link in New Container Tab رو امتحان کنید.</p>
+
+<p>علاوه بر اینها جالبه که موزیلا از مدتها پیش زبان برنامه‌نویسی سیستمی جدیدی بنام <a href="https://www.rust-lang.org/en-US/">Rust</a> بوجود آورده که مشکلات امنیتی کمتری ایجاد می‌کنه و بخش‌هایی از فایرفاکس با این زبان دوباره‌نویسی شده که ظاهرا در افزایش سرعت هم نقش داشته. بهرحال من از اینکه دوباره از فایرفاکس استفاده می‌کنم راضی و خوشحالم و در توسعه اون هم کمک می‌کنم.</p>
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:mem">
+      <p>Memory Leak <a href="#fnref:mem" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+</div>]]>
+    </content>
+  </entry>
+
+  <entry>
+    <title>افزودن متادیتا به تم وبسایت</title>
+    <link rel="alternate" type="text/html" href="https://mehdix.ir/seo.html"/>
+    <id>urn:uuid:972304b5-fb00-40c3-a186-328caa505462</id>
+    <updated>2017-12-26T00:00:00Z</updated>
+    <category term="seo"/><category term="jekyll"/><category term="سئو"/><category term="جکیل"/>
+    <content type="html">
+      <![CDATA[<div dir="rtl"><p>هر از گاهی که لینکی در تلگرام برای کسی ارسال می‌کردم می‌دیدم که یک پیش‌نمایش برای برخی از لینک‌ها نمایش داده می‌شود اما برای وبسایت من نه. این مشکل را با افزودن متادیتا به صفحات رفع کردم.</p>
+
+<h3 id="تلگرام-چطور-برای-برخی-پیوندها-پیشنمایش-تولید-میکند">تلگرام چطور برای برخی پیوندها پیش‌نمایش تولید می‌کند؟</h3>
+<p>پیش‌نمایش معمولا از طریق متادیتای موجود در <code class="highlighter-rouge">header</code> وبسایت تولید می‌شود. به کمک تگ‌های <code class="highlighter-rouge">meta</code> می‌توان هر تعداد دلخواهی از این موارد را در صفحه گنجاند. این تگ‌ها نمایش داده نمی‌شوند ولی موتورهای جستجوی و برخی برنامه‌ها با خواندن آنها «می‌فهمند» چه چیزی در صفحه وجود دارد و نویسنده‌اش چه کسی است و چه ساختاری دارد و مانند اینها. مثلا تلگرام از این تگ‌ها برای تولید یک پیش‌نمایش استفاده می‌کند.</p>
+
+<h3 id="مشکل-کجا-بود-و-چطور-آن-را-حل-کردم">مشکل کجا بود و چطور آن را حل کردم؟</h3>
+<p>با کمی بررسی متوجه شده که هرچند من کلمات کلیدی و عنوان را در هدر صفحات درج می‌کردم اما خبری از سایر تگ‌ها مثل شرح و نویسنده نبود. اول قصد داشتم این‌ها را به صورت دستی در هدر تم مهدیکس درج کنم ولی با یک جستجوی ساده پلاگینی برای جکیل پیدا کردم به نام ‬<a href="https://github.com/jekyll/jekyll-seo-tag/"><code class="highlighter-rouge">jekyll-seo-tag</code></a> که همینکار را قبلا انجام داده است. بنابراین من این پلاگین را به تم اضافه کردم و تغییرات لازم را انجام دادم و یک نسخه جدید از تم با این تغییرات منتشر کردم.</p>
+
+<h3 id="اطلاعات-ویژه-موتورهای-جستجو">اطلاعات ویژه موتورهای جستجو</h3>
+<p>اگر با گرفتن Ctrl + U سورس صفحه را ببینید. علاوه بر تگ‌های متای معمول یک تگ اسکریپت هم به صفحه اضافه شده است که کار همین پلاگین است. من قبلا قصد اضافه کردن آن را داشتم ولی آن را به آینده موکول کرده بودم که البته این پلاگین زحمت من را کم کرد. این تگ از جنس <code class="highlighter-rouge">application/ld+json</code> است و <a href="https://www.w3.org/TR/2014/REC-json-ld-20140116/"><code class="highlighter-rouge">LD-JSON</code></a> نام دارد. ماجرا از آنجا شروع شد که مدتی پیش با <a href="https://www.google.com/webmasters/tools/">ابزارهای وب‌مستر گوگل</a> سایتم را بررسی کردم و پی به مشکلاتی بردم. مثلا لینک‌های خراب و کلیدواژه‌های تکرار در همه صفحات. بخشی از آنها را رفع کردم. در میان راهنماهای گوگل بخشی هم بود برای افزودن <code class="highlighter-rouge">LD-JSON</code> به صفحات و شرح هرچه بهتر محتوای آنها برای موتورهای جستجو. نمایش ساختارمند برخی از وبسایتها در جستجوی گوگل همواره برایم جالب بود. اضافه کردن <code class="highlighter-rouge">LD-JSON</code> گامی است در همین مسیر هرچند در حال حاضر ممکن است نواقص زیادی داشته باشد. ولی اگر با دقت آن را بررسی کنید اطلاعات زیادی درونش گنجانده شده است.</p>
+
+<h3 id="چرا-اینکارها-جای-تولید-محتوا-را-نمیگیرد">چرا اینکارها جای تولید محتوا را نمی‌گیرد؟</h3>
+<p>به این قبیل کارها SEO یا سئو می‌گویند که مخفف Search Engine Optimization است. این اصلاحات نمایش را در موتورهای جستجو بهبود می‌دهد ولی پرواضح است که چیزی نمی‌تواند جای محتوای خوب را بگیرد. همه این کارها وقتی سودمند خواهد بود که مرتب و بیشتر و بهتر بنویسیم. بزرگترین چالش در برابر ما اینست که همواره بنویسیم. شاید در هیاهوی زندگی روزمره درک اهمیت نوشتن مشکل باشد. می‌شود یک وبسایت را هر روز زیباتر کرد و سئوی آنرا بهبود بخشید ولی آنچه ماورای همه‌ی سئوهاست نوشته‌های ارزشمند است. برای بهتر شدن هم باید خواند و نوشت.</p>
+
+<p>نسخه <a href="https://rubygems.org/gems/jekyll-theme-mehdix-rtl/versions/0.1.19">۰.۱.۱۹</a> تم مهدیکس هم منتشر و آماده استفاده است. اصلاحات دیگری هم انجام داده‌ام از قبیل بکارگیری کامنت‌دونی استاتیک که بزودی در مورد آنها خواهم نوشت.</p>
+
+</div>]]>
+    </content>
+  </entry>
+
+  <entry>
+    <title>در مورد لغو قانون بی‌طرفی اینترنت</title>
+    <link rel="alternate" type="text/html" href="https://mehdix.ir/net-neutrality.html"/>
+    <id>urn:uuid:66e33d10-e7b8-4d67-83a0-5e01aba9fee5</id>
+    <updated>2017-12-17T00:00:00Z</updated>
+    <category term="اینترنت"/><category term="برابری"/>
+    <content type="html">
+      <![CDATA[<div dir="rtl"><p>اخیرا کمیسیون ارتباطات فدرال در ایالات متحده قانون بی‌طرفی اینترنت رو در این کشور لغو کرده. توضیح کوتاهی در مورد اینکه چرا این موضوع برای اینترنت مضرّه و ما باید از تصمیمات مشابه پرهیز کنیم.</p>
+
+<p>بی‌طرفی اینترنت یا Net Neutrality قانونی بود که در زمان دولت اوباما تصویب شده بود و سرویس‌دهندگان اینترنت رو موظف می‌کرد که با داده‌هایی که در شبکه منتقل می‌شوند یکسان برخورد کنند. بذارین با یک مثال ماجرا رو بررسی کنیم. سرویس‌دهندگان آب و برق و تلفن و موارد مشابه حق ندارند در مورد نوع مصرف ما تصمیم بگیرند، اینکه ما با برق یا آب دریافتی چکار می‌کنیم ربطی به اونها نداره. البته راهی هم برای فهمیدن این موضوع ندارند. قانون سابق اینترنت رو هم‌ارز آب و برق و سرویس‌های اولیه در نظر می‌گرفت و اجازه اعمال تبعیض بواسطه نوع مصرف رو نمی‌داد. اما وضعیت جدید مثل اینه که بسته به اینکه ما با آب و برق دریافتی چه می‌کنیم سرعت دریافت سرویس تغییر می‌کنه.</p>
+
+<p>تصور کن شرکت سامسونگ قراردادی تجاری با سرویس‌دهنده برق ببنده که اگر کاربری تلویزیون مارک سامسونگ رو روشن کرد فورا به برق دسترسی پیدا کنه ولی اگر خواست از تلویزیون رقیب استفاده کنه برق کافی براش وجود نداشته باشه یا جریان کمتری بهش برسه که اصلا روشن نشه. یا در مورد آب. تصور کن که شرکت آب و فاضلاب نسبت به اینکه ما با آب چه می‌کنیم حق داشته باشه فشار اون رو کم یا زیاد کنه. تصور کن مثلا شرکت آب اعتقادات دینی خودش رو در فشار آب لحاظ کنه. مثلا در ماه رمضون فشار آب رو در طی روز کم کنه چون قرار نیست کسی آب بخوره. یا بسته به اینکه چه نوع چای یا برنجی خریدیم فشار آب کم و زیاد بشه.</p>
+
+<p>دنیای وحشتناکی می‌شد، مگه نه؟</p>
+
+<p>هرچند این مثالها تخیلی هستند و خوشبختانه امکان کنترل آب و برق مصرفی بسیار سخت و بعیده اما این موضوع دقیقا برای اینترنت در آمریکا و اخیرا در ایران اتفاق افتاده. از نظر من اگر سرویس‌دهنده‌ها از نظر فنی توان کنترل نوع مصرف آب و برق ما رو داشتند هم اینکار رو می‌کردند. حالا سرویس‌دهنده آمریکایی برای هرکس که پول بیشتری بده پهنای باند بیشتری اختصاص می‌ده و این باعث می‌شه که توان رقابتی بازیگران کوچک کاهش پیدا کنه. برای گوگل و آمازون و نتفلیکس و سایر شرکتها پرداخت پول برای دسترسی به سرعتهای بالاتر کاری نداره ولی سایتهای کوچک که توان این قبیل قراردادها رو ندارند از دور رقابت حذف می‌شوند.</p>
+
+<p>در ایران هم اخیرا تصمیمات جدیدی در نحوه دسترسی به ترافیک اینترنت گرفته شده که کم از دست بردن سرویس‌دهندگان آب و برق در نوع مصرف ما نداره. یعنی اگر قصد دسترسی به اینترنت (شبکه جهانی اینترنت) داری باید پول بیشتری بدی و اگر حق دسترسی به اینترانت داخلی رو داری پول کمتری می‌دی. این موضوع با اتفاقی که در آمریکا افتاده تشابه داره ولی یکی نیست. در آمریکا دسترسی به داخلی و خارجی تقسیم نشده (که اگر هم شده بود باز بخش بزرگی از اینترنت رو در برمی‌گرفت) ولی در ایران اینکار اتفاق افتاده که تفکر خطرناکی است. تفکر مضحکی که فکر می‌کنه می‌شه اینترنت رو ملی کرد. در حالی که اینترنت معنای وجودی‌اش شبکه‌ای جهانی از کامپیوترهای به هم پیوسته است و اینترانت حتی در قد و قواره یک کاریکاتور از اینترنت واقعی هم نیست.</p>
+
+<p>بدنیست گذری هم به زمانی بزنیم که سالها پیش اعلام شد نرخ ارسال پیامک انگلیسی جهت حمایت از زبان فارسی افزایش پیدا می‌کنه! اشکال کار که از دید اکثر کاربرها پنهان بود اینه که به زبان فارسی کاراکترهای کمتری قابل ارسال بود و برای ارسال یک پیام به فارسی نسبت به فینگیلیسی لازم بود چند پیامک ارسال کنیم که در نهایت هزینه ارسال از انگلیسی هم بیشتر می‌شد. در پاسخ به این انتقاد یک کارشناس اومد و مشتی مزخرفات در تلویزیون سرهم کرد و یک اپ مسخره نمایش داد که این اپ این مشکل رو حل می‌کنه (بماند که چرا من باید صدها و هزاران سرویس که با پیامک استاندارد گوشی‌ها کار می‌کنند دور می‌ریختم و از یک اپ دولتی برای پیامرسانی استفاده می‌کردم؟). با این سیستم در ایران آشناییم نه؟ یک حق اساسی رو می‌گیرند و بجاش یک راه‌حل کوتاه مدت برای گیج کردن منتقدین ارائه می‌کنند. در اون ماجرا زبان فارسی تقویت نشد، اون اپ احمقانه به زباله‌دانی تاریخ ملحق شد و شرکت‌ها به پول بیشتری رسیدند و فقط ضررش به ما رسید.</p>
+
+<p>هیچوقت هم جواب ندادند چرا بجای گران کردن پیامک انگلیسی، پیامک فارسی را ارزان نکردند؟!</p>
+
+<p>سرویس‌دهندگان و دولتها باید دسترسی برابر و آزاد به اینترنت رو فراهم کنند تا امکان رقابت بین همه فراهم باشه. اینکار باعث بوجود اومدن شغل‌های جدید و نوآوری می‌شه و از هر نظر چیز مفیدی است.</p>
+</div>]]>
+    </content>
+  </entry>
+
+  <entry>
+    <title>فعالسازی HTTPS به کمک Netlify</title>
+    <link rel="alternate" type="text/html" href="https://mehdix.ir/netlify.html"/>
+    <id>urn:uuid:df8977bd-9a2f-4ef7-9e9f-49459afefb71</id>
+    <updated>2017-12-16T00:00:00Z</updated>
+    <category term="امنیت"/><category term="https"/><category term="cdn"/><category term="ssl"/>
+    <content type="html">
+      <![CDATA[<div dir="rtl"><p>از امروز این وبسایت علاوه بر HTTP از طریق <a href="https://mehdix.ir">HTTPS</a> هم در دسترس است. در این مطلب شرح می‌دهم چطور اینکار را انجام دادم.</p>
+
+<p>قبل از اینکه شیرجه بزنیم داخل راهنما، یک توضیح کوچک راجع به HTTPS بدهم. هر سایت می‌تواند به صورت HTTP یا HTTPS سرو شود. وقتی اطلاعات با HTTP سرو می‌شود هر کامپیوتری بین کامپیوتر یا موبایل ما و سایت مقصد هم لینک را می‌بیند و هم محتوا را، شامل عکس، رمز، متن و مانند اینها. از اینها گذشته می‌تواند آنرا تغییر بدهد، مثل کاری که چند وقت پیش ایرانسل انجام می‌داد و در صفحاتی که با HTTP سرو می‌شدند تبلیغات نمایش می‌داد. اما اگر وبسایتی با HTTPS سرو بشود محتوا بین کامپیوتر ما و سرور مقصد رمز می‌شود و قابل فهم نیست. امکان تغییر اطلاعات هم نیست چون مرورگر خطا می‌دهد. البته مهم است که از مرورگر سالم و دست‌نخورده استفاده کنیم، چرا که مرورگر لیست گواهینامه‌هایی که می‌تواند به آنها اعتماد کند در دل خودش دارد. تنها چیزی که کامپیوترهای بین راه در این حالت می‌بینند نام دامنه است. آنها حتی رشته‌ای که بعد از نامه دامنه می‌آیند را نخواهند دید. مثلا با مراجعه به <a href="/bookmarker.html">https://mehdix.ir/bookmarker.html</a> سرورهای بین راه فقط https://mehdix.ir را می‌بینند و باقی غیرقابل فهم است. قبلا در مورد <a href="/free-https-for-all.html">گواهینامه</a> نوشته‌ام.</p>
+
+<p>وبسایت من استاتیک است یعنی سروری از خودش ندارد و از Github سرو می‌شود. گیت‌هاب برای دامین‌های شخصی فعالسازی HTTPS را پشتیبانی نمی‌کند. برای اینکه بدون استفاده از سرور مجزا بتوان HTTPS را فعال کرد تنها یک راه وجود دارد، باید از یک CDN استفاده کرد. CDN اختصار Content Delivery Network است. با بکارگیری CDN وبسایت از طریق شبکه بزرگی از سرورهایی که در قاره‌های مختلف پراکنده‌اند سرو می‌شود. معمولا برای سرو کردن عکس‌ها و فایل‌های استاتیک از این تکنیک استفاده می‌شود، هدف اصلی هم کاهش ترافیک سرور اصلی و افزایش سرعت دسترسی به وبسایت است.</p>
+
+<p>از جایی که CDN مثل یک پر‌اکسی عمل می‌کند ما می‌توانیم به کمک آن HTTPS را برای وبسایتمان فعال کنیم. معروفترین CDN‌ای که اینکار را انجام می‌دهد CloudFlare است ولی متاسفانه به دامین‌های <code class="highlighter-rouge">.ir</code> خدمات نمی‌دهد. شرکت دیگری که خدمات مشابه و بسیار برنامه‌نویس‌پسند! ارائه می‌دهد نامش <a href="http://netlify.com/">Netlify</a> است که یک استارت‌اپ تازه‌تاسیس در سانفرانسیسکوست. من با کمک این سرویس HTTPS را برای وبسایتم فعال کردم.</p>
+
+<p>چیزی که باعث حیرت من شد کیفیت بسیار بالا و راحتی بسیار زیاد کار با Netlify بود. از طرفی برای دامین‌های ایران هم محدودیت ندارد. (ولی شاید در آینده با گسترش شرکت به فکر محدود کردن بیفتند) به طور خلاصه خدمات زیر را در پلن رایگانشان ارائه می‌کنند:</p>
+
+<ol>
+  <li>بیلد و دیپلوی کردن ریپازیتوری از روی گیت‌هاب</li>
+  <li>مدیریت دامنه جداگانه برای هر مخزن نرم‌افزاری (می‌شود یک وبسایت به هر مخزن منسوب کرد.)</li>
+  <li>فعالسازی HTTPS از طریق صدور گواهینامه Let’s Encrypt</li>
+  <li>افزایش سرعت لود با استفاده از  CDN این شرکت</li>
+  <li>بهینه‌سازی و فشرده‌سازی فایلهای وبسایت</li>
+  <li>مدیریت فرم‌های HTML و ارسال محتوا از طریق WebHook</li>
+  <li>امکان انجام Split Testing روی ترافیک (گروهی از کاربران دیزاین دیگری می‌بینند)</li>
+  <li>امکان افزودن مدیریت کاربران به سایتهای استاتیک</li>
+</ol>
+
+<p>و البته خیلی امکانات دیگر که در وبسایتشان توضیح داده‌اند.</p>
+
+<p>مراحل فعالسازی هم بسیار ساده بود. من ابتدا یک اکانت ساختم و بعد به شکل اتوماتیک مخزن گیت‌هابی که محتوای سایتم روی آن است را انتخاب کردم. از جایی که خودشان بیلد جکیل را ساپورت می‌کردند نیازی به افزودن فایل کانفیگ مجزا هم نبود. فقط از جایی که بیلد صحیح سایت من به نسخه جدیدتری از روبی نسبت به نسخه دیفالت بیلدسرور آنها نیاز داشت یک فایل <code class="highlighter-rouge">.ruby-version</code> به مخزن اضافه کردم. از سوی دیگر آدرسهای سرور دامنه‌ای که اختصارا برای هر مخزن تولید می‌شود را در وبسایت ایرنیک وارد کردم تا دامنه mehdix.ir توسط Netlify هدایت بشود.</p>
+
+<p>در مجموع خیلی راضی هستم و در پروژه‌های بیشتری از Netlify استفاده خواهم کرد.</p>
+
+</div>]]>
+    </content>
+  </entry>
+
+  <entry>
+    <title>گاوصندوقی در دل اینترنت</title>
+    <link rel="alternate" type="text/html" href="https://mehdix.ir/keybase.html"/>
+    <id>urn:uuid:16b82560-0c40-4b32-b49e-ca84dfa9960a</id>
+    <updated>2017-12-12T00:00:00Z</updated>
+    <category term="امنیت"/><category term="رمزنگاری"/><category term="گیت"/><category term="keybase"/><category term="پرایوسی"/>
+    <content type="html">
+      <![CDATA[<div dir="rtl"><p>چند سالی است که استارتاپی در کالیفرنیا پلتفرم و برنامه‌ای بنام<a href="https://keybase.io/"><code class="highlighter-rouge">keybase</code></a> تولید کرده است. این برنامه را می‌توان برای اشتراک فایل و چت و مخزن نرم‌افزاری رمزنگاری شده و خیلی کارهای دیگر بکار گرفت.</p>
+
+<p>کی‌بیس دو بخش است. یک کلاینت و یک سرور. سرور توسط کی‌بیس اداره می‌شود و اگر روزی این شرکت از بین برود دیگر در دسترس نخواهد بود. ولی در حال حاضر وسیله بدردبخوری است و به گمان من به این زودی‌ها شاهد از کارافتادن آن نخواهیم بود، بنابراین به یادگیری‌اش می‌ارزد. کلاینت هم شامل موبایل و دستکتاپ و کامندلاین است.</p>
+
+<p>اولین چیزی که کی‌بیس را متمایز می‌کند رمزنگاری سرتاسری است. بدین معنی که هرآنچه در کی‌بیس ذخیره می‌کنید فقط توسط کلیدی که در اختیار شماست قابل بازیابی است. به این تکنیک <code class="highlighter-rouge">end to end encryption</code> می‌گویند. معنایش این است که داده‌ها پیش از ترک دستگاه شما با کلیدی که تنها در اختیار شماست رمز شده و سپس ارسال می‌شوند. در حالی که در بسیاری از سرویسها خود سرویس‌دهنده همواره به داده‌های شما دسترسی دارد.</p>
+
+<p>کاری که نویسندگان کی‌بیس انجام داده‌اند اینست که پلتفرمی پیاده کرده‌اند که امکان پیاده‌سازی سرویسهای سطح بالاتری را ایجاد می‌کند. در پایین‌ترین سطح آنها مکانیزمی ایجاد کرده‌اند که مهمترین کارها از قبیل رمزنگاری و رمزگشایی روی دستگاه کاربر و با کلیدهایی که فقط در اختیار کاربر است انجام می‌شود. کی‌بیس فقط ایمیل ما و هش پسورد را در اختیار دارد. از سوی دیگر یک بانک داده عظیم دارد که مثل یک پاتیل بزرگ از داده‌های غیرقابل فهم است. حالا آنها سرویسهای سودمندی بین کاربران کیبیس ایجاد کرده‌اند، مثلا اشتراک فایل و چت خصوصی و گروهی و سرویسهای خصوصی مثل ذخیره فایل و ایجاد مخزن گیت. آنها پا را از این فراتر گذاشته و رقیبی هم برای Slack بوجود آورده‌اند که کاملا رمزنگاری شده است و داده‌ها فقط برای اعضا قابل مشاهده است.</p>
+
+<p>یکی از سرویسهای اصلی که کی‌بیس از ابتدا ایجاد کرد امکان تایید رمزنگاری شده‌ی اکانتهای اینترنتی بود. به این شیوه ما می‌توانیم وبسایت و اکانت گیت‌هاب و توئیتر و مانند اینها را به پروفایل کی‌بیس اضافه کنیم فقط به این شرط که بتوانیم مالیکت خود را بر آن اکانت با آپلود یک فایل یا توئیت ثابت کنیم. مثلا من وبسایت مهدیکس را به <a href="https://keybase.io/mehdisadeghi">پروفایلم</a> اضافه کرده‌ام. برای اثبات ادعایم هم <a href="keybase.txt">فایل ادعای مالکیتم</a> را به سایتم اضافه کرده‌ام.</p>
+
+<p>کار با کی‌بیس هم سخت نیست. اول باید در سایت آنها یک اکانت ساخت. برای اینکار فقط به یک ایمیل و انتخاب پسورد نیاز است. این مرحله تنها برای لاگین در کلاینت کاربرد دارد و همچنان نمی‌توان از سرویسهای کی‌بیس استفاده کرد. گام بعدی اضافه کردن دستگاهی به اکانت کی‌بیس است. یک موبایل یا لپتاپ یا یک کلید کاغذی. هر کدام از اینها مثل یک دروازه به سوی اکانت کی‌بیس است و شامل یک کلید است. البته کلید کاغذی رشته‌ای از چندین کلمه است که یکبار نمایش داده می‌شود و باید آنرا خارج از کامپیوتر و در دنیای واقعی جایی ذخیره کنیم که اگر دستگاهمان از دست رفت با کمک کلید کاغذی داده‌هایمان را بازیابی کنیم. البته به شرط به خاطر داشتن رمز عبور.</p>
+
+<p>نکته جالبی که در مورد کی‌بیس باید بدانیم اینست که اگر رمز عبور را فراموش کنیم هرچند می‌توانیم آنرا به کمک ایمیلی که موقع ثبت‌نام وارد کرده‌ایم بازیابی کنیم اما همه داده‌ها پاک خواهند شد. معنی‌اش اینست که اگر ایمیل ما به سرقت برود همچنان تا زمانی که دستگاه‌ها و کلید کاغذی در اختیارمان باشد، سارق نمی‌تواند داده‌ها را بازیابی کند و در صورت ریست کردن رمزعبور همه داده‌ها شامل گروه‌ها و چت‌ها و مخازن نرم‌افزاری پاک می‌شود.</p>
+
+</div>]]>
+    </content>
+  </entry>
+
+  <entry>
+    <title>کاهش زمان بیلد به کمک پروفایلر</title>
+    <link rel="alternate" type="text/html" href="https://mehdix.ir/merciless-simplification.html"/>
+    <id>urn:uuid:15725e39-6e85-4ed9-bd7b-a0e8f09d117f</id>
+    <updated>2017-12-01T00:00:00Z</updated>
+    <category term="ساده‌سازی"/><category term="بیلد"/><category term="روبی"/><category term="کشینگ"/><category term="جکیل"/><category term="پروفایلینگ"/>
+    <content type="html">
+      <![CDATA[<div dir="rtl"><p>مدتی بود قصد داشتم دستی به سر و روی تم مهدیکس بکشم، چرا که تولید وبسایت خیلی کند شده بود. امروز اینکار را انجام دادم.</p>
+
+<p>لپتاپی که من برای تولید وبسایت مهدیکس بکار می‌برم ۱۶ گیت رم و یک سی‌پی‌یو اینتل Core i5 2.5 GHz دارد.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Intel(R) Core(TM) i5-3210M CPU @ 2.50GHz
+</code></pre></div></div>
+
+<p>اخیرا متوجه شده بودم که تبدیل سورس وبسایت به خروجی استاتیک تقریبا دو دقیقه طول می‌کشد. اول تصور کردم که جکیل کند است. اگر با ‏مولد سایت‌ساز <a href="https://github.com/gohugoio/hugo">هوگو</a> کار کرده باشید تفاوت سرعت را حس می‌کنید. در یک آزمایش پست‌های وبسایتم را در یک سایت هوگو کپی کردم و تولید خروجی یک ثانیه هم طول نکشید! البته این مقایسه منصفانه نبود چون پلاگین‌ها را نمی‌توانستم کپی کنم. از طرفی هوگو هم از پلاگین پشتیبانی نمی‌کند و امکان فعالسازی پلاگینی مانند تاریخ شمسی وجود نداشت.</p>
+
+<p>برای بررسی دقیق‌تر ماجرا از پروفایلر باندلر استفاده کردم تا مقصر کندی کامپایل را پیدا کنم:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bundler exec jekyll build --profile
+</code></pre></div></div>
+
+<p>چند خط اول خروجی این است:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Filename                                                                                     | Count |    Bytes |    Time
+<span class="nt">---------------------------------------------------------------------------------------------</span>+-------+----------+--------
+_layouts/default.html                                                                        |   191 | 3343.87K | 123.415
+vendor/bundle/ruby/2.4.0/gems/jekyll-theme-mehdix-rtl-0.1.4/_includes/header.html            |   191 |  213.94K | 122.159
+_layouts/tag_page.html                                                                       |   137 | 1388.12K |   3.364
+vendor/bundle/ruby/2.4.0/gems/jekyll-theme-mehdix-rtl-0.1.4/_includes/footer.html            |   191 | 1013.57K |   0.654
+</code></pre></div></div>
+
+<p>در جدول بالا نام فایل و زمان سپری شده در آن فایل آمده است. مثلا در این مورد ۱۲۲.۱۵۹ ثانیه صرف پردازش فایل <code class="highlighter-rouge">header.html</code> شده است. همین کافی بود که با بررسی آن فایل متوجه اشکالی در مارک‌آپ بشوم که گویا باعث شده بود که پارسر هر بار تلاش زیادی بکند که سورس را بفهمند. مشکل هم ساده بود، تگی را باز کرده بودم ولی نبسته بودم. پروفایلر پیدا کردن این قبیل مشکلات را ساده می‌کند.</p>
+
+<p>با رفع این مشکل و حذف برخی از تگ‌های بلااستفاده <code class="highlighter-rouge">Liquid</code> نتیجه خیلی بهتر شد:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    Filename                                                                                     | Count |    Bytes |  Time
+<span class="nt">---------------------------------------------------------------------------------------------</span>+-------+----------+------
+_layouts/tag_page.html                                                                       |   137 | 1394.06K | 3.528
+_layouts/default.html                                                                        |   191 | 3216.87K | 1.315
+vendor/bundle/ruby/2.4.0/gems/jekyll-theme-mehdix-rtl-0.1.6/_includes/footer.html            |   191 | 1055.16K | 0.643
+vendor/bundle/ruby/2.4.0/gems/jekyll-theme-mehdix-rtl-0.1.6/_includes/head.html              |   192 |  153.29K | 0.411
+_layouts/minimal.html                                                                        |     9 |  103.55K | 0.251
+</code></pre></div></div>
+
+<p>زمان کامپیال کل وبسایت از ۱۲۸.۱۸ ثانیه به ۷.۲۶۲ ثانیه کاهش پیدا کرد! حالا دیگر کندترین بخش برنامه ۳.۵ ثانیه است که صرف پردازش فایل <code class="highlighter-rouge">tag_pages.html</code> شده است، که مربوط است به یک پلاگین جکیل بنام <code class="highlighter-rouge">jekyll-tagging</code> که از آن برای تولید تگ‌کلاود استفاده کرده‌ام. (که با مقداری بررسی فهمیدم پلاگین چندان خوبی نیست. خوب نگهداری نشده، پول ریکوئست‌ها بی پاسخ مانده‌اند و سوال‌ها بدون جواب) در آینده سعی می‌کنم این بخش را بهتر کنم ولی فعلا از بهبود ۱۷۰۰ درصدی زمان بیلد خوشحالم!</p>
+
+<p>مشکلات بالا را در <a href="https://github.com/mehdisadeghi/jekyll-theme-mehdix-rtl">تم مهدیکس</a> رفع کردم و اصلاحات دیگری نیز اعمال کردم، از قبیل بهبود نمایش در موبایل و ساده‌سازی ظاهر تم و نیز ریفکتور کردن کد و حذف بخش‌های بیهوده. نتیجه شد انتشار ‬‬<a href="https://rubygems.org/gems/jekyll-theme-mehdix-rtl/versions/0.1.6">نسخه ۰.۱.۶</a> تم.</p>
+
+</div>]]>
+    </content>
+  </entry>
+
+  <entry>
+    <title>چالش جدید، تعمیر pygtk</title>
+    <link rel="alternate" type="text/html" href="https://mehdix.ir/pygtk-rtl-bug.html"/>
+    <id>urn:uuid:5e3fbde8-42e6-4d4e-b367-c805fc887c7f</id>
+    <updated>2017-11-15T00:00:00Z</updated>
+    <category term="pygtk"/><category term="rtl"/><category term="bug"/>
+    <content type="html">
+      <![CDATA[<div dir="rtl"><p>من معمولا از یک برنامه ویکی بنام <a href="http://zim-wiki.org/"><em>زیم</em></a> برای نوشتن یادداشت‌های روزانه و نوت‌برداری استفاده می‌کنم. این برنامه هم مثل gedit ‏<a href="/13-years-old-bug-fixed.html">مشکل راست به چپ نویسی</a> دارد. هرچند مشکل gedit با آپدیت‌های اخیر برطرف شده ولی این اتفاق در مورد زیم نیفتاد. پس تصمیم گرفتم زیم رو تعمیر کنم.</p>
+
+<p>به طور خلاصه مشکل زیم هم اینه که وقتی کلید کنترل رو نگه می‌داریم و با کلیدهای جهت قصد حرکت در جمله رو داریم جهت حرکت نشانگر تایپ برعکس انتظار ماست. اول فکر کردم مشکل باید از زیم باشه و یک باگ برای زیم <a href="https://github.com/jaap-karssenberg/zim-desktop-wiki/issues/229">ثبت</a> کردم. ولی با مقداری کنکاش متوجه شدم که مشکل از pygtk است و زیم نقشی در این باگ نداره. برای اطمینان سورس pygtk رو دانلود کردم و دموی برنامه رو اجرا کردم و مطمئن شدم که ایراد در دمو هم وجود داره.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git clone git://git.gnome.org/pygtk &amp;&amp; cd pygtk
+$ python examples/pygtk-demo/pygtk-demo.py
+</code></pre></div></div>
+
+<p>اگر اون مشکل قبلی رو دنبال کرده باشید، در جریان هستید که مشکل از gedit نبود بلکه اشکال از GTK بود. در مورد زیم هم مشکل از لایبرری مورد استفاده برای GUI است، یعنی pygtk. همونطور که از اسم pygtk پیداست این برنامه در حقیقت چیزی جز یک wrapper پایتون برای GTK نیست. بنابراین انتظار داشتم که با آپدیت مشکل برطرف بشه ولی اینطور نشد. حرکت بعدی ثبت باگ برای pygtk بود. اول در باگ‌زیلای پروژه گنوم (که pygtk هم بخشی از اونه) جستجو کردم و مطمئن شدم که قبلا چنین باگی ثبت نشده و بعد <a href="https://bugzilla.gnome.org/show_bug.cgi?id=790341">یک باگ</a> با شرح ماوقع ثبت کردم.</p>
+
+<p>خوشبختانه سریع جوابهای مفیدی گرفتم. اول اینکه مشخص شد pygtk از برنچ GTK+2 استفاده می‌کنه و ممکنه تغییراتی که در نسخه‌های جدیدتر ‍‍‍<code class="highlighter-rouge">GTK+</code> اعمال شده به این نسخه Back Port نشده باشه (کار رایجیه، به این معنی که تغییرات به نسخه‌های قدیمی‌تر هم منتقل بشن). ولی با کامنت بعدی مشخص شد که این بک پورت انجام شده ولی ظاهرا نسخه جدیدی با این تغییرات منتشر نشده. برای اطمینان از این موارد مجبورم GTK+2 رو دانلود و بیلد کنم و مطمئن بشم که تغییرات به درستی در اون لحاظ شدند. بعد نوبت بیلد و تست آخرین نسخه منتشر شده‌ی pygtk خواهد بود.</p>
+
+<p>این کارها زمانبره. مثلا الان مشغول نصب jhbuild هستم که ابزاری است برای بیلد و اجرای دسکتاپ گنوم برای توسعه‌دهندگان. مراحل بعدی رو هم به محض اجرا خواهم نوشت.</p>
+
+<h2 id="کشف-همین-باگ-در-فایرفاکس">کشف همین باگ در فایرفاکس!</h2>
+<p>من جدیدا بیشتر از فایرفاکس استفاده می‌کنم و همین الان موقع نوشتن یک پیام در مسج‌باکس توئیتر متوجه شدم اگر متن رو هایلایت کنیم و سعی کنیم با کنترل و کلیدهای جهت متن انتخابی رو تغییر بدیم جهت حرکت نشانگر کیبورد برعکسه! خدایا!</p>
+
+<p>باید برم فایرفاکس رو هم <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1417662">تعمیر</a> کنم.</p>
+
+</div>]]>
+    </content>
+  </entry>
+
+  <entry>
+    <title>درگذشت اشکان قاسمی</title>
+    <link rel="alternate" type="text/html" href="https://mehdix.ir/rip-ashkan.html"/>
+    <id>urn:uuid:347fa7f0-0ab0-4b47-8bd7-0b6ebd5af720</id>
+    <updated>2017-10-01T00:00:00Z</updated>
+    <category term="تهران‌لاگ"/><category term="اشکان"/>
+    <content type="html">
+      <![CDATA[<div dir="rtl"><p>اشکان قاسمی از بنیانگذاران و بچه‌های قدیمی گروه کاربران لینوکس تهران روز گذشته <a href="https://jadi.net/2017/10/ashkan-ghasemi/">فوت کرد</a>.</p>
+
+<p>خبر بسیار تکاندهنده‌ای بود و هنوز هم بعد از ساعتها حالم گرفته است. من اشکان رو بار اول شش هفت سال پیش در جلسه تهران لاگ ملاقات کردم. بعدها هم چند مورد در نامه‌نگاری‌های میلینگ‌لیست لاگ تهران پیامهاش رو خوندم. تلاشش برای برگزاری دائم جلسات تهران لاگ تحسین‌برانگیز بود. من در تجربه کوتاهم با او، او را آدمی اهل مدارا و آزادیخواه پیدا کردم. مشخص بود که آدمی است اهل مطالعه و باخبر از جریانات مهم دنیا مثل سرمایه‌داری و به نوبه خودش در تلاش برای ایجاد تغییر به نفع یک جامعه باز و عادلانه. با دردسرهای زنده نگه داشتن یک گروه هم آشنا بود و اینکه چطور با آدمهای مختلف و بویژه بعضا کسانی که فضای یک گروه رو مسموم می‌کنند روبرو شد. برنامه jcal رو هم مطابق با فلسفه یونیکس نوشته بود.</p>
+
+<p>آدمهایی که بشه بهشون نزدیک شد و در یک فضای محترمانه باهاشون همکاری کرد غنیمت هستند. آدمهایی که دنبال سوءاستفاده از سایرین نباشند. آدمهایی که دنبال کسب برتری نباشند. آدمهایی که دوست داشته باشند که همه در کنار هم فرصت رشد داشته باشند. به نظرم اشکان چنین آدمی بود و جای او برای عزیزان و دوستانش و بچه‌های لاگ تهران و همفکرانش و بسیاری از ما خالی خواهد ماند.</p>
+
+<h2 id="آپدیت">آپدیت</h2>
+<p>چقدر ناراحت‌کننده است وقتی می‌بینی هزاران کیلومتر دورتری و چه کارها که با کسانی که ملاقات کردی می‌تونستی انجام بدی که هرگز محقق نشده. این ناراحتی قدرتی به آدم می‌ده که پاشه بجنگه و نذاره که زندگی به همین راحتی به ف*ک بره.</p>
+
+<p>این رو بخاطر این نوشتم که من از خوانندگان دائمی <a href="http://meidaan.com/">میدان</a> هستم و اونطوری که در وبلاگ جادی خوندم اشکان از بنیانگذاران یا نویسندگان و فعالان دائمی میدان بوده و من چه دیر فهمیدم.</p>
+
+</div>]]>
+    </content>
+  </entry>
+
+  <entry>
+    <title>کلشوگرام</title>
+    <link rel="alternate" type="text/html" href="https://mehdix.ir/clashogram.html"/>
+    <id>urn:uuid:0b015a33-96b2-40b1-a40c-ead3ef5346c4</id>
+    <updated>2017-09-24T00:00:00Z</updated>
+    <category term="بازی"/><category term="کلش"/><category term="تلگرام"/><category term="پروژه"/>
+    <content type="html">
+      <![CDATA[<div dir="rtl"><p>من هر از گاهی به همراه دوستانم در کلنی که داریم کلش بازی می‌کنم. دوست داشتیم که بتوانیم بدون باز کردن بازی جزئیات وارها را دنبال بکنیم. من هم <a href="https://github.com/mehdisadeghi/clashogram/">کلشوگرام</a> را نوشتم که با استفاده از API کلش آو کلنز آخرین اخبار وار را از سرورهای سوپرسل بخواند و روی یک کانال تلگرامی (یا هرجای دیگر) ارسال کند.</p>
+
+<p>هدف از بکارگیری برنامه اینست که بدون باز کردن بازی بتوان اخبار وار را دنبال کرد. خوشبختانه شرکت سوپرسل، تولید کننده بازی کلش آو کلنز، مدتی است دسترسی به بخشی از امکانات بازی را از طریق وب فراهم کرده است. یعنی می‌شود اطلاعات مختلفی را از سرورهای بازی از طریق برنامه‌نویسی دریافت کرد. یکی از این موارد وارلاگ یک کلن است، البته به شرط آنکه وارلاگ را عمومی کرده باشید. کلن ما (YVL0C8UY) وارلاگش معمولا باز است. بنابراین کافیست برنامه‌ای بنویسیم که این سرویس را به طور مرتب مانیتور کند و تغییرات را گزارش کند.</p>
+
+<p>من برنامه‌ای با پایتون نوشتم که هر چند دقیقه سرویس وارلاگ را صدا می‌کند و اگر حمله‌ی جدیدی انجام شده باشد یک پیام از طریق تلگرام به یک کانال ارسال می‌کند. البته لازم نیست لزوما تلگرام باشد. می‌تواند پیام را به هرجای دیگری هم بفرستد.</p>
+
+<p>نحوه بکارگیری ولی قدری زحمت دارد. اول باید مقدمات زیر را فراهم کرد:</p>
+
+<ul>
+  <li>اول باید  یک اکانت دولوپر در ‬<a href="https://developer.clashofclans.com/#/account">پورتال توسعه‌دهندگان</a> ساخت.</li>
+  <li>بعد یک توکن در همان سایت بسازید.  برای اینکار باید آپی پی معتبر خودتان را <a href="http://whatismyipaddress.com">بدانید</a>.</li>
+  <li>گام بعدی ساخت یک بات تلگرام به کمک <a href="https://telegram.me/BotFather">بات‌فادر</a> است.</li>
+  <li>بعد باید بات تلگرامی که ساختیم را به یک گروه تلگرامی که قصد داریم پیامها را به آنجا بفرستیم به عنوان مدیر اضافه کنیم.</li>
+  <li>لاگ کلن خودتان را باز کنید.</li>
+  <li>تگ کلن را یادداشت کنید.</li>
+</ul>
+
+<p>توضیح کوتاهی هم در مورد موارد بالا بدهم. آی پی باید ثابت باشد چون برای ساخت توکن باید یک آی پی وارد کنید و سرور سوپرسل فقط به درخواستهایی که از آن آی‌پی بیایند جواب خواهد داد. ناگفته پیداست که اگر قصد اجرای برنامه در خانه را دارید احتمالا باید چند روز یکبار توکن را مجددا بسازید چون آی‌پی‌های خانگی معمولا متغیر هستند. علت ادمین کردن بات در کانال هم به این خاطر است که فقط باتهای ادمین قادر به ارسال پیام هستند.</p>
+
+<p>با این توضیحات می‌توان برنامه را نصب و اجرا کرد. اگر با پایتون آشنا هستید که خیلی راحت است. باید پایتون ۳ را نصب داشته باشید:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>pip <span class="nb">install </span>clashogram
+</code></pre></div></div>
+
+<p>بعد از نصب می‌توانیم برنامه را با وارد کردن اطلاعاتی که پیشتر جمع‌آوری کرده‌ایم اجرا کنیم:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ LANGUAGE</span><span class="o">=</span>fa_IR clashogram <span class="nt">--coc-token</span> &lt;COC_TOKEN&gt; <span class="nt">--clan-tag</span> &lt;CLAN_TAG&gt; <span class="nt">--bot-token</span> &lt;TELEGRAM_BOT_TOKEN&gt; <span class="nt">--channel-name</span> &lt;TELEGRAM_CHANNEL_NAME&gt;
+</code></pre></div></div>
+
+<p>برای نمونه پیامهای <a href="https://t.me/iranclanwars">کانال کلن ایران</a> را ببینید.</p>
+
+<p>کد برنامه را سعی کردم تمیز بنویسم و تعداد قابل توجهی هم تست ضمیمه برنامه کرده‌ام. هدفم این بود که کد خوانا و ساده باشد تا اگر کسی دوست داشت بتواند آنرا توسعه بدهد. به روال همیشه کد برنامه را در گیت‌هاب <a href="https://github.com/mehdisadeghi/clashogram/">منتشر</a> کرده‌ام.</p>
+
+</div>]]>
+    </content>
+  </entry>
+
+  <entry>
+    <title>تولید فرمولهای زیبای ریاضی در وب</title>
+    <link rel="alternate" type="text/html" href="https://mehdix.ir/react-mathjax-preview.html"/>
+    <id>urn:uuid:335ef169-0331-4ae5-a1f0-bc775412e798</id>
+    <updated>2017-09-18T00:00:00Z</updated>
+    <category term="react"/><category term="mathjax"/><category term="ریاضی"/><category term="فرمول"/><category term="پروژه"/>
+    <content type="html">
+      <![CDATA[<div dir="rtl"><p>از چندی پیش تصمیم گرفته‌ام همینطور که مشغول برنامه‌نویسی هستم قطعات کوچک کارهای خودم را به صورت پکیج قابل استفاده مجدد منتشر کنم. امروز یک کامپوننت کوچک React نوشتم.</p>
+
+<p>چند وقتی است درگیر نمایش فرمولهای ریاضی در یک پروژه React هستم. <a href="https://facebook.github.io/react/">React</a> یک پروژه اوپن سورس از طرف شرکت فیسبوک است. وبسایتها یا اپ‌هایی که با این تکنولوژی ساخته می‌شوند از قسمت‌های کوچکی بنام Component تشکیل می‌شوند. هر کامپوننت State خودش را دارد و بخش مجزایی از برنامه را به اصطلاح «رِندر» می‌کند. React هم همواره گوش به زنگ تغییر State است و با هر تغییر از همه کامپوننت‌ها می‌خواهد که خودشان را بروز کنند. البته هر کامپوننت خودش تصمیم می‌گیرد که بروز بشود یا نه.</p>
+
+<p>به همین معرفی کوتاه از React بسنده می‌کنم و می‌روم سراغ کامپوننت خودم. در میان محققان سه روش رایج برای مکتوب کردن فرمولهای ریاضی وجود دارد. TeX و ASCIImath و MathML. در این میان TeX از همه معروف‌تر و پرکاربردتر است. MathML هم یک استاندارد مبتنی بر XML است که برای تایپ توسط آدمها ساخته نشده و بیشتر برای هضم توسط برنامه‌ها و مرورگرها بوجود آمده است. ولی مرورگرها به درستی از آن پشتیبانی نمی‌کنند. در اینترنت پروژه اوپن سورس خوب دیگری وجود دارد بنام MathJax. این پروژه که با جاوااسکریپت نوشته شده می‌تواند هر سه فرمتهای بالا را بپذیرد و خروجی زیبا و قابل نمایش در مرورگر اینترنت بازدید کننده تولید بکند. اهمیت این پروژه در اینست که می‌تواند بسته به نوع و نسخه مرورگر بازدید کننده خروجی مناسب تولید کند. حالا یا با تولید کد MathML یا توسط استایل‌گذاری با CSS و HTML خالص. لازم به ذکر است که هیچ مرورگری قادر به نمایش ASCIImath و TeX نیست. در پشتیبانی از MathML هم بین علما اختلاف است!</p>
+
+<p>حالا کامپوننت ما این وسط چکاره است؟ مشکل من این بود که نمی‌توان <a href="https://www.mathjax.org/">MathJax</a> را به صورت خام در یک پروژه React بکار برد و باید برایش یک کامپوننت نوشت که با توجه به Life Cycle کامپوننت React در زمان مناسب عمل رِندر کردن خروجی را انجام بدهد. (از توضیح Life Cylce می‌گذریم!) من هم بجای اینکه در لابلای کد پروژه خودم اینکار را انجام بدهم برایش یک کامپوننت بنام <code class="highlighter-rouge">react-mathjax-preview</code> نوشتم و روی npmjs <a href="https://www.npmjs.com/package/react-mathjax-preview">منتشر</a> کرده‌ام. در یک پروژه جاوااسکریپت می‌توان آنرا به شیوه زیر نصب کرد:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ npm install react-mathjax-preview
+</code></pre></div></div>
+
+<p>برای استفاده از هم کافی است پکیج را ایمپورت کنید و رشته حاوی کدهای ریاضی را به آن بدهید:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span><span class="nx">Component</span><span class="p">}</span> <span class="k">from</span> <span class="s1">'react'</span>
+<span class="k">import</span> <span class="p">{</span><span class="nx">render</span><span class="p">}</span> <span class="k">from</span> <span class="s1">'react-dom'</span>
+<span class="k">import</span> <span class="nx">MathJax</span> <span class="k">from</span> <span class="s1">'react-mathjax-preview'</span>
+
+<span class="kd">const</span> <span class="nx">math</span> <span class="o">=</span> <span class="nb">String</span><span class="p">.</span><span class="nx">raw</span><span class="s2">`
+
+  $$\lim_{x \to \infty} \exp(-x) = 0$$`</span>
+
+<span class="kd">class</span> <span class="nx">Demo</span> <span class="kd">extends</span> <span class="nx">Component</span> <span class="p">{</span>
+  <span class="kd">constructor</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">super</span><span class="p">(</span><span class="nx">props</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">state</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="na">math</span><span class="p">:</span> <span class="nx">tex</span>
+    <span class="p">}</span>
+  <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="o">&lt;</span><span class="nx">MathJax</span> <span class="nx">math</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">math</span><span class="p">}</span> <span class="sr">/</span><span class="err">&gt;
+</span>  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>همراه سورس برنامه یک دموی کوچک هم هست که به روش زیر می‌توانید اجرا کنید:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/mehdisadeghi/react-mathjax-preview &amp;&amp; cd react-mathjax-preview
+npm install
+npm run start
+</code></pre></div></div>
+
+<p>اگر با مرورگر لوکال‌هاست پورت ۳۰۰۰ را باز کنید خروجی باید چیزی شبیه عکس زیر باشد:</p>
+
+<p class="center"><img src="assets/pimg/mathjax-preview.png" alt="" /></p>
+
+<p>طبق روال همیشه ‬<a href="https://github.com/mehdisadeghi/react-mathjax-preview">سورس</a> برنامه روی گیت‌هاب است.</p>
+
+</div>]]>
+    </content>
+  </entry>
+
+  <entry>
+    <title>انتشار قالب جکیلِ وبسایت</title>
+    <link rel="alternate" type="text/html" href="https://mehdix.ir/jekyll-theme.html"/>
+    <id>urn:uuid:8a6802dc-3e8f-4ba4-8c0e-c4b1a1d70db1</id>
+    <updated>2017-09-17T00:00:00Z</updated>
+    <category term="جکیل"/><category term="روبی"/>
+    <content type="html">
+      <![CDATA[<div dir="rtl"><p>طی چند سالی که از تاسیس این وبسایت با بکارگیری جکیل می‌گذرد، هر از چندگاهی کسی در مورد نحوه راه‌اندازی وبسایت سوالی می‌پرسد. من هم تصمیم گرفتم برای ساده کردن کار خودم و دیگران وبسایت را به صورت قالب جکیل منتشر کنم.</p>
+
+<p>زمانی که برای اولین بار این وبسایت را با جکیل ساختم هنوز جکیل از بکارگیری قالب برای وبسایت پیشیبانی نمی‌کرد. اما اکنون می‌توان یک قالب را به همراه پلاگین‌ها و <em>Layout</em>هایش در یک جم روبی بسته‌بندی کرده و در سایتهای دیگر بکار برد. نام این قالب را <em>jekyll-theme-mehdix-rtl</em> گذاشتم. می‌توان آنرا از گیت‌هاب دریافت کرد:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/mehdisadeghi/jekyll-theme-mehdix-rtl
+</code></pre></div></div>
+
+<p>صرفا جهت مشاهده قالب یه وبسایت مینیاتوری هم درون این مخزن وجود دارد که می‌توان آنرا به سبک متعارف پروژه‌های روبی اجرا کرد:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ bundle install # Install the dependencies
+$ jekyll serve # or bundle exec jekyll serve
+</code></pre></div></div>
+
+<p>اگر در حال حاضر یک وبسایت جکیل دارید می‌توانید با اضافه کردن خطوط زیر به فایل کانفیگ جکیل این تم را نصب کنید:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>theme: "jekyll-theme-mehdix-rtl"
+</code></pre></div></div>
+
+<p>درون <em>Gemfile</em> هم باید خطوط زیر را اضافه کرده باشید:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>source "https://rubygems.org"
+gem "jekyll", "3.5.2"
+gem "jekyll-theme-mehdix-rtl", "0.1.1"
+</code></pre></div></div>
+
+<p>این قالب ویژگی‌های زیر را داراست:</p>
+
+<ul>
+  <li>نمایش جلالی تاریخ‌ها</li>
+  <li>صفحه جداگانه برای برچسب‌ها</li>
+  <li>دارای یک چیدمان مینیمال (<em>minimal</em>) برای صفحه اصلی</li>
+</ul>
+
+<p>قالب را روی روبی‌جمز ‏<a href="https://rubygems.org/gems/jekyll-theme-mehdix-rtl">منتشر</a> کرده‌ام. و از همانجا هم مستقیما قابل نصب است. برای جزئیات بیشتر ‏<a href="http://github.com/mehdisadeghi/jekyll-theme-mehdix-rtl">سورس قالب</a> یا <a href="http://github.com/mehdisadeghi/mehdix.ir">سورس همین وبسایت</a> را مشاهده کنید.</p>
+
+</div>]]>
+    </content>
+  </entry>
+
+  <entry>
+    <title>راست به چپ نویسی در گیتهاب</title>
+    <link rel="alternate" type="text/html" href="https://mehdix.ir/github-rtl.html"/>
+    <id>urn:uuid:32388e64-2c5c-48f2-9eaa-5424df1a763e</id>
+    <updated>2017-05-07T00:00:00Z</updated>
+    <category term="گیتهاب"/><category term="rtl"/>
+    <content type="html">
+      <![CDATA[<div dir="rtl"><p>برای اینکه در گیتهاب درست و زیبا فارسی و راست به چپ بنویسیم یک راه حل ساده وجود دارد که در ادامه شرح می‌دهم.</p>
+
+<p>گیتهاب به صورت پیشفرض امکانی برای راست به چپ کردن متن ورودی ندارد. بنابراین متن‌های فارسی را هم مثل انگلیسی چپ به راست نمایش می‌دهد که انصافا خیلی بدشکل می‌شود.</p>
+
+<p class="center"><img src="assets/pimg/github-ltr.jpg" alt="&quot;&quot;" title="یک کامنت گیتهاب در حالت عادی" /></p>
+
+<p>اما خوشبختانه گیتهاب از تگ‌های HTLM برای افزودن استایل به متن پشتیبانی می‌کند. بنابراین به شکل زیر می‌توان فارسی نوشت:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;div dir="rtl"&gt;
+متن کامنت با فرمت مارک‌داون
+&lt;/div&gt;
+</code></pre></div></div>
+<p>همینکار را در نوشتن فایل‌های README می‌توان انجام داد.</p>
+
+<p class="center"><img src="assets/pimg/github-rtl.jpg" alt="&quot;&quot;" title="همان کامنت گیتهاب با تکنیک بالا" /></p>
+
+<p>از جایی که من دوست دارم همه کارها را خودکار کنم تصمیم گرفتم یک اسکریپت <a href="https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo">Tampermonkey</a> بنویسم که یک دگمه به نوارابزار گیتهاب اضافه کند که موقع کامنت با فشار دادن آن همان چند خط کپی بشود در جعبه کامنت! در مورد Tampermonkey هم یک توضیح کوتاه بدهم. این برنامه یک افزونه کروم است، نسخه فایرفاکسش <a href="https://addons.mozilla.org/en-US/firefox/addon/greasemonkey/">Greasemonkey</a> نام دارد. کاری که می‌کند اینست که اسکریپتهایی که شما می‌نویسید یا از بین مجموعه اسکریپت‌های موجود انتخاب می‌کنید روی دامنه‌ها و سایت‌های خاصی پیاده می‌کند. یعنی مثل یک فیلتر عمل می‌کند. یعنی بعد از اینکه محتوای سایت از سرور دانلود شد یکبار آنرا از درون اسکریپت عبور می‌دهد و خروجی را به ما نمایش می‌دهد. به این ترتیب هر اسکریپت می‌تواند سایت را بخواند و در آن تغییراتی ایجاد کند.</p>
+
+<p>حالا با این توضیح کوتاه برویم سروقت اسکریپت. خوشبختانه متوجه شدم که قبلا <a href="https://github.com/Mottie/GitHub-userscripts">Rob Garisson</a> برای گیتهاب <a href="https://greasyfork.org/en/scripts/20542-github-rtl-comment-blocks">اسکریپتی مشابه</a> نوشته است. با این تفاوت که بجای تگ HTML از مارک‌های یونیکد (نشانه‌های یونیکد)  <a href="https://en.wikipedia.org/wiki/Right-to-left_mark"><code class="highlighter-rouge">&amp;rlm</code></a> و <a href="https://en.wikipedia.org/wiki/Left-to-right_mark"><code class="highlighter-rouge">&amp;lrm</code></a> استفاده کرده که اتفاقا روش حرفه‌ای‌تری به نظر می‌رسد. تنها عیبش اینست که تا صفحه ریفرش نشود متن همچنان چپ به راست نمایش داده می‌شود. به همین خاطر من از تگ‌های HTML استفاده کردم. اگر تمپرمانکی را نصب کرده باشید با مراجعه به <a href="https://greasyfork.org/en/scripts/20542-github-rtl-comment-blocks">صفحه برنامه</a> می‌توانید این اسکریپت را نصب کنید.</p>
+
+<p class="center"><img src="assets/pimg/ce7d1070-3327-11e6-91bd-403e75e679bd.gif" alt="&quot;Photo: Rob Garrison&quot;" title="Photo: Rob Garrison" /></p>
+
+<p class="image-caption"><em>Photo: Rob Garrison</em></p>
+
+<p>به امید اینکه درست‌تر و زیباتر بنویسم!</p>
+
+</div>]]>
+    </content>
+  </entry>
+
+  <entry>
+    <title>باگ سیزده ساله تعمیر شد</title>
+    <link rel="alternate" type="text/html" href="https://mehdix.ir/13-years-old-bug-fixed.html"/>
+    <id>urn:uuid:4b4fa077-5001-41b2-bdb3-f9f9638efdb2</id>
+    <updated>2017-04-08T00:00:00Z</updated>
+    <category term="gtk"/><category term="gnome"/><category term="باگ"/><category term="همکاری"/><category term="پیگیری"/>
+    <content type="html">
+      <![CDATA[<div dir="rtl"><p>در مطلب قبلی در مورد باگ GTK و تلاشم برای مرج کردن آن نوشته بودم. الان قصد دارم نتیجه‌ی چند ماه دوندگی و همکاری آنلاین را بنویسم.</p>
+
+<p>ماجرا به طور خلاصه این بود که من از مدتها پیش موقع تایپ فارسی در <code class="highlighter-rouge">gedit</code> و <code class="highlighter-rouge">zim</code> متوجه شده بودم که اگر کلید کنترل را نگه دارم و به چپ و راست حرکت کنم، نشانگر تایپ در جهت عکس حرکت می‌کند. مثل خیلی از آدم‌ها من هم منتظر شدم تا باگ توسط کس دیگری رفع بشود ولی نشد. در مرحله بعدی سعی کردم مشکل را پیدا و گزارش کنم که به ‏<a href="https://bugzilla.gnome.org/show_bug.cgi?id=136059">این باگ</a> رسیدم. تاریخ باگ را نگاه کنید، سال ۲۰۰۴ ثبت شده است. آن موقع (سال ۲۰۱۵ یا ۱۳۹۴) کل همت من به نوشتن <a href="https://bugzilla.gnome.org/show_bug.cgi?id=136059#c31">یک کامنت</a> خلاصه شد. اینکه بگویم من هم این مشکل را دارم، بلکه کسی دلش به حالم بسوزد و از وقت خودش بزند و بیاید مشکل من را حل بکند!</p>
+
+<p>خب، ولی کسی دلش نسوخت.</p>
+
+<p>اگر باگ را دنبال کنید مراحل بعدی را خودتان می‌بینید. بعد از گذشت یکسال دوباره همتم را جمع کردم و اینبار تصمیم گرفتم خودم باگ را درست کنم. با صرف چند روز وقت و سرو کله زدن با GTK و C پچی درست کردم و باگ را با حل کردم که شرحش را در مطلب قبلی آوردم. ولی مهمترین قسمت کار دنبال کردن باگ است. اگر به کامنت‌ها نگاه کنید و به کسانی که باگ‌های مشابه را ثبت کرده‌اند یا این باگ را دنبال کرده‌اند، متوجه می‌شوید که بیشتر افراد آن را دنبال نمی‌کنند و فیدبک نمی‌دهند. کامنت‌های حاوی اطلاعات روشن و مورد نیاز هم کم است. یعنی افراد (مثل خود من قبلا) کامنت می‌گذارند ولی کامنتشان کم ارزش است چون حاوی اطلاعات به درد بخور نیست و کاری هم برای آن انجام نشده است. ولی اگر کسی برنامه را تست بکند و فیدبک بدهد یا پچ را امتحان بکند و خلاصه به طریقی به پیشرفت پروسه‌ی رفع باگ کمک بکند کارش با ارزش است، در غیر اینصورت کسی توجهی به کامنتش نمی‌کند. و احتمالا جوابی هم دریافت نمی‌کند. در این مورد خواندن مقاله‌ی اریک ریموند بسیار سودمند است. اینکه <a href="http://www.catb.org/esr/faqs/smart-questions.html">چطور از هکرها هوشمندانه سوال بپرسیم</a>. جان کلام اینست که پیام باید نشانگر تلاش سوال کننده در جهت حل مشکل باشد (باید مشق شب خودت را انجام داده باشی)، گویا باشد، طلبکارانه نباشد و برای وقت پاسخ‌دهندگان ارزش قائل باشد. در ضمن باید گفتگو را دنبال کرد و در صورت نیاز با اطلاعات دوباره آن را بروزرسانی کرد. اگر پرسشی پرسیده شده باید به سرعت و دقت پاسخ داده بشود و مانند اینها.</p>
+
+<p>در نهایت بعد از گذشت چند ماه و پیگیری دائمی و رد و بدل کردن چندین و چند پچ و مشارکت عده‌ای از برنامه‌نویسان GTK بالاخره ‬<a href="https://git.gnome.org/browse/gtk+/commit/?id=0128b8d33f47c9387ee342a1158f3038e02eff49">پچ نهایی</a> در مخزن اصلی مرج شد و باگ مورد بحث بعد از گذشت ۱۳ سال فیکس شد. در این مدت دوستم آیدین غریب‌نواز به عنوان کاربر RTL با تست پچ صحت آن را تایید کرد و کامنت گذاشت و دو نفر از برنامه‌نویسان GTK بنام Daniel Bolse و Nelson Benítez León همکاری زیادی برای تولید پچ نهایی کردند.</p>
+
+<p>به این صورت بعد از مدتی اندک اندک با ریلیزهای بعدی گنوم و GTK این پچ منتشر می‌شود و دیستروها هم در نسخه‌های بعدی‌شان آنرا دریافت خواهند کرد. نکته مهمی که طی فرآیند تعمیر این باگ فهمیدیم این بود که از سیزده سال پیش تا به امروز GTK تغییرات زیادی کرده است و این باگ به تنهایی مشکل gedit را حل نمی‌کند چرا که امروز gedit دیگر از GtkTextView (که تعمیرش کردیم) برای نمایش متن استفاده نمی‌کند و بجای آن از یک ویجت دیگر بنام GtkSourceView استفاده می‌کند. بنابراین در تاریخ ۱۹ فوریه ۲۰۱۷ (اوایل اسفند ۹۵) <a href="https://bugzilla.gnome.org/show_bug.cgi?id=778928">باگ جدیدی</a> ثبت کردم و کار را روی آن شروع کردیم. با کسب تجربه از پیچیدگی‌های باگ قبلی و فرآیند حل آن اینبار با سرعت وارد عمل شدیم (یعنی یکی دو ماه!). هم من یاد گرفته بودم چطور با بچه‌های GTK کار کنم و هم آنها با مشکل راست به چپ نویسی آشنا شده بودند. (مثلا دانیل یاد گرفته بود که خودش متن عربی را تست بکند.)  اول فکر می‌کردیم که باید API ویجت GtkTextView را تغییر بدهیم و همان توابع را در GtkSourceView استفاده کنیم که با واکنش منفی یکی دیگر از برنامه‌نویسان روبرو شد و درخواست کرد که اول تلاش کنیم مشکل را درون GtkSourceView حل کنیم و بار اضافی نگهداری از یک API جدید را به پروژه تحمیل نکنیم. خوشبختانه با مقداری تلاش و همفکری دوستان به <a href="https://bugzilla.gnome.org/attachment.cgi?id=348936&amp;action=diff">پچ جدیدی</a> رسیدیم، حتی خیلی بهتر از پچی که برای GtkTextView نوشته بودیم! پچ به قدری ساده بود که کارها خیلی زود پیش رفت. طبق معمول دوستان اصلاحاتی پیشنهاد کردند که اعمال کردم. مثلا اینکه متن کامیت باید شامل لینک باگزیلا باشد، خط اول آن باید فیکس را شرح بدهد و در بدنه کامیت هم شرح مشکل آمده باشد و در خط آخر هم لینک باگزیلا. خود کد هم باید قواعد رایج GTK و خود ویجت را رعایت کند. مثل تعریف متغیرها در ابتدای کد و استفاده از آکولاد حتی برای بلاک‌های تک خطی و مانند اینها. آزاد کردن اشاره‌گرهای سی هم فراموش نشود!</p>
+
+<p>با این اوصاف باگ دوم بجای سیزده سال در  کمتر از دو ماه حل شد. حتما تصدیق می‌کنید که پیشرفت قابل توجهی است! پچ حلال مشکلات ما را هم می‌توانید در مخزن GTK ‬<a href="https://git.gnome.org/browse/gtksourceview/commit/?id=494c76dd359351b8a703b6aec328126b0f84828b">ببینید</a>. من که بی صبرانه منتظرم تا آرچ لینوکسم را آپدیت بکنم و از این به بعد هرچقدر دلم می‌خواهد در متن‌های فارسی با کنترل و کلیدهای جهت کیبورد به چپ و راست بروم! واقعا چه لذتی از این بالاتر؟ :)</p>
+
+<p>این هم عیدی من به کامیونتی راست به چپ نویسان گنوم باز ایران!</p>
+</div>]]>
+    </content>
+  </entry>
+
+</feed>

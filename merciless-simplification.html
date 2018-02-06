@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="fa">
+  
+  <head><meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="author" content="مهدی صادقی" />
+<meta name="copyright" content="Commons Attribution 4.0 International" />
+<meta name="robot" content="" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="description" content="سکوی انتشار مطالبی در مورد دانش تولید نرم‌افزار و ایده‌ها و علایق شخصی‌ام." />
+
+<link rel="canonical" href="https://mehdix.ir/publishing-with-jekyll.html" />
+<link rel="icon" href="https://mehdix.ir/assets/img/me.png" />
+<link rel="stylesheet" href="https://mehdix.ir/assets/css/main.css" />
+<link rel="stylesheet" href="https://mehdix.ir/assets/fonts/fontawesomev5.0.2.css" />
+<meta name="keywords" content='ساده‌سازی,بیلد,روبی,کشینگ,جکیل,پروفایلینگ' /><title>کاهش زمان بیلد به کمک پروفایلر - مهدی صادقی</title><!-- Begin Jekyll SEO tag v2.4.0 -->
+<title>کاهش زمان بیلد به کمک پروفایلر | مهدی صادقی</title>
+<meta name="generator" content="Jekyll v3.7.2" />
+<meta property="og:title" content="کاهش زمان بیلد به کمک پروفایلر" />
+<meta name="author" content="مهدی صادقی" />
+<meta property="og:locale" content="fa_IR" />
+<meta name="description" content="مدتی بود قصد داشتم دستی به سر و روی تم مهدیکس بکشم، چرا که تولید وبسایت خیلی کند شده بود. امروز اینکار را انجام دادم." />
+<meta property="og:description" content="مدتی بود قصد داشتم دستی به سر و روی تم مهدیکس بکشم، چرا که تولید وبسایت خیلی کند شده بود. امروز اینکار را انجام دادم." />
+<link rel="canonical" href="https://mehdix.ir/merciless-simplification.html" />
+<meta property="og:url" content="https://mehdix.ir/merciless-simplification.html" />
+<meta property="og:site_name" content="مهدی صادقی" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-12-01T00:00:00+01:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@msadeghii" />
+<meta name="twitter:creator" content="@مهدی صادقی" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://mehdix.ir/merciless-simplification.html"},"url":"https://mehdix.ir/merciless-simplification.html","author":{"@type":"Person","name":"مهدی صادقی"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://mehdix.ir/assets/img/me.png"},"name":"مهدی صادقی"},"description":"مدتی بود قصد داشتم دستی به سر و روی تم مهدیکس بکشم، چرا که تولید وبسایت خیلی کند شده بود. امروز اینکار را انجام دادم.","headline":"کاهش زمان بیلد به کمک پروفایلر","dateModified":"2017-12-01T00:00:00+01:00","datePublished":"2017-12-01T00:00:00+01:00","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  </head>
+
+  <body><header>
+  <div class="wrapper">
+    <a class="site-title" href="https://mehdix.ir/">مهدی صادقی</a>
+    <small id="motto"> در مورد نرم‌افزار و ایده‌هایم </small>
+  </div>
+</header>
+<main>
+      <div class="wrapper">
+
+<article class="post-content">
+
+  <div class="post-header">
+    <h1 class="post-title">کاهش زمان بیلد به کمک پروفایلر</h1>
+    <p>
+      <i class="fas fa-calendar"></i>
+      جمعه ۱۰ آذر ۱۳۹۶<br>
+      
+      <i class="fas fa-stopwatch"></i>
+      ۲ دقیقه مطالعه
+    </p>
+  </div>
+
+  <p>مدتی بود قصد داشتم دستی به سر و روی تم مهدیکس بکشم، چرا که تولید وبسایت خیلی کند شده بود. امروز اینکار را انجام دادم.</p>
+
+<p>لپتاپی که من برای تولید وبسایت مهدیکس بکار می‌برم ۱۶ گیت رم و یک سی‌پی‌یو اینتل Core i5 2.5 GHz دارد.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Intel(R) Core(TM) i5-3210M CPU @ 2.50GHz
+</code></pre></div></div>
+
+<p>اخیرا متوجه شده بودم که تبدیل سورس وبسایت به خروجی استاتیک تقریبا دو دقیقه طول می‌کشد. اول تصور کردم که جکیل کند است. اگر با ‏مولد سایت‌ساز <a href="https://github.com/gohugoio/hugo">هوگو</a> کار کرده باشید تفاوت سرعت را حس می‌کنید. در یک آزمایش پست‌های وبسایتم را در یک سایت هوگو کپی کردم و تولید خروجی یک ثانیه هم طول نکشید! البته این مقایسه منصفانه نبود چون پلاگین‌ها را نمی‌توانستم کپی کنم. از طرفی هوگو هم از پلاگین پشتیبانی نمی‌کند و امکان فعالسازی پلاگینی مانند تاریخ شمسی وجود نداشت.</p>
+
+<p>برای بررسی دقیق‌تر ماجرا از پروفایلر باندلر استفاده کردم تا مقصر کندی کامپایل را پیدا کنم:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bundler exec jekyll build --profile
+</code></pre></div></div>
+
+<p>چند خط اول خروجی این است:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Filename                                                                                     | Count |    Bytes |    Time
+<span class="nt">---------------------------------------------------------------------------------------------</span>+-------+----------+--------
+_layouts/default.html                                                                        |   191 | 3343.87K | 123.415
+vendor/bundle/ruby/2.4.0/gems/jekyll-theme-mehdix-rtl-0.1.4/_includes/header.html            |   191 |  213.94K | 122.159
+_layouts/tag_page.html                                                                       |   137 | 1388.12K |   3.364
+vendor/bundle/ruby/2.4.0/gems/jekyll-theme-mehdix-rtl-0.1.4/_includes/footer.html            |   191 | 1013.57K |   0.654
+</code></pre></div></div>
+
+<p>در جدول بالا نام فایل و زمان سپری شده در آن فایل آمده است. مثلا در این مورد ۱۲۲.۱۵۹ ثانیه صرف پردازش فایل <code class="highlighter-rouge">header.html</code> شده است. همین کافی بود که با بررسی آن فایل متوجه اشکالی در مارک‌آپ بشوم که گویا باعث شده بود که پارسر هر بار تلاش زیادی بکند که سورس را بفهمند. مشکل هم ساده بود، تگی را باز کرده بودم ولی نبسته بودم. پروفایلر پیدا کردن این قبیل مشکلات را ساده می‌کند.</p>
+
+<p>با رفع این مشکل و حذف برخی از تگ‌های بلااستفاده <code class="highlighter-rouge">Liquid</code> نتیجه خیلی بهتر شد:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    Filename                                                                                     | Count |    Bytes |  Time
+<span class="nt">---------------------------------------------------------------------------------------------</span>+-------+----------+------
+_layouts/tag_page.html                                                                       |   137 | 1394.06K | 3.528
+_layouts/default.html                                                                        |   191 | 3216.87K | 1.315
+vendor/bundle/ruby/2.4.0/gems/jekyll-theme-mehdix-rtl-0.1.6/_includes/footer.html            |   191 | 1055.16K | 0.643
+vendor/bundle/ruby/2.4.0/gems/jekyll-theme-mehdix-rtl-0.1.6/_includes/head.html              |   192 |  153.29K | 0.411
+_layouts/minimal.html                                                                        |     9 |  103.55K | 0.251
+</code></pre></div></div>
+
+<p>زمان کامپیال کل وبسایت از ۱۲۸.۱۸ ثانیه به ۷.۲۶۲ ثانیه کاهش پیدا کرد! حالا دیگر کندترین بخش برنامه ۳.۵ ثانیه است که صرف پردازش فایل <code class="highlighter-rouge">tag_pages.html</code> شده است، که مربوط است به یک پلاگین جکیل بنام <code class="highlighter-rouge">jekyll-tagging</code> که از آن برای تولید تگ‌کلاود استفاده کرده‌ام. (که با مقداری بررسی فهمیدم پلاگین چندان خوبی نیست. خوب نگهداری نشده، پول ریکوئست‌ها بی پاسخ مانده‌اند و سوال‌ها بدون جواب) در آینده سعی می‌کنم این بخش را بهتر کنم ولی فعلا از بهبود ۱۷۰۰ درصدی زمان بیلد خوشحالم!</p>
+
+<p>مشکلات بالا را در <a href="https://github.com/mehdisadeghi/jekyll-theme-mehdix-rtl">تم مهدیکس</a> رفع کردم و اصلاحات دیگری نیز اعمال کردم، از قبیل بهبود نمایش در موبایل و ساده‌سازی ظاهر تم و نیز ریفکتور کردن کد و حذف بخش‌های بیهوده. نتیجه شد انتشار ‬‬<a href="https://rubygems.org/gems/jekyll-theme-mehdix-rtl/versions/0.1.6">نسخه ۰.۱.۶</a> تم.</p>
+
+
+
+  
+    <div id="related-posts">
+      <h3>مطالب مرتبط</h3>
+      <ul>
+        
+          <li><a href="/build-faster.html">بیلد سریع‌تر وبسایت</a></li>
+        
+          <li><a href="/jekyll-theme.html">انتشار قالب جکیلِ وبسایت</a></li>
+        
+          <li><a href="/theme-rework.html">دوباره‌نویسی تم وبسایت</a></li>
+        
+          <li><a href="/seo.html">افزودن متادیتا به تم وبسایت</a></li>
+        
+          <li><a href="/pagination.html">صفحه‌بندی در جکیل</a></li>
+        
+        </ul>
+    </div>
+  
+
+  <small id="post-tags">
+    
+      <i class="fas fa-tag"></i>
+      <a rel="tag" href="/tag/%D8%B3%D8%A7%D8%AF%D9%87%E2%80%8C%D8%B3%D8%A7%D8%B2%DB%8C.html">ساده‌سازی</a>
+    
+      <i class="fas fa-tag"></i>
+      <a rel="tag" href="/tag/%D8%A8%DB%8C%D9%84%D8%AF.html">بیلد</a>
+    
+      <i class="fas fa-tag"></i>
+      <a rel="tag" href="/tag/%D8%B1%D9%88%D8%A8%DB%8C.html">روبی</a>
+    
+      <i class="fas fa-tag"></i>
+      <a rel="tag" href="/tag/%DA%A9%D8%B4%DB%8C%D9%86%DA%AF.html">کشینگ</a>
+    
+      <i class="fas fa-tag"></i>
+      <a rel="tag" href="/tag/%D8%AC%DA%A9%DB%8C%D9%84.html">جکیل</a>
+    
+      <i class="fas fa-tag"></i>
+      <a rel="tag" href="/tag/%D9%BE%D8%B1%D9%88%D9%81%D8%A7%DB%8C%D9%84%DB%8C%D9%86%DA%AF.html">پروفایلینگ</a>
+    
+
+    <i class="fas fa-code"></i>
+    
+    
+    <a href="https://raw.githubusercontent.com/mehdisadeghi/mehdix.ir/master/_source/_posts/2017-12-01-merciless-simplification.md">سورس</a>
+    
+  </small>
+
+  <nav class="pagination">
+    
+      <a href="https://mehdix.ir/keybase.html" class="pagination--pager" title="گاوصندوقی در دل اینترنت">قبلی</a>
+    
+
+    
+      <a href="https://mehdix.ir/pygtk-rtl-bug.html" class="pagination--pager" title="چالش جدید، تعمیر pygtk">بعدی </a>
+    
+  </nav>
+
+  <section>
+    
+      
+<section id="static-comments">
+  
+  
+  
+
+  <form id="comment-form" name="comment" netlify-honeypot="bot-field" netlify>
+    <input name="bot-field" style="display:none">
+    <input name="page_id" style="display:none" value="/merciless-simplification">
+    <input id="reply-to" name="reply-to" style="display:none">
+    <label for="message">دیدگاه<sup class="required">*</sup> &nbsp;<small>می‌توانید با <a href="http://commonmark.org/help/" target="_">مارک‌داون</a> هم بنویسید.</small><br><small id="replyToVisualClue"></small>
+      <textarea id="message" name="message" required alt="no!!" onkeyup="preview()"></textarea>
+      <div id="preview"></div>
+    </label>
+    <label for="name">نام<sup class="required">*</sup>
+      <input id="name" type="text" name="name" required>
+    </label>
+    <label for="email">ایمیل<sup class="required">*</sup>
+      <input id="email" type="email" name="email" required>
+    </label>
+    <label for="website">وبسایت
+      <input id="website" type="url" name="website">
+    </label>
+    <div style="text-align:left">
+      <button type="submit" class="button">ارسال</button>
+    </div>
+  </form>
+
+</section>
+<script src="https://mehdix.ir/assets/js/showdown.min.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+  function preview() {
+    var converter = new showdown.Converter();
+    var markdown = document.getElementById("message").value;
+    document.getElementById("preview").innerHTML = converter.makeHtml(markdown);
+  }
+
+  function replyTo(commentID) {
+    var comment = document.getElementById(commentID);
+    document.getElementById("reply-to").value = comment.querySelector("span[commentId]").innerText;
+    document.getElementById("replyToVisualClue").innerText = "[در جواب " + comment.querySelector("span[commenter]").innerText + "]";
+  }
+</script>
+    
+  </section>
+
+</article>
+</div>
+    </main><footer>
+
+  <div class="wrapper">
+
+    
+
+    <p id="footer-description">بچه که بودیم همیشه برای بازی خونه می‌ساختیم. حالا هم نمونه‌اش رو در وب ساختم. اینجا سکوی انتشار مطالبی در مورد دانش تولید نرم‌افزار و ایده‌ها و علایق شخصی‌ام است، بویژه راه‌حل‌های مهندسی که باعث رشد و پیشرفتم شده است و می‌تواند مورد استفاده دیگران هم قرار بگیرد.
+</p>
+
+    <ul class="social-media-list">
+      
+      <li>
+        <i class="fab fa-github"></i>
+        <a href="https://github.com/mehdisadeghi">
+          <span class="username social-media-text">پروژه‌ها</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <i class="fab fa-twitter-square"></i>
+        <a href="https://twitter.com/msadeghii">
+          <span class="username social-media-text">توئیت‌ها</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <i class="fas fa-rss"></i>
+        <a href="https://feedburner.google.com/fb/a/mailverify?uri=mehdixir&amp;loc=en_US">
+          <span class="username social-media-text">خبرنامه</span></a>
+      </li>
+      <li>
+        <i class="fas fa-rss"></i>
+        <a href="http://feeds.feedburner.com/mehdixir">
+        <span class="username social-media-text">خوراک</span></a>
+      </li>
+      
+      
+        <li>
+          <i class="fas fa-envelope-open"></i>
+          <a href="mailto:sadeghi@mehdix.org">
+            <span class="username social-media-text">تماس</span></a></li>
+      
+    </ul>
+
+  <div id="footer-extra">
+    <small id="license">
+  <i class="fab fa-creative-commons"></i>
+  مطالب این وبلاگ تحت مجوز
+  <a rel="license" href="http://creativecommons.org/licenses/by/4.0/deed.fa">
+    کریتیو کامنز اتریبیوشن ۴.۰ اینترنشنال
+  </a>قرار دارد.
+</small>
+    <a id="atom" href="https://validator.w3.org/feed/check.cgi?url=https://mehdix.ir/feed.xml"><img src=https://mehdix.ir/assets/img/valid-atom.png alt="[Valid Atom 1.0]" title="Validate my Atom 1.0 feed" /></a>
+  </div>
+
+  </div>
+
+  <small id="build-time">Site generated on Tue, 06 Feb 2018 02:43:37 +0100</small>
+
+</footer><script src="https://mehdix.ir/assets/js/main.js"></script>
+     <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-57282325-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+ 
+  </body>
+</html>

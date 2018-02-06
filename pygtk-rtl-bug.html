@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="fa">
+  
+  <head><meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="author" content="مهدی صادقی" />
+<meta name="copyright" content="Commons Attribution 4.0 International" />
+<meta name="robot" content="" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="description" content="سکوی انتشار مطالبی در مورد دانش تولید نرم‌افزار و ایده‌ها و علایق شخصی‌ام." />
+
+<link rel="canonical" href="https://mehdix.ir/publishing-with-jekyll.html" />
+<link rel="icon" href="https://mehdix.ir/assets/img/me.png" />
+<link rel="stylesheet" href="https://mehdix.ir/assets/css/main.css" />
+<link rel="stylesheet" href="https://mehdix.ir/assets/fonts/fontawesomev5.0.2.css" />
+<meta name="keywords" content='pygtk,rtl,bug' /><title>چالش جدید، تعمیر pygtk - مهدی صادقی</title><!-- Begin Jekyll SEO tag v2.4.0 -->
+<title>چالش جدید، تعمیر pygtk | مهدی صادقی</title>
+<meta name="generator" content="Jekyll v3.7.2" />
+<meta property="og:title" content="چالش جدید، تعمیر pygtk" />
+<meta name="author" content="مهدی صادقی" />
+<meta property="og:locale" content="fa_IR" />
+<meta name="description" content="من معمولا از یک برنامه ویکی بنام زیم برای نوشتن یادداشت‌های روزانه و نوت‌برداری استفاده می‌کنم. این برنامه هم مثل gedit ‏مشکل راست به چپ نویسی دارد. هرچند مشکل gedit با آپدیت‌های اخیر برطرف شده ولی این اتفاق در مورد زیم نیفتاد. پس تصمیم گرفتم زیم رو تعمیر کنم." />
+<meta property="og:description" content="من معمولا از یک برنامه ویکی بنام زیم برای نوشتن یادداشت‌های روزانه و نوت‌برداری استفاده می‌کنم. این برنامه هم مثل gedit ‏مشکل راست به چپ نویسی دارد. هرچند مشکل gedit با آپدیت‌های اخیر برطرف شده ولی این اتفاق در مورد زیم نیفتاد. پس تصمیم گرفتم زیم رو تعمیر کنم." />
+<link rel="canonical" href="https://mehdix.ir/pygtk-rtl-bug.html" />
+<meta property="og:url" content="https://mehdix.ir/pygtk-rtl-bug.html" />
+<meta property="og:site_name" content="مهدی صادقی" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-11-15T00:00:00+01:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@msadeghii" />
+<meta name="twitter:creator" content="@مهدی صادقی" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://mehdix.ir/pygtk-rtl-bug.html"},"url":"https://mehdix.ir/pygtk-rtl-bug.html","author":{"@type":"Person","name":"مهدی صادقی"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://mehdix.ir/assets/img/me.png"},"name":"مهدی صادقی"},"description":"من معمولا از یک برنامه ویکی بنام زیم برای نوشتن یادداشت‌های روزانه و نوت‌برداری استفاده می‌کنم. این برنامه هم مثل gedit ‏مشکل راست به چپ نویسی دارد. هرچند مشکل gedit با آپدیت‌های اخیر برطرف شده ولی این اتفاق در مورد زیم نیفتاد. پس تصمیم گرفتم زیم رو تعمیر کنم.","headline":"چالش جدید، تعمیر pygtk","dateModified":"2017-11-15T00:00:00+01:00","datePublished":"2017-11-15T00:00:00+01:00","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  </head>
+
+  <body><header>
+  <div class="wrapper">
+    <a class="site-title" href="https://mehdix.ir/">مهدی صادقی</a>
+    <small id="motto"> در مورد نرم‌افزار و ایده‌هایم </small>
+  </div>
+</header>
+<main>
+      <div class="wrapper">
+
+<article class="post-content">
+
+  <div class="post-header">
+    <h1 class="post-title">چالش جدید، تعمیر pygtk</h1>
+    <p>
+      <i class="fas fa-calendar"></i>
+      چهارشنبه ۲۴ آبان ۱۳۹۶<br>
+      
+      <i class="fas fa-stopwatch"></i>
+      ۲ دقیقه مطالعه
+    </p>
+  </div>
+
+  <p>من معمولا از یک برنامه ویکی بنام <a href="http://zim-wiki.org/"><em>زیم</em></a> برای نوشتن یادداشت‌های روزانه و نوت‌برداری استفاده می‌کنم. این برنامه هم مثل gedit ‏<a href="/13-years-old-bug-fixed.html">مشکل راست به چپ نویسی</a> دارد. هرچند مشکل gedit با آپدیت‌های اخیر برطرف شده ولی این اتفاق در مورد زیم نیفتاد. پس تصمیم گرفتم زیم رو تعمیر کنم.</p>
+
+<p>به طور خلاصه مشکل زیم هم اینه که وقتی کلید کنترل رو نگه می‌داریم و با کلیدهای جهت قصد حرکت در جمله رو داریم جهت حرکت نشانگر تایپ برعکس انتظار ماست. اول فکر کردم مشکل باید از زیم باشه و یک باگ برای زیم <a href="https://github.com/jaap-karssenberg/zim-desktop-wiki/issues/229">ثبت</a> کردم. ولی با مقداری کنکاش متوجه شدم که مشکل از pygtk است و زیم نقشی در این باگ نداره. برای اطمینان سورس pygtk رو دانلود کردم و دموی برنامه رو اجرا کردم و مطمئن شدم که ایراد در دمو هم وجود داره.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git clone git://git.gnome.org/pygtk &amp;&amp; cd pygtk
+$ python examples/pygtk-demo/pygtk-demo.py
+</code></pre></div></div>
+
+<p>اگر اون مشکل قبلی رو دنبال کرده باشید، در جریان هستید که مشکل از gedit نبود بلکه اشکال از GTK بود. در مورد زیم هم مشکل از لایبرری مورد استفاده برای GUI است، یعنی pygtk. همونطور که از اسم pygtk پیداست این برنامه در حقیقت چیزی جز یک wrapper پایتون برای GTK نیست. بنابراین انتظار داشتم که با آپدیت مشکل برطرف بشه ولی اینطور نشد. حرکت بعدی ثبت باگ برای pygtk بود. اول در باگ‌زیلای پروژه گنوم (که pygtk هم بخشی از اونه) جستجو کردم و مطمئن شدم که قبلا چنین باگی ثبت نشده و بعد <a href="https://bugzilla.gnome.org/show_bug.cgi?id=790341">یک باگ</a> با شرح ماوقع ثبت کردم.</p>
+
+<p>خوشبختانه سریع جوابهای مفیدی گرفتم. اول اینکه مشخص شد pygtk از برنچ GTK+2 استفاده می‌کنه و ممکنه تغییراتی که در نسخه‌های جدیدتر ‍‍‍<code class="highlighter-rouge">GTK+</code> اعمال شده به این نسخه Back Port نشده باشه (کار رایجیه، به این معنی که تغییرات به نسخه‌های قدیمی‌تر هم منتقل بشن). ولی با کامنت بعدی مشخص شد که این بک پورت انجام شده ولی ظاهرا نسخه جدیدی با این تغییرات منتشر نشده. برای اطمینان از این موارد مجبورم GTK+2 رو دانلود و بیلد کنم و مطمئن بشم که تغییرات به درستی در اون لحاظ شدند. بعد نوبت بیلد و تست آخرین نسخه منتشر شده‌ی pygtk خواهد بود.</p>
+
+<p>این کارها زمانبره. مثلا الان مشغول نصب jhbuild هستم که ابزاری است برای بیلد و اجرای دسکتاپ گنوم برای توسعه‌دهندگان. مراحل بعدی رو هم به محض اجرا خواهم نوشت.</p>
+
+<h2 id="کشف-همین-باگ-در-فایرفاکس">کشف همین باگ در فایرفاکس!</h2>
+<p>من جدیدا بیشتر از فایرفاکس استفاده می‌کنم و همین الان موقع نوشتن یک پیام در مسج‌باکس توئیتر متوجه شدم اگر متن رو هایلایت کنیم و سعی کنیم با کنترل و کلیدهای جهت متن انتخابی رو تغییر بدیم جهت حرکت نشانگر کیبورد برعکسه! خدایا!</p>
+
+<p>باید برم فایرفاکس رو هم <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1417662">تعمیر</a> کنم.</p>
+
+
+
+  
+    <div id="related-posts">
+      <h3>مطالب مرتبط</h3>
+      <ul>
+        
+          <li><a href="/github-rtl.html">راست به چپ نویسی در گیتهاب</a></li>
+        
+          <li><a href="/evolution-composer-rtl.html">ماژول راست به چپ اوولوشن</a></li>
+        
+          <li><a href="/rtl-feed.html">تولید خوراک اتم راست‌به‌چپ</a></li>
+        
+        </ul>
+    </div>
+  
+
+  <small id="post-tags">
+    
+      <i class="fas fa-tag"></i>
+      <a rel="tag" href="/tag/pygtk.html">pygtk</a>
+    
+      <i class="fas fa-tag"></i>
+      <a rel="tag" href="/tag/rtl.html">rtl</a>
+    
+      <i class="fas fa-tag"></i>
+      <a rel="tag" href="/tag/bug.html">bug</a>
+    
+
+    <i class="fas fa-code"></i>
+    
+    
+    <a href="https://raw.githubusercontent.com/mehdisadeghi/mehdix.ir/master/_source/_posts/2017-11-15-pygtk-rtl-bug.md">سورس</a>
+    
+  </small>
+
+  <nav class="pagination">
+    
+      <a href="https://mehdix.ir/merciless-simplification.html" class="pagination--pager" title="کاهش زمان بیلد به کمک پروفایلر">قبلی</a>
+    
+
+    
+      <a href="https://mehdix.ir/rip-ashkan.html" class="pagination--pager" title="درگذشت اشکان قاسمی">بعدی </a>
+    
+  </nav>
+
+  <section>
+    
+      
+<section id="static-comments">
+  
+  
+  
+
+  <form id="comment-form" name="comment" netlify-honeypot="bot-field" netlify>
+    <input name="bot-field" style="display:none">
+    <input name="page_id" style="display:none" value="/pygtk-rtl-bug">
+    <input id="reply-to" name="reply-to" style="display:none">
+    <label for="message">دیدگاه<sup class="required">*</sup> &nbsp;<small>می‌توانید با <a href="http://commonmark.org/help/" target="_">مارک‌داون</a> هم بنویسید.</small><br><small id="replyToVisualClue"></small>
+      <textarea id="message" name="message" required alt="no!!" onkeyup="preview()"></textarea>
+      <div id="preview"></div>
+    </label>
+    <label for="name">نام<sup class="required">*</sup>
+      <input id="name" type="text" name="name" required>
+    </label>
+    <label for="email">ایمیل<sup class="required">*</sup>
+      <input id="email" type="email" name="email" required>
+    </label>
+    <label for="website">وبسایت
+      <input id="website" type="url" name="website">
+    </label>
+    <div style="text-align:left">
+      <button type="submit" class="button">ارسال</button>
+    </div>
+  </form>
+
+</section>
+<script src="https://mehdix.ir/assets/js/showdown.min.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+  function preview() {
+    var converter = new showdown.Converter();
+    var markdown = document.getElementById("message").value;
+    document.getElementById("preview").innerHTML = converter.makeHtml(markdown);
+  }
+
+  function replyTo(commentID) {
+    var comment = document.getElementById(commentID);
+    document.getElementById("reply-to").value = comment.querySelector("span[commentId]").innerText;
+    document.getElementById("replyToVisualClue").innerText = "[در جواب " + comment.querySelector("span[commenter]").innerText + "]";
+  }
+</script>
+    
+  </section>
+
+</article>
+</div>
+    </main><footer>
+
+  <div class="wrapper">
+
+    
+
+    <p id="footer-description">بچه که بودیم همیشه برای بازی خونه می‌ساختیم. حالا هم نمونه‌اش رو در وب ساختم. اینجا سکوی انتشار مطالبی در مورد دانش تولید نرم‌افزار و ایده‌ها و علایق شخصی‌ام است، بویژه راه‌حل‌های مهندسی که باعث رشد و پیشرفتم شده است و می‌تواند مورد استفاده دیگران هم قرار بگیرد.
+</p>
+
+    <ul class="social-media-list">
+      
+      <li>
+        <i class="fab fa-github"></i>
+        <a href="https://github.com/mehdisadeghi">
+          <span class="username social-media-text">پروژه‌ها</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <i class="fab fa-twitter-square"></i>
+        <a href="https://twitter.com/msadeghii">
+          <span class="username social-media-text">توئیت‌ها</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <i class="fas fa-rss"></i>
+        <a href="https://feedburner.google.com/fb/a/mailverify?uri=mehdixir&amp;loc=en_US">
+          <span class="username social-media-text">خبرنامه</span></a>
+      </li>
+      <li>
+        <i class="fas fa-rss"></i>
+        <a href="http://feeds.feedburner.com/mehdixir">
+        <span class="username social-media-text">خوراک</span></a>
+      </li>
+      
+      
+        <li>
+          <i class="fas fa-envelope-open"></i>
+          <a href="mailto:sadeghi@mehdix.org">
+            <span class="username social-media-text">تماس</span></a></li>
+      
+    </ul>
+
+  <div id="footer-extra">
+    <small id="license">
+  <i class="fab fa-creative-commons"></i>
+  مطالب این وبلاگ تحت مجوز
+  <a rel="license" href="http://creativecommons.org/licenses/by/4.0/deed.fa">
+    کریتیو کامنز اتریبیوشن ۴.۰ اینترنشنال
+  </a>قرار دارد.
+</small>
+    <a id="atom" href="https://validator.w3.org/feed/check.cgi?url=https://mehdix.ir/feed.xml"><img src=https://mehdix.ir/assets/img/valid-atom.png alt="[Valid Atom 1.0]" title="Validate my Atom 1.0 feed" /></a>
+  </div>
+
+  </div>
+
+  <small id="build-time">Site generated on Tue, 06 Feb 2018 02:43:37 +0100</small>
+
+</footer><script src="https://mehdix.ir/assets/js/main.js"></script>
+     <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-57282325-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+ 
+  </body>
+</html>

@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="fa">
+  
+  <head><meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="author" content="مهدی صادقی" />
+<meta name="copyright" content="Commons Attribution 4.0 International" />
+<meta name="robot" content="" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="description" content="سکوی انتشار مطالبی در مورد دانش تولید نرم‌افزار و ایده‌ها و علایق شخصی‌ام." />
+
+<link rel="canonical" href="https://mehdix.ir/publishing-with-jekyll.html" />
+<link rel="icon" href="https://mehdix.ir/assets/img/me.png" />
+<link rel="stylesheet" href="https://mehdix.ir/assets/css/main.css" />
+<link rel="stylesheet" href="https://mehdix.ir/assets/fonts/fontawesomev5.0.2.css" />
+<meta name="keywords" content='لینوکس,فایل,حق,دسترسی' /><title>حق دسترسی فایل‌ها در لینوکس به زبان ساده - مهدی صادقی</title><!-- Begin Jekyll SEO tag v2.4.0 -->
+<title>حق دسترسی فایل‌ها در لینوکس به زبان ساده | مهدی صادقی</title>
+<meta name="generator" content="Jekyll v3.7.2" />
+<meta property="og:title" content="حق دسترسی فایل‌ها در لینوکس به زبان ساده" />
+<meta name="author" content="مهدی صادقی" />
+<meta property="og:locale" content="fa_IR" />
+<meta name="description" content="بارها برام پیش اومده که موقع تغییر فایل‌های لینوکس به خاطر مجوز اونها به مشکل خوردم. تصمیم گرفتم یکبار با دقت این مجوزها رو بخونم و به زبان ساده در وبلاگم بنویسم. البته این راهنما قرار نیست کامل باشه و بیشتر یک یادداشته برای مراجعات بعدی خودم." />
+<meta property="og:description" content="بارها برام پیش اومده که موقع تغییر فایل‌های لینوکس به خاطر مجوز اونها به مشکل خوردم. تصمیم گرفتم یکبار با دقت این مجوزها رو بخونم و به زبان ساده در وبلاگم بنویسم. البته این راهنما قرار نیست کامل باشه و بیشتر یک یادداشته برای مراجعات بعدی خودم." />
+<link rel="canonical" href="https://mehdix.ir/linux-permissions-made-simple.html" />
+<meta property="og:url" content="https://mehdix.ir/linux-permissions-made-simple.html" />
+<meta property="og:site_name" content="مهدی صادقی" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2015-01-08T00:00:00+01:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@msadeghii" />
+<meta name="twitter:creator" content="@مهدی صادقی" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://mehdix.ir/linux-permissions-made-simple.html"},"url":"https://mehdix.ir/linux-permissions-made-simple.html","author":{"@type":"Person","name":"مهدی صادقی"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://mehdix.ir/assets/img/me.png"},"name":"مهدی صادقی"},"description":"بارها برام پیش اومده که موقع تغییر فایل‌های لینوکس به خاطر مجوز اونها به مشکل خوردم. تصمیم گرفتم یکبار با دقت این مجوزها رو بخونم و به زبان ساده در وبلاگم بنویسم. البته این راهنما قرار نیست کامل باشه و بیشتر یک یادداشته برای مراجعات بعدی خودم.","headline":"حق دسترسی فایل‌ها در لینوکس به زبان ساده","dateModified":"2015-01-08T00:00:00+01:00","datePublished":"2015-01-08T00:00:00+01:00","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  </head>
+
+  <body><header>
+  <div class="wrapper">
+    <a class="site-title" href="https://mehdix.ir/">مهدی صادقی</a>
+    <small id="motto"> در مورد نرم‌افزار و ایده‌هایم </small>
+  </div>
+</header>
+<main>
+      <div class="wrapper">
+
+<article class="post-content">
+
+  <div class="post-header">
+    <h1 class="post-title">حق دسترسی فایل‌ها در لینوکس به زبان ساده</h1>
+    <p>
+      <i class="fas fa-calendar"></i>
+      پنج‌شنبه ۱۸ دی ۱۳۹۳<br>
+      
+      <i class="fas fa-stopwatch"></i>
+      ۶ دقیقه مطالعه
+    </p>
+  </div>
+
+  <p>بارها برام پیش اومده که موقع تغییر فایل‌های لینوکس به خاطر مجوز اونها به مشکل خوردم. تصمیم گرفتم یکبار با دقت این مجوزها رو بخونم و به زبان ساده در وبلاگم بنویسم. البته این راهنما قرار نیست کامل باشه و بیشتر یک یادداشته برای مراجعات بعدی خودم.</p>
+
+<p>اگر در یک ترمینال دستور <code class="highlighter-rouge">ls -l</code> یا <code class="highlighter-rouge">ll</code> رو تایپ کنیم چیزی شبیه به این می‌بینیم:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mehdix@spielplatz:~/Desktop/perm<span class="nv">$ </span><span class="nb">ls</span> <span class="nt">-l</span>
+total 4
+drwxrwxr-x 2 mehdix mehdix 4096 Jan  8 09:38 dir1
+<span class="nt">-rw-rw-r--</span> 1 mehdix mehdix    0 Jan  8 09:38 file1
+</code></pre></div></div>
+
+<p>حق دسترسی و مالکیت دو موضوع تقریبا مستقل از هم هستند. ستون اول خروجی دستور بالا حق دسترسی روی فایل و پوشه موجود رو نشون می‌ده ولی ستون‌های سوم و چهارم حق مالکیت بر روی فایل‌ها رو نشون می‌ده. لازمه بگم که پوشه هم یک جور فایل است با این تفاوت که آدرس فایل‌های دیگر رو درون خودش نگه می‌داره (مراجعه کنید به <code class="highlighter-rouge">inode</code>). در ادامه هر دو رو شرح می‌دیم.</p>
+
+<h2 id="مالکیت">مالکیت</h2>
+<p>وقتی یک فایل یا پوشه رو با دستورات و اپراتورهای مختلف از جمله <code class="highlighter-rouge">mkdir</code>  (بخوانید make directory) و <code class="highlighter-rouge">touch</code> و <code class="highlighter-rouge">echo</code> و <code class="highlighter-rouge">&lt;</code> و <code class="highlighter-rouge">&lt;&lt;</code>  (این دو تا رو نمی‌دونم چطور بخونیم!) می‌سازیم مالکیت فایل تولیدی هم به ما داده می‌شه. در مثال بالا ستون سوم مالک رو نشون می‌ده و ستون چهارم هم گروه کاربری رو. معنی مالک در لینوکس مثل معنی اون در دنیای واقعی است. یعنی مالک تصمیم می‌گیره چه کسی به فایل اون بتونه «نگاه» کنه یا «دست بزنه». می‌تونید تصور کنید که پدر مالک ماشینه و اون تصمیم می‌گیره که اجازه بده که فرزندش به ماشین فقط نگاه کنه یا پشت فرمون هم بشینه.
+نکته مهم اینجا اینه که مالک یک فایل تصمیم می‌گیره که <strong>حق دسترسی‌های</strong>‌ اون فایل چی باشه. جالبه بدونید که مالک می‌تونه حق دسترسی خواندن و نوشتن و اجرا کردن خودش رو هم روی فایل محدود کنه اما از جایی که مالکیت فایل رو در اختیار داره می‌تونه دوباره اون رو سر جاش برگردونه.
+پس یادمون می‌مونه که حق مالکیت جدا از حق دسترسی است.</p>
+
+<h2 id="گروه-کاربری">گروه کاربری</h2>
+<p>هر فایلی حتما یک مالک داره که حق دسترسی‌های اون رو تعیین می‌کنه اما علاوه بر این هر فایلی به یک گروه هم تعلق داره. یک گروه نماینده کاربرانی است که حقوقی متفاوت از کاربر عادی در دسترسی به فایل‌ها دارند. یعنی بواسطه گروهشون به فایل‌هایی دسترسی داشته باشند که کاربرشون به تنهایی نداره. یک کاربر می‌تونه در بیش از یک گروه عضو باشه اما یک فایل فقط می‌تونه متعلق به یک گروه باشه. 
+در مثال بالا هم ستون چهارم گروه کاربری رو نشون می‌ده. روی کامپیوتر اوبونتوی من که یک کاربر بیشتر نداره (البته به استثنای کاربر <em>root</em>) کاربر و گروه کاربری من یکیه. هر کاربر حتما باید عضو یک گروه باشه بنابراین به طور پیشفرض یک گروه بنام خود کاربر روی سیستم موقع نصب ساخته شده.
+گروه کاربری وقتی به درد می‌خوره که با بیش از یک کاربر سر و کار داشته باشیم. مثلا بخوایم به همه کاربرهایی که اعتماد داریم اجازه خواندن و نوشتن بدیم و به سایر کاربرهای سیستم فقط اجازه خواندن بدیم. در این صورت می‌تونیم گروهی که کاربران مورد اعتماد ما عضوش هستند رو به عنوان گروه فایل تنظیم کنیم.</p>
+
+<h3 id="تغییر-مالک-و-گروه-کاربری-فایلها-با-chown">تغییر مالک و گروه کاربری فایل‌ها با chown</h3>
+<p>هر کاربر می‌تونه حقوق دسترسی روی یک فایل رو که در مالکیت اوست تغییر بده اما نمی‌تونه مالکیت فایل رو تغییر بده. این کار باید توسط کاربر <em>root</em> انجام بشه. در ضمن وقتی ما از دستور <code class="highlighter-rouge">root</code> استفاده می‌کنیم (در سیستم‌های مشابه دبیان) داریم با دسترس کاربر روت تغییرات رو انجام می‌دیم.
+هرچند یک کاربر می‌تونه گروه کاربری یک فایل رو به گروهی جدید تغییر بده به شرط اینکه خودش عضو گروه جدید باشه. به عبارت دیگه یک کاربر می‌تونه گروه یک فایل رو بین گروه‌هایی که خودش عضو اونهاست دست به دست کنه.</p>
+
+<p>دستور اصلی برای تغییر مالکیت فایل‌ها <code class="highlighter-rouge">chown</code> است (بخوانید change owner) به این ترتیب:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">chown </span>username:groupname file1 file2 <span class="o">[</span>or directory]
+</code></pre></div></div>
+
+<p>در دستور بالا <em>username</em> نام کاربری است که می‌خواهیم فایل‌ها به اون تعلق داشته باشند و نیز <em>groupname</em> نام گروهی است که می‌خواهیم فایل‌ها به آن تعلق داشته باشند.</p>
+
+<p>این دستور رو به دو شیوه دیگر هم می‌شه اجرا کرد. فقط برای تغییر مالک فایل به شکل زیر:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">chown </span>username file1 file2 <span class="o">[</span>or directory]
+</code></pre></div></div>
+
+<p>و تنها برای تغییر گروه فایل به این شکل (دو نقطه فراموش نشود):</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">chown</span> :groupname file1 file2 <span class="o">[</span>or directory]
+</code></pre></div></div>
+
+<p>برای تغییر گروه دستور <code class="highlighter-rouge">chgrp</code> را هم می‌توان بکار برد (بخوانید change group):</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">chgrp </span>groupname file1 file2 <span class="o">[</span>or directory]
+</code></pre></div></div>
+
+<p>با بکارگیری فلگ <em>-R</em> تغییرات به همه زیرشاخه‌ها هم اعمال خواهد شد:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">chown</span> <span class="nt">-R</span> username:groupname directory
+</code></pre></div></div>
+
+<h3 id="حق-دسترسی-برای-فایلها">حق دسترسی‌ برای فایل‌ها</h3>
+<p>برای هر فایل می‌شه سه نوع حق‌دسترسی تعریف کرد: حق‌نوشتن و حق خواندن و حق اجرا کردن فایل.</p>
+
+<ul>
+  <li>
+    <p><strong>حق خواندن</strong> یعنی دیدن محتوای فایل و استفاده از دستوراتی مانند <code class="highlighter-rouge">less</code> و <code class="highlighter-rouge">cat</code> و غیره. حق خواندن با <strong>r</strong> نشان داده می‌شود.</p>
+  </li>
+  <li>
+    <p><strong>حق نوشتن</strong> یعنی تغییر محتویات فایل. فوروارد کردن خروجی یک دستور به یک فایل و اضافه کردن به فایل و مانند اینها. حق خواندن با <strong>w</strong> نشان داده می‌شود.</p>
+  </li>
+  <li>
+    <p><strong>حق اجرای فایل</strong> اگر ما روی یک فایل حق اجرا داشته باشیم می‌توانیم از سیستم عامل بخواهیم که آن فایل را مثل یک برنامه برای ما اجرا کند. اگر فایل باینری باشد حق اجرا کفایت می‌کند اما اگر فایل اسکریپت باشد از جایی که باید یک برنامه دیگر آنرا بخواند و اجرا کند علاوه بر حق اجرا حق خواندن نیز لازم است. حق خواندن با <strong>x</strong> نشان داده می‌شود.</p>
+  </li>
+</ul>
+
+<h3 id="حق-دسترسی-برای-پوشهها">حق دسترسی برای پوشه‌ها</h3>
+<p>برای هر پوشه هم می‌شود سه نوع حق دسترسی تعریف کرد. خواندن و نوشتن و ‫<strong>جستجو</strong>. این معانی با قبلی‌ها تفاوت دارند.</p>
+
+<ul>
+  <li>
+    <p><strong>حق خواندن</strong> به معنای دیدن لیست فایل‌های درون یک پوشه است با بکارگیری دستوری مانند <code class="highlighter-rouge">ls</code> (بخوانید list ). هرچند این به معنی خواندن محتوای فایل‌های داخل آن نیست.</p>
+  </li>
+  <li>
+    <p><strong>حق نوشتن</strong> به معنی امکان افزودن‌ فایل‌های جدید به پوشه و همچنین تغییر نام و انتقال فایل‌های موجود است، برای مثال با دستور <code class="highlighter-rouge">mv</code>.</p>
+  </li>
+  <li>
+    <p><strong>حق اجرا روی یک پوشه</strong> به معنی اینست که پوشه قابل جستجو است و می‌توان نام آنرا برای دسترسی به یک فایل دارای حق اجرا بکار برد.</p>
+  </li>
+</ul>
+
+<h3 id="تغییر-دسترسیها-با-chmod">تغییر دسترسی‌ها با chmod</h3>
+<p>یک کاربر می‌تونه حق خواندن و نوشتن و اجرای فایل‌هایی که تحت مالکیت خودش قرار دارند رو تغییر بده. همونطور که در بالا گفتیم rwx حرف اول مجوزهایی هستند که برای هر فایل بکار می‌ره. برای هر فایل سه دست حق دسترسی تعریف شده، هر دست شامل مجوز خواندن و نوشتن و اجرا است. یک دست برای مالک و یک دست برای گروه و یک دست برای سایر کاربران. در مجموع نه بیت برای اینکار بکار رفته که هر سه بیت یک دست حق دسترسی رو نشون می‌ده. هر بیت اگر ست شده باش (یعنی مقدر ۱ بهش داده شده باشه) بسته به اینکه بیت خواندن یا نوشتن یا اجرا باشه با r و w و x نشون داده خواهد شد. حالا با مراجعه دوباره به لیستی که اول نوشته داشتیم اینها رو مرور می‌کنیم:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mehdix@spielplatz:~/Desktop/perm<span class="nv">$ </span><span class="nb">ls</span> <span class="nt">-l</span>
+total 4
+drwxrwxr-x 2 mehdix mehdix 4096 Jan  8 09:38 dir1
+<span class="nt">-rw-rw-r--</span> 1 mehdix mehdix    0 Jan  8 09:38 file1
+</code></pre></div></div>
+
+<p>در مثال بالا خط‌های تیره در ستون اول نماینده بیت‌هایی هستند که ست نشده‌اند (مقدارشان صفر است). به ترتیب از چپ به راست اولین بیت اگر d باشد یعنی یک پوشه است اگر l باشد یعنی لینک سمبلیک است و اگر - باشد یعنی فایل معمولی است. نه سه تای بعدی مجوزهای مالک سه تای دوم مجوزهای گروه و سه تای سوم مجوزهای سایر کاربران هستند.</p>
+
+<p>برای این منظور از دستور <code class="highlighter-rouge">chmod</code> ‏‎(بخوانید change mode) استفاده می‌کنیم:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">chmod</span> <span class="o">[</span>references][operator][modes] file1 ...
+</code></pre></div></div>
+
+<p>در دستور بالا <code class="highlighter-rouge">references</code> برای انتخاب سِت مورد نظر است، مالک و/یا گروه و/یا سایر کاربران. جدول زیر نشاندهنده حروفی است که به این منظور بکار می‌رود:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>رفرنس</th>
+      <th>کلاس</th>
+      <th>شرح</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>u</td>
+      <td>user</td>
+      <td>مالک فایل</td>
+    </tr>
+    <tr>
+      <td>g</td>
+      <td>group</td>
+      <td>کاربرانی که عضو گروه فایل هستند</td>
+    </tr>
+    <tr>
+      <td>o</td>
+      <td>other</td>
+      <td>کاربرانی که عضو گروه فایل نیستند</td>
+    </tr>
+    <tr>
+      <td>a</td>
+      <td>all</td>
+      <td>همه موارد بالا</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>در ادامه با مثال کاربرد این حروف را می‌بینیم. اوپراتورها هم یا + یا - یا = هستند:</p>
+
+<ul>
+  <li><strong>به علاوه +</strong> به معنی افزودن یک ‫<em>مود</em> به رفرنس‌های نامبرده است</li>
+  <li><strong>منها -</strong> به معنی حذف یک <em>مود</em> از رفرنس‌های نامبرده است</li>
+  <li><strong>مساوی =</strong> به معنی اعمال یک <em>مود</em> به همه رفرنس‌هاست</li>
+</ul>
+
+<p><strong>مودها</strong> یا حالت‌ها هم همان حق خواندن و نوشتن و اجرا هستند که البته سه مود دیگر بنام‌های X (با حرف بزرگ) و s و t هم داریم که فعلا به آنها نمی‌پردازیم.</p>
+
+<p>حالا چند مثال. فایل یک از مثال بالا را تغییر می‌دهیم:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">chmod </span>ug+rw file1
+</code></pre></div></div>
+
+<p>یعنی به کاربر مالک و گروه مالک حق خواندن و نوشتن را اضافه کن و این شد نتیجه:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">-rw-rw-r--</span> 1 mehdix mehdix 0 Jan  8 10:20 file1
+</code></pre></div></div>
+
+<p>حالا همون حقوقی رو که خودمون دادیم پس می‌گیریم :) به این شکل:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">chmod </span>ug-rw file1
+</code></pre></div></div>
+
+<p>و این هم نتیجه:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">-------r--</span> 1 mehdix mehdix 0 Jan  8 10:20 file1
+</code></pre></div></div>
+
+<p>یا مثلا گرفتن و دادن همه مجوزها به همه کاربران:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">chmod </span>a+rw file1
+<span class="nb">chmod </span>a-rw file1
+</code></pre></div></div>
+
+<p>یا مثلا دادن <strong>تنها</strong> امکان خواندن به سایر کاربران:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">chmod </span><span class="nv">o</span><span class="o">=</span>r file1
+</code></pre></div></div>
+
+<p>دقت کنید که بکارگیری = باعث از بین رفتن مجوزهای قبلی می‌شه در حالی که + و - مجوزها رو اضافه و حذف می‌کنند و کاری به بقیه ندارند. این‌ها در حقیقت همون عملیات and و or و mask کردن بیت‌ها در کامپیوتره.</p>
+
+<p>نوشتن این یادداشت باعث شد خودم بهتر این موارد رو به خاطر بسپرم. موارد بیشتری هم هست که بهرحال فهم این نکات اولیه به یادگیری بقیه هم کمک می‌کنه. منابعی هم که بکار گرفتم در انتهای مطلب<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup><sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup><sup id="fnref:3"><a href="#fn:3" class="footnote">3</a></sup><sup id="fnref:4"><a href="#fn:4" class="footnote">4</a></sup> هست.</p>
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+      <p>‏<a href="http://www.rackspace.com/knowledge_center/article/linux-file-permission-concepts">linux-file-permission-concepts</a> <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:2">
+      <p>‏<a href="https://en.wikipedia.org/wiki/Modes_(Unix)">Unix Modes</a> <a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:3">
+      <p>‏<a href="http://www.grymoire.com/Unix/Permissions.html#toc-uh-0">Permissions</a> <a href="#fnref:3" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:4">
+      <p>‏<a href="http://unix.stackexchange.com/a/140944/87940">Stackexchange Question</a> <a href="#fnref:4" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+
+  
+    <div id="related-posts">
+      <h3>مطالب مرتبط</h3>
+      <ul>
+        
+          <li><a href="/linux-permissions-made-simple-part-two.html">حق دسترسی فایل‌ها در لینوکس به زبان ساده (۲)</a></li>
+        
+          <li><a href="/archlinux_installation_with_lucks_and_lvm.html">نصب قدم به قدم آرچ‌لینوکس با رمزگزاری</a></li>
+        
+          <li><a href="/suse.html">سوزه یا زوزه</a></li>
+        
+        </ul>
+    </div>
+  
+
+  <small id="post-tags">
+    
+      <i class="fas fa-tag"></i>
+      <a rel="tag" href="/tag/%D9%84%DB%8C%D9%86%D9%88%DA%A9%D8%B3.html">لینوکس</a>
+    
+      <i class="fas fa-tag"></i>
+      <a rel="tag" href="/tag/%D9%81%D8%A7%DB%8C%D9%84.html">فایل</a>
+    
+      <i class="fas fa-tag"></i>
+      <a rel="tag" href="/tag/%D8%AD%D9%82.html">حق</a>
+    
+      <i class="fas fa-tag"></i>
+      <a rel="tag" href="/tag/%D8%AF%D8%B3%D8%AA%D8%B1%D8%B3%DB%8C.html">دسترسی</a>
+    
+
+    <i class="fas fa-code"></i>
+    
+    
+    <a href="https://raw.githubusercontent.com/mehdisadeghi/mehdix.ir/master/_source/_posts/2015-01-08-linux-permissions-made-simple.md">سورس</a>
+    
+  </small>
+
+  <nav class="pagination">
+    
+      <a href="https://mehdix.ir/suse.html" class="pagination--pager" title="سوزه یا زوزه">قبلی</a>
+    
+
+    
+      <a href="https://mehdix.ir/rosetta-mission.html" class="pagination--pager" title="ماموریت روزتا">بعدی </a>
+    
+  </nav>
+
+  <section>
+    
+      
+<section id="static-comments">
+  
+  
+  
+  <h4 id="comments-header">دیدگاه‌ها</h4>
+  <div id="comments">
+    
+    <div class="comment-chain">
+      <article id="2035913511">
+        <div class="comment-image-wrapper">
+          <img class="comment-avatar" src="https://www.gravatar.com/avatar/828660373d12f35d2a929536344c64ee?s=200&d=robohash" />
+        </div>
+        <div class="comment-body-wrapper">
+          <span class="comment-meta">
+            <small>
+              
+                <a href=https://disqus.com/by/kavemohammadi/ target="_"><span commenter>kave mohammadi</span></a>
+              
+            </small>
+            <small> &nbsp; <a href="#2035913511">۳۰ اردیبهشت ۱۳۹۴</a></small>
+            <small> &nbsp; <a href="#comment-form" onclick="replyTo('2035913511')">پاسخ</a></small>
+            <span style="display:none" commentId>2035913511</span>
+          </span>
+          <p>سلام
+مطلب خیلی خوب و بدرد بخوری نوشتی ، من اینو به عنوان رفرنس به چند تا از دوستانی که تازه با لینوکس و مباحث مرتبط بهش آشنا و درگیر شدن معرفی کردم ، از قول خودم و اونها ازت تشکر می کنم.
+یه سوال هم خودم ازت دارم ، چطور میشه کاری کرد که پرمیشن هایی که روی فایل ها اعمال شدن طور دیگه ای اعمال بشن ، صبر کن برای روشن تر شدن موضوع یک مثال بزنم : فرض کن همین الان یه کوول دیسک به سیستمت متصل کنم ، با فرض اینکه قبلا مجوز تمام فایل ها رو 777  اعمال کرده باشم  ،  ٬الان٬ مجوز تمام فایل ها 644 شده!  /n  نظرت در مورد ست کردن پرمیشن هنگام مونت کردن یک فایل سیستم چیه؟ اگر چیزی در موردش می دونی که حس می کنی به درد من و دوستام که از مراجعه کنندگان به این رفرنس هستیم می خوره حتما بگو.
+تشکر</p>
+
+        </div>
+      </article>
+
+        
+
+    </div>
+    
+    <div class="comment-chain">
+      <article id="2042746296">
+        <div class="comment-image-wrapper">
+          <img class="comment-avatar" src="https://www.gravatar.com/avatar/9a6fe434e31c7dd56d09ac05da2bee36?s=200&d=robohash" />
+        </div>
+        <div class="comment-body-wrapper">
+          <span class="comment-meta">
+            <small>
+              
+                <a href=https://disqus.com/by/mehdisadeghi/ target="_"><span commenter>Mehdi Sadeghi</span></a>
+              
+            </small>
+            <small> &nbsp; <a href="#2042746296">۰۳ خرداد ۱۳۹۴</a></small>
+            <small> &nbsp; <a href="#comment-form" onclick="replyTo('2042746296')">پاسخ</a></small>
+            <span style="display:none" commentId>2042746296</span>
+          </span>
+          <p>باعث خوشحالیه که مطلب به دردتون خورده. در مورد مثالی که زدی نوع پارتیشن روی کول‌دیسک رو عنوان نکردی. یک مثال قابل تولید هم برای من اگر بگی می‌تونم امتحان کنم ببینم دقیقا مشکل چیه.</p>
+
+        </div>
+      </article>
+
+        
+
+    </div>
+    
+    <div class="comment-chain">
+      <article id="2061553518">
+        <div class="comment-image-wrapper">
+          <img class="comment-avatar" src="https://www.gravatar.com/avatar/828660373d12f35d2a929536344c64ee?s=200&d=robohash" />
+        </div>
+        <div class="comment-body-wrapper">
+          <span class="comment-meta">
+            <small>
+              
+                <a href=https://disqus.com/by/kavemohammadi/ target="_"><span commenter>kave mohammadi</span></a>
+              
+            </small>
+            <small> &nbsp; <a href="#2061553518">۱۴ خرداد ۱۳۹۴</a></small>
+            <small> &nbsp; <a href="#comment-form" onclick="replyTo('2061553518')">پاسخ</a></small>
+            <span style="display:none" commentId>2061553518</span>
+          </span>
+          <p>نوع فایل سیستم رو  ex4  در نظر بگیر
+سعی می کنم سوالم رو روشنتر بیان کنم
+مثال : فرض کن من یک کول دیسک دارم که از قبل پرمیشن تمام فایل هاش رو ۷۷۷ گذاشتم ، در سیستم یکی از دوستانم (در اینجا مثلا شما ) کول دیسک رو به پورت usb  می زنم و فایل سیستم مونت می شه ولی فایل ها با پرمیشنی غیر از چیزی که قبلا ست کرده بودم نمایش داده میشن مثلا read only  میشن یا حالت اجرایی ازشون گرفته میشه.
+می خوام بدونم چطور میشه فهمید که چطور میشه اینکارو کرد ، منظورم اینه که هنگام مونت کردن بگیم که مثلا همه ی فایل ها این device فقط خواندنی مونت بشن
+تشکر</p>
+
+        </div>
+      </article>
+
+        
+
+    </div>
+    
+    <div class="comment-chain">
+      <article id="2064896227">
+        <div class="comment-image-wrapper">
+          <img class="comment-avatar" src="https://www.gravatar.com/avatar/9a6fe434e31c7dd56d09ac05da2bee36?s=200&d=robohash" />
+        </div>
+        <div class="comment-body-wrapper">
+          <span class="comment-meta">
+            <small>
+              
+                <a href=https://disqus.com/by/mehdisadeghi/ target="_"><span commenter>Mehdi Sadeghi</span></a>
+              
+            </small>
+            <small> &nbsp; <a href="#2064896227">۱۶ خرداد ۱۳۹۴</a></small>
+            <small> &nbsp; <a href="#comment-form" onclick="replyTo('2064896227')">پاسخ</a></small>
+            <span style="display:none" commentId>2064896227</span>
+          </span>
+          <p>من در این مورد مقداری مطالعه کردم ولی تنها نکته‌ای که بهش رسیدم همون حدس اولم بود. این مشکلیه که با پارتیشن‌های FAT و NTFS پیش می‌آد. چون اونا مدل پرمیشن لینوکس رو ساپورت نمی‌کنند. اما در مورد این مشکل با ext4 اطلاعی ندارم.</p>
+
+        </div>
+      </article>
+
+        
+
+    </div>
+    
+    <div class="comment-chain">
+      <article id="2219350401">
+        <div class="comment-image-wrapper">
+          <img class="comment-avatar" src="https://www.gravatar.com/avatar/5c966c79771ee4c0760cb9729e0a9a60?s=200&d=robohash" />
+        </div>
+        <div class="comment-body-wrapper">
+          <span class="comment-meta">
+            <small>
+              
+                <a href=https://disqus.com/by/mahdirabbani0/ target="_"><span commenter>مهدی ربانی</span></a>
+              
+            </small>
+            <small> &nbsp; <a href="#2219350401">۰۴ شهریور ۱۳۹۴</a></small>
+            <small> &nbsp; <a href="#comment-form" onclick="replyTo('2219350401')">پاسخ</a></small>
+            <span style="display:none" commentId>2219350401</span>
+          </span>
+          <p>سپاس از شما. مطلب خیلی مفید و بلیغی بود. خواهش می کنم در مورد دسترسی هایی که با عدد مشخص میشه هم یه توضیحی بدید. مثلا 777 ، 755 و …</p>
+
+        </div>
+      </article>
+
+        
+
+    </div>
+    
+    <div class="comment-chain">
+      <article id="2226724390">
+        <div class="comment-image-wrapper">
+          <img class="comment-avatar" src="https://www.gravatar.com/avatar/9a6fe434e31c7dd56d09ac05da2bee36?s=200&d=robohash" />
+        </div>
+        <div class="comment-body-wrapper">
+          <span class="comment-meta">
+            <small>
+              
+                <a href=https://disqus.com/by/mehdisadeghi/ target="_"><span commenter>Mehdi Sadeghi</span></a>
+              
+            </small>
+            <small> &nbsp; <a href="#2226724390">۰۸ شهریور ۱۳۹۴</a></small>
+            <small> &nbsp; <a href="#comment-form" onclick="replyTo('2226724390')">پاسخ</a></small>
+            <span style="display:none" commentId>2226724390</span>
+          </span>
+          <p>مطلبی در این مورد نوشتم، ببین: http://mehdix.ir/linux-perm…</p>
+
+        </div>
+      </article>
+
+        
+
+    </div>
+    
+  </div>
+  
+
+  <form id="comment-form" name="comment" netlify-honeypot="bot-field" netlify>
+    <input name="bot-field" style="display:none">
+    <input name="page_id" style="display:none" value="/linux-permissions-made-simple">
+    <input id="reply-to" name="reply-to" style="display:none">
+    <label for="message">دیدگاه<sup class="required">*</sup> &nbsp;<small>می‌توانید با <a href="http://commonmark.org/help/" target="_">مارک‌داون</a> هم بنویسید.</small><br><small id="replyToVisualClue"></small>
+      <textarea id="message" name="message" required alt="no!!" onkeyup="preview()"></textarea>
+      <div id="preview"></div>
+    </label>
+    <label for="name">نام<sup class="required">*</sup>
+      <input id="name" type="text" name="name" required>
+    </label>
+    <label for="email">ایمیل<sup class="required">*</sup>
+      <input id="email" type="email" name="email" required>
+    </label>
+    <label for="website">وبسایت
+      <input id="website" type="url" name="website">
+    </label>
+    <div style="text-align:left">
+      <button type="submit" class="button">ارسال</button>
+    </div>
+  </form>
+
+</section>
+<script src="https://mehdix.ir/assets/js/showdown.min.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+  function preview() {
+    var converter = new showdown.Converter();
+    var markdown = document.getElementById("message").value;
+    document.getElementById("preview").innerHTML = converter.makeHtml(markdown);
+  }
+
+  function replyTo(commentID) {
+    var comment = document.getElementById(commentID);
+    document.getElementById("reply-to").value = comment.querySelector("span[commentId]").innerText;
+    document.getElementById("replyToVisualClue").innerText = "[در جواب " + comment.querySelector("span[commenter]").innerText + "]";
+  }
+</script>
+    
+  </section>
+
+</article>
+</div>
+    </main><footer>
+
+  <div class="wrapper">
+
+    
+
+    <p id="footer-description">بچه که بودیم همیشه برای بازی خونه می‌ساختیم. حالا هم نمونه‌اش رو در وب ساختم. اینجا سکوی انتشار مطالبی در مورد دانش تولید نرم‌افزار و ایده‌ها و علایق شخصی‌ام است، بویژه راه‌حل‌های مهندسی که باعث رشد و پیشرفتم شده است و می‌تواند مورد استفاده دیگران هم قرار بگیرد.
+</p>
+
+    <ul class="social-media-list">
+      
+      <li>
+        <i class="fab fa-github"></i>
+        <a href="https://github.com/mehdisadeghi">
+          <span class="username social-media-text">پروژه‌ها</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <i class="fab fa-twitter-square"></i>
+        <a href="https://twitter.com/msadeghii">
+          <span class="username social-media-text">توئیت‌ها</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <i class="fas fa-rss"></i>
+        <a href="https://feedburner.google.com/fb/a/mailverify?uri=mehdixir&amp;loc=en_US">
+          <span class="username social-media-text">خبرنامه</span></a>
+      </li>
+      <li>
+        <i class="fas fa-rss"></i>
+        <a href="http://feeds.feedburner.com/mehdixir">
+        <span class="username social-media-text">خوراک</span></a>
+      </li>
+      
+      
+        <li>
+          <i class="fas fa-envelope-open"></i>
+          <a href="mailto:sadeghi@mehdix.org">
+            <span class="username social-media-text">تماس</span></a></li>
+      
+    </ul>
+
+  <div id="footer-extra">
+    <small id="license">
+  <i class="fab fa-creative-commons"></i>
+  مطالب این وبلاگ تحت مجوز
+  <a rel="license" href="http://creativecommons.org/licenses/by/4.0/deed.fa">
+    کریتیو کامنز اتریبیوشن ۴.۰ اینترنشنال
+  </a>قرار دارد.
+</small>
+    <a id="atom" href="https://validator.w3.org/feed/check.cgi?url=https://mehdix.ir/feed.xml"><img src=https://mehdix.ir/assets/img/valid-atom.png alt="[Valid Atom 1.0]" title="Validate my Atom 1.0 feed" /></a>
+  </div>
+
+  </div>
+
+  <small id="build-time">Site generated on Tue, 06 Feb 2018 02:43:37 +0100</small>
+
+</footer><script src="https://mehdix.ir/assets/js/main.js"></script>
+     <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-57282325-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+ 
+  </body>
+</html>

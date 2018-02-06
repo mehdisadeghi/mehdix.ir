@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="fa">
+  
+  <head><meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="author" content="مهدی صادقی" />
+<meta name="copyright" content="Commons Attribution 4.0 International" />
+<meta name="robot" content="" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="description" content="سکوی انتشار مطالبی در مورد دانش تولید نرم‌افزار و ایده‌ها و علایق شخصی‌ام." />
+
+<link rel="canonical" href="https://mehdix.ir/publishing-with-jekyll.html" />
+<link rel="icon" href="https://mehdix.ir/assets/img/me.png" />
+<link rel="stylesheet" href="https://mehdix.ir/assets/css/main.css" />
+<link rel="stylesheet" href="https://mehdix.ir/assets/fonts/fontawesomev5.0.2.css" />
+<meta name="keywords" content='gtk,gnome,باگ,همکاری,پیگیری' /><title>باگ سیزده ساله تعمیر شد - مهدی صادقی</title><!-- Begin Jekyll SEO tag v2.4.0 -->
+<title>باگ سیزده ساله تعمیر شد | مهدی صادقی</title>
+<meta name="generator" content="Jekyll v3.7.2" />
+<meta property="og:title" content="باگ سیزده ساله تعمیر شد" />
+<meta name="author" content="مهدی صادقی" />
+<meta property="og:locale" content="fa_IR" />
+<meta name="description" content="در مطلب قبلی در مورد باگ GTK و تلاشم برای مرج کردن آن نوشته بودم. الان قصد دارم نتیجه‌ی چند ماه دوندگی و همکاری آنلاین را بنویسم." />
+<meta property="og:description" content="در مطلب قبلی در مورد باگ GTK و تلاشم برای مرج کردن آن نوشته بودم. الان قصد دارم نتیجه‌ی چند ماه دوندگی و همکاری آنلاین را بنویسم." />
+<link rel="canonical" href="https://mehdix.ir/13-years-old-bug-fixed.html" />
+<meta property="og:url" content="https://mehdix.ir/13-years-old-bug-fixed.html" />
+<meta property="og:site_name" content="مهدی صادقی" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-04-08T00:00:00+02:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@msadeghii" />
+<meta name="twitter:creator" content="@مهدی صادقی" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://mehdix.ir/13-years-old-bug-fixed.html"},"url":"https://mehdix.ir/13-years-old-bug-fixed.html","author":{"@type":"Person","name":"مهدی صادقی"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://mehdix.ir/assets/img/me.png"},"name":"مهدی صادقی"},"description":"در مطلب قبلی در مورد باگ GTK و تلاشم برای مرج کردن آن نوشته بودم. الان قصد دارم نتیجه‌ی چند ماه دوندگی و همکاری آنلاین را بنویسم.","headline":"باگ سیزده ساله تعمیر شد","dateModified":"2017-04-08T00:00:00+02:00","datePublished":"2017-04-08T00:00:00+02:00","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  </head>
+
+  <body><header>
+  <div class="wrapper">
+    <a class="site-title" href="https://mehdix.ir/">مهدی صادقی</a>
+    <small id="motto"> در مورد نرم‌افزار و ایده‌هایم </small>
+  </div>
+</header>
+<main>
+      <div class="wrapper">
+
+<article class="post-content">
+
+  <div class="post-header">
+    <h1 class="post-title">باگ سیزده ساله تعمیر شد</h1>
+    <p>
+      <i class="fas fa-calendar"></i>
+      شنبه ۱۹ فروردین ۱۳۹۶<br>
+      
+      <i class="fas fa-stopwatch"></i>
+      ۴ دقیقه مطالعه
+    </p>
+  </div>
+
+  <p>در مطلب قبلی در مورد باگ GTK و تلاشم برای مرج کردن آن نوشته بودم. الان قصد دارم نتیجه‌ی چند ماه دوندگی و همکاری آنلاین را بنویسم.</p>
+
+<p>ماجرا به طور خلاصه این بود که من از مدتها پیش موقع تایپ فارسی در <code class="highlighter-rouge">gedit</code> و <code class="highlighter-rouge">zim</code> متوجه شده بودم که اگر کلید کنترل را نگه دارم و به چپ و راست حرکت کنم، نشانگر تایپ در جهت عکس حرکت می‌کند. مثل خیلی از آدم‌ها من هم منتظر شدم تا باگ توسط کس دیگری رفع بشود ولی نشد. در مرحله بعدی سعی کردم مشکل را پیدا و گزارش کنم که به ‏<a href="https://bugzilla.gnome.org/show_bug.cgi?id=136059">این باگ</a> رسیدم. تاریخ باگ را نگاه کنید، سال ۲۰۰۴ ثبت شده است. آن موقع (سال ۲۰۱۵ یا ۱۳۹۴) کل همت من به نوشتن <a href="https://bugzilla.gnome.org/show_bug.cgi?id=136059#c31">یک کامنت</a> خلاصه شد. اینکه بگویم من هم این مشکل را دارم، بلکه کسی دلش به حالم بسوزد و از وقت خودش بزند و بیاید مشکل من را حل بکند!</p>
+
+<p>خب، ولی کسی دلش نسوخت.</p>
+
+<p>اگر باگ را دنبال کنید مراحل بعدی را خودتان می‌بینید. بعد از گذشت یکسال دوباره همتم را جمع کردم و اینبار تصمیم گرفتم خودم باگ را درست کنم. با صرف چند روز وقت و سرو کله زدن با GTK و C پچی درست کردم و باگ را با حل کردم که شرحش را در مطلب قبلی آوردم. ولی مهمترین قسمت کار دنبال کردن باگ است. اگر به کامنت‌ها نگاه کنید و به کسانی که باگ‌های مشابه را ثبت کرده‌اند یا این باگ را دنبال کرده‌اند، متوجه می‌شوید که بیشتر افراد آن را دنبال نمی‌کنند و فیدبک نمی‌دهند. کامنت‌های حاوی اطلاعات روشن و مورد نیاز هم کم است. یعنی افراد (مثل خود من قبلا) کامنت می‌گذارند ولی کامنتشان کم ارزش است چون حاوی اطلاعات به درد بخور نیست و کاری هم برای آن انجام نشده است. ولی اگر کسی برنامه را تست بکند و فیدبک بدهد یا پچ را امتحان بکند و خلاصه به طریقی به پیشرفت پروسه‌ی رفع باگ کمک بکند کارش با ارزش است، در غیر اینصورت کسی توجهی به کامنتش نمی‌کند. و احتمالا جوابی هم دریافت نمی‌کند. در این مورد خواندن مقاله‌ی اریک ریموند بسیار سودمند است. اینکه <a href="http://www.catb.org/esr/faqs/smart-questions.html">چطور از هکرها هوشمندانه سوال بپرسیم</a>. جان کلام اینست که پیام باید نشانگر تلاش سوال کننده در جهت حل مشکل باشد (باید مشق شب خودت را انجام داده باشی)، گویا باشد، طلبکارانه نباشد و برای وقت پاسخ‌دهندگان ارزش قائل باشد. در ضمن باید گفتگو را دنبال کرد و در صورت نیاز با اطلاعات دوباره آن را بروزرسانی کرد. اگر پرسشی پرسیده شده باید به سرعت و دقت پاسخ داده بشود و مانند اینها.</p>
+
+<p>در نهایت بعد از گذشت چند ماه و پیگیری دائمی و رد و بدل کردن چندین و چند پچ و مشارکت عده‌ای از برنامه‌نویسان GTK بالاخره ‬<a href="https://git.gnome.org/browse/gtk+/commit/?id=0128b8d33f47c9387ee342a1158f3038e02eff49">پچ نهایی</a> در مخزن اصلی مرج شد و باگ مورد بحث بعد از گذشت ۱۳ سال فیکس شد. در این مدت دوستم آیدین غریب‌نواز به عنوان کاربر RTL با تست پچ صحت آن را تایید کرد و کامنت گذاشت و دو نفر از برنامه‌نویسان GTK بنام Daniel Bolse و Nelson Benítez León همکاری زیادی برای تولید پچ نهایی کردند.</p>
+
+<p>به این صورت بعد از مدتی اندک اندک با ریلیزهای بعدی گنوم و GTK این پچ منتشر می‌شود و دیستروها هم در نسخه‌های بعدی‌شان آنرا دریافت خواهند کرد. نکته مهمی که طی فرآیند تعمیر این باگ فهمیدیم این بود که از سیزده سال پیش تا به امروز GTK تغییرات زیادی کرده است و این باگ به تنهایی مشکل gedit را حل نمی‌کند چرا که امروز gedit دیگر از GtkTextView (که تعمیرش کردیم) برای نمایش متن استفاده نمی‌کند و بجای آن از یک ویجت دیگر بنام GtkSourceView استفاده می‌کند. بنابراین در تاریخ ۱۹ فوریه ۲۰۱۷ (اوایل اسفند ۹۵) <a href="https://bugzilla.gnome.org/show_bug.cgi?id=778928">باگ جدیدی</a> ثبت کردم و کار را روی آن شروع کردیم. با کسب تجربه از پیچیدگی‌های باگ قبلی و فرآیند حل آن اینبار با سرعت وارد عمل شدیم (یعنی یکی دو ماه!). هم من یاد گرفته بودم چطور با بچه‌های GTK کار کنم و هم آنها با مشکل راست به چپ نویسی آشنا شده بودند. (مثلا دانیل یاد گرفته بود که خودش متن عربی را تست بکند.)  اول فکر می‌کردیم که باید API ویجت GtkTextView را تغییر بدهیم و همان توابع را در GtkSourceView استفاده کنیم که با واکنش منفی یکی دیگر از برنامه‌نویسان روبرو شد و درخواست کرد که اول تلاش کنیم مشکل را درون GtkSourceView حل کنیم و بار اضافی نگهداری از یک API جدید را به پروژه تحمیل نکنیم. خوشبختانه با مقداری تلاش و همفکری دوستان به <a href="https://bugzilla.gnome.org/attachment.cgi?id=348936&amp;action=diff">پچ جدیدی</a> رسیدیم، حتی خیلی بهتر از پچی که برای GtkTextView نوشته بودیم! پچ به قدری ساده بود که کارها خیلی زود پیش رفت. طبق معمول دوستان اصلاحاتی پیشنهاد کردند که اعمال کردم. مثلا اینکه متن کامیت باید شامل لینک باگزیلا باشد، خط اول آن باید فیکس را شرح بدهد و در بدنه کامیت هم شرح مشکل آمده باشد و در خط آخر هم لینک باگزیلا. خود کد هم باید قواعد رایج GTK و خود ویجت را رعایت کند. مثل تعریف متغیرها در ابتدای کد و استفاده از آکولاد حتی برای بلاک‌های تک خطی و مانند اینها. آزاد کردن اشاره‌گرهای سی هم فراموش نشود!</p>
+
+<p>با این اوصاف باگ دوم بجای سیزده سال در  کمتر از دو ماه حل شد. حتما تصدیق می‌کنید که پیشرفت قابل توجهی است! پچ حلال مشکلات ما را هم می‌توانید در مخزن GTK ‬<a href="https://git.gnome.org/browse/gtksourceview/commit/?id=494c76dd359351b8a703b6aec328126b0f84828b">ببینید</a>. من که بی صبرانه منتظرم تا آرچ لینوکسم را آپدیت بکنم و از این به بعد هرچقدر دلم می‌خواهد در متن‌های فارسی با کنترل و کلیدهای جهت کیبورد به چپ و راست بروم! واقعا چه لذتی از این بالاتر؟ :)</p>
+
+<p>این هم عیدی من به کامیونتی راست به چپ نویسان گنوم باز ایران!</p>
+
+
+  
+    <div id="related-posts">
+      <h3>مطالب مرتبط</h3>
+      <ul>
+        
+          <li><a href="/patch.html">پچ بنویس و التماس کن</a></li>
+        
+        </ul>
+    </div>
+  
+
+  <small id="post-tags">
+    
+      <i class="fas fa-tag"></i>
+      <a rel="tag" href="/tag/gtk.html">gtk</a>
+    
+      <i class="fas fa-tag"></i>
+      <a rel="tag" href="/tag/gnome.html">gnome</a>
+    
+      <i class="fas fa-tag"></i>
+      <a rel="tag" href="/tag/%D8%A8%D8%A7%DA%AF.html">باگ</a>
+    
+      <i class="fas fa-tag"></i>
+      <a rel="tag" href="/tag/%D9%87%D9%85%DA%A9%D8%A7%D8%B1%DB%8C.html">همکاری</a>
+    
+      <i class="fas fa-tag"></i>
+      <a rel="tag" href="/tag/%D9%BE%DB%8C%DA%AF%DB%8C%D8%B1%DB%8C.html">پیگیری</a>
+    
+
+    <i class="fas fa-code"></i>
+    
+    
+    <a href="https://raw.githubusercontent.com/mehdisadeghi/mehdix.ir/master/_source/_posts/2017-04-08-13-years-old-bug-fixed.markdown">سورس</a>
+    
+  </small>
+
+  <nav class="pagination">
+    
+      <a href="https://mehdix.ir/github-rtl.html" class="pagination--pager" title="راست به چپ نویسی در گیتهاب">قبلی</a>
+    
+
+    
+      <a href="https://mehdix.ir/patch.html" class="pagination--pager" title="پچ بنویس و التماس کن">بعدی </a>
+    
+  </nav>
+
+  <section>
+    
+      
+<section id="static-comments">
+  
+  
+  
+  <h4 id="comments-header">دیدگاه‌ها</h4>
+  <div id="comments">
+    
+    <div class="comment-chain">
+      <article id="3252355224">
+        <div class="comment-image-wrapper">
+          <img class="comment-avatar" src="https://www.gravatar.com/avatar/a84eca4314e52cf150347841e3a17cf1?s=200&d=robohash" />
+        </div>
+        <div class="comment-body-wrapper">
+          <span class="comment-meta">
+            <small>
+              
+                <a href=https://disqus.com/by/firouzian/ target="_"><span commenter>Amir H.</span></a>
+              
+            </small>
+            <small> &nbsp; <a href="#3252355224">۲۳ فروردین ۱۳۹۶</a></small>
+            <small> &nbsp; <a href="#comment-form" onclick="replyTo('3252355224')">پاسخ</a></small>
+            <span style="display:none" commentId>3252355224</span>
+          </span>
+          <p>بسیار عالی جناب صادقی
+زحمات شما و دیگر دوستان نادیده‌گرفته نخواهد شد.
+ممنون</p>
+
+        </div>
+      </article>
+
+        
+
+    </div>
+    
+    <div class="comment-chain">
+      <article id="3252370509">
+        <div class="comment-image-wrapper">
+          <img class="comment-avatar" src="https://www.gravatar.com/avatar/9a6fe434e31c7dd56d09ac05da2bee36?s=200&d=robohash" />
+        </div>
+        <div class="comment-body-wrapper">
+          <span class="comment-meta">
+            <small>
+              
+                <a href=https://disqus.com/by/mehdisadeghi/ target="_"><span commenter>Mehdi Sadeghi</span></a>
+              
+            </small>
+            <small> &nbsp; <a href="#3252370509">۲۳ فروردین ۱۳۹۶</a></small>
+            <small> &nbsp; <a href="#comment-form" onclick="replyTo('3252370509')">پاسخ</a></small>
+            <span style="display:none" commentId>3252370509</span>
+          </span>
+          <p>خواهش می‌کنم :)</p>
+
+        </div>
+      </article>
+
+        
+
+    </div>
+    
+    <div class="comment-chain">
+      <article id="3259749937">
+        <div class="comment-image-wrapper">
+          <img class="comment-avatar" src="https://www.gravatar.com/avatar/cc0d7c5a5a14da181d0bc9c2cc87075b?s=200&d=robohash" />
+        </div>
+        <div class="comment-body-wrapper">
+          <span class="comment-meta">
+            <small>
+              
+                <span commenter>فرهاد</span>
+              
+            </small>
+            <small> &nbsp; <a href="#3259749937">۲۸ فروردین ۱۳۹۶</a></small>
+            <small> &nbsp; <a href="#comment-form" onclick="replyTo('3259749937')">پاسخ</a></small>
+            <span style="display:none" commentId>3259749937</span>
+          </span>
+          <p>سلام و اقعا عالی بود</p>
+
+        </div>
+      </article>
+
+        
+
+    </div>
+    
+    <div class="comment-chain">
+      <article id="3259767363">
+        <div class="comment-image-wrapper">
+          <img class="comment-avatar" src="https://www.gravatar.com/avatar/cc0d7c5a5a14da181d0bc9c2cc87075b?s=200&d=robohash" />
+        </div>
+        <div class="comment-body-wrapper">
+          <span class="comment-meta">
+            <small>
+              
+                <span commenter>من دوباره ب این کامنت سر میزنم</span>
+              
+            </small>
+            <small> &nbsp; <a href="#3259767363">۲۸ فروردین ۱۳۹۶</a></small>
+            <small> &nbsp; <a href="#comment-form" onclick="replyTo('3259767363')">پاسخ</a></small>
+            <span style="display:none" commentId>3259767363</span>
+          </span>
+          <p>ولی یه چیزی رو میخام بگم نمیدونم قبولش داری یا نه
+به نظر من کار گروهی برنامه نویسان ایرانی یا حد اقل کسایی که به برنامه نویسی علاقه دارن ضعیفه تو ایران، علتش نمیدونم چیه
+اینهمه برنامه نویس داریم تو کشور ولی یه پروژه ی بزرگ اوپن سورس ایرانی نیست. یدونه دانلود منیجر پرسپولیس هست که اونم اقای امیر صمیمی تکی داره توسعش میده انصافا هم خیلی خوبه
+به نظرم شما توجهتون رو به این نکته معطوف کنید که چرا کار گروهی ضعیفه؟ چرا پروژه های اوپن سورس بزرگ با وجود این همه برنامه نویس در کشور وجود نداره
+به دنبال راه کار هایی برای حل این مشکل باشید، اینکه چیکار کنیم، از چه روشی استفاده کنیم تا ما هم مثل برنامه نویسان خارجی پروژه های بزرگ رو جلو ببریم
+فک کنم مشکل پروژه های ما اینه که داکیومنتشن خوبی ندارن، بیشتر از اینکه به این فکر کنیم که چیکار کنیم که پروژه ما برای توسعه دهندگان دیگه قابل فهم  و اسون تر باشه، به این فک میکنیم که فقط یه سورس بنویسیم و کار کار بر نهایی رو راحت کنیم</p>
+
+        </div>
+      </article>
+
+        
+
+    </div>
+    
+    <div class="comment-chain">
+      <article id="3261038610">
+        <div class="comment-image-wrapper">
+          <img class="comment-avatar" src="https://www.gravatar.com/avatar/9a6fe434e31c7dd56d09ac05da2bee36?s=200&d=robohash" />
+        </div>
+        <div class="comment-body-wrapper">
+          <span class="comment-meta">
+            <small>
+              
+                <a href=https://disqus.com/by/mehdisadeghi/ target="_"><span commenter>Mehdi Sadeghi</span></a>
+              
+            </small>
+            <small> &nbsp; <a href="#3261038610">۲۹ فروردین ۱۳۹۶</a></small>
+            <small> &nbsp; <a href="#comment-form" onclick="replyTo('3261038610')">پاسخ</a></small>
+            <span style="display:none" commentId>3261038610</span>
+          </span>
+          <p>یه جمله تو اینترنت رایجه. سوال: می‌دونی چه کسانی RFC ها رو می‌نویسند؟ جواب: کسانی که RFCها رو می‌نویسند!
+یه جمله هم تو وب (یا تلگرام) فارسی دست به دست می‌شه: «بجای لعنت بر تاریکی شمعی روشن کن!»
+پیشنهاد من اینه که اصلا به موضوعی که در بالا گفتی فکر نکنی و بجاش خودت یک گروه موفق بسازی. اول خودت بعد با رفقا یا دوستان نزدیکت. کلی چیز یاد می‌گیری. بهت اطمینان می‌دم ما ایرانی‌ها هیچ مانع ژنتیکی در برابر کار گروهی نداریم!</p>
+
+        </div>
+      </article>
+
+        
+
+    </div>
+    
+    <div class="comment-chain">
+      <article id="3261238414">
+        <div class="comment-image-wrapper">
+          <img class="comment-avatar" src="https://www.gravatar.com/avatar/310ae6e7d342fc7e30111647ac5d9af3?s=200&d=robohash" />
+        </div>
+        <div class="comment-body-wrapper">
+          <span class="comment-meta">
+            <small>
+              
+                <a href=https://disqus.com/by/khoramyar/ target="_"><span commenter>Hamed</span></a>
+              
+            </small>
+            <small> &nbsp; <a href="#3261238414">۲۹ فروردین ۱۳۹۶</a></small>
+            <small> &nbsp; <a href="#comment-form" onclick="replyTo('3261238414')">پاسخ</a></small>
+            <span style="display:none" commentId>3261238414</span>
+          </span>
+          <p>خسته نباشید و دست شما هم درد نکنه ! :)
+خرم یار - تیم فنی Aivivid.com</p>
+
+        </div>
+      </article>
+
+        
+
+    </div>
+    
+    <div class="comment-chain">
+      <article id="3262043822">
+        <div class="comment-image-wrapper">
+          <img class="comment-avatar" src="https://www.gravatar.com/avatar/cc0d7c5a5a14da181d0bc9c2cc87075b?s=200&d=robohash" />
+        </div>
+        <div class="comment-body-wrapper">
+          <span class="comment-meta">
+            <small>
+              
+                <span commenter>من دوباره ب این کامنت سر میزنم</span>
+              
+            </small>
+            <small> &nbsp; <a href="#3262043822">۲۹ فروردین ۱۳۹۶</a></small>
+            <small> &nbsp; <a href="#comment-form" onclick="replyTo('3262043822')">پاسخ</a></small>
+            <span style="display:none" commentId>3262043822</span>
+          </span>
+          <p>درسته، این جمله خیلی خوبه “جای لعنت بر تاریکی شمعی روشن کن!” 
+اول از همه باید خودم دست ب کار بشم …</p>
+
+        </div>
+      </article>
+
+        
+
+    </div>
+    
+    <div class="comment-chain">
+      <article id="3262698356">
+        <div class="comment-image-wrapper">
+          <img class="comment-avatar" src="https://www.gravatar.com/avatar/b3cf8aa7fd1fa4693b0506551eb5939b?s=200&d=robohash" />
+        </div>
+        <div class="comment-body-wrapper">
+          <span class="comment-meta">
+            <small>
+              
+                <a href=https://disqus.com/by/nasserafshin/ target="_"><span commenter>nasser</span></a>
+              
+            </small>
+            <small> &nbsp; <a href="#3262698356">۳۰ فروردین ۱۳۹۶</a></small>
+            <small> &nbsp; <a href="#comment-form" onclick="replyTo('3262698356')">پاسخ</a></small>
+            <span style="display:none" commentId>3262698356</span>
+          </span>
+          <p>آفرین. لذت بردم.</p>
+
+        </div>
+      </article>
+
+        
+
+    </div>
+    
+    <div class="comment-chain">
+      <article id="3270970818">
+        <div class="comment-image-wrapper">
+          <img class="comment-avatar" src="https://www.gravatar.com/avatar/60f7816d617e56ec07127bf6d90c9626?s=200&d=robohash" />
+        </div>
+        <div class="comment-body-wrapper">
+          <span class="comment-meta">
+            <small>
+              
+                <a href=https://disqus.com/by/javadbahoosh/ target="_"><span commenter>Javad Bahoosh</span></a>
+              
+            </small>
+            <small> &nbsp; <a href="#3270970818">۰۴ اردیبهشت ۱۳۹۶</a></small>
+            <small> &nbsp; <a href="#comment-form" onclick="replyTo('3270970818')">پاسخ</a></small>
+            <span style="display:none" commentId>3270970818</span>
+          </span>
+          <p>ممنون و خسته‌نباشی!
+من بعد از این مدت، حتی به ذهنم نرسیده بود که این باگ باشه. فکر می‌کردم درستش همینه.</p>
+
+        </div>
+      </article>
+
+        
+
+    </div>
+    
+    <div class="comment-chain">
+      <article id="3270992678">
+        <div class="comment-image-wrapper">
+          <img class="comment-avatar" src="https://www.gravatar.com/avatar/9a6fe434e31c7dd56d09ac05da2bee36?s=200&d=robohash" />
+        </div>
+        <div class="comment-body-wrapper">
+          <span class="comment-meta">
+            <small>
+              
+                <a href=https://disqus.com/by/mehdisadeghi/ target="_"><span commenter>Mehdi Sadeghi</span></a>
+              
+            </small>
+            <small> &nbsp; <a href="#3270992678">۰۴ اردیبهشت ۱۳۹۶</a></small>
+            <small> &nbsp; <a href="#comment-form" onclick="replyTo('3270992678')">پاسخ</a></small>
+            <span style="display:none" commentId>3270992678</span>
+          </span>
+          <p>من هم از قدیم می‌دیدم گنوم تو فارسی و ساپورت تقویم شمسی ضعیفه ولی می‌گفتم حتما برنامه‌نویساش می‌خوان که اینطوری باشه! بعد رفتم دیدم نه بابا بنده خداها از فارسی و عربی سر درنمیارن وگرنه از فیکس استقبال هم می‌کنند! :)</p>
+
+        </div>
+      </article>
+
+        
+
+    </div>
+    
+    <div class="comment-chain">
+      <article id="3282858855">
+        <div class="comment-image-wrapper">
+          <img class="comment-avatar" src="https://www.gravatar.com/avatar/8ae75550e48ed58449e0d8fb12e338b7?s=200&d=robohash" />
+        </div>
+        <div class="comment-body-wrapper">
+          <span class="comment-meta">
+            <small>
+              
+                <a href=https://disqus.com/by/disqus_8jpwbXmhAI/ target="_"><span commenter>mori</span></a>
+              
+            </small>
+            <small> &nbsp; <a href="#3282858855">۱۱ اردیبهشت ۱۳۹۶</a></small>
+            <small> &nbsp; <a href="#comment-form" onclick="replyTo('3282858855')">پاسخ</a></small>
+            <span style="display:none" commentId>3282858855</span>
+          </span>
+          <p>سلام.  من یه باگ گزارش دادم ولی هیچ تجربه ی قبلی ای در این زمینه ندارم
+اگر راهی برای گزارش بهتر یا حتی رفع باگ، مدنظرتون هست خوشحال میشم راهنمایی بفرمایید
+https://bugs.launchpad.net/…</p>
+
+        </div>
+      </article>
+
+        
+
+    </div>
+    
+    <div class="comment-chain">
+      <article id="3282888599">
+        <div class="comment-image-wrapper">
+          <img class="comment-avatar" src="https://www.gravatar.com/avatar/9a6fe434e31c7dd56d09ac05da2bee36?s=200&d=robohash" />
+        </div>
+        <div class="comment-body-wrapper">
+          <span class="comment-meta">
+            <small>
+              
+                <a href=https://disqus.com/by/mehdisadeghi/ target="_"><span commenter>Mehdi Sadeghi</span></a>
+              
+            </small>
+            <small> &nbsp; <a href="#3282888599">۱۱ اردیبهشت ۱۳۹۶</a></small>
+            <small> &nbsp; <a href="#comment-form" onclick="replyTo('3282888599')">پاسخ</a></small>
+            <span style="display:none" commentId>3282888599</span>
+          </span>
+          <p>باید سورس کد رو بخونی و بفهمی که اون چیزی که نمایش داده می‌شه توسط کدام برنامه تولید شده. معمولا با نگاه به پیش‌نیازهای یک برنامه می‌شه اینها رو فهمید. مثلا در مورد این باگی که من در بالا شرح دادم من اول مثل تو مشکلی دیدم، در اون مثال مشکل در gedit و zim بود. زود فهمیدم که مشکل از این برنامه‌ها نیست و GTK باید تعمیر بشه. حالا این برنامه که گذاشتی هم اول باید پیدا کنی که از چه ابزاری برای تولید قطعات گرافیکی‌اش استفاده کرده. بعد مشکل ساده‌تر می‌شه. شاید اون ابزار اجازه راست به چپ کردن بده و مشکل راحت حل بشه. نگاه کردن به سورس کد از همه چی مهمتره. یاد بگیر سورس رو بخونی. کم کم راه میفتی!</p>
+
+        </div>
+      </article>
+
+        
+
+    </div>
+    
+    <div class="comment-chain">
+      <article id="3282955250">
+        <div class="comment-image-wrapper">
+          <img class="comment-avatar" src="https://www.gravatar.com/avatar/8ae75550e48ed58449e0d8fb12e338b7?s=200&d=robohash" />
+        </div>
+        <div class="comment-body-wrapper">
+          <span class="comment-meta">
+            <small>
+              
+                <a href=https://disqus.com/by/disqus_8jpwbXmhAI/ target="_"><span commenter>mori</span></a>
+              
+            </small>
+            <small> &nbsp; <a href="#3282955250">۱۱ اردیبهشت ۱۳۹۶</a></small>
+            <small> &nbsp; <a href="#comment-form" onclick="replyTo('3282955250')">پاسخ</a></small>
+            <span style="display:none" commentId>3282955250</span>
+          </span>
+          <p>ممنون از اینکه سریع جواب دادی و تشکر از راهنماییت
+حتی متن پیام شما  توی جیمیل بر عکس اومد (منظور من هم همین باگ هست) https://uploads.disquscdn.c…</p>
+
+        </div>
+      </article>
+
+        
+
+    </div>
+    
+    <div class="comment-chain">
+      <article id="3284797463">
+        <div class="comment-image-wrapper">
+          <img class="comment-avatar" src="https://www.gravatar.com/avatar/9a6fe434e31c7dd56d09ac05da2bee36?s=200&d=robohash" />
+        </div>
+        <div class="comment-body-wrapper">
+          <span class="comment-meta">
+            <small>
+              
+                <a href=https://disqus.com/by/mehdisadeghi/ target="_"><span commenter>Mehdi Sadeghi</span></a>
+              
+            </small>
+            <small> &nbsp; <a href="#3284797463">۱۲ اردیبهشت ۱۳۹۶</a></small>
+            <small> &nbsp; <a href="#comment-form" onclick="replyTo('3284797463')">پاسخ</a></small>
+            <span style="display:none" commentId>3284797463</span>
+          </span>
+          <p>خوب خیلی از این موارد در کنترل ما نیست. مثلا این ایمیل که اشاره کردی دیسکاس ارسال می‌کنه و کافیه کد HTML یا CSS رو کمی تغییر بده که پیام درست نمایش داده بشه (چون ایمیل یا متن معمولیه یا HTML). یعنی مانع فنی وجود نداره ولی اونها فقط چون بیشتر کابرانشون چپ به راست می‌نویسند به مشکلات راست به چپ اهمیتی نمی‌دن. ولی در مورد سایر ابزارها باید ببینی تکنولوژی نمایش متن چیه.</p>
+
+        </div>
+      </article>
+
+        
+
+    </div>
+    
+  </div>
+  
+
+  <form id="comment-form" name="comment" netlify-honeypot="bot-field" netlify>
+    <input name="bot-field" style="display:none">
+    <input name="page_id" style="display:none" value="/13-years-old-bug-fixed">
+    <input id="reply-to" name="reply-to" style="display:none">
+    <label for="message">دیدگاه<sup class="required">*</sup> &nbsp;<small>می‌توانید با <a href="http://commonmark.org/help/" target="_">مارک‌داون</a> هم بنویسید.</small><br><small id="replyToVisualClue"></small>
+      <textarea id="message" name="message" required alt="no!!" onkeyup="preview()"></textarea>
+      <div id="preview"></div>
+    </label>
+    <label for="name">نام<sup class="required">*</sup>
+      <input id="name" type="text" name="name" required>
+    </label>
+    <label for="email">ایمیل<sup class="required">*</sup>
+      <input id="email" type="email" name="email" required>
+    </label>
+    <label for="website">وبسایت
+      <input id="website" type="url" name="website">
+    </label>
+    <div style="text-align:left">
+      <button type="submit" class="button">ارسال</button>
+    </div>
+  </form>
+
+</section>
+<script src="https://mehdix.ir/assets/js/showdown.min.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+  function preview() {
+    var converter = new showdown.Converter();
+    var markdown = document.getElementById("message").value;
+    document.getElementById("preview").innerHTML = converter.makeHtml(markdown);
+  }
+
+  function replyTo(commentID) {
+    var comment = document.getElementById(commentID);
+    document.getElementById("reply-to").value = comment.querySelector("span[commentId]").innerText;
+    document.getElementById("replyToVisualClue").innerText = "[در جواب " + comment.querySelector("span[commenter]").innerText + "]";
+  }
+</script>
+    
+  </section>
+
+</article>
+</div>
+    </main><footer>
+
+  <div class="wrapper">
+
+    
+
+    <p id="footer-description">بچه که بودیم همیشه برای بازی خونه می‌ساختیم. حالا هم نمونه‌اش رو در وب ساختم. اینجا سکوی انتشار مطالبی در مورد دانش تولید نرم‌افزار و ایده‌ها و علایق شخصی‌ام است، بویژه راه‌حل‌های مهندسی که باعث رشد و پیشرفتم شده است و می‌تواند مورد استفاده دیگران هم قرار بگیرد.
+</p>
+
+    <ul class="social-media-list">
+      
+      <li>
+        <i class="fab fa-github"></i>
+        <a href="https://github.com/mehdisadeghi">
+          <span class="username social-media-text">پروژه‌ها</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <i class="fab fa-twitter-square"></i>
+        <a href="https://twitter.com/msadeghii">
+          <span class="username social-media-text">توئیت‌ها</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <i class="fas fa-rss"></i>
+        <a href="https://feedburner.google.com/fb/a/mailverify?uri=mehdixir&amp;loc=en_US">
+          <span class="username social-media-text">خبرنامه</span></a>
+      </li>
+      <li>
+        <i class="fas fa-rss"></i>
+        <a href="http://feeds.feedburner.com/mehdixir">
+        <span class="username social-media-text">خوراک</span></a>
+      </li>
+      
+      
+        <li>
+          <i class="fas fa-envelope-open"></i>
+          <a href="mailto:sadeghi@mehdix.org">
+            <span class="username social-media-text">تماس</span></a></li>
+      
+    </ul>
+
+  <div id="footer-extra">
+    <small id="license">
+  <i class="fab fa-creative-commons"></i>
+  مطالب این وبلاگ تحت مجوز
+  <a rel="license" href="http://creativecommons.org/licenses/by/4.0/deed.fa">
+    کریتیو کامنز اتریبیوشن ۴.۰ اینترنشنال
+  </a>قرار دارد.
+</small>
+    <a id="atom" href="https://validator.w3.org/feed/check.cgi?url=https://mehdix.ir/feed.xml"><img src=https://mehdix.ir/assets/img/valid-atom.png alt="[Valid Atom 1.0]" title="Validate my Atom 1.0 feed" /></a>
+  </div>
+
+  </div>
+
+  <small id="build-time">Site generated on Tue, 06 Feb 2018 02:43:37 +0100</small>
+
+</footer><script src="https://mehdix.ir/assets/js/main.js"></script>
+     <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-57282325-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+ 
+  </body>
+</html>

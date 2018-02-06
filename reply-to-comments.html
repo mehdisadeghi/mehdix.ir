@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="fa">
+  
+  <head><meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="author" content="مهدی صادقی" />
+<meta name="copyright" content="Commons Attribution 4.0 International" />
+<meta name="robot" content="" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="description" content="سکوی انتشار مطالبی در مورد دانش تولید نرم‌افزار و ایده‌ها و علایق شخصی‌ام." />
+
+<link rel="canonical" href="https://mehdix.ir/publishing-with-jekyll.html" />
+<link rel="icon" href="https://mehdix.ir/assets/img/me.png" />
+<link rel="stylesheet" href="https://mehdix.ir/assets/css/main.css" />
+<link rel="stylesheet" href="https://mehdix.ir/assets/fonts/fontawesomev5.0.2.css" />
+<meta name="keywords" content='کامنت‌دونی,استاتیک,ایمیل,نتلیفای' /><title>آگاه‌سازی ایمیلی برای کامنت‌دونی - مهدی صادقی</title><!-- Begin Jekyll SEO tag v2.4.0 -->
+<title>آگاه‌سازی ایمیلی برای کامنت‌دونی | مهدی صادقی</title>
+<meta name="generator" content="Jekyll v3.7.2" />
+<meta property="og:title" content="آگاه‌سازی ایمیلی برای کامنت‌دونی" />
+<meta name="author" content="مهدی صادقی" />
+<meta property="og:locale" content="fa_IR" />
+<meta name="description" content="طی هفته‌های گذشته کامنت‌دونی دیسکاس را با یک کامنت‌دونی دست‌ساز جایگزین کردم. این یادداشت گزارش پیشرفت کوتاهی است در مورد افزودن قابلیت جواب دادن به یک دیدگاه و اطلاع‌رسانی به نویسنده پیام اولیه در این مورد." />
+<meta property="og:description" content="طی هفته‌های گذشته کامنت‌دونی دیسکاس را با یک کامنت‌دونی دست‌ساز جایگزین کردم. این یادداشت گزارش پیشرفت کوتاهی است در مورد افزودن قابلیت جواب دادن به یک دیدگاه و اطلاع‌رسانی به نویسنده پیام اولیه در این مورد." />
+<link rel="canonical" href="https://mehdix.ir/reply-to-comments.html" />
+<meta property="og:url" content="https://mehdix.ir/reply-to-comments.html" />
+<meta property="og:site_name" content="مهدی صادقی" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-01-22T00:00:00+01:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@msadeghii" />
+<meta name="twitter:creator" content="@مهدی صادقی" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://mehdix.ir/reply-to-comments.html"},"url":"https://mehdix.ir/reply-to-comments.html","author":{"@type":"Person","name":"مهدی صادقی"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://mehdix.ir/assets/img/me.png"},"name":"مهدی صادقی"},"description":"طی هفته‌های گذشته کامنت‌دونی دیسکاس را با یک کامنت‌دونی دست‌ساز جایگزین کردم. این یادداشت گزارش پیشرفت کوتاهی است در مورد افزودن قابلیت جواب دادن به یک دیدگاه و اطلاع‌رسانی به نویسنده پیام اولیه در این مورد.","headline":"آگاه‌سازی ایمیلی برای کامنت‌دونی","dateModified":"2018-01-22T00:00:00+01:00","datePublished":"2018-01-22T00:00:00+01:00","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  </head>
+
+  <body><header>
+  <div class="wrapper">
+    <a class="site-title" href="https://mehdix.ir/">مهدی صادقی</a>
+    <small id="motto"> در مورد نرم‌افزار و ایده‌هایم </small>
+  </div>
+</header>
+<main>
+      <div class="wrapper">
+
+<article class="post-content">
+
+  <div class="post-header">
+    <h1 class="post-title">آگاه‌سازی ایمیلی برای کامنت‌دونی</h1>
+    <p>
+      <i class="fas fa-calendar"></i>
+      دوشنبه ۰۲ بهمن ۱۳۹۶<br>
+      
+      <i class="fas fa-stopwatch"></i>
+      ۳ دقیقه مطالعه
+    </p>
+  </div>
+
+  <p>طی هفته‌های گذشته کامنت‌دونی دیسکاس را با یک کامنت‌دونی دست‌ساز جایگزین کردم. این یادداشت گزارش پیشرفت کوتاهی است در مورد افزودن قابلیت جواب دادن به یک دیدگاه و اطلاع‌رسانی به نویسنده پیام اولیه در این مورد.</p>
+
+<h2 id="مروری-کلی-بر-آنچه-انجام-دادهام">مروری کلی بر آنچه انجام داده‌ام</h2>
+<p>برای پیاده‌سازی قابلیت پاسخ دادن به نظرات کاربران من به طور کلی دو کار انجام داده‌ام:</p>
+
+<ul>
+  <li>تغییرات ظاهری شامل افزودن دگمه پاسخ و نمایش تودرتوی پاسخ و دیدگاه مرجع.</li>
+  <li>نوشتن یک سرویس که گوش به زنگ ارسال پیام است و ایمیل ارسال می‌کند.</li>
+</ul>
+
+<p>البته نمایش تودرتوی پاسخ‌ها ربطی به سرویس ارسال ایمیل ندارد و مستقل است.</p>
+
+<h2 id="تغییرات-ظاهری">تغییرات ظاهری</h2>
+<p>تغییر ظاهری بخش ساده‌ی کار بود. به هر دیدگاه یک شماره‌ی یکتا اختصاص داده‌ام و دگمه‌ای برای پاسخ به هر دیدگاه اضافه کرده‌ام. با فشردن آن یک تابع جاوااسکریپت فیلدی پنهانی بنام <code class="highlighter-rouge">reply-to</code> را در فرم مقداردهی می‌کند که حاوی شماره‌ی یکتای دیدگاه مرجع است. نام نویسنده‌ی دیدگاه مرجع را نیز در فرم نمایش می‌دهم که خواننده بداند مشغول پاسخ به یک دیدگاه دیگر است.</p>
+
+<p>تغییرات کوچکی هم در اسکریپت بیلد کامنت‌ها داده‌ام که این فیلد جدید را نیز بخواند و مانند سایر مقادیر دیدگاه‌ها در مخزن گیت وبسایت ذخیره کند. بیشتر این تغییرات در <a href="https://github.com/mehdisadeghi/jekyll-theme-mehdix-rtl/blob/master/_includes/static_comments.html#L32">فایل کامنت‌دونی</a> قابل مشاهده است. (این فایل جزو تم وبسایت است نه خود این وبسایت)</p>
+
+<p>تا همین جا هم با ثبت یک دیدگاه در پاسخ یک دیدگاه دیگر، بعد از بیلد مجدد، دیدگاه جدید با کوت (نقل قول) دیدگاه ثابت منتشر می‌شود. ادامه کار مربوط به آگاه‌سازی به وسیله ایمیل است.</p>
+
+<h2 id="سرویس-ارسال-ایمیل">سرویس ارسال ایمیل</h2>
+<p>کمتر خواننده‌ای به صفحه‌ای که در آن پیامی نوشته دوباره سر می‌زند تا از سایر پاسخ‌ها مطلع بشود. به همین خاطر این قابلیت را به کامنت‌دونی اضافه کردم. از جایی که این سایت استاتیک است از خودش سرور مستقل ندارد. اما سرویس‌دهنده فعلی من امکان این را به من می‌دهد که یک <code class="highlighter-rouge">Web Hook</code> را پس از ثبت هر فرم صدا بزنم. وب‌هوک‌ها هم چیزی نیستند جز سرورهایی که گوش به زنگ دریافت <code class="highlighter-rouge">HTTP POST</code> هستند.</p>
+
+<p>ابتدا سعی کردم اینکار را به وسیله سرویس <a href="http://zapier.com">zapier</a> انجام بدم. کار را انجام دادم ولی در نهایت متوجه شدم که اجرای سرویس من با پلن رایگان آنها میسر نیست و باید ماهیانه ۲۰ دلار پرداخت کنم!</p>
+
+<p>اینجا بود که گفتم خودم یکی می‌نویسم!</p>
+
+<p>با صرف چند ساعت وقت یک برنامه‌ی ساده با Node.js نوشتم. مراحل کار برنامه این است:</p>
+
+<ul>
+  <li>برنامه به محض اجرا منتظر دریافت درخواست‌های <code class="highlighter-rouge">HTTP POST</code> می‌ماند.</li>
+  <li>با دریافت یک درخواست جدید وجود مقدار <code class="highlighter-rouge">reply-to</code> را کنترل می‌کند.</li>
+  <li>در صورت وجود، به کمک API شرکت Netlify (که سرویس‌دهنده من است) دیدگاه مرجع را دانلود می‌کند.</li>
+  <li>ایمیل کامنت‌گذار مرجع را از اطلاعات دانلود شده استخراج می‌کند.</li>
+  <li>با کمک اطلاعات دانلود شده و درخواست اولیه (که شامل جواب است) یک پیام می‌سازد.</li>
+  <li>پیام را به کامنت‌گذار مرجع ایمیل می‌کند.</li>
+</ul>
+
+<h3 id="کد-برنامه">کد برنامه</h3>
+<p>کد زیر را برای دریافت درخواست‌ها و ارسال ایمیل نوشته‌ام. تر و تمیز نیست ولی فعلا کفایت می‌کند. البته باید سروری برای اجرای آن داشت که من دارم. اگر هم از کار بیفتد اهمیتی ندارد و در کار وبسایت مانعی ایجاد نمی‌کند. برای راه‌اندازی سرور ایمیل کارهای دیگری نیاز است که من قبلا انجام داده‌ام و اینجا به آن نمی‌پردازم.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'express'</span><span class="p">)</span>
+<span class="kd">const</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'request'</span><span class="p">)</span>
+<span class="kd">const</span> <span class="nx">bodyParser</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'body-parser'</span><span class="p">)</span>
+<span class="kd">const</span> <span class="nx">sendmail</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'sendmail'</span><span class="p">)()</span>
+
+<span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">express</span><span class="p">()</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">bodyParser</span><span class="p">.</span><span class="nx">json</span><span class="p">())</span>
+
+<span class="kd">const</span> <span class="nx">ACCESS_TOKEN</span> <span class="o">=</span> <span class="s2">"xxxxxxxxxxxxxxxxxxxxxx"</span>
+<span class="kd">const</span> <span class="nx">SITE_ID</span> <span class="o">=</span> <span class="s2">"xxxxxxxxxxxxxxxxxxxxxx"</span>
+<span class="kd">const</span> <span class="nx">FORM_ID</span> <span class="o">=</span> <span class="s2">"xxxxxxxxxxxxxxxxxxxxxx"</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">'/'</span><span class="p">,</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">)</span>
+  <span class="kd">let</span> <span class="nx">replyTo</span> <span class="o">=</span> <span class="kc">false</span>
+  <span class="k">if</span> <span class="p">(</span><span class="s1">'data'</span> <span class="k">in</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">replyTo</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">[</span><span class="s1">'data'</span><span class="p">][</span><span class="s1">'reply-to'</span><span class="p">]</span>
+  <span class="p">}</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">replyTo</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">query</span> <span class="o">=</span> <span class="s2">"https://api.netlify.com/api/v1/sites/"</span> <span class="o">+</span> <span class="nx">SITE_ID</span> <span class="o">+</span> <span class="s2">"/forms/"</span> <span class="o">+</span> <span class="nx">FORM_ID</span> <span class="o">+</span> <span class="s2">"/submissions/"</span> <span class="o">+</span> <span class="nx">replyTo</span> <span class="o">+</span> <span class="s2">"?access_token="</span> <span class="o">+</span> <span class="nx">ACCESS_TOKEN</span>
+    <span class="nx">request</span><span class="p">(</span><span class="nx">query</span><span class="p">,</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">resp</span><span class="p">,</span> <span class="nx">body</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+        <span class="k">return</span>
+      <span class="p">}</span>
+      <span class="nx">body</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">body</span><span class="p">)</span>
+      <span class="kd">let</span> <span class="nx">replyeeEmail</span> <span class="o">=</span> <span class="nx">body</span><span class="p">[</span><span class="s1">'email'</span><span class="p">]</span>
+      <span class="kd">let</span> <span class="nx">replierName</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">[</span><span class="s1">'data'</span><span class="p">][</span><span class="s1">'name'</span><span class="p">]</span>
+      <span class="kd">let</span> <span class="nx">replyLink</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">[</span><span class="s1">'site_url'</span><span class="p">]</span> <span class="o">+</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">[</span><span class="s1">'data'</span><span class="p">][</span><span class="s1">'page_id'</span><span class="p">]</span> <span class="o">+</span> <span class="s2">".html#"</span> <span class="o">+</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">[</span><span class="s1">'id'</span><span class="p">]</span>
+      <span class="kd">let</span> <span class="nx">emailBody</span> <span class="o">=</span> <span class="s1">'&lt;div dir="rtl"&gt;'</span> <span class="o">+</span>
+      <span class="s2">"برای دیدگاه شما در سایت مهدیکس "</span> <span class="o">+</span> <span class="nx">replierName</span> <span class="o">+</span> <span class="s2">" "</span> <span class="o">+</span>
+      <span class="s2">"&lt;a href='"</span> <span class="o">+</span> <span class="nx">replyLink</span>  <span class="o">+</span> <span class="s2">"'&gt;"</span> <span class="o">+</span> <span class="s2">"جوابی"</span> <span class="o">+</span> <span class="s2">"&lt;/a&gt;"</span> <span class="o">+</span> <span class="s2">" نوشت:"</span> <span class="o">+</span>
+      <span class="s2">"&lt;blockquote&gt;"</span> <span class="o">+</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">[</span><span class="s1">'data'</span><span class="p">][</span><span class="s1">'message'</span><span class="p">]</span> <span class="o">+</span> <span class="s2">"&lt;/blockquoe&gt;"</span> <span class="o">+</span>
+      <span class="s1">'&lt;/div&gt;'</span>
+      <span class="nx">sendmail</span><span class="p">({</span>
+        <span class="na">from</span><span class="p">:</span> <span class="s1">'noreply@mehdix.ir'</span><span class="p">,</span>
+        <span class="na">to</span><span class="p">:</span> <span class="nx">replyeeEmail</span><span class="p">,</span>
+        <span class="na">subject</span><span class="p">:</span> <span class="s1">'پاسخی برای دیدگاه شما در سایت مهدیکس'</span><span class="p">,</span>
+        <span class="na">html</span><span class="p">:</span> <span class="nx">emailBody</span>
+      <span class="p">},</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">info</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">info</span><span class="p">)</span>
+      <span class="p">})</span>
+    <span class="p">})</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mi">3000</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Send Mail Hook listening on port 3000!'</span><span class="p">))</span>
+</code></pre></div></div>
+
+<h2 id="اگر-کسی-فیلدها-را-دستکاری-کند-چه">اگر کسی فیلدها را دستکاری کند چه؟</h2>
+<p>هیچ! پیامش نمایش داده نمی‌شود، هرچند در حال حاضر در مخزن گیت ذخیره می‌شود.</p>
+
+<p>امیدوارم که این مطلب برایتان سودمند باشد و شما هم در مورد کارهایی جالبی که می‌کنید بنویسید. اگر پسندیدید به اشتراک بگذارید یا پیامی بنویسید تا این قابلیت را با هم امتحان کنیم :)</p>
+
+
+
+  
+    <div id="related-posts">
+      <h3>مطالب مرتبط</h3>
+      <ul>
+        
+          <li><a href="/static-comments.html">کامنت‌دونی استاتیک بجای دیسکاس</a></li>
+        
+          <li><a href="/evolution-composer-rtl.html">ماژول راست به چپ اوولوشن</a></li>
+        
+          <li><a href="/one-click-netlify-deploy.html">دیپلوی این وبسایت با یک کلیک</a></li>
+        
+        </ul>
+    </div>
+  
+
+  <small id="post-tags">
+    
+      <i class="fas fa-tag"></i>
+      <a rel="tag" href="/tag/%DA%A9%D8%A7%D9%85%D9%86%D8%AA%E2%80%8C%D8%AF%D9%88%D9%86%DB%8C.html">کامنت‌دونی</a>
+    
+      <i class="fas fa-tag"></i>
+      <a rel="tag" href="/tag/%D8%A7%D8%B3%D8%AA%D8%A7%D8%AA%DB%8C%DA%A9.html">استاتیک</a>
+    
+      <i class="fas fa-tag"></i>
+      <a rel="tag" href="/tag/%D8%A7%DB%8C%D9%85%DB%8C%D9%84.html">ایمیل</a>
+    
+      <i class="fas fa-tag"></i>
+      <a rel="tag" href="/tag/%D9%86%D8%AA%D9%84%DB%8C%D9%81%D8%A7%DB%8C.html">نتلیفای</a>
+    
+
+    <i class="fas fa-code"></i>
+    
+    
+    <a href="https://raw.githubusercontent.com/mehdisadeghi/mehdix.ir/master/_source/_posts/2018-01-22-reply-to-comments.md">سورس</a>
+    
+  </small>
+
+  <nav class="pagination">
+    
+      <a href="https://mehdix.ir/hackerrank.html" class="pagination--pager" title="آمادگی برای مصاحبه فنی به کمک هکِررَنک">قبلی</a>
+    
+
+    
+      <a href="https://mehdix.ir/alan-kay-on-hackernews.html" class="pagination--pager" title="معرفی آلن کی">بعدی </a>
+    
+  </nav>
+
+  <section>
+    
+      
+<section id="static-comments">
+  
+  
+  
+  <h4 id="comments-header">دیدگاه‌ها</h4>
+  <div id="comments">
+    
+    <div class="comment-chain">
+      <article id="5a74bb6e7b6ee857d4711088">
+        <div class="comment-image-wrapper">
+          <img class="comment-avatar" src="https://www.gravatar.com/avatar/b2dfc5772a582af3413ee53b802584ff?s=200&d=robohash" />
+        </div>
+        <div class="comment-body-wrapper">
+          <span class="comment-meta">
+            <small>
+              
+                <a href=https://nematollahi.github.io/ target="_"><span commenter>ایمان </span></a>
+              
+            </small>
+            <small> &nbsp; <a href="#5a74bb6e7b6ee857d4711088">۱۳ بهمن ۱۳۹۶</a></small>
+            <small> &nbsp; <a href="#comment-form" onclick="replyTo('5a74bb6e7b6ee857d4711088')">پاسخ</a></small>
+            <span style="display:none" commentId>5a74bb6e7b6ee857d4711088</span>
+          </span>
+          <p>بسیار عالیه آقای صادقی. بی‌صبرانه منتظر یک پلاگین برای این کامنت‌دونی هستیم. حقیقتا کار شما نجات‌دهنده وبلاگ‌های فارسی از شر Disqus هست و بسیار جای تقدیر و بازنشر داره.</p>
+
+        </div>
+      </article>
+
+        
+          
+            
+          
+            
+          
+        
+
+    </div>
+    
+    <div class="comment-chain">
+      <article id="5a78a4300b79b742f7d30cbf">
+        <div class="comment-image-wrapper">
+          <img class="comment-avatar" src="https://www.gravatar.com/avatar/0371f5b900b484368f9e1717d7d965b1?s=200&d=robohash" />
+        </div>
+        <div class="comment-body-wrapper">
+          <span class="comment-meta">
+            <small>
+              
+                <a href=https://mehdix.ir target="_"><span commenter>وبلاگ‌صاحاب</span></a>
+              
+            </small>
+            <small> &nbsp; <a href="#5a78a4300b79b742f7d30cbf">۱۶ بهمن ۱۳۹۶</a></small>
+            <small> &nbsp; <a href="#comment-form" onclick="replyTo('5a78a4300b79b742f7d30cbf')">پاسخ</a></small>
+            <span style="display:none" commentId>5a78a4300b79b742f7d30cbf</span>
+          </span>
+          <p>ممونم ایمان. البته دیسکاس هم برای عده‌ای سودمنده. در مورد کامنت‌دونی هم باید اضافه کنم که فعلا تا تبدیل به پلاگین راه زیادی داره، از همه مهمتر اینه که این پلاگین قراره چه کاری انجام بده که فرد خودش با کپی‌پیست چند خط کد نمی‌تونه انجام بده؟ مهمترین مشکلی که الان دارم اسپمه. بزودی راه‌حلم رو در موردش خواهم نوشت.</p>
+
+        </div>
+      </article>
+
+        
+          
+            
+              <article class="sub-comment">
+
+                <div class="comment-image-wrapper">
+                  <img class="comment-avatar" src="https://www.gravatar.com/avatar/b2dfc5772a582af3413ee53b802584ff?s=200&d=robohash" />
+                </div>
+                <div class="comment-body-wrapper">
+                  <span class="comment-meta">
+                    <small>
+                      
+                        <a href=https://nematollahi.github.io/ target="_"><span commenter>ایمان </span></a>
+                      
+                    </small>
+                    <small> &nbsp; <a href="#5a74bb6e7b6ee857d4711088">۱۳ بهمن ۱۳۹۶</a></small>
+                  </span>
+                  <p>بسیار عالیه آقای صادقی. بی‌صبرانه منتظر یک پلاگین برای این کامنت‌دونی هستیم. حقیقتا کار شما نجات‌دهنده وبلاگ‌های فارسی از شر Disqus هست و بسیار جای تقدیر و بازنشر داره.</p>
+
+                </div>
+
+              </article>
+              
+        
+
+    </div>
+    
+  </div>
+  
+
+  <form id="comment-form" name="comment" netlify-honeypot="bot-field" netlify>
+    <input name="bot-field" style="display:none">
+    <input name="page_id" style="display:none" value="/reply-to-comments">
+    <input id="reply-to" name="reply-to" style="display:none">
+    <label for="message">دیدگاه<sup class="required">*</sup> &nbsp;<small>می‌توانید با <a href="http://commonmark.org/help/" target="_">مارک‌داون</a> هم بنویسید.</small><br><small id="replyToVisualClue"></small>
+      <textarea id="message" name="message" required alt="no!!" onkeyup="preview()"></textarea>
+      <div id="preview"></div>
+    </label>
+    <label for="name">نام<sup class="required">*</sup>
+      <input id="name" type="text" name="name" required>
+    </label>
+    <label for="email">ایمیل<sup class="required">*</sup>
+      <input id="email" type="email" name="email" required>
+    </label>
+    <label for="website">وبسایت
+      <input id="website" type="url" name="website">
+    </label>
+    <div style="text-align:left">
+      <button type="submit" class="button">ارسال</button>
+    </div>
+  </form>
+
+</section>
+<script src="https://mehdix.ir/assets/js/showdown.min.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+  function preview() {
+    var converter = new showdown.Converter();
+    var markdown = document.getElementById("message").value;
+    document.getElementById("preview").innerHTML = converter.makeHtml(markdown);
+  }
+
+  function replyTo(commentID) {
+    var comment = document.getElementById(commentID);
+    document.getElementById("reply-to").value = comment.querySelector("span[commentId]").innerText;
+    document.getElementById("replyToVisualClue").innerText = "[در جواب " + comment.querySelector("span[commenter]").innerText + "]";
+  }
+</script>
+    
+  </section>
+
+</article>
+</div>
+    </main><footer>
+
+  <div class="wrapper">
+
+    
+
+    <p id="footer-description">بچه که بودیم همیشه برای بازی خونه می‌ساختیم. حالا هم نمونه‌اش رو در وب ساختم. اینجا سکوی انتشار مطالبی در مورد دانش تولید نرم‌افزار و ایده‌ها و علایق شخصی‌ام است، بویژه راه‌حل‌های مهندسی که باعث رشد و پیشرفتم شده است و می‌تواند مورد استفاده دیگران هم قرار بگیرد.
+</p>
+
+    <ul class="social-media-list">
+      
+      <li>
+        <i class="fab fa-github"></i>
+        <a href="https://github.com/mehdisadeghi">
+          <span class="username social-media-text">پروژه‌ها</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <i class="fab fa-twitter-square"></i>
+        <a href="https://twitter.com/msadeghii">
+          <span class="username social-media-text">توئیت‌ها</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <i class="fas fa-rss"></i>
+        <a href="https://feedburner.google.com/fb/a/mailverify?uri=mehdixir&amp;loc=en_US">
+          <span class="username social-media-text">خبرنامه</span></a>
+      </li>
+      <li>
+        <i class="fas fa-rss"></i>
+        <a href="http://feeds.feedburner.com/mehdixir">
+        <span class="username social-media-text">خوراک</span></a>
+      </li>
+      
+      
+        <li>
+          <i class="fas fa-envelope-open"></i>
+          <a href="mailto:sadeghi@mehdix.org">
+            <span class="username social-media-text">تماس</span></a></li>
+      
+    </ul>
+
+  <div id="footer-extra">
+    <small id="license">
+  <i class="fab fa-creative-commons"></i>
+  مطالب این وبلاگ تحت مجوز
+  <a rel="license" href="http://creativecommons.org/licenses/by/4.0/deed.fa">
+    کریتیو کامنز اتریبیوشن ۴.۰ اینترنشنال
+  </a>قرار دارد.
+</small>
+    <a id="atom" href="https://validator.w3.org/feed/check.cgi?url=https://mehdix.ir/feed.xml"><img src=https://mehdix.ir/assets/img/valid-atom.png alt="[Valid Atom 1.0]" title="Validate my Atom 1.0 feed" /></a>
+  </div>
+
+  </div>
+
+  <small id="build-time">Site generated on Tue, 06 Feb 2018 02:43:37 +0100</small>
+
+</footer><script src="https://mehdix.ir/assets/js/main.js"></script>
+     <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-57282325-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+ 
+  </body>
+</html>

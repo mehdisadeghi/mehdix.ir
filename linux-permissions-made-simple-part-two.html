@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="fa">
+  
+  <head><meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="author" content="مهدی صادقی" />
+<meta name="copyright" content="Commons Attribution 4.0 International" />
+<meta name="robot" content="" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="description" content="سکوی انتشار مطالبی در مورد دانش تولید نرم‌افزار و ایده‌ها و علایق شخصی‌ام." />
+
+<link rel="canonical" href="https://mehdix.ir/publishing-with-jekyll.html" />
+<link rel="icon" href="https://mehdix.ir/assets/img/me.png" />
+<link rel="stylesheet" href="https://mehdix.ir/assets/css/main.css" />
+<link rel="stylesheet" href="https://mehdix.ir/assets/fonts/fontawesomev5.0.2.css" />
+<meta name="keywords" content='لینوکس,فایل,حق,دسترسی,umask,id,inode,permission' /><title>حق دسترسی فایل‌ها در لینوکس به زبان ساده (۲) - مهدی صادقی</title><!-- Begin Jekyll SEO tag v2.4.0 -->
+<title>حق دسترسی فایل‌ها در لینوکس به زبان ساده (۲) | مهدی صادقی</title>
+<meta name="generator" content="Jekyll v3.7.2" />
+<meta property="og:title" content="حق دسترسی فایل‌ها در لینوکس به زبان ساده (۲)" />
+<meta name="author" content="مهدی صادقی" />
+<meta property="og:locale" content="fa_IR" />
+<meta name="description" content="هفت ماه پیش راهنمایی در مورد حق دسترسی‌ها در لینوکس نوشته بودم. این بار قصد دارم نگاه دقیق‌تری به همان موضوع داشته باشم و بکارگیری معادل عددی دسترسی‌ها را بجای حروف اختصار شرح بدهم." />
+<meta property="og:description" content="هفت ماه پیش راهنمایی در مورد حق دسترسی‌ها در لینوکس نوشته بودم. این بار قصد دارم نگاه دقیق‌تری به همان موضوع داشته باشم و بکارگیری معادل عددی دسترسی‌ها را بجای حروف اختصار شرح بدهم." />
+<link rel="canonical" href="https://mehdix.ir/linux-permissions-made-simple-part-two.html" />
+<meta property="og:url" content="https://mehdix.ir/linux-permissions-made-simple-part-two.html" />
+<meta property="og:site_name" content="مهدی صادقی" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2015-08-30T00:00:00+02:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@msadeghii" />
+<meta name="twitter:creator" content="@مهدی صادقی" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://mehdix.ir/linux-permissions-made-simple-part-two.html"},"url":"https://mehdix.ir/linux-permissions-made-simple-part-two.html","author":{"@type":"Person","name":"مهدی صادقی"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://mehdix.ir/assets/img/me.png"},"name":"مهدی صادقی"},"description":"هفت ماه پیش راهنمایی در مورد حق دسترسی‌ها در لینوکس نوشته بودم. این بار قصد دارم نگاه دقیق‌تری به همان موضوع داشته باشم و بکارگیری معادل عددی دسترسی‌ها را بجای حروف اختصار شرح بدهم.","headline":"حق دسترسی فایل‌ها در لینوکس به زبان ساده (۲)","dateModified":"2015-08-30T00:00:00+02:00","datePublished":"2015-08-30T00:00:00+02:00","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  </head>
+
+  <body><header>
+  <div class="wrapper">
+    <a class="site-title" href="https://mehdix.ir/">مهدی صادقی</a>
+    <small id="motto"> در مورد نرم‌افزار و ایده‌هایم </small>
+  </div>
+</header>
+<main>
+      <div class="wrapper">
+
+<article class="post-content">
+
+  <div class="post-header">
+    <h1 class="post-title">حق دسترسی فایل‌ها در لینوکس به زبان ساده (۲)</h1>
+    <p>
+      <i class="fas fa-calendar"></i>
+      یک‌شنبه ۰۸ شهریور ۱۳۹۴<br>
+      
+      <i class="fas fa-stopwatch"></i>
+      ۴ دقیقه مطالعه
+    </p>
+  </div>
+
+  <p>هفت ماه پیش راهنمایی در مورد حق دسترسی‌ها در لینوکس نوشته بودم. این بار قصد دارم نگاه دقیق‌تری به همان موضوع داشته باشم و بکارگیری معادل عددی دسترسی‌ها را بجای حروف اختصار شرح بدهم.</p>
+
+<p>در مقاله گذشته در مورد حق مالکیت و گروه‌های کاربری و حق دسترسی صحبت کردیم. اینبار قصد داریم همان موضوع را کمی بازتر کنیم و یاد بگیریم چطور معادل‌های عددی برای دسترسی‌ها را بفهمیم و بکار ببریم.</p>
+
+<h2 id="تاریخچه-حق-دسترسی">تاریخچه حق دسترسی</h2>
+<p>سیستم‌ عامل یونیکس و سیستم‌عامل‌های مشابه همچون لینوکس و آنهایی که استاندارد پوزیکس را پیاده می‌کنند از ابتدا نه تنها امکان چند وظیفه‌گی<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup> را پیاده کردند بلکه از همان ابتدا چند کاربره بودند. چرا که کامپیوترهای اولیه گران‌قیمت و بزرگ بودند و غالبا آنها را می‌شد در دانشگاه‌ها یا موسسات بزرگ پیدا کرد. کاربران می‌بایست از ترمینال‌های مختلف به این کامپیوترها متصل می‌شدند و منابع آن را با هم شریک می‌شدند. بنابراین چند کاربرگی یک نیاز اولیه بود که در طراحی این سیستم‌ها در نظر گرفته شد (نه چیزی که بعدا به فکرشان برسد و بخواهند به سیستم اضافه کنند). این سیستم‌ها طوری طراحی شدند که بتوان هر کاربر را از فعالیت و تغییرات دیگر کاربران مصون نگه داشت. به همین خاطر حق مالکیت و حق دسترسی ایجاد شد و هر کاربر دارای یک پوشه‌ی خانه شد که فقط حق تغییر محتوای آنرا داشت. برای دسترسی به سایر اجزاء سیستم از قبیل دستگاه‌های جانبی و فایل‌های سیستم‌عامل و مانند اینها این مدیر سیستم بود که باید وارد عمل می‌شد و اجازه اینکار را صادر می‌کرد. به این ترتیب امکان استفاده مشترک از منابع کامپیوترهای اولیه امکانپذیر شد.</p>
+
+<h2 id="مالک-و-گروه-و-دیگران">مالک و گروه و دیگران</h2>
+<p>در مدل امنیتی لینوکس کاربران می‌توانند مالک فایل‌ها باشند و مالک تعیین می‌کند چه کسی به فایل دسترسی داشته باشد. این شامل تعیین حق دسترسی برای خود مالک و گروهی که فایل به آن تعلق دارد و نیز سایر کاربران می‌شوند. اینها را به تفضیل در بخش قبلی شرح دادیم. حال اگر دستور <code class="highlighter-rouge">id</code> را در ترمینال وارد کنیم اطلاعات کاربر جاری را می‌بینم:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mehdi@debian:~/workspace/mehdix.ir/_drafts<span class="nv">$ </span><span class="nb">id
+</span><span class="nv">uid</span><span class="o">=</span>1000<span class="o">(</span>mehdi<span class="o">)</span> <span class="nv">gid</span><span class="o">=</span>1000<span class="o">(</span>mehdi<span class="o">)</span> <span class="nb">groups</span><span class="o">=</span>1000<span class="o">(</span>mehdi<span class="o">)</span>,24<span class="o">(</span>cdrom<span class="o">)</span>,25<span class="o">(</span>floppy<span class="o">)</span>,27<span class="o">(</span><span class="nb">sudo</span><span class="o">)</span>,29<span class="o">(</span>audio<span class="o">)</span>,30<span class="o">(</span>dip<span class="o">)</span>,44<span class="o">(</span>video<span class="o">)</span>,46<span class="o">(</span>plugdev<span class="o">)</span>,108<span class="o">(</span>netdev<span class="o">)</span>,110<span class="o">(</span>lpadmin<span class="o">)</span>,113<span class="o">(</span>scanner<span class="o">)</span>,118<span class="o">(</span>bluetooth<span class="o">)</span>,999<span class="o">(</span>bumblebee<span class="o">)</span>,1001<span class="o">(</span>docker<span class="o">)</span>
+</code></pre></div></div>
+
+<p>اما یک کاربر تازه ساخته شده عضو گروه‌های محدودتری است که به نوع سیستم عامل بستگی دارد. مثلا در دبیان یک کاربر جدید مشخصات زیر را دارد:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>me@debian:/home/mehdi/workspace/mehdix.ir/_drafts<span class="nv">$ </span><span class="nb">id
+</span><span class="nv">uid</span><span class="o">=</span>1001<span class="o">(</span>me<span class="o">)</span> <span class="nv">gid</span><span class="o">=</span>1002<span class="o">(</span>me<span class="o">)</span> <span class="nb">groups</span><span class="o">=</span>1002<span class="o">(</span>me<span class="o">)</span>
+</code></pre></div></div>
+
+<p>همانطور که می‌بینیم هر کاربر یک <code class="highlighter-rouge">uid</code> دارد که شماره ایست که به او اختصاص داده شده است و سیستم عامل با آن شماره کاربر را می‌شناسد. دقت کنید که کاربر <em>mehdi</em> کد ۱۰۰۰ و کاربر <em>me</em> کد ۱۰۰۱ را دارد. چون دبیان به اولین کاربر کد ۱۰۰۰ را اختصاص می‌دهد و برای بعدی ۱۰۰۱ و همینطور الی آخر. این عدد در اوبونتو از ۵۰۰ شروع می‌شود. علاوه بر این هر کاربر یک <code class="highlighter-rouge">gid</code> دارد که گروه اصلی او محسوب می‌شود. هر کاربر می‌تواند در گروه‌های دیگری نیز عضویت داشته باشد که لیست آنها در مقابل <code class="highlighter-rouge">groups</code> آمده است.</p>
+
+<p>برای دانستن منشاء این اطلاعات باید به فایل‌های دیگری رجوع کنیم. فایل <code class="highlighter-rouge">/etc/passwd</code> مشخصات حساب‌های کاربری را در خود دارد و فایل <code class="highlighter-rouge">/etc/groups</code> گروه‌های موجود در سیستم را و فایل <code class="highlighter-rouge">/etc/shadow</code> اطلاعات مربوط به رمزعبور کاربران را. هنگام ساخت یک کاربر جدید این فایل‌ها تغییر می‌کنند. فایل <code class="highlighter-rouge">/etc/passwd</code> حاوی اطلاعات اسم عبور و <code class="highlighter-rouge">uid</code> و <code class="highlighter-rouge">gid</code> و اسم واقعی کاربر و پوشه خانه و همچنین شِل کاربر است. در این فایل کاربران پیش‌فرضی هم که در سیستم تعریف شده‌اند وجود دارند از جمله کاربر صفر که کاربر روت است.</p>
+
+<h2 id="بیتهای-حق-دسترسی">بیت‌های حق دسترسی</h2>
+<p>در سیستم‌فایل‌های شبیه به یونیکس (مثل لینوکس) ساختمان داده‌ای وجود دارد بنام <a href="https://fa.wikipedia.org/wiki/%D8%A2%DB%8C%E2%80%8C%D9%86%D9%88%D8%AF">آی‌نود</a>
+<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup>.
+ این ساختمان داده برای نگهداری اطلاعات در مورد اشیاء سیستمی بکار می‌رود که می‌توانند چیزهای مختلفی باشند از جمله فایل‌ و دایرکتوری‌. در این ساختمان داده بخشی وجود دارد برای نگهداری «مود» هر شیء. محتوای این بخش مشخص می‌کند که کدام کاربران می‌توانند به داده‌های مورد اشاره در این <em>inode</em> دسترسی داشته باشند. ما به طور مستقیم با این ساختمان داده کاری نداریم اما وقتی دستور <code class="highlighter-rouge">ls -l</code> را وارد می‌کنیم، ده کاراکتری که در ابتدای خروجی مشاهده می‌کنیم در حقیقت از ساختمان داده بالا آمده‌اند:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>me@debian:/home/mehdi/workspace/mehdix.ir/_drafts<span class="nv">$ </span><span class="nb">ls</span> <span class="nt">-l</span>
+<span class="nt">-rw-r--r--</span> 1 mehdi mehdi   200 Jun 10 22:13 jekyll-rtl.md
+</code></pre></div></div>
+
+<p>به ده کاراکتر اول خروجی «مشخصات فایل»<sup id="fnref:3"><a href="#fn:3" class="footnote">3</a></sup> گفته می‌شود. کاراکتر اول نوع فایل را مشخص می‌کند که در جدول زیر آمده است:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>کاراکتر</th>
+      <th>نوع فایل</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>-</td>
+      <td>یک فایل معمولی</td>
+    </tr>
+    <tr>
+      <td>d</td>
+      <td>یک دایرکتوری</td>
+    </tr>
+    <tr>
+      <td>l</td>
+      <td>یک لینک سمبلیک. نکته مهم اینکه لینک‌ها حق دسترسی جداگانه ندارند و حق دسترسی فایل اصلی شرط است. برای یک لینک حق دسترسی همیشه rwxrwxrwx است.</td>
+    </tr>
+    <tr>
+      <td>c</td>
+      <td>فایل خاص کاراکتری. نماینده سخت‌افزاری است که با داده‌ها به صورت جریانی از بایت‌ها برخورد می‌کند، مانند یک مودم.</td>
+    </tr>
+    <tr>
+      <td>b</td>
+      <td>فایل خاص بلوکی. نماینده سخت‌افزاری است که با داده‌ها به صورت بلوکی رفتار می‌کند، مانند سی‌دی‌رام و دیسک سخت.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>نُه کاراکتر بعدی «مودِ فایل»<sup id="fnref:4"><a href="#fn:4" class="footnote">4</a></sup> نامیده می‌شود. سه کاراکتر اول شامل حق خواندن و نوشتن و اجرا کردن برای مالک فایل، سه تای بعدی همین‌ها برای گروه فایل و سه تای آخری هم به همین ترتیب برای سایر کاربران است.</p>
+
+<p>در اینجا بد نیست که مروری هم داشته باشیم بر تفاوت‌های حق دسترسی‌ها برای فایل‌ها و دایرکتوری‌ها.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>کاراکتر</th>
+      <th>برای فایل‌ها</th>
+      <th>برای دایرکتوری‌ها</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>r</td>
+      <td>امکان باز کردن و خواندن محتوای یک فایل</td>
+      <td>اجازه لیست کردن محتوای دایرکتوری را می‌دهد به شرط اینکه مشخصه اجرایی (x) برای دایرکتوری ست شده باشد.</td>
+    </tr>
+    <tr>
+      <td>w</td>
+      <td>اجازه نوشتن روی یک فایل یا حذف محتوای آنرا می‌دهد. این مشخصه امکان تغییر نام یا حذف فایل را  نمی‌دهد. این موارد توسط مشخصات دایرکتوری روشن می‌شود.</td>
+      <td>اجازه ایجاد و تغییر نام و حذف فایل‌های داخل یک دایرکتوری را می‌دهد به شرط اینکه مشخه اجرایی (x)</td>
+    </tr>
+    <tr>
+      <td>x</td>
+      <td>اجازه می‌دهد با یک فایل مثل یک برنامه رفتار کنیم. نکته جالب اینکه اگر فایل اسکریپت باشد − مثل پایتون − باید علاوه بر این قابل خواندن هم باشد. چرا که اینگونه فایل‌ها در ابتدا خوانده شده و سپس توسط برنامه دیگری اجرا می‌شوند.</td>
+      <td>اجازه وارد شدن به یک دایرکتوری را می‌دهد، مثلا با دستور cd</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="معادل-عددی-حق-دسترسی">معادل عددی حق دسترسی</h2>
+<p>از جایی که در بخش اول جزئیات حق دسترسی را شرح داده‌ایم در اینجا معادل‌های عددی آنها را شرح می‌دهیم. نمایش عددی حق دسترسی‌ها در مبنای هشت است بنابراین باید با این دستگاه اعداد آشنا بشویم.</p>
+
+<h3 id="دستگاه-اعداد-مبنای-هشت">دستگاه اعداد مبنای هشت</h3>
+<p>برای فهم مبناهای مختلف در دستگاه‌های اعداد کافیست به تعداد انگشتانمان نگاه کنیم. ما و اجدادمان ده انگشت داریم، به همین خاطر شمارش را با آنها شروع کردیم و مبنای دستگاه اعدادمان شد ده. کامپیوتر از سوی دیگر فقط یک انگشت دارد که آنرا در دو حالت ۰ و ۱ بکار می‌برد و دستگاه اعدادش می‌شود دودویی یا باینری. اگر ما هشت انگشت داشتیم دستگاه اعداد ما می‌شد <a href="https://fa.wikipedia.org/wiki/%D8%AF%D8%B3%D8%AA%DA%AF%D8%A7%D9%87_%D8%A7%D8%B9%D8%AF%D8%A7%D8%AF_%D9%BE%D8%A7%DB%8C%D9%87_%DB%B8">مبنای هشت</a><sup id="fnref:5"><a href="#fn:5" class="footnote">5</a></sup> و اگر شانزده تا داشتیم می‌شد مبنای شانزده یا <em>hexadecimal</em>.
+مهمترین علت بکارگیری دستگاه‌های اعداد پایه هشت و شانزده جهت آسودگی کار با کامپیوتر است. مثلا بجای 01011111 در دستگاه <em>hex</em> می‌توان نوشت 5F یا بجای 111000000 می‌توان نوشت 700.</p>
+
+<p>از جایی که هر رقم در مبنای هشت با سه بیت نمایش داده می‌شود، این دستگاه اعداد روش خوبی برای نمایش مود فایل است. همانطور که پیشتر دیدیم مود فایل با نُه بیت نشان داده می‌شود که در مبنای هشت می‌توان آنرا به سه رقم نمایش داد. بسیاری از مدیران سیستم برای تغییر حق دسترسی فایل‌ها از این اعداد استفاده می‌کنند چون پس از یادگیری ساده‌تر و گویاتر است. جدول زیر نمایش حق دسترسی‌ها در مبنای هشت است.</p>
+
+<table class="ltr center">
+  <thead>
+    <tr>
+      <th>مبنای هشت</th>
+      <th>دودویی</th>
+      <th>مود فایل</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>000</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>001</td>
+      <td>–x</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>010</td>
+      <td>-w-</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>011</td>
+      <td>-wx</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>100</td>
+      <td>r–</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>101</td>
+      <td>r-w</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>110</td>
+      <td>rw-</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>111</td>
+      <td>rwx</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>حالا می‌توان در تمام دستورات مربوط به حق دسترسی به جای حروف اختصار مستقیما از این اعداد استفاده کرد:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mehdi@debian:~<span class="nv">$ </span><span class="o">&gt;</span> foo.txt
+mehdi@debian:~<span class="nv">$ </span><span class="nb">ls</span> <span class="nt">-l</span> foo.txt 
+<span class="nt">-rw-r--r--</span> 1 mehdi mehdi 0 Aug 30 22:42 foo.txt
+mehdi@debian:~<span class="nv">$ </span><span class="nb">chmod </span>600 foo.txt 
+mehdi@debian:~<span class="nv">$ </span><span class="nb">ls</span> <span class="nt">-l</span> foo.txt 
+<span class="nt">-rw-------</span> 1 mehdi mehdi 0 Aug 30 22:42 foo.txt
+</code></pre></div></div>
+
+<p>پی‌نوشت: من در این مطلب از کتاب بسیار خوب The Linux Command Line کمک گرفتم که از <a href="http://linuxcommand.org">سایت کتاب</a> به رایگان قابل <a href="http://sourceforge.net/projects/linuxcommand/files/TLCL/13.07/TLCL-13.07.pdf/download">دانلود</a> است.</p>
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+      <p>Multi-tasking <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:2">
+      <p>inode <a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:3">
+      <p>File attributes <a href="#fnref:3" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:4">
+      <p>File mode <a href="#fnref:4" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:5">
+      <p>Octal <a href="#fnref:5" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+
+  
+    <div id="related-posts">
+      <h3>مطالب مرتبط</h3>
+      <ul>
+        
+          <li><a href="/linux-permissions-made-simple.html">حق دسترسی فایل‌ها در لینوکس به زبان ساده</a></li>
+        
+          <li><a href="/archlinux_installation_with_lucks_and_lvm.html">نصب قدم به قدم آرچ‌لینوکس با رمزگزاری</a></li>
+        
+          <li><a href="/suse.html">سوزه یا زوزه</a></li>
+        
+        </ul>
+    </div>
+  
+
+  <small id="post-tags">
+    
+      <i class="fas fa-tag"></i>
+      <a rel="tag" href="/tag/%D9%84%DB%8C%D9%86%D9%88%DA%A9%D8%B3.html">لینوکس</a>
+    
+      <i class="fas fa-tag"></i>
+      <a rel="tag" href="/tag/%D9%81%D8%A7%DB%8C%D9%84.html">فایل</a>
+    
+      <i class="fas fa-tag"></i>
+      <a rel="tag" href="/tag/%D8%AD%D9%82.html">حق</a>
+    
+      <i class="fas fa-tag"></i>
+      <a rel="tag" href="/tag/%D8%AF%D8%B3%D8%AA%D8%B1%D8%B3%DB%8C.html">دسترسی</a>
+    
+      <i class="fas fa-tag"></i>
+      <a rel="tag" href="/tag/umask.html">umask</a>
+    
+      <i class="fas fa-tag"></i>
+      <a rel="tag" href="/tag/id.html">id</a>
+    
+      <i class="fas fa-tag"></i>
+      <a rel="tag" href="/tag/inode.html">inode</a>
+    
+      <i class="fas fa-tag"></i>
+      <a rel="tag" href="/tag/permission.html">permission</a>
+    
+
+    <i class="fas fa-code"></i>
+    
+    
+    <a href="https://raw.githubusercontent.com/mehdisadeghi/mehdix.ir/master/_source/_posts/2015-08-30-linux-permissions-made-simple-part-two.md">سورس</a>
+    
+  </small>
+
+  <nav class="pagination">
+    
+      <a href="https://mehdix.ir/link-tagging.html" class="pagination--pager" title="برچسب‌زنی به لینک‌ها">قبلی</a>
+    
+
+    
+      <a href="https://mehdix.ir/wercker-intro.html" class="pagination--pager" title="آشنایی با سرویس Wercker">بعدی </a>
+    
+  </nav>
+
+  <section>
+    
+      
+<section id="static-comments">
+  
+  
+  
+  <h4 id="comments-header">دیدگاه‌ها</h4>
+  <div id="comments">
+    
+    <div class="comment-chain">
+      <article id="2878304239">
+        <div class="comment-image-wrapper">
+          <img class="comment-avatar" src="https://www.gravatar.com/avatar/a84eca4314e52cf150347841e3a17cf1?s=200&d=robohash" />
+        </div>
+        <div class="comment-body-wrapper">
+          <span class="comment-meta">
+            <small>
+              
+                <a href=https://disqus.com/by/firouzian/ target="_"><span commenter>Amir H.</span></a>
+              
+            </small>
+            <small> &nbsp; <a href="#2878304239">۱۶ شهریور ۱۳۹۵</a></small>
+            <small> &nbsp; <a href="#comment-form" onclick="replyTo('2878304239')">پاسخ</a></small>
+            <span style="display:none" commentId>2878304239</span>
+          </span>
+          <p>سلام و عالی!
+خوب بود به GUID و SUID هم اشاره می‌کردید.
+ممنون</p>
+
+        </div>
+      </article>
+
+        
+
+    </div>
+    
+    <div class="comment-chain">
+      <article id="2878779944">
+        <div class="comment-image-wrapper">
+          <img class="comment-avatar" src="https://www.gravatar.com/avatar/9a6fe434e31c7dd56d09ac05da2bee36?s=200&d=robohash" />
+        </div>
+        <div class="comment-body-wrapper">
+          <span class="comment-meta">
+            <small>
+              
+                <a href=https://disqus.com/by/mehdisadeghi/ target="_"><span commenter>Mehdi Sadeghi</span></a>
+              
+            </small>
+            <small> &nbsp; <a href="#2878779944">۱۶ شهریور ۱۳۹۵</a></small>
+            <small> &nbsp; <a href="#comment-form" onclick="replyTo('2878779944')">پاسخ</a></small>
+            <span style="display:none" commentId>2878779944</span>
+          </span>
+          <p>فکر می‌کردم اشاره کردم! شاید قسمت سومی هم نوشتم.</p>
+
+        </div>
+      </article>
+
+        
+
+    </div>
+    
+    <div class="comment-chain">
+      <article id="3129884097">
+        <div class="comment-image-wrapper">
+          <img class="comment-avatar" src="https://www.gravatar.com/avatar/1d06ebe7ab461f129402225411f4c0e7?s=200&d=robohash" />
+        </div>
+        <div class="comment-body-wrapper">
+          <span class="comment-meta">
+            <small>
+              
+                <a href=https://disqus.com/by/disqus_synQUnuSJv/ target="_"><span commenter>‫صدرا‬‎</span></a>
+              
+            </small>
+            <small> &nbsp; <a href="#3129884097">۱۲ بهمن ۱۳۹۵</a></small>
+            <small> &nbsp; <a href="#comment-form" onclick="replyTo('3129884097')">پاسخ</a></small>
+            <span style="display:none" commentId>3129884097</span>
+          </span>
+          <p>من عادت ندارم مطالب فنی رو فارسی سرچ کنم. اتفاقی به وبلاگ شما بر خوردم. بسیار فصیح و گویا نوشته بودید. عالی. پایدار باشید.</p>
+
+        </div>
+      </article>
+
+        
+
+    </div>
+    
+    <div class="comment-chain">
+      <article id="3130049878">
+        <div class="comment-image-wrapper">
+          <img class="comment-avatar" src="https://www.gravatar.com/avatar/9a6fe434e31c7dd56d09ac05da2bee36?s=200&d=robohash" />
+        </div>
+        <div class="comment-body-wrapper">
+          <span class="comment-meta">
+            <small>
+              
+                <a href=https://disqus.com/by/mehdisadeghi/ target="_"><span commenter>Mehdi Sadeghi</span></a>
+              
+            </small>
+            <small> &nbsp; <a href="#3130049878">۱۲ بهمن ۱۳۹۵</a></small>
+            <small> &nbsp; <a href="#comment-form" onclick="replyTo('3130049878')">پاسخ</a></small>
+            <span style="display:none" commentId>3130049878</span>
+          </span>
+          <p>متشکرم.</p>
+
+        </div>
+      </article>
+
+        
+
+    </div>
+    
+    <div class="comment-chain">
+      <article id="3288028881">
+        <div class="comment-image-wrapper">
+          <img class="comment-avatar" src="https://www.gravatar.com/avatar/678191d6a68e43fb4be22b403004d0ab?s=200&d=robohash" />
+        </div>
+        <div class="comment-body-wrapper">
+          <span class="comment-meta">
+            <small>
+              
+                <a href=https://disqus.com/by/pedram_teymoori/ target="_"><span commenter>Pedram Teymoori</span></a>
+              
+            </small>
+            <small> &nbsp; <a href="#3288028881">۱۴ اردیبهشت ۱۳۹۶</a></small>
+            <small> &nbsp; <a href="#comment-form" onclick="replyTo('3288028881')">پاسخ</a></small>
+            <span style="display:none" commentId>3288028881</span>
+          </span>
+          <p>چقدر گویا و ساده توضیح دادید
+هم این مطلب هم مطلب ۱
+ممنون از مطلبتون 🙏</p>
+
+        </div>
+      </article>
+
+        
+
+    </div>
+    
+  </div>
+  
+
+  <form id="comment-form" name="comment" netlify-honeypot="bot-field" netlify>
+    <input name="bot-field" style="display:none">
+    <input name="page_id" style="display:none" value="/linux-permissions-made-simple-part-two">
+    <input id="reply-to" name="reply-to" style="display:none">
+    <label for="message">دیدگاه<sup class="required">*</sup> &nbsp;<small>می‌توانید با <a href="http://commonmark.org/help/" target="_">مارک‌داون</a> هم بنویسید.</small><br><small id="replyToVisualClue"></small>
+      <textarea id="message" name="message" required alt="no!!" onkeyup="preview()"></textarea>
+      <div id="preview"></div>
+    </label>
+    <label for="name">نام<sup class="required">*</sup>
+      <input id="name" type="text" name="name" required>
+    </label>
+    <label for="email">ایمیل<sup class="required">*</sup>
+      <input id="email" type="email" name="email" required>
+    </label>
+    <label for="website">وبسایت
+      <input id="website" type="url" name="website">
+    </label>
+    <div style="text-align:left">
+      <button type="submit" class="button">ارسال</button>
+    </div>
+  </form>
+
+</section>
+<script src="https://mehdix.ir/assets/js/showdown.min.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+  function preview() {
+    var converter = new showdown.Converter();
+    var markdown = document.getElementById("message").value;
+    document.getElementById("preview").innerHTML = converter.makeHtml(markdown);
+  }
+
+  function replyTo(commentID) {
+    var comment = document.getElementById(commentID);
+    document.getElementById("reply-to").value = comment.querySelector("span[commentId]").innerText;
+    document.getElementById("replyToVisualClue").innerText = "[در جواب " + comment.querySelector("span[commenter]").innerText + "]";
+  }
+</script>
+    
+  </section>
+
+</article>
+</div>
+    </main><footer>
+
+  <div class="wrapper">
+
+    
+
+    <p id="footer-description">بچه که بودیم همیشه برای بازی خونه می‌ساختیم. حالا هم نمونه‌اش رو در وب ساختم. اینجا سکوی انتشار مطالبی در مورد دانش تولید نرم‌افزار و ایده‌ها و علایق شخصی‌ام است، بویژه راه‌حل‌های مهندسی که باعث رشد و پیشرفتم شده است و می‌تواند مورد استفاده دیگران هم قرار بگیرد.
+</p>
+
+    <ul class="social-media-list">
+      
+      <li>
+        <i class="fab fa-github"></i>
+        <a href="https://github.com/mehdisadeghi">
+          <span class="username social-media-text">پروژه‌ها</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <i class="fab fa-twitter-square"></i>
+        <a href="https://twitter.com/msadeghii">
+          <span class="username social-media-text">توئیت‌ها</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <i class="fas fa-rss"></i>
+        <a href="https://feedburner.google.com/fb/a/mailverify?uri=mehdixir&amp;loc=en_US">
+          <span class="username social-media-text">خبرنامه</span></a>
+      </li>
+      <li>
+        <i class="fas fa-rss"></i>
+        <a href="http://feeds.feedburner.com/mehdixir">
+        <span class="username social-media-text">خوراک</span></a>
+      </li>
+      
+      
+        <li>
+          <i class="fas fa-envelope-open"></i>
+          <a href="mailto:sadeghi@mehdix.org">
+            <span class="username social-media-text">تماس</span></a></li>
+      
+    </ul>
+
+  <div id="footer-extra">
+    <small id="license">
+  <i class="fab fa-creative-commons"></i>
+  مطالب این وبلاگ تحت مجوز
+  <a rel="license" href="http://creativecommons.org/licenses/by/4.0/deed.fa">
+    کریتیو کامنز اتریبیوشن ۴.۰ اینترنشنال
+  </a>قرار دارد.
+</small>
+    <a id="atom" href="https://validator.w3.org/feed/check.cgi?url=https://mehdix.ir/feed.xml"><img src=https://mehdix.ir/assets/img/valid-atom.png alt="[Valid Atom 1.0]" title="Validate my Atom 1.0 feed" /></a>
+  </div>
+
+  </div>
+
+  <small id="build-time">Site generated on Tue, 06 Feb 2018 02:43:37 +0100</small>
+
+</footer><script src="https://mehdix.ir/assets/js/main.js"></script>
+     <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-57282325-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+ 
+  </body>
+</html>

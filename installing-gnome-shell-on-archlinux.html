@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="fa">
+  
+  <head><meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="author" content="مهدی صادقی" />
+<meta name="copyright" content="Commons Attribution 4.0 International" />
+<meta name="robot" content="" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="description" content="سکوی انتشار مطالبی در مورد دانش تولید نرم‌افزار و ایده‌ها و علایق شخصی‌ام." />
+
+<link rel="canonical" href="https://mehdix.ir/publishing-with-jekyll.html" />
+<link rel="icon" href="https://mehdix.ir/assets/img/me.png" />
+<link rel="stylesheet" href="https://mehdix.ir/assets/css/main.css" />
+<link rel="stylesheet" href="https://mehdix.ir/assets/fonts/fontawesomev5.0.2.css" />
+<meta name="keywords" content='archlinux,آرچ,امنیت,yubikey,gnome-shell,گنوم,نوم' /><title>نصب نوم ۳ روی آرچ‌لینوکس - مهدی صادقی</title><!-- Begin Jekyll SEO tag v2.4.0 -->
+<title>نصب نوم ۳ روی آرچ‌لینوکس | مهدی صادقی</title>
+<meta name="generator" content="Jekyll v3.7.2" />
+<meta property="og:title" content="نصب نوم ۳ روی آرچ‌لینوکس" />
+<meta name="author" content="مهدی صادقی" />
+<meta property="og:locale" content="fa_IR" />
+<meta name="description" content="در مقاله قبلی نصب آرچ را شرح دادم. حالا می‌خواهم دسکتاپ مورد علاقه‌ام را روی آن نصب کنم یعنی gnome-shell." />
+<meta property="og:description" content="در مقاله قبلی نصب آرچ را شرح دادم. حالا می‌خواهم دسکتاپ مورد علاقه‌ام را روی آن نصب کنم یعنی gnome-shell." />
+<link rel="canonical" href="https://mehdix.ir/installing-gnome-shell-on-archlinux.html" />
+<meta property="og:url" content="https://mehdix.ir/installing-gnome-shell-on-archlinux.html" />
+<meta property="og:site_name" content="مهدی صادقی" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2016-05-16T00:00:00+02:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@msadeghii" />
+<meta name="twitter:creator" content="@مهدی صادقی" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://mehdix.ir/installing-gnome-shell-on-archlinux.html"},"url":"https://mehdix.ir/installing-gnome-shell-on-archlinux.html","author":{"@type":"Person","name":"مهدی صادقی"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://mehdix.ir/assets/img/me.png"},"name":"مهدی صادقی"},"description":"در مقاله قبلی نصب آرچ را شرح دادم. حالا می‌خواهم دسکتاپ مورد علاقه‌ام را روی آن نصب کنم یعنی gnome-shell.","headline":"نصب نوم ۳ روی آرچ‌لینوکس","dateModified":"2016-05-16T00:00:00+02:00","datePublished":"2016-05-16T00:00:00+02:00","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  </head>
+
+  <body><header>
+  <div class="wrapper">
+    <a class="site-title" href="https://mehdix.ir/">مهدی صادقی</a>
+    <small id="motto"> در مورد نرم‌افزار و ایده‌هایم </small>
+  </div>
+</header>
+<main>
+      <div class="wrapper">
+
+<article class="post-content">
+
+  <div class="post-header">
+    <h1 class="post-title">نصب نوم ۳ روی آرچ‌لینوکس</h1>
+    <p>
+      <i class="fas fa-calendar"></i>
+      دوشنبه ۲۷ اردیبهشت ۱۳۹۵<br>
+      
+      <i class="fas fa-stopwatch"></i>
+      ۳ دقیقه مطالعه
+    </p>
+  </div>
+
+  <p>در مقاله قبلی نصب آرچ را شرح دادم. حالا می‌خواهم دسکتاپ مورد علاقه‌ام را روی آن نصب کنم یعنی gnome-shell.</p>
+
+<p>اولین قدم ساخت یک کاربر جدید است:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># useradd -m -s /bin/bash mehdi
+# passwd mehdi
+</code></pre></div></div>
+
+<p>برای اینکه این کاربر بتواند با sudo دستور اجرا کند باید آنرا به گروه sudo اضافه کنیم و با دستور visudo تنظیمات sudo را طوری تغییر بدهیم که کاربران عضو گروه sudo بتوانند دستورات روت را اجرا کنند. البته همه چیز با systemd عوض شده است و این روش قدیمی است. ولی من هنوز روش جدید را فرصت نکرده‌ام بخوانم.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># visudo
+# find line with # %sudo ALL=... and change it to:
+%sudo ALL=(ALL) ALL
+# useradd -aG sudo mehdi
+</code></pre></div></div>
+
+<h2 id="نصب-display-server">نصب Display Server</h2>
+
+<p>قدم بعدی نصب یک Display Server است. من تصمیم گرفتم از سرور جدید Wayland و پیاده‌سازی آن بنام Weston استفاده کنم. Wayland رفته رفته جایگزین Xorg می‌شود. از جایی که Wayland نیاز به <code class="highlighter-rouge">Kernel Mode Setting (KVM)</code> دارد باید آنرا فعال کنیم:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># vi /etc/mkinitcpio.conf
+# go to line with MODULES=""
+# change it to:
+MODULES="i915"
+</code></pre></div></div>
+
+<p>لپ‌تاپ من چیپ گرافیک مجزا ندارد و از پردازشگر گرافیکی اینتل استفاده می‌کند. برای فعال کردن KVM روی اینتل هم کافیست <code class="highlighter-rouge">i915</code> را به ماژول‌های کرنل اضافه کنم. ناگفته پیداست که باید ایمیج بوت دوباره ساخته بشود:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># mkinitcpio -p kernel
+</code></pre></div></div>
+
+<p>حالا بسته‌های لازم را نصب می‌کنیم:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># pacman -S wayland weston xorg-server-wayland
+</code></pre></div></div>
+
+<p>حالا Wayland را نصب کردیم که چیزی بیشتر از یک کتابخانه نیست. Wetson هم به تنهای به درد ما نمی‌خورد. xorg-sever-wayland هم برای اجرای برنامه‌های xorg از درون Wayland است. چیزی که الان نیاز داریم نصب یک دسکتاپ (نوم) و یک Display Manager برای داشتن یک صفحه لاگین اتوماتیک است.</p>
+
+<h2 id="نصب-display-manager">نصب Display Manager</h2>
+<p>اول بسته‌های لازم را نصب می‌کنیم:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># pacman -S gnome gdm
+</code></pre></div></div>
+
+<p>حالا باید سرویس <code class="highlighter-rouge">Gnome Display Manager (gdm)</code> را در systemd فعال کنیم تا با هربار ریبوت خودش اجرا بشود:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># systemctl enable gdm.service
+</code></pre></div></div>
+
+<p>اگر همه چیز مرتب پیش رفته باشد با یک ریبوت باید به صفحه لاگین گرافیکی هدایت بشویم. از تنظیمات لاگین Gnome on Wayland را انتخاب می‌کنم و لاگین می‌کنم.</p>
+
+<p>باقی کارها را می‌توان به صورت گرافیکی از داخل محیط نوم انجام داد، مثل اضافه کردن چیدمان فارسی برای تایپ کردن و باقی کارها. من بسته‌های ضروری‌ام را همینجا نصب می‌کنم:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># pacman -S gnome-extra gnome-boxes
+</code></pre></div></div>
+<p>این بسته حاوی برنامه‌های رایج برای نوم است و البته ماشین مجازی نوم (باید قابلیت مجازی‌سازی در بایوس فعال باشد در غیر اینصورت خیلی کند خواهد بود). پک‌من سوالی می‌پرسد و من آنهایی را انتخاب می‌کنم که بدردم می‌خورد، بعد سایر برنامه‌های مهم:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># pcaman -S openssh docker pass wget
+# systemctl enable docker.service # Make docker service permanent
+</code></pre></div></div>
+
+<h2 id="فعالسازی-کلید-سختافزاری">فعال‌سازی کلید سخت‌افزاری</h2>
+<p>بسیاری امروزه از کلیدهای سخت‌افزاری به عنوان ابزاری برای مکانیزم لاگین دو مرحله‌ای استفاده می‌کنند. مثلا برای لاگین در اکانت گیت‌هاب یا گوگل یا خیلی سرویس‌های دیگر. معروف‌ترین این کلید‌ها Yubikey است. من یک کلید ارزانتر بنام Happlink دارم. برای اینکه این کلیدها را لینوکس بشناسد باید یک قانون جدید به udev اضافه بشود. فایلی که اینجا به قوانین udev اضافه می‌کنیم حاوی شناسه تولیدکنندگان معروف این نوع کلیدهاست:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># this udev file should be used with udev 188 and newer
+ACTION!="add|change", GOTO="u2f_end"
+
+# Yubico YubiKey
+KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{idVendor}=="1050", ATTRS{idProduct}=="0113|0114|0115|0116|0120|0402|0403|0406|0407|0410", TAG+="uaccess"
+
+# Happlink (formerly Plug-Up) Security KEY
+KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{idVendor}=="2581", ATTRS{idProduct}=="f1d0", TAG+="uaccess"
+
+#  Neowave Keydo and Keydo AES
+KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{idVendor}=="1e0d", ATTRS{idProduct}=="f1d0|f1ae", TAG+="uaccess"
+
+# HyperSecu HyperFIDO
+KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{idVendor}=="096e", ATTRS{idProduct}=="0880", TAG+="uaccess"
+
+LABEL="u2f_end"
+</code></pre></div></div>
+
+<p>مقادیر بالا را در فایلی بنام <code class="highlighter-rouge">70-u2f.rules</code> در مسیر <code class="highlighter-rouge">/etc/udev/rules.d/</code> ذخیره کرده و udev را ریلود می‌کنیم:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># udevadm control --reload
+</code></pre></div></div>
+
+<h2 id="فعالسازی-افزونههای-نوم-با-کرومیوم">فعالسازی افزونه‌های نوم با کرومیوم</h2>
+<p>برای اینکه بتوان از داخل براوزر افزونه‌های نوم را نصب کرد باید یک پلاگین روی فایرفاکس یا کروم نصب بشود. من اینجا نحوه نصب آنرا روی کروم توضیح می‌دهم. قسمت اول نصب پلاگین کروم است. کروم پلاگینی دارد بنام GNOME Shell Integration که می‌توان آنرا از از استور گوگل براحتی روی کرومیوم نصب کرد. این اکستنشن برای اینکه بتواند پلاگین‌های نوم را کنترل بکند نیاز به یک Connector دارد که باید جداگانه نصب بشود. برای این کار یک پکیج AUR وجود دارد. AUR مخفف Archlinux User Repository است. در AURها همواره یک فایل PKGBUILD وجود دارد که نصب را شرح می‌دهد و فایل‌های لازم حین نصب دانلود و بیلد می‌شوند:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git clone https://aur.archlinux.org/chrome-gnome-shell-git.git
+$ cd chrome-gnome-shell-git
+$ makepkg -sri
+</code></pre></div></div>
+
+<p>بعد از این مرحله کافیست به آدرس extensions.gnome.org برویم. حالا باید بتوان افزونه‌ها را فعال و غیرفعال کرد.</p>
+
+<p>با دنبال کردن این دستورات یکه سیستم با دسکتاپ نوم ساختیم. ویکی آرچ بهترین منبع برای یادگیری و تنظیمات بیشتر سیستم است. در صورت علاقه ویکی را برای دستورات و تنظیمات بیشمار ممکن بخوانید.</p>
+
+
+  
+    <div id="related-posts">
+      <h3>مطالب مرتبط</h3>
+      <ul>
+        
+          <li><a href="/plug-up-yubikey-4-hardware-keys.html">کارت هوشمند</a></li>
+        
+          <li><a href="/archlinux_installation_with_lucks_and_lvm.html">نصب قدم به قدم آرچ‌لینوکس با رمزگزاری</a></li>
+        
+          <li><a href="/patch.html">پچ بنویس و التماس کن</a></li>
+        
+          <li><a href="/netlify.html">فعالسازی HTTPS به کمک Netlify</a></li>
+        
+          <li><a href="/keybase.html">گاوصندوقی در دل اینترنت</a></li>
+        
+        </ul>
+    </div>
+  
+
+  <small id="post-tags">
+    
+      <i class="fas fa-tag"></i>
+      <a rel="tag" href="/tag/archlinux.html">archlinux</a>
+    
+      <i class="fas fa-tag"></i>
+      <a rel="tag" href="/tag/%D8%A2%D8%B1%DA%86.html">آرچ</a>
+    
+      <i class="fas fa-tag"></i>
+      <a rel="tag" href="/tag/%D8%A7%D9%85%D9%86%DB%8C%D8%AA.html">امنیت</a>
+    
+      <i class="fas fa-tag"></i>
+      <a rel="tag" href="/tag/yubikey.html">yubikey</a>
+    
+      <i class="fas fa-tag"></i>
+      <a rel="tag" href="/tag/gnome-shell.html">gnome-shell</a>
+    
+      <i class="fas fa-tag"></i>
+      <a rel="tag" href="/tag/%DA%AF%D9%86%D9%88%D9%85.html">گنوم</a>
+    
+      <i class="fas fa-tag"></i>
+      <a rel="tag" href="/tag/%D9%86%D9%88%D9%85.html">نوم</a>
+    
+
+    <i class="fas fa-code"></i>
+    
+    
+    <a href="https://raw.githubusercontent.com/mehdisadeghi/mehdix.ir/master/_source/_posts/2016-05-16-installing-gnome-shell-on-archlinux.md">سورس</a>
+    
+  </small>
+
+  <nav class="pagination">
+    
+      <a href="https://mehdix.ir/python-zen.html" class="pagination--pager" title="python -m this">قبلی</a>
+    
+
+    
+      <a href="https://mehdix.ir/archlinux_installation_with_lucks_and_lvm.html" class="pagination--pager" title="نصب قدم به قدم آرچ‌لینوکس با رمزگزاری">بعدی </a>
+    
+  </nav>
+
+  <section>
+    
+      
+<section id="static-comments">
+  
+  
+  
+
+  <form id="comment-form" name="comment" netlify-honeypot="bot-field" netlify>
+    <input name="bot-field" style="display:none">
+    <input name="page_id" style="display:none" value="/installing-gnome-shell-on-archlinux">
+    <input id="reply-to" name="reply-to" style="display:none">
+    <label for="message">دیدگاه<sup class="required">*</sup> &nbsp;<small>می‌توانید با <a href="http://commonmark.org/help/" target="_">مارک‌داون</a> هم بنویسید.</small><br><small id="replyToVisualClue"></small>
+      <textarea id="message" name="message" required alt="no!!" onkeyup="preview()"></textarea>
+      <div id="preview"></div>
+    </label>
+    <label for="name">نام<sup class="required">*</sup>
+      <input id="name" type="text" name="name" required>
+    </label>
+    <label for="email">ایمیل<sup class="required">*</sup>
+      <input id="email" type="email" name="email" required>
+    </label>
+    <label for="website">وبسایت
+      <input id="website" type="url" name="website">
+    </label>
+    <div style="text-align:left">
+      <button type="submit" class="button">ارسال</button>
+    </div>
+  </form>
+
+</section>
+<script src="https://mehdix.ir/assets/js/showdown.min.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+  function preview() {
+    var converter = new showdown.Converter();
+    var markdown = document.getElementById("message").value;
+    document.getElementById("preview").innerHTML = converter.makeHtml(markdown);
+  }
+
+  function replyTo(commentID) {
+    var comment = document.getElementById(commentID);
+    document.getElementById("reply-to").value = comment.querySelector("span[commentId]").innerText;
+    document.getElementById("replyToVisualClue").innerText = "[در جواب " + comment.querySelector("span[commenter]").innerText + "]";
+  }
+</script>
+    
+  </section>
+
+</article>
+</div>
+    </main><footer>
+
+  <div class="wrapper">
+
+    
+
+    <p id="footer-description">بچه که بودیم همیشه برای بازی خونه می‌ساختیم. حالا هم نمونه‌اش رو در وب ساختم. اینجا سکوی انتشار مطالبی در مورد دانش تولید نرم‌افزار و ایده‌ها و علایق شخصی‌ام است، بویژه راه‌حل‌های مهندسی که باعث رشد و پیشرفتم شده است و می‌تواند مورد استفاده دیگران هم قرار بگیرد.
+</p>
+
+    <ul class="social-media-list">
+      
+      <li>
+        <i class="fab fa-github"></i>
+        <a href="https://github.com/mehdisadeghi">
+          <span class="username social-media-text">پروژه‌ها</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <i class="fab fa-twitter-square"></i>
+        <a href="https://twitter.com/msadeghii">
+          <span class="username social-media-text">توئیت‌ها</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <i class="fas fa-rss"></i>
+        <a href="https://feedburner.google.com/fb/a/mailverify?uri=mehdixir&amp;loc=en_US">
+          <span class="username social-media-text">خبرنامه</span></a>
+      </li>
+      <li>
+        <i class="fas fa-rss"></i>
+        <a href="http://feeds.feedburner.com/mehdixir">
+        <span class="username social-media-text">خوراک</span></a>
+      </li>
+      
+      
+        <li>
+          <i class="fas fa-envelope-open"></i>
+          <a href="mailto:sadeghi@mehdix.org">
+            <span class="username social-media-text">تماس</span></a></li>
+      
+    </ul>
+
+  <div id="footer-extra">
+    <small id="license">
+  <i class="fab fa-creative-commons"></i>
+  مطالب این وبلاگ تحت مجوز
+  <a rel="license" href="http://creativecommons.org/licenses/by/4.0/deed.fa">
+    کریتیو کامنز اتریبیوشن ۴.۰ اینترنشنال
+  </a>قرار دارد.
+</small>
+    <a id="atom" href="https://validator.w3.org/feed/check.cgi?url=https://mehdix.ir/feed.xml"><img src=https://mehdix.ir/assets/img/valid-atom.png alt="[Valid Atom 1.0]" title="Validate my Atom 1.0 feed" /></a>
+  </div>
+
+  </div>
+
+  <small id="build-time">Site generated on Tue, 06 Feb 2018 02:43:37 +0100</small>
+
+</footer><script src="https://mehdix.ir/assets/js/main.js"></script>
+     <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-57282325-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+ 
+  </body>
+</html>

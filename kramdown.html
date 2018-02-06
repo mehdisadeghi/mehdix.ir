@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="fa">
+  
+  <head><meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="author" content="مهدی صادقی" />
+<meta name="copyright" content="Commons Attribution 4.0 International" />
+<meta name="robot" content="" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="description" content="سکوی انتشار مطالبی در مورد دانش تولید نرم‌افزار و ایده‌ها و علایق شخصی‌ام." />
+
+<link rel="canonical" href="https://mehdix.ir/publishing-with-jekyll.html" />
+<link rel="icon" href="https://mehdix.ir/assets/img/me.png" />
+<link rel="stylesheet" href="https://mehdix.ir/assets/css/main.css" />
+<link rel="stylesheet" href="https://mehdix.ir/assets/fonts/fontawesomev5.0.2.css" />
+<meta name="keywords" content='markup,kramdown,markdown,jekyll' /><title>kramdown - مهدی صادقی</title><!-- Begin Jekyll SEO tag v2.4.0 -->
+<title>kramdown | مهدی صادقی</title>
+<meta name="generator" content="Jekyll v3.7.2" />
+<meta property="og:title" content="kramdown" />
+<meta name="author" content="مهدی صادقی" />
+<meta property="og:locale" content="fa_IR" />
+<meta name="description" content="طی هفته‌های گذشته مشغول راه‌اندازی این وبسایت بودم. مثل هر پروژه دیگری کلی مطلب در طول انجام اینکار یاد گرفتم، فرآیندی که همچنان ادامه داره. یکی از این موارد آشنایی با kramdown بود." />
+<meta property="og:description" content="طی هفته‌های گذشته مشغول راه‌اندازی این وبسایت بودم. مثل هر پروژه دیگری کلی مطلب در طول انجام اینکار یاد گرفتم، فرآیندی که همچنان ادامه داره. یکی از این موارد آشنایی با kramdown بود." />
+<link rel="canonical" href="https://mehdix.ir/kramdown.html" />
+<meta property="og:url" content="https://mehdix.ir/kramdown.html" />
+<meta property="og:site_name" content="مهدی صادقی" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2014-12-21T00:00:00+01:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@msadeghii" />
+<meta name="twitter:creator" content="@مهدی صادقی" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://mehdix.ir/kramdown.html"},"url":"https://mehdix.ir/kramdown.html","author":{"@type":"Person","name":"مهدی صادقی"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://mehdix.ir/assets/img/me.png"},"name":"مهدی صادقی"},"description":"طی هفته‌های گذشته مشغول راه‌اندازی این وبسایت بودم. مثل هر پروژه دیگری کلی مطلب در طول انجام اینکار یاد گرفتم، فرآیندی که همچنان ادامه داره. یکی از این موارد آشنایی با kramdown بود.","headline":"kramdown","dateModified":"2014-12-21T00:00:00+01:00","datePublished":"2014-12-21T00:00:00+01:00","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  </head>
+
+  <body><header>
+  <div class="wrapper">
+    <a class="site-title" href="https://mehdix.ir/">مهدی صادقی</a>
+    <small id="motto"> در مورد نرم‌افزار و ایده‌هایم </small>
+  </div>
+</header>
+<main>
+      <div class="wrapper">
+
+<article class="post-content">
+
+  <div class="post-header">
+    <h1 class="post-title">kramdown</h1>
+    <p>
+      <i class="fas fa-calendar"></i>
+      یک‌شنبه ۳۰ آذر ۱۳۹۳<br>
+      
+      <i class="fas fa-stopwatch"></i>
+      ۲ دقیقه مطالعه
+    </p>
+  </div>
+
+  <p>طی هفته‌های گذشته مشغول راه‌اندازی این وبسایت بودم. مثل هر پروژه دیگری کلی مطلب در طول انجام اینکار یاد گرفتم، فرآیندی که همچنان ادامه داره. یکی از این موارد آشنایی با <a href="http://kramdown.gettalong.org/">kramdown</a> بود.</p>
+
+<p>#یک پارسِر دیگر مارک‌داون
+<em>kramdown</em> در ساده‌ترین حالت یک پارسِر مارک‌داون محسوب می‌شه اما ویژگی‌هایی هم داره که در مارک‌داون وجود نداره. من به طور خاص از ویژگی <a href="http://kramdown.gettalong.org/syntax.html#block-ials">Inline Attribute Lists</a> صحبت می‌کنم.</p>
+
+<p>اگر به تنظیمات جکیل من نگاه کنید من <em>kramdown</em> رو به عنوان پارسر انتخاب کردم:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">markdown</span><span class="pi">:</span> <span class="s">kramdown</span>
+</code></pre></div></div>
+
+<p>این باعث می‌شه که جکیل کد صفحات من را با پارسِر درست ترجمه کنه و بنابراین من می‌تونم از سینتکس اون استفاده کنم.</p>
+
+<h2 id="مشکل-از-کجا-شروع-شد">مشکل از کجا شروع شد</h2>
+<p>من مشکلی داشتم در نمایش افقی و مرکزی عکس‌ها. جکیل به صورت پیشفرض تصاویر رو سمت چپ (و وقتی راست‌چین شده باشه سمت راست) قرار می‌داد و این چیزی نبود که من می‌خواستم. و اما کدی که ژنراتور جکیل برای یک بلاک عکس تولید می‌کرد حاوی یک تگ <code class="highlighter-rouge">p</code> و یک تگ <code class="highlighter-rouge">img</code> داخل اون بود. به این صورت:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;p&gt;</span>
+<span class="nt">&lt;img</span> <span class="na">href=</span><span class="s">""</span> <span class="na">alt=</span><span class="s">""</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/p&gt;</span>
+</code></pre></div></div>
+
+<p>که این کد خروجی سینتکس زیر در کد من بود:</p>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">![</span><span class="nv">image</span><span class="p">](</span><span class="sx">URL</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>اشکال اینجا بود که تگ‌های تولید شده کلاس یا آی‌دی خاصی نداشتند که من بتونم میون انبوه کدهای تولید شده برای صفحه اونها رو پیدا کنم. اینجا بود که IAL به کمکم اومد. بعد از ثبت یک ایشو در جکیل و بعد یک ایشو در kramdown بالاخره به جواب رسیدم. به این صورت که من می‌تونم به فرمت زیر قبل از یک بلاک عکس (یا هر بلاک دیگری) یک کلاس دلخواه رو به تگ تولید شده نسبت بدم:</p>
+
+<pre><code class="language-kramdown">{: .center}
+![image](URL)
+</code></pre>
+
+<p><code class="highlighter-rouge">center</code> در اینجا اسم دلخواهیه که من انتخاب کردم. بعد از این مرحله خروجی کد شد این:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"center"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;img</span> <span class="na">href=</span><span class="s">""</span> <span class="na">alt=</span><span class="s">""</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/p&gt;</span>
+</code></pre></div></div>
+
+<p>ناگفته پیداست که حالا من می‌تونم در کد <code class="highlighter-rouge">css</code> براحتی استایل دلخواهم رو به این کلاس نسبت بدم:</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.center</span><span class="p">{</span>
+    <span class="nl">text-align</span><span class="p">:</span> <span class="nb">center</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>چند مثال هم از مستندات خودشون:</p>
+
+<pre><code class="language-kramdown">A simple paragraph with an ID attribute.
+{: #para-one}
+
+&gt; A blockquote with a title
+{:title="The blockquote title"}
+{: #myid}
+
+{:.ruby}
+    Some code here
+</code></pre>
+
+<h2 id="خلاصه">خلاصه</h2>
+<p>به کمک این روش می‌شه براحتی <em>attribute</em>هایی برای المان‌های مختلف الصاق کرد. فقط کافیه که <em>بلافاصله</em> قبل یا بعد از المان مربوطه کد IAL لازم نوشته بشه.</p>
+
+
+  
+    <div id="related-posts">
+      <h3>مطالب مرتبط</h3>
+      <ul>
+        
+          <li><a href="/seo.html">افزودن متادیتا به تم وبسایت</a></li>
+        
+        </ul>
+    </div>
+  
+
+  <small id="post-tags">
+    
+      <i class="fas fa-tag"></i>
+      <a rel="tag" href="/tag/markup.html">markup</a>
+    
+      <i class="fas fa-tag"></i>
+      <a rel="tag" href="/tag/kramdown.html">kramdown</a>
+    
+      <i class="fas fa-tag"></i>
+      <a rel="tag" href="/tag/markdown.html">markdown</a>
+    
+      <i class="fas fa-tag"></i>
+      <a rel="tag" href="/tag/jekyll.html">jekyll</a>
+    
+
+    <i class="fas fa-code"></i>
+    
+    
+    <a href="https://raw.githubusercontent.com/mehdisadeghi/mehdix.ir/master/_source/_posts/2014-12-21-kramdown.md">سورس</a>
+    
+  </small>
+
+  <nav class="pagination">
+    
+      <a href="https://mehdix.ir/urljoin.html" class="pagination--pager" title="یک پلاگین دیگر برای جکیل">قبلی</a>
+    
+
+    
+      <a href="https://mehdix.ir/jekyll-structure.html" class="pagination--pager" title="وبلاگ جکیل روی دامنه شخصی">بعدی </a>
+    
+  </nav>
+
+  <section>
+    
+      
+<section id="static-comments">
+  
+  
+  
+
+  <form id="comment-form" name="comment" netlify-honeypot="bot-field" netlify>
+    <input name="bot-field" style="display:none">
+    <input name="page_id" style="display:none" value="/kramdown">
+    <input id="reply-to" name="reply-to" style="display:none">
+    <label for="message">دیدگاه<sup class="required">*</sup> &nbsp;<small>می‌توانید با <a href="http://commonmark.org/help/" target="_">مارک‌داون</a> هم بنویسید.</small><br><small id="replyToVisualClue"></small>
+      <textarea id="message" name="message" required alt="no!!" onkeyup="preview()"></textarea>
+      <div id="preview"></div>
+    </label>
+    <label for="name">نام<sup class="required">*</sup>
+      <input id="name" type="text" name="name" required>
+    </label>
+    <label for="email">ایمیل<sup class="required">*</sup>
+      <input id="email" type="email" name="email" required>
+    </label>
+    <label for="website">وبسایت
+      <input id="website" type="url" name="website">
+    </label>
+    <div style="text-align:left">
+      <button type="submit" class="button">ارسال</button>
+    </div>
+  </form>
+
+</section>
+<script src="https://mehdix.ir/assets/js/showdown.min.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+  function preview() {
+    var converter = new showdown.Converter();
+    var markdown = document.getElementById("message").value;
+    document.getElementById("preview").innerHTML = converter.makeHtml(markdown);
+  }
+
+  function replyTo(commentID) {
+    var comment = document.getElementById(commentID);
+    document.getElementById("reply-to").value = comment.querySelector("span[commentId]").innerText;
+    document.getElementById("replyToVisualClue").innerText = "[در جواب " + comment.querySelector("span[commenter]").innerText + "]";
+  }
+</script>
+    
+  </section>
+
+</article>
+</div>
+    </main><footer>
+
+  <div class="wrapper">
+
+    
+
+    <p id="footer-description">بچه که بودیم همیشه برای بازی خونه می‌ساختیم. حالا هم نمونه‌اش رو در وب ساختم. اینجا سکوی انتشار مطالبی در مورد دانش تولید نرم‌افزار و ایده‌ها و علایق شخصی‌ام است، بویژه راه‌حل‌های مهندسی که باعث رشد و پیشرفتم شده است و می‌تواند مورد استفاده دیگران هم قرار بگیرد.
+</p>
+
+    <ul class="social-media-list">
+      
+      <li>
+        <i class="fab fa-github"></i>
+        <a href="https://github.com/mehdisadeghi">
+          <span class="username social-media-text">پروژه‌ها</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <i class="fab fa-twitter-square"></i>
+        <a href="https://twitter.com/msadeghii">
+          <span class="username social-media-text">توئیت‌ها</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <i class="fas fa-rss"></i>
+        <a href="https://feedburner.google.com/fb/a/mailverify?uri=mehdixir&amp;loc=en_US">
+          <span class="username social-media-text">خبرنامه</span></a>
+      </li>
+      <li>
+        <i class="fas fa-rss"></i>
+        <a href="http://feeds.feedburner.com/mehdixir">
+        <span class="username social-media-text">خوراک</span></a>
+      </li>
+      
+      
+        <li>
+          <i class="fas fa-envelope-open"></i>
+          <a href="mailto:sadeghi@mehdix.org">
+            <span class="username social-media-text">تماس</span></a></li>
+      
+    </ul>
+
+  <div id="footer-extra">
+    <small id="license">
+  <i class="fab fa-creative-commons"></i>
+  مطالب این وبلاگ تحت مجوز
+  <a rel="license" href="http://creativecommons.org/licenses/by/4.0/deed.fa">
+    کریتیو کامنز اتریبیوشن ۴.۰ اینترنشنال
+  </a>قرار دارد.
+</small>
+    <a id="atom" href="https://validator.w3.org/feed/check.cgi?url=https://mehdix.ir/feed.xml"><img src=https://mehdix.ir/assets/img/valid-atom.png alt="[Valid Atom 1.0]" title="Validate my Atom 1.0 feed" /></a>
+  </div>
+
+  </div>
+
+  <small id="build-time">Site generated on Tue, 06 Feb 2018 02:43:37 +0100</small>
+
+</footer><script src="https://mehdix.ir/assets/js/main.js"></script>
+     <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-57282325-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+ 
+  </body>
+</html>

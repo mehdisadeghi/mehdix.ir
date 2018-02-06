@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="fa">
+  
+  <head><meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="author" content="مهدی صادقی" />
+<meta name="copyright" content="Commons Attribution 4.0 International" />
+<meta name="robot" content="" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="description" content="سکوی انتشار مطالبی در مورد دانش تولید نرم‌افزار و ایده‌ها و علایق شخصی‌ام." />
+
+<link rel="canonical" href="https://mehdix.ir/publishing-with-jekyll.html" />
+<link rel="icon" href="https://mehdix.ir/assets/img/me.png" />
+<link rel="stylesheet" href="https://mehdix.ir/assets/css/main.css" />
+<link rel="stylesheet" href="https://mehdix.ir/assets/fonts/fontawesomev5.0.2.css" />
+<meta name="keywords" content='پچ,سازوکار,gtk,gnome,گنوم,مشارکت' /><title>پچ بنویس و التماس کن - مهدی صادقی</title><!-- Begin Jekyll SEO tag v2.4.0 -->
+<title>پچ بنویس و التماس کن | مهدی صادقی</title>
+<meta name="generator" content="Jekyll v3.7.2" />
+<meta property="og:title" content="پچ بنویس و التماس کن" />
+<meta name="author" content="مهدی صادقی" />
+<meta property="og:locale" content="fa_IR" />
+<meta name="description" content="مدتها بود که مشکلی با برنامه‌های گرافیکی مبتنی بر GTK داشتم. آخرسر همت کردم خودم مشکل رو اصلاح کنم. ولی به زودی فهمیدم اصلاح مشکل ساده‌تر از قبولاندن پچ به نگهدارندگان پروژه است." />
+<meta property="og:description" content="مدتها بود که مشکلی با برنامه‌های گرافیکی مبتنی بر GTK داشتم. آخرسر همت کردم خودم مشکل رو اصلاح کنم. ولی به زودی فهمیدم اصلاح مشکل ساده‌تر از قبولاندن پچ به نگهدارندگان پروژه است." />
+<link rel="canonical" href="https://mehdix.ir/patch.html" />
+<meta property="og:url" content="https://mehdix.ir/patch.html" />
+<meta property="og:site_name" content="مهدی صادقی" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-01-29T00:00:00+01:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@msadeghii" />
+<meta name="twitter:creator" content="@مهدی صادقی" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://mehdix.ir/patch.html"},"url":"https://mehdix.ir/patch.html","author":{"@type":"Person","name":"مهدی صادقی"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://mehdix.ir/assets/img/me.png"},"name":"مهدی صادقی"},"description":"مدتها بود که مشکلی با برنامه‌های گرافیکی مبتنی بر GTK داشتم. آخرسر همت کردم خودم مشکل رو اصلاح کنم. ولی به زودی فهمیدم اصلاح مشکل ساده‌تر از قبولاندن پچ به نگهدارندگان پروژه است.","headline":"پچ بنویس و التماس کن","dateModified":"2017-01-29T00:00:00+01:00","datePublished":"2017-01-29T00:00:00+01:00","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  </head>
+
+  <body><header>
+  <div class="wrapper">
+    <a class="site-title" href="https://mehdix.ir/">مهدی صادقی</a>
+    <small id="motto"> در مورد نرم‌افزار و ایده‌هایم </small>
+  </div>
+</header>
+<main>
+      <div class="wrapper">
+
+<article class="post-content">
+
+  <div class="post-header">
+    <h1 class="post-title">پچ بنویس و التماس کن</h1>
+    <p>
+      <i class="fas fa-calendar"></i>
+      یک‌شنبه ۱۰ بهمن ۱۳۹۵<br>
+      
+      <i class="fas fa-stopwatch"></i>
+      ۵ دقیقه مطالعه
+    </p>
+  </div>
+
+  <p>مدتها بود که مشکلی با برنامه‌های گرافیکی مبتنی بر GTK داشتم. آخرسر همت کردم خودم مشکل رو اصلاح کنم. ولی به زودی فهمیدم اصلاح مشکل ساده‌تر از قبولاندن پچ به نگهدارندگان پروژه است.</p>
+
+<p>اول مقداری قصه. هر برنامه گرافیکی از کتابخانه‌هایی برای ساختن رابط کاربری‌اش استفاده می‌کنه. در دنیای ویندوز خیلی‌ها از دات‌نت استفاده می‌کنند. اما کلی پروژه دیگر هم هست که قطعات گرافیکی قابل استفاده در برنامه‌ها رو ساختند و قابل استفاده هستند. در دنیای نرم‌افزار آزاد رایج‌ترین تولکیت‌های گرافیکی GTK و Qt هستند. اولی در گنوم به طور گسترده استفاده شده و دومی در KDE. اگر از دسکتاپ‌های شبیه به گنوم استفاده کنیم، چه نسخه سه چه قدیمی‌تر و چه سایر دسکتاپهایی که فورکی از گنوم هستند اکثر برنامه‌های گرافیکیشون با GTK نوشته شده. مثلا برنامه gedit و Zim که من ازشون روزانه استفاده می‌کنم با این تولکیت نوشته شده‌اند.</p>
+
+<p>حالا مقداری در مورد روال توسعه این برنامه‌ها. در گذشته‌ها که فقط از دور اسم پروژه‌های نرم‌افزار آزاد رو در ایران می‌شنیدم به هر کدام از اونها یا شاید به همشون یکجا مثل یک مدینه‌ی فاضله فکر می‌کردم. تصور اینکه برنامه‌هایی توسط هکرها برای آزادی ما از دست شرکت‌های خبیث نوشته شده! علت جذابیت خاص این مفاهیم شاید زندگی و رشد و نمو در کشوری انقلابی و تغذیه فکری از محصولات فکری نویسندگان معاصر خودمون بود که همگی در این جو زندگی کرده بودند. در مقیاسی بزرگتر هم اونها هم خودشون از  جنبش‌های چپ قرب بیستم تاثیر پذیرفته بودند.</p>
+
+<p>بنابراین با این پیشفرض‌ها فکر می‌کردم که هر برنامه‌ی آزادی از هر نوع فعالیت داوطلبانه حمایت می‌کنه. ولی متاسفانه کم کم به این نتیجه رسیدم که مدینه‌ی فاضله‌ای در کار نیست و جوامع آنلاینی که حول برنامه‌های شکل می‌گیرند بیشتر نه بر اساس ایدئولوژی بلکه بر اساس نیاز به یک راه حل برای یک مشکل بوجود اومدند. مهمترین چیزی که یاد گرفتم اینه که بیشتر برنامه‌های مهم توسط هکرهای مستقل توسعه داده نمی‌شن بلکه برعکس بیشترشون توسط شرکت‌هایی توسعه داده می‌شن که از اون برنامه به طریقی پول درمیارن. این کار رو برای یک هکر مستقل سخت می‌کنه. جلوتر توضیح می‌دم چرا.</p>
+
+<p>برگردیم سر مشکل من با GTK. من موقع تایپ فارسی در gedit و Zim متوجه شدم که وقتی کلید کنترل رو با یا بدون شیفت پایین می‌گیریم تا با کلیدهای جهت لغت به لغت در متن حرکت کنیم، جهت حرکت نشانگر تایپ بر خلاف انتظار ما برعکس جهت فشرده شدن کلیدهاست. مثلا همین الان امتحان کنید. اگر کلید جهت سمت راست رو فشار بدین نشانگر می‌ره سمت چپ و برعکس. از جایی که من به دفعات موقع تایپ از این قابلیت استفاده می‌کنم دنبال علت مشکل گشتم. مثلا متوجه شدم در فایرفاکس و کروم این مشکل نیست. مثلا در باکس نوشتن ایمیل جدید داخل جیمیل این مشکل وجود نداره. علت اینه که کروم و فایرفاکس از Webkit استفاده می‌کنند نه GTK. اول تصمیم گرفت که باگ رو گزارش کنم. بلافاصله متوجه شدم که این مشکلی قدیمی است که <a href="https://bugzilla.gnome.org/show_bug.cgi?id=136059">گزارشی</a>‎ در سال ۲۰۰۳ توسط بهداد اسفهبد که خودش از مشارکت‌کنندگان قدیمی GTK است براش ثبت شده. باگ‌های زیادی هم بعد از اون توسط کاربران فارسی و عرب و عبری زبان برای همین مشکل ثبت شده که همگی ارجاع داده شده‌اند به قدیمی‌ترین باگ. باورتون می‌شه باگی ۱۴ سال در انتظار تعمیر باقی بمونه؟ ولی خب مونده.</p>
+
+<p>من هم کامتنی گذاشتم و یکسال گذشت و خبری نشد و تصمیم گرفتم خودم درستش کنم. کد رو دانلود کردم و شروع کردم به خوندن مستندات پروژه گنوم در مورد GTK. کل پروژه با زبان سی نوشته شده. باید بگم اصلا طوری نوشتن که کاربر تازه‌وارد هیچی نفهمه! اگر خیال می‌کنید که راهنمای درست و حسابی برای مشارکت هست سخت در اشتباهید. حالا این رو هم می‌گم چرا. بالاخره با هزار بدبختی و چند روز وقت گذاشتن و بالا و پایین رفتن در سورس‌فایل‌های چند هزار خطی!! بالاخره مشکل رو فیکس کردم. کلی خوشحال شدم. <a href="https://bug136059.bugzilla-attachments.gnome.org/attachment.cgi?id=343512">پچی ساختم</a> و پیش خودم گفتم الان می‌رم پچ رو سابمیت می‌کنم و کلی فیدبک می‌گیرم و مشکل حل می‌شه، زهی ای خیال باطل!</p>
+
+<p>یه توضیح مختصر بدم که کلیات کار در پروژه‌های مرتبط با گنوم چیه. اول اینکه برای ثبت مشکل از باگ‌زیلا استفاده می‌کنند. برای ارتباط با سایر برنامه‌نویس‌ها هم چند میلینگ لیست دارند. اگر از عالم گیت‌هاب آمده باشید که کارتون ساخته است، چون خبری از پول ریکوئست و <em>Continuious Integration</em> نیست. با دستورات گیت باید یک پج بسازید و بعد پچ رو روی صفحه باگ ارسال کنید. بعدا فهمیدم که اصلا اون فیکس کردن باگ در مقابل مشکلاتی که از اینجا شروع می‌شه هیچه! خلاصه دیگران میان و پچ شما رو ریویو می‌کنند. مثلا اینکه فلان قواعد رو رعایت نکردی، برو بخون و پچ جدید ارسال کن. خلاصه اگر از مرحله ریویو رد بشی یک توسعه دهنده میاد و پچت رو در ریپازیتوری گیت پروژه اعمال می‌کنه.</p>
+
+<p>این روش توسعه در سال ۲۰۱۷ مشکلات جدی‌ای داره. اگر ده یا بیست سال پیش بود مشکلی نبود. ولی امروز این روش به نظر من یک روش ضد مشارکته. اول که خبری از Continious  Integration نیست. یعنی شما پچ رو آپلود می‌کنید ولی هیچ تست اتوماتیکی روی پچ شما اجرا نمی‌شه که مراجعه‌کنندگان بفهمند وضعیت در صورت اعمال این پچ چه خواهد بود. دیگر اینکه شما نمی‌تونید فورک کنید و پول ریکوئست بفرستید. فورک و ارسال پول‌ریکوئست که روش رایج روی گیتهابه تازه‌واردان رو خیلی کمک می‌کنه و مشارکت رو ساده می‌کنه.</p>
+
+<p>ولی مشکل اصلی از نظر من اینه که پروژه‌ی پرکاربردی مثل GTK توسط شرکتی خصوصی اداره می‌شه. یعنی توسعه‌دهندگان اصلی اکثرا کارمندان شرکت‌های ردهت یا گوگل و زوزه هستند. بنابراین علاقه‌ی چندانی به حل مشکل یک کاربر مستقل نشون نمی‌دند مگر اینکه یکی از محصولات خودشون تحت تاثیر این باگ قرار بگیره. من چندین نوبت برای درخواست کمک به کانال چت پروژه مراجعه کردم. حدس زدم که بیشتر افرادی که دائما حاضرند همکارند و بخاطر اینکه مدتهاست روی پروژه کار می‌کنند نیازی به بهبود وبسایت و کمک به هکرهای مستقل ندارند، چون کار خودشون به شیوه فعلی راه می‌افته.</p>
+
+<p>نتیجه‌ای که از مشکلاتی که شرح دادم می‌خوام بگیرم اینه که برای پروژه‌های مستقل مهمه که همکاری کاربران تازه‌کار و هکرهای مستقل رو به خودش جذب کنه. برای اینکار باید مستندات و مثال‌های خوب و گام به گام در وبسایت و از همه مهمتر در خود مخزن گیت پروژه وجود داشته باشه. از پول ریکوئست بجای پچ استفاده بشه و با تست دائمی پچ یا پول‌ریکوئست تا جای امکان به ارسال کننده و دیگران فیدبک داد. در مجموع باید هزینه مشارکت رو به قدری کاهش داد که مقاومتی در ذهن مشارکت‌کننده ایجاد نشه. از طرفی باید یک کامیونیتی به newbie-friendly باشه. یک کامیونیتی باید کاربر تازه‌واردپسند باشه.</p>
+
+<blockquote>
+  <p>یک کامیونیتی باید کاربر تازه‌واردپسند باشه.</p>
+</blockquote>
+
+<p>در نهایت هم اگر آشنایی با کد سی دارید و یا سرتون برای یک چالش درد می‌کنه برید و پچ من رو ریویو کنید که اگر درست بشه هزاران و شاید میلیون‌ها نفر ازش بهره مند می‌شوند. در ادامه نحوه دریافت و تست پچ رو به اختصار توضیح می‌دم.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone git://git.gnome.org/gtk+
+cd gtk+
+wget https://bug136059.bugzilla-attachments.gnome.org/attachment.cgi\?id\=343512 -O fix.patch
+git apply fix.patch
+./autogen
+make -j4
+cd demos/gtk-demo
+./gtk4-demo
+</code></pre></div></div>
+<p>از سایدبار برنامه‌ی دمو باکس متنی Hypertext رو پیدا کنید و داخلش فارسی بنویسید و با gedit روی دستگاه خودتون مقایسه کنید. اگر از نتیجه راضی بودید در صفحه باگ کامنت بذارید که خدا رو خوش بیاد!</p>
+
+
+
+  
+    <div id="related-posts">
+      <h3>مطالب مرتبط</h3>
+      <ul>
+        
+          <li><a href="/13-years-old-bug-fixed.html">باگ سیزده ساله تعمیر شد</a></li>
+        
+          <li><a href="/installing-gnome-shell-on-archlinux.html">نصب نوم ۳ روی آرچ‌لینوکس</a></li>
+        
+          <li><a href="/jekyll-jalali-plugin.html">پلاگین تاریخ جلالی برای جکیل</a></li>
+        
+          <li><a href="/contribute-to-opensource.html">مشارکت موثر در پروژه‌های متن‌باز</a></li>
+        
+        </ul>
+    </div>
+  
+
+  <small id="post-tags">
+    
+      <i class="fas fa-tag"></i>
+      <a rel="tag" href="/tag/%D9%BE%DA%86.html">پچ</a>
+    
+      <i class="fas fa-tag"></i>
+      <a rel="tag" href="/tag/%D8%B3%D8%A7%D8%B2%D9%88%DA%A9%D8%A7%D8%B1.html">سازوکار</a>
+    
+      <i class="fas fa-tag"></i>
+      <a rel="tag" href="/tag/gtk.html">gtk</a>
+    
+      <i class="fas fa-tag"></i>
+      <a rel="tag" href="/tag/gnome.html">gnome</a>
+    
+      <i class="fas fa-tag"></i>
+      <a rel="tag" href="/tag/%DA%AF%D9%86%D9%88%D9%85.html">گنوم</a>
+    
+      <i class="fas fa-tag"></i>
+      <a rel="tag" href="/tag/%D9%85%D8%B4%D8%A7%D8%B1%DA%A9%D8%AA.html">مشارکت</a>
+    
+
+    <i class="fas fa-code"></i>
+    
+    
+    <a href="https://raw.githubusercontent.com/mehdisadeghi/mehdix.ir/master/_source/_posts/2017-01-29-patch.markdown">سورس</a>
+    
+  </small>
+
+  <nav class="pagination">
+    
+      <a href="https://mehdix.ir/13-years-old-bug-fixed.html" class="pagination--pager" title="باگ سیزده ساله تعمیر شد">قبلی</a>
+    
+
+    
+      <a href="https://mehdix.ir/evolution-composer-rtl.html" class="pagination--pager" title="ماژول راست به چپ اوولوشن">بعدی </a>
+    
+  </nav>
+
+  <section>
+    
+      
+<section id="static-comments">
+  
+  
+  
+  <h4 id="comments-header">دیدگاه‌ها</h4>
+  <div id="comments">
+    
+    <div class="comment-chain">
+      <article id="3222608349">
+        <div class="comment-image-wrapper">
+          <img class="comment-avatar" src="https://www.gravatar.com/avatar/a84eca4314e52cf150347841e3a17cf1?s=200&d=robohash" />
+        </div>
+        <div class="comment-body-wrapper">
+          <span class="comment-meta">
+            <small>
+              
+                <a href=https://disqus.com/by/firouzian/ target="_"><span commenter>Amir H.</span></a>
+              
+            </small>
+            <small> &nbsp; <a href="#3222608349">۰۵ فروردین ۱۳۹۶</a></small>
+            <small> &nbsp; <a href="#comment-form" onclick="replyTo('3222608349')">پاسخ</a></small>
+            <span style="display:none" commentId>3222608349</span>
+          </span>
+          <p>آقا دست شما درد نکنه! من اتفاقا پیام شما رو در تهلاگ هم دیدم ولی اون موقع نفهمیدم چی گفتید! الان فهمیدم.
+http://lists.tehlug.org/pip…
+دم شما گرم</p>
+
+        </div>
+      </article>
+
+        
+
+    </div>
+    
+    <div class="comment-chain">
+      <article id="3222659464">
+        <div class="comment-image-wrapper">
+          <img class="comment-avatar" src="https://www.gravatar.com/avatar/9a6fe434e31c7dd56d09ac05da2bee36?s=200&d=robohash" />
+        </div>
+        <div class="comment-body-wrapper">
+          <span class="comment-meta">
+            <small>
+              
+                <a href=https://disqus.com/by/mehdisadeghi/ target="_"><span commenter>Mehdi Sadeghi</span></a>
+              
+            </small>
+            <small> &nbsp; <a href="#3222659464">۰۵ فروردین ۱۳۹۶</a></small>
+            <small> &nbsp; <a href="#comment-form" onclick="replyTo('3222659464')">پاسخ</a></small>
+            <span style="display:none" commentId>3222659464</span>
+          </span>
+          <p>ممنونم. فعلا موفق شدیم این پچ رو مرج کنیم. توی ورژن‌های بعدی کم کم به دست کاربرها می‌رسه. ولی قسمت مربوط به gedit هنوز مونده که پچ نوشته شده ولی قبول نمی‌شه و ماجرا هنوز ادامه داره…</p>
+
+        </div>
+      </article>
+
+        
+
+    </div>
+    
+    <div class="comment-chain">
+      <article id="3222669532">
+        <div class="comment-image-wrapper">
+          <img class="comment-avatar" src="https://www.gravatar.com/avatar/a84eca4314e52cf150347841e3a17cf1?s=200&d=robohash" />
+        </div>
+        <div class="comment-body-wrapper">
+          <span class="comment-meta">
+            <small>
+              
+                <a href=https://disqus.com/by/firouzian/ target="_"><span commenter>Amir H.</span></a>
+              
+            </small>
+            <small> &nbsp; <a href="#3222669532">۰۵ فروردین ۱۳۹۶</a></small>
+            <small> &nbsp; <a href="#comment-form" onclick="replyTo('3222669532')">پاسخ</a></small>
+            <span style="display:none" commentId>3222669532</span>
+          </span>
+          <p>امیدوارم اون رو هم بتونید داخل کد منبع بفرستید.
+کلا نمی‌دونم این فارسی نویسی چرا انقدر دردسر داره. شاید چون ضنیمه شماره ۹ یونیکد خیلی پیچیده است.
+http://unicode.org/reports/…
+باز هم ممنون. کارهای همه دوستان را برای فارسی به یاد خواهیم داشت. ☺️☺️☺️</p>
+
+        </div>
+      </article>
+
+        
+
+    </div>
+    
+    <div class="comment-chain">
+      <article id="3259756128">
+        <div class="comment-image-wrapper">
+          <img class="comment-avatar" src="https://www.gravatar.com/avatar/cc0d7c5a5a14da181d0bc9c2cc87075b?s=200&d=robohash" />
+        </div>
+        <div class="comment-body-wrapper">
+          <span class="comment-meta">
+            <small>
+              
+                <span commenter>فرهاد</span>
+              
+            </small>
+            <small> &nbsp; <a href="#3259756128">۲۸ فروردین ۱۳۹۶</a></small>
+            <small> &nbsp; <a href="#comment-form" onclick="replyTo('3259756128')">پاسخ</a></small>
+            <span style="display:none" commentId>3259756128</span>
+          </span>
+          <p>دمت جیز، کارت درسته</p>
+
+        </div>
+      </article>
+
+        
+
+    </div>
+    
+    <div class="comment-chain">
+      <article id="3260012138">
+        <div class="comment-image-wrapper">
+          <img class="comment-avatar" src="https://www.gravatar.com/avatar/ae7b812812a4245b27929fb2792e991d?s=200&d=robohash" />
+        </div>
+        <div class="comment-body-wrapper">
+          <span class="comment-meta">
+            <small>
+              
+                <a href=https://disqus.com/by/disqus_MbgkNxlsWM/ target="_"><span commenter>مهندس</span></a>
+              
+            </small>
+            <small> &nbsp; <a href="#3260012138">۲۸ فروردین ۱۳۹۶</a></small>
+            <small> &nbsp; <a href="#comment-form" onclick="replyTo('3260012138')">پاسخ</a></small>
+            <span style="display:none" commentId>3260012138</span>
+          </span>
+          <p>این مشکل در فایرفاکس نسخهٔ مک هم وجود داره (البته فقط وقتی متن رو انتخاب کرده باشی). در ویندوز اما این مشکل در فایرفاکس وجود نداره. آیا برای شما مقدور هست که ته توی این رو هم در بیارید؟ من این باگ رو براش پیدا کردم:
+https://bugzilla.mozilla.or…</p>
+
+        </div>
+      </article>
+
+        
+
+    </div>
+    
+    <div class="comment-chain">
+      <article id="3261047173">
+        <div class="comment-image-wrapper">
+          <img class="comment-avatar" src="https://www.gravatar.com/avatar/9a6fe434e31c7dd56d09ac05da2bee36?s=200&d=robohash" />
+        </div>
+        <div class="comment-body-wrapper">
+          <span class="comment-meta">
+            <small>
+              
+                <a href=https://disqus.com/by/mehdisadeghi/ target="_"><span commenter>Mehdi Sadeghi</span></a>
+              
+            </small>
+            <small> &nbsp; <a href="#3261047173">۲۹ فروردین ۱۳۹۶</a></small>
+            <small> &nbsp; <a href="#comment-form" onclick="replyTo('3261047173')">پاسخ</a></small>
+            <span style="display:none" commentId>3261047173</span>
+          </span>
+          <p>سر و کله زدن با هر کامیونیتی جدید کار وقت گیریه. اگر بخوام چیزی رو روی فایرفاکس فیکس کنم حتما به این هم نگاه می‌کنم. ولی در حال حاضر حداقل می‌تونی توی صفحه باگ فایرفاکس کامنت بذاری و ارجاع بدی به باگ‌های مشابهی که توی GTK فیکس کردیم. شاید کمکشون کنه.</p>
+
+        </div>
+      </article>
+
+        
+
+    </div>
+    
+  </div>
+  
+
+  <form id="comment-form" name="comment" netlify-honeypot="bot-field" netlify>
+    <input name="bot-field" style="display:none">
+    <input name="page_id" style="display:none" value="/patch">
+    <input id="reply-to" name="reply-to" style="display:none">
+    <label for="message">دیدگاه<sup class="required">*</sup> &nbsp;<small>می‌توانید با <a href="http://commonmark.org/help/" target="_">مارک‌داون</a> هم بنویسید.</small><br><small id="replyToVisualClue"></small>
+      <textarea id="message" name="message" required alt="no!!" onkeyup="preview()"></textarea>
+      <div id="preview"></div>
+    </label>
+    <label for="name">نام<sup class="required">*</sup>
+      <input id="name" type="text" name="name" required>
+    </label>
+    <label for="email">ایمیل<sup class="required">*</sup>
+      <input id="email" type="email" name="email" required>
+    </label>
+    <label for="website">وبسایت
+      <input id="website" type="url" name="website">
+    </label>
+    <div style="text-align:left">
+      <button type="submit" class="button">ارسال</button>
+    </div>
+  </form>
+
+</section>
+<script src="https://mehdix.ir/assets/js/showdown.min.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+  function preview() {
+    var converter = new showdown.Converter();
+    var markdown = document.getElementById("message").value;
+    document.getElementById("preview").innerHTML = converter.makeHtml(markdown);
+  }
+
+  function replyTo(commentID) {
+    var comment = document.getElementById(commentID);
+    document.getElementById("reply-to").value = comment.querySelector("span[commentId]").innerText;
+    document.getElementById("replyToVisualClue").innerText = "[در جواب " + comment.querySelector("span[commenter]").innerText + "]";
+  }
+</script>
+    
+  </section>
+
+</article>
+</div>
+    </main><footer>
+
+  <div class="wrapper">
+
+    
+
+    <p id="footer-description">بچه که بودیم همیشه برای بازی خونه می‌ساختیم. حالا هم نمونه‌اش رو در وب ساختم. اینجا سکوی انتشار مطالبی در مورد دانش تولید نرم‌افزار و ایده‌ها و علایق شخصی‌ام است، بویژه راه‌حل‌های مهندسی که باعث رشد و پیشرفتم شده است و می‌تواند مورد استفاده دیگران هم قرار بگیرد.
+</p>
+
+    <ul class="social-media-list">
+      
+      <li>
+        <i class="fab fa-github"></i>
+        <a href="https://github.com/mehdisadeghi">
+          <span class="username social-media-text">پروژه‌ها</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <i class="fab fa-twitter-square"></i>
+        <a href="https://twitter.com/msadeghii">
+          <span class="username social-media-text">توئیت‌ها</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <i class="fas fa-rss"></i>
+        <a href="https://feedburner.google.com/fb/a/mailverify?uri=mehdixir&amp;loc=en_US">
+          <span class="username social-media-text">خبرنامه</span></a>
+      </li>
+      <li>
+        <i class="fas fa-rss"></i>
+        <a href="http://feeds.feedburner.com/mehdixir">
+        <span class="username social-media-text">خوراک</span></a>
+      </li>
+      
+      
+        <li>
+          <i class="fas fa-envelope-open"></i>
+          <a href="mailto:sadeghi@mehdix.org">
+            <span class="username social-media-text">تماس</span></a></li>
+      
+    </ul>
+
+  <div id="footer-extra">
+    <small id="license">
+  <i class="fab fa-creative-commons"></i>
+  مطالب این وبلاگ تحت مجوز
+  <a rel="license" href="http://creativecommons.org/licenses/by/4.0/deed.fa">
+    کریتیو کامنز اتریبیوشن ۴.۰ اینترنشنال
+  </a>قرار دارد.
+</small>
+    <a id="atom" href="https://validator.w3.org/feed/check.cgi?url=https://mehdix.ir/feed.xml"><img src=https://mehdix.ir/assets/img/valid-atom.png alt="[Valid Atom 1.0]" title="Validate my Atom 1.0 feed" /></a>
+  </div>
+
+  </div>
+
+  <small id="build-time">Site generated on Tue, 06 Feb 2018 02:43:37 +0100</small>
+
+</footer><script src="https://mehdix.ir/assets/js/main.js"></script>
+     <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-57282325-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+ 
+  </body>
+</html>

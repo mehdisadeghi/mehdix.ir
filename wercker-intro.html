@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="fa">
+  
+  <head><meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="author" content="مهدی صادقی" />
+<meta name="copyright" content="Commons Attribution 4.0 International" />
+<meta name="robot" content="" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="description" content="سکوی انتشار مطالبی در مورد دانش تولید نرم‌افزار و ایده‌ها و علایق شخصی‌ام." />
+
+<link rel="canonical" href="https://mehdix.ir/publishing-with-jekyll.html" />
+<link rel="icon" href="https://mehdix.ir/assets/img/me.png" />
+<link rel="stylesheet" href="https://mehdix.ir/assets/css/main.css" />
+<link rel="stylesheet" href="https://mehdix.ir/assets/fonts/fontawesomev5.0.2.css" />
+<meta name="keywords" content='اتوماسیون,ورکر,قلاب‌وب' /><title>آشنایی با سرویس Wercker - مهدی صادقی</title><!-- Begin Jekyll SEO tag v2.4.0 -->
+<title>آشنایی با سرویس Wercker | مهدی صادقی</title>
+<meta name="generator" content="Jekyll v3.7.2" />
+<meta property="og:title" content="آشنایی با سرویس Wercker" />
+<meta name="author" content="مهدی صادقی" />
+<meta property="og:locale" content="fa_IR" />
+<meta name="description" content="من خیلی به اتوماسیون علاقه‌مند هستم. دوست دارم سرویس‌های وب رو به کمک قلاب‌ها به هم وصل کنم و چیزهای جدید بسازم که خود به خود فعال بشوند و کاری رو به اتمام برسانند. سرویس Wercker بدرد اینکار می‌خورد." />
+<meta property="og:description" content="من خیلی به اتوماسیون علاقه‌مند هستم. دوست دارم سرویس‌های وب رو به کمک قلاب‌ها به هم وصل کنم و چیزهای جدید بسازم که خود به خود فعال بشوند و کاری رو به اتمام برسانند. سرویس Wercker بدرد اینکار می‌خورد." />
+<link rel="canonical" href="https://mehdix.ir/wercker-intro.html" />
+<meta property="og:url" content="https://mehdix.ir/wercker-intro.html" />
+<meta property="og:site_name" content="مهدی صادقی" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2015-08-12T00:00:00+02:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@msadeghii" />
+<meta name="twitter:creator" content="@مهدی صادقی" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://mehdix.ir/wercker-intro.html"},"url":"https://mehdix.ir/wercker-intro.html","author":{"@type":"Person","name":"مهدی صادقی"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://mehdix.ir/assets/img/me.png"},"name":"مهدی صادقی"},"description":"من خیلی به اتوماسیون علاقه‌مند هستم. دوست دارم سرویس‌های وب رو به کمک قلاب‌ها به هم وصل کنم و چیزهای جدید بسازم که خود به خود فعال بشوند و کاری رو به اتمام برسانند. سرویس Wercker بدرد اینکار می‌خورد.","headline":"آشنایی با سرویس Wercker","dateModified":"2015-08-12T00:00:00+02:00","datePublished":"2015-08-12T00:00:00+02:00","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  </head>
+
+  <body><header>
+  <div class="wrapper">
+    <a class="site-title" href="https://mehdix.ir/">مهدی صادقی</a>
+    <small id="motto"> در مورد نرم‌افزار و ایده‌هایم </small>
+  </div>
+</header>
+<main>
+      <div class="wrapper">
+
+<article class="post-content">
+
+  <div class="post-header">
+    <h1 class="post-title">آشنایی با سرویس Wercker</h1>
+    <p>
+      <i class="fas fa-calendar"></i>
+      چهارشنبه ۲۱ مرداد ۱۳۹۴<br>
+      
+      <i class="fas fa-stopwatch"></i>
+      ۲ دقیقه مطالعه
+    </p>
+  </div>
+
+  <p>من خیلی به اتوماسیون علاقه‌مند هستم. دوست دارم سرویس‌های وب رو به کمک قلاب‌ها به هم وصل کنم و چیزهای جدید بسازم که خود به خود فعال بشوند و کاری رو به اتمام برسانند. سرویس Wercker بدرد اینکار می‌خورد.</p>
+
+<p>بگذارید با مثالی آغاز بکنم. سرویس صفحات گیت‌هاب از وبسایت‌های جکیل پشتیبانی می‌کند. یعنی اگر
+من سورس کد وبسایت مبتنی بر جکیل را روی گیت‌هاب هاست کنم، دیگر نیازی نیست که خودم بعد از هر تغییر یا مطلب جدید سایت را از نو بسازم و بارگذاری کنم. گیت‌هاب اینکار را برای من به شکل خودکار انجام می‌دهد. اما چون من وبلاگم فارسی است و نیز از تعدادی کتابخانه روبی استفاده کرده‌ام که گیت‌هاب آنها را
+پشتیبانی نمی‌کند − مثلا برای تاریخ شمسی − بنابراین نمی‌توانم از این امکان گیت‌هاب استفاده کنم.
+تا پیش از این مجبور بودم خودم وبسایت را روی لپ‌تاپم بسازم و بعد خروجی را در گیت‌هاب بارگذاری کنم.</p>
+
+<p>این کار خیلی خسته‌کننده‌ بود.</p>
+
+<p>از جایی که می‌دانستم گیت‌هاب Webhook یا قلاب‌های وبی دارد (از ترجمه بهتر استقبال می‌کنم) می‌خواستم یک برنامه کوچک بنویسم و روی سروری شخصی بارگذاری کنم تا همواره گوش بایستد و به پیام‌های گیت‌هاب گوش کند.
+مثلا اگر کامیت جدیدی اتفاق افتاد بیاید و سورس را دانلود بکند و وبسایت را بسازد و در انتها خروجی را به کمک توکنی<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup> که خودم به او داده‌ام روی شاخه صحیح در گیت‌هاب بارگذاری کند.</p>
+
+<p>در همین افکار بودم و خودم را برای اینکار آماده می‌کردم که با ‬<a href="https://app.wercker.com/">سرویس ورکر</a> آشنا شدم که دقیقا همین کار را مجانی انجام می‌دهد. طرز کار هم خیلی شبیه به سایت‌های مشابه مثل travis-ci یا
+heroku است.
+یعنی ما یک اکانت در سایت سرویس دهنده − اینجا ورکر − می‌سازیم و یک فایل تنظیمات هم در مخزن گیت‌هاب
+قرار می‌دهیم که حاوی تنظیمات ضروری است. به زبان ساده در این فایل تنظیمات به ورکر می‌گوییم هر وقت
+که گیت‌هاب تو را خبر کرد چه کاری باید انجام بدهی. در این فایل گام‌های لازم را شرح می‌دهیم.</p>
+
+<p>به طور کلی گام‌های اساسی دو تا بیشتر نیستند. اولی گام ساخت خروجی است و دومی گام دیپلوی یا بارگزاری آن است. گام اول باید حاوی دستورات بیلد پروژه باشد. در گام دوم خروجی را برداشته و در مثال من روی گیت‌هاب کپی می‌کنیم.</p>
+
+<p>این هم فایل تنظیمات ورکر سایت من است:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">box</span><span class="pi">:</span> <span class="s">ruby</span>
+<span class="na">build</span><span class="pi">:</span>
+  <span class="na">steps</span><span class="pi">:</span>
+    <span class="c1"># Install dependencies</span>
+    <span class="pi">-</span> <span class="s">bundle-install</span>
+
+    <span class="c1"># Execute jeykyll doctor command to validate the</span>
+    <span class="c1"># site against a list of known issues.</span>
+    <span class="pi">-</span> <span class="na">script</span><span class="pi">:</span>
+        <span class="na">name</span><span class="pi">:</span> <span class="s">jekyll doctor</span>
+        <span class="na">code</span><span class="pi">:</span> <span class="s">bundle exec jekyll doctor</span>
+
+    <span class="pi">-</span> <span class="na">script</span><span class="pi">:</span>
+        <span class="na">name</span><span class="pi">:</span> <span class="s">generate site</span>
+        <span class="na">code</span><span class="pi">:</span> <span class="s">bundle exec jekyll build --trace --destination ./_site</span>
+
+    <span class="pi">-</span> <span class="na">create-file</span><span class="pi">:</span>
+        <span class="na">name</span><span class="pi">:</span> <span class="s">generate robots.txt</span>
+        <span class="na">filename</span><span class="pi">:</span> <span class="s">./_site/robots.txt</span>
+        <span class="na">content</span><span class="pi">:</span> <span class="pi">|-</span>
+          <span class="no">User-agent: *</span>
+          <span class="no">Allow: /</span>
+          <span class="no">Sitemap: http://mehdix.ir/sitemap.xml</span>
+<span class="na">deploy</span><span class="pi">:</span>
+  <span class="na">steps</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">lukevivier/gh-pages</span><span class="pi">:</span>
+        <span class="na">token</span><span class="pi">:</span> <span class="s">$GITHUB_TOKEN</span>
+        <span class="na">basedir</span><span class="pi">:</span> <span class="s">_site</span>
+        <span class="na">domain</span><span class="pi">:</span> <span class="s">mehdix.ir</span>
+</code></pre></div></div>
+
+<p>یک حسن ورکر این است که می‌توان گام‌ها را با دیگران به اشتراک گذاشت. مثلا در مثال بالا من برای
+بارگذاری خروجی روی گیت‌هاب از اسکریپتی که دیگری نوشته است − lukevivier/gh-pages − استفاده
+کرده‌ام. همانطور که پیشتر اشاره کردم ورکر هم از الگوهای پذیرفته شده در میان برنامه‌های مدرن توسعه وب پیروی می‌کند. از جمله دادن نشان<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup> برای نمایش آخرین وضعیت. مثلا وضعیت آخرین عملیات اتوماسیون من در نشان زیر پیداست − کلیک روی این نشان به صفحه پروژه روی ورکر منتهی می‌شود:
+<a href="https://app.wercker.com/project/bykey/7cdfaf1d4ea865468f4965954ed95247"><img src="https://app.wercker.com/status/7cdfaf1d4ea865468f4965954ed95247/s" alt="wercker status" title="wercker status" /></a></p>
+
+<p>این مقدمه کوتاهی بود بر سرویس ورکر جهت اتوماسیون عملیات‌های تحت وب. اگر کار جالبی با ورکر انجام دادید خبر بدهید.</p>
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+      <p>Token <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:2">
+      <p>Badge <a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+
+  
+
+  <small id="post-tags">
+    
+      <i class="fas fa-tag"></i>
+      <a rel="tag" href="/tag/%D8%A7%D8%AA%D9%88%D9%85%D8%A7%D8%B3%DB%8C%D9%88%D9%86.html">اتوماسیون</a>
+    
+      <i class="fas fa-tag"></i>
+      <a rel="tag" href="/tag/%D9%88%D8%B1%DA%A9%D8%B1.html">ورکر</a>
+    
+      <i class="fas fa-tag"></i>
+      <a rel="tag" href="/tag/%D9%82%D9%84%D8%A7%D8%A8%E2%80%8C%D9%88%D8%A8.html">قلاب‌وب</a>
+    
+
+    <i class="fas fa-code"></i>
+    
+    
+    <a href="https://raw.githubusercontent.com/mehdisadeghi/mehdix.ir/master/_source/_posts/2015-08-12-wercker-intro.md">سورس</a>
+    
+  </small>
+
+  <nav class="pagination">
+    
+      <a href="https://mehdix.ir/linux-permissions-made-simple-part-two.html" class="pagination--pager" title="حق دسترسی فایل‌ها در لینوکس به زبان ساده (۲)">قبلی</a>
+    
+
+    
+      <a href="https://mehdix.ir/distraction-free-reading.html" class="pagination--pager" title="امکان مطالعه بی مزاحمت در فایرفاکس">بعدی </a>
+    
+  </nav>
+
+  <section>
+    
+      
+<section id="static-comments">
+  
+  
+  
+  <h4 id="comments-header">دیدگاه‌ها</h4>
+  <div id="comments">
+    
+    <div class="comment-chain">
+      <article id="2792332784">
+        <div class="comment-image-wrapper">
+          <img class="comment-avatar" src="https://www.gravatar.com/avatar/6a8fbf37460310d7d25f79972f3d0228?s=200&d=robohash" />
+        </div>
+        <div class="comment-body-wrapper">
+          <span class="comment-meta">
+            <small>
+              
+                <a href=https://disqus.com/by/aasiaeet/ target="_"><span commenter>aasiaeet</span></a>
+              
+            </small>
+            <small> &nbsp; <a href="#2792332784">۲۹ تیر ۱۳۹۵</a></small>
+            <small> &nbsp; <a href="#comment-form" onclick="replyTo('2792332784')">پاسخ</a></small>
+            <span style="display:none" commentId>2792332784</span>
+          </span>
+          <p>سلام ممنون از اطلاعات خوبت برای سر هم کردن جکیل فارسی. با استفاده از راهنمایی های شما و گشت و گذار تو وب الان سایتی که از سایت شما فورک کردم روی لوکالم کار می کنه ولی همون طور که گفتین روی گیت هاب کار نمی کنه فکر می کنم به همون دلیل عدم ساپورت پلاگین ها. یه خورده با ورکر کلنجار رفتم ولی موفق نشدم راهش بندازم. می خواستم اگر تونستی بهم کمک کنی: الان من یه اکانت ورکر دارم که توش برای ریپازیتوری گیت هابم یه ورک فلو تعریف کردم که از بیلد و دیپلوی تشکیل شده و فایل کانفیگم ورکرم هم که توی لوکالم هست شبیه برای شما درست کردم. حالا یه بخش هایی هست که من درست نمی فهمم: این گیت هاب توکن که توی قسمت دیپلوی نوشتی یه متغیری محیطی هست که توی ورکر تعریف می کنی و عملا یه جورایی پسورد هست برای وصل شدن به گیت هابت؟ آیا متغیر دیگه ای هم می خوای مثل اس اس اچ کی؟ (ببخشید من یه خورده تعطیلم!) و کلا چه بخشی از ست آپ شما برای ورکر رو باید تغییر بدم تا کارم راه بیفته؟ ممنون</p>
+
+        </div>
+      </article>
+
+        
+
+    </div>
+    
+    <div class="comment-chain">
+      <article id="2792816389">
+        <div class="comment-image-wrapper">
+          <img class="comment-avatar" src="https://www.gravatar.com/avatar/9a6fe434e31c7dd56d09ac05da2bee36?s=200&d=robohash" />
+        </div>
+        <div class="comment-body-wrapper">
+          <span class="comment-meta">
+            <small>
+              
+                <a href=https://disqus.com/by/mehdisadeghi/ target="_"><span commenter>Mehdi Sadeghi</span></a>
+              
+            </small>
+            <small> &nbsp; <a href="#2792816389">۳۰ تیر ۱۳۹۵</a></small>
+            <small> &nbsp; <a href="#comment-form" onclick="replyTo('2792816389')">پاسخ</a></small>
+            <span style="display:none" commentId>2792816389</span>
+          </span>
+          <p>خوشحالم که مطلب به دردت خورده. اول نکته کنکوری گیت‌هاب: اگر اسم ریپوزیتوری و یوزرنیمت یکی باشه گیت‌هاب سایت رو از روی برنچ مستر ریپازیتوریت بیلد می‌کنه. این رو چک کن.
+نکته دیگه هم در مورد توکن، در تنظیمات اکانت گیت‌هابت بخشی هست بنام Personal Access Tokens، اونجا می‌تونی توکن بسازی. توکن شبیه پسورده، با این تفاوت که برای هر برنامه می‌تونی یکی بسازی و بعدا هر کدوم رو خواستی می‌تونی غیرفعال کنی (که باعث از کار افتادن اون برنامه می‌شه که با اون توکن می‌خواد به اکانتت دست پیدا کنه). اس اس اچ کی رو فکر نکنم جایی لازم داشتی باشه، ولی مطمئن نیستم.
+نکات بالا رو چک کن اگر نشد آدرس ریپازیتوریت رو بذار نگاه می‌کنم.</p>
+
+        </div>
+      </article>
+
+        
+
+    </div>
+    
+    <div class="comment-chain">
+      <article id="2795177669">
+        <div class="comment-image-wrapper">
+          <img class="comment-avatar" src="https://www.gravatar.com/avatar/6a8fbf37460310d7d25f79972f3d0228?s=200&d=robohash" />
+        </div>
+        <div class="comment-body-wrapper">
+          <span class="comment-meta">
+            <small>
+              
+                <a href=https://disqus.com/by/aasiaeet/ target="_"><span commenter>aasiaeet</span></a>
+              
+            </small>
+            <small> &nbsp; <a href="#2795177669">۳۱ تیر ۱۳۹۵</a></small>
+            <small> &nbsp; <a href="#comment-form" onclick="replyTo('2795177669')">پاسخ</a></small>
+            <span style="display:none" commentId>2795177669</span>
+          </span>
+          <p>سلام مجدد ممنون از پاسخ سریعت. من توکن رو درست کردم تو گیت هاب و سعی کردم توی ورک فلوی سایت ورکر هم ازش درست استفاده کنم به عنوان متغیر محیطی. ولی تستی که کردم جواب میده
+ unable to access ‘https://inja token # hast@github.com/aasiaeet/cancer.git/’: 
+توی ورکر احیانا نباید تنظیمات دیگه ای انجام بدم؟
+این آدرس ریپوام هست:
+https://github.com/aasiaeet…
+ممنون از راهنماییت.</p>
+
+        </div>
+      </article>
+
+        
+
+    </div>
+    
+    <div class="comment-chain">
+      <article id="2803190484">
+        <div class="comment-image-wrapper">
+          <img class="comment-avatar" src="https://www.gravatar.com/avatar/6a8fbf37460310d7d25f79972f3d0228?s=200&d=robohash" />
+        </div>
+        <div class="comment-body-wrapper">
+          <span class="comment-meta">
+            <small>
+              
+                <a href=https://disqus.com/by/aasiaeet/ target="_"><span commenter>aasiaeet</span></a>
+              
+            </small>
+            <small> &nbsp; <a href="#2803190484">۰۴ مرداد ۱۳۹۵</a></small>
+            <small> &nbsp; <a href="#comment-form" onclick="replyTo('2803190484')">پاسخ</a></small>
+            <span style="display:none" commentId>2803190484</span>
+          </span>
+          <p>آقا ممنون از توضیحاتت بالاخره حل شد. مشکل این بود که توکنی که من تعریف می کردم تو گیت هاب دسترسی های لازم رو نداشت مثلا به خیال خودم گفتم کمترین دسترسی رو بدم برای امنیت! ولی وقتی همه دسترسی ها رو دادم دیپلوی انجام شد! باز هم متشکر keep up the good work!</p>
+
+        </div>
+      </article>
+
+        
+
+    </div>
+    
+    <div class="comment-chain">
+      <article id="2803631606">
+        <div class="comment-image-wrapper">
+          <img class="comment-avatar" src="https://www.gravatar.com/avatar/9a6fe434e31c7dd56d09ac05da2bee36?s=200&d=robohash" />
+        </div>
+        <div class="comment-body-wrapper">
+          <span class="comment-meta">
+            <small>
+              
+                <a href=https://disqus.com/by/mehdisadeghi/ target="_"><span commenter>Mehdi Sadeghi</span></a>
+              
+            </small>
+            <small> &nbsp; <a href="#2803631606">۰۵ مرداد ۱۳۹۵</a></small>
+            <small> &nbsp; <a href="#comment-form" onclick="replyTo('2803631606')">پاسخ</a></small>
+            <span style="display:none" commentId>2803631606</span>
+          </span>
+          <p>خوبه که درست شد و ممنون که اطلاع دادی! :)</p>
+
+        </div>
+      </article>
+
+        
+
+    </div>
+    
+    <div class="comment-chain">
+      <article id="2964791716">
+        <div class="comment-image-wrapper">
+          <img class="comment-avatar" src="https://www.gravatar.com/avatar/9a6fe434e31c7dd56d09ac05da2bee36?s=200&d=robohash" />
+        </div>
+        <div class="comment-body-wrapper">
+          <span class="comment-meta">
+            <small>
+              
+                <a href=https://disqus.com/by/mehdisadeghi/ target="_"><span commenter>Mehdi Sadeghi</span></a>
+              
+            </small>
+            <small> &nbsp; <a href="#2964791716">۰۲ آبان ۱۳۹۵</a></small>
+            <small> &nbsp; <a href="#comment-form" onclick="replyTo('2964791716')">پاسخ</a></small>
+            <span style="display:none" commentId>2964791716</span>
+          </span>
+          <p>متاسفانه این پیامت رو خیلی دیر دیدم. اگر هنوز هم این مشکل رو داری اطلاع بده.</p>
+
+        </div>
+      </article>
+
+        
+
+    </div>
+    
+  </div>
+  
+
+  <form id="comment-form" name="comment" netlify-honeypot="bot-field" netlify>
+    <input name="bot-field" style="display:none">
+    <input name="page_id" style="display:none" value="/wercker-intro">
+    <input id="reply-to" name="reply-to" style="display:none">
+    <label for="message">دیدگاه<sup class="required">*</sup> &nbsp;<small>می‌توانید با <a href="http://commonmark.org/help/" target="_">مارک‌داون</a> هم بنویسید.</small><br><small id="replyToVisualClue"></small>
+      <textarea id="message" name="message" required alt="no!!" onkeyup="preview()"></textarea>
+      <div id="preview"></div>
+    </label>
+    <label for="name">نام<sup class="required">*</sup>
+      <input id="name" type="text" name="name" required>
+    </label>
+    <label for="email">ایمیل<sup class="required">*</sup>
+      <input id="email" type="email" name="email" required>
+    </label>
+    <label for="website">وبسایت
+      <input id="website" type="url" name="website">
+    </label>
+    <div style="text-align:left">
+      <button type="submit" class="button">ارسال</button>
+    </div>
+  </form>
+
+</section>
+<script src="https://mehdix.ir/assets/js/showdown.min.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+  function preview() {
+    var converter = new showdown.Converter();
+    var markdown = document.getElementById("message").value;
+    document.getElementById("preview").innerHTML = converter.makeHtml(markdown);
+  }
+
+  function replyTo(commentID) {
+    var comment = document.getElementById(commentID);
+    document.getElementById("reply-to").value = comment.querySelector("span[commentId]").innerText;
+    document.getElementById("replyToVisualClue").innerText = "[در جواب " + comment.querySelector("span[commenter]").innerText + "]";
+  }
+</script>
+    
+  </section>
+
+</article>
+</div>
+    </main><footer>
+
+  <div class="wrapper">
+
+    
+
+    <p id="footer-description">بچه که بودیم همیشه برای بازی خونه می‌ساختیم. حالا هم نمونه‌اش رو در وب ساختم. اینجا سکوی انتشار مطالبی در مورد دانش تولید نرم‌افزار و ایده‌ها و علایق شخصی‌ام است، بویژه راه‌حل‌های مهندسی که باعث رشد و پیشرفتم شده است و می‌تواند مورد استفاده دیگران هم قرار بگیرد.
+</p>
+
+    <ul class="social-media-list">
+      
+      <li>
+        <i class="fab fa-github"></i>
+        <a href="https://github.com/mehdisadeghi">
+          <span class="username social-media-text">پروژه‌ها</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <i class="fab fa-twitter-square"></i>
+        <a href="https://twitter.com/msadeghii">
+          <span class="username social-media-text">توئیت‌ها</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <i class="fas fa-rss"></i>
+        <a href="https://feedburner.google.com/fb/a/mailverify?uri=mehdixir&amp;loc=en_US">
+          <span class="username social-media-text">خبرنامه</span></a>
+      </li>
+      <li>
+        <i class="fas fa-rss"></i>
+        <a href="http://feeds.feedburner.com/mehdixir">
+        <span class="username social-media-text">خوراک</span></a>
+      </li>
+      
+      
+        <li>
+          <i class="fas fa-envelope-open"></i>
+          <a href="mailto:sadeghi@mehdix.org">
+            <span class="username social-media-text">تماس</span></a></li>
+      
+    </ul>
+
+  <div id="footer-extra">
+    <small id="license">
+  <i class="fab fa-creative-commons"></i>
+  مطالب این وبلاگ تحت مجوز
+  <a rel="license" href="http://creativecommons.org/licenses/by/4.0/deed.fa">
+    کریتیو کامنز اتریبیوشن ۴.۰ اینترنشنال
+  </a>قرار دارد.
+</small>
+    <a id="atom" href="https://validator.w3.org/feed/check.cgi?url=https://mehdix.ir/feed.xml"><img src=https://mehdix.ir/assets/img/valid-atom.png alt="[Valid Atom 1.0]" title="Validate my Atom 1.0 feed" /></a>
+  </div>
+
+  </div>
+
+  <small id="build-time">Site generated on Tue, 06 Feb 2018 02:43:37 +0100</small>
+
+</footer><script src="https://mehdix.ir/assets/js/main.js"></script>
+     <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-57282325-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+ 
+  </body>
+</html>

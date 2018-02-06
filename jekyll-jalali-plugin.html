@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="fa">
+  
+  <head><meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="author" content="مهدی صادقی" />
+<meta name="copyright" content="Commons Attribution 4.0 International" />
+<meta name="robot" content="" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="description" content="سکوی انتشار مطالبی در مورد دانش تولید نرم‌افزار و ایده‌ها و علایق شخصی‌ام." />
+
+<link rel="canonical" href="https://mehdix.ir/publishing-with-jekyll.html" />
+<link rel="icon" href="https://mehdix.ir/assets/img/me.png" />
+<link rel="stylesheet" href="https://mehdix.ir/assets/css/main.css" />
+<link rel="stylesheet" href="https://mehdix.ir/assets/fonts/fontawesomev5.0.2.css" />
+<meta name="keywords" content='اوپن‌سورس,مشارکت' /><title>پلاگین تاریخ جلالی برای جکیل - مهدی صادقی</title><!-- Begin Jekyll SEO tag v2.4.0 -->
+<title>پلاگین تاریخ جلالی برای جکیل | مهدی صادقی</title>
+<meta name="generator" content="Jekyll v3.7.2" />
+<meta property="og:title" content="پلاگین تاریخ جلالی برای جکیل" />
+<meta name="author" content="مهدی صادقی" />
+<meta property="og:locale" content="fa_IR" />
+<meta name="description" content="همونطور که قبلا نوشته بودم بهترین روش مشارکت در عالم متن‌باز رو در نوشتن برنامه‌هایی دیدم که شخصا بهشون نیاز پیدا کردیم. من هم در راه‌ اندازی این وبلاگ به زبان فارسی مشکلاتی با جکیل داشتم. یکی از این موارد پشتیبانی از تاریخ هجری شمسی بود." />
+<meta property="og:description" content="همونطور که قبلا نوشته بودم بهترین روش مشارکت در عالم متن‌باز رو در نوشتن برنامه‌هایی دیدم که شخصا بهشون نیاز پیدا کردیم. من هم در راه‌ اندازی این وبلاگ به زبان فارسی مشکلاتی با جکیل داشتم. یکی از این موارد پشتیبانی از تاریخ هجری شمسی بود." />
+<link rel="canonical" href="https://mehdix.ir/jekyll-jalali-plugin.html" />
+<meta property="og:url" content="https://mehdix.ir/jekyll-jalali-plugin.html" />
+<meta property="og:site_name" content="مهدی صادقی" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2014-12-09T00:00:00+01:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@msadeghii" />
+<meta name="twitter:creator" content="@مهدی صادقی" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://mehdix.ir/jekyll-jalali-plugin.html"},"url":"https://mehdix.ir/jekyll-jalali-plugin.html","author":{"@type":"Person","name":"مهدی صادقی"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://mehdix.ir/assets/img/me.png"},"name":"مهدی صادقی"},"description":"همونطور که قبلا نوشته بودم بهترین روش مشارکت در عالم متن‌باز رو در نوشتن برنامه‌هایی دیدم که شخصا بهشون نیاز پیدا کردیم. من هم در راه‌ اندازی این وبلاگ به زبان فارسی مشکلاتی با جکیل داشتم. یکی از این موارد پشتیبانی از تاریخ هجری شمسی بود.","headline":"پلاگین تاریخ جلالی برای جکیل","dateModified":"2014-12-09T00:00:00+01:00","datePublished":"2014-12-09T00:00:00+01:00","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  </head>
+
+  <body><header>
+  <div class="wrapper">
+    <a class="site-title" href="https://mehdix.ir/">مهدی صادقی</a>
+    <small id="motto"> در مورد نرم‌افزار و ایده‌هایم </small>
+  </div>
+</header>
+<main>
+      <div class="wrapper">
+
+<article class="post-content">
+
+  <div class="post-header">
+    <h1 class="post-title">پلاگین تاریخ جلالی برای جکیل</h1>
+    <p>
+      <i class="fas fa-calendar"></i>
+      سه‌شنبه ۱۸ آذر ۱۳۹۳<br>
+      
+      <i class="fas fa-stopwatch"></i>
+      ۲ دقیقه مطالعه
+    </p>
+  </div>
+
+  <p>همونطور که قبلا نوشته بودم بهترین روش مشارکت در عالم متن‌باز رو در نوشتن برنامه‌هایی دیدم که شخصا بهشون نیاز پیدا کردیم. من هم در راه‌ اندازی این وبلاگ به زبان فارسی مشکلاتی با جکیل داشتم. یکی از این موارد پشتیبانی از تاریخ هجری شمسی بود.</p>
+
+<p>جکیل به صورت پیش‌فرض امکانی برای اینکار نداره اما نوشتن پلاگین براش کار ساده‌ایه. پلاگین‌های جکیل به زبان روبی نوشته می‌شن و در فولدر <code class="highlighter-rouge">_plugins</code> ذخیره می‌شن. ابتدا جستجویی انجام دادم که در عالم روبی چه کتابخانه‌هایی برای پشتیبانی از تقویم جلالی نوشته شده، خوشبختانه قبلا اینکار انجام شده بود.<a href="https://github.com/aziz/jalalidate">کتابخانه</a> ظاهرا جامعی بنام <em>jalalidate</em> روی گیت‌هاب پیدا کردم. از این کتابخانه در پروژه سایت <em>nerdnews.ir</em> هم استفاده شده بود. بنابراین کار من ساده شد. یک فیلتر کوچک بنام <a href="https://github.com/mehdisadeghi/jekyll-jalali">Jekyll-jalali</a> برای جکیل نوشتم و با اضافه کردنش به جکیل روی ماشین خودم تاریخ‌های سایتم رو شمسی کردم. برای اینکار بجای <code class="highlighter-rouge">date</code> از فیلتر <code class="highlighter-rouge">jdate</code> که نوشته بودم استفاده کردم.</p>
+
+<p>الانه که بپرسید پس کو این تقویم شمسی؟ این پست که تاریخش هنوز میلادیه؟ خب، پلاگین بدون مشکل روی دستگاه من کارش رو انجام می‌ده اما مساله اینجاست که وقتی از گیت‌هاب برای تولید خروجی جکیل استفاده می‌کنیم در استفاده از پلاگین‌ها محدودیت داریم و فقط امکان استفاده از <a href="https://help.github.com/articles/using-jekyll-plugins-with-github-pages/">تعداد محدودی</a> از اونها وجود داره. بنابراین فعلا نتونستم از تقویم شمسی در وبلاگم استفاده کنم.</p>
+
+<p>نکته دیگر اینکه من بعد از نوشتن پلاگینم اون رو به فهرست پلاگین‌های جکیل اضافه کردم و برای پلاگین هم یک مخزن روی گیت‌هاب درست کردم و مجوز استفاده و حداقل مستندات لازم رو اونجا نوشتم. اینکار حتی برای پروژه‌های کوچک هم مفیده و اگر کسی قصد استفاده یا توسعه داشته باشه حتما بهش کمک می‌کنه.</p>
+
+<p>خلاصه همین!</p>
+
+
+
+  
+    <div id="related-posts">
+      <h3>مطالب مرتبط</h3>
+      <ul>
+        
+          <li><a href="/contribute-to-opensource.html">مشارکت موثر در پروژه‌های متن‌باز</a></li>
+        
+          <li><a href="/patch.html">پچ بنویس و التماس کن</a></li>
+        
+        </ul>
+    </div>
+  
+
+  <small id="post-tags">
+    
+      <i class="fas fa-tag"></i>
+      <a rel="tag" href="/tag/%D8%A7%D9%88%D9%BE%D9%86%E2%80%8C%D8%B3%D9%88%D8%B1%D8%B3.html">اوپن‌سورس</a>
+    
+      <i class="fas fa-tag"></i>
+      <a rel="tag" href="/tag/%D9%85%D8%B4%D8%A7%D8%B1%DA%A9%D8%AA.html">مشارکت</a>
+    
+
+    <i class="fas fa-code"></i>
+    
+    
+    <a href="https://raw.githubusercontent.com/mehdisadeghi/mehdix.ir/master/_source/_posts/2014-12-09-jekyll-jalali-plugin.md">سورس</a>
+    
+  </small>
+
+  <nav class="pagination">
+    
+      <a href="https://mehdix.ir/installing-ssl-certificate.html" class="pagination--pager" title="طریقه نصب گواهینامه SSL روی سرور شخصی">قبلی</a>
+    
+
+    
+      <a href="https://mehdix.ir/weblog-with-jekyll-and-github.html" class="pagination--pager" title="ساخت وبلاگ با گیت‌هاب و جکیل">بعدی </a>
+    
+  </nav>
+
+  <section>
+    
+      
+<section id="static-comments">
+  
+  
+  
+  <h4 id="comments-header">دیدگاه‌ها</h4>
+  <div id="comments">
+    
+    <div class="comment-chain">
+      <article id="2023205682">
+        <div class="comment-image-wrapper">
+          <img class="comment-avatar" src="https://www.gravatar.com/avatar/45e35a40e10161ada861168966e03b7b?s=200&d=robohash" />
+        </div>
+        <div class="comment-body-wrapper">
+          <span class="comment-meta">
+            <small>
+              
+                <a href=https://disqus.com/by/majidfatemian/ target="_"><span commenter>MajiD</span></a>
+              
+            </small>
+            <small> &nbsp; <a href="#2023205682">۲۳ اردیبهشت ۱۳۹۴</a></small>
+            <small> &nbsp; <a href="#comment-form" onclick="replyTo('2023205682')">پاسخ</a></small>
+            <span style="display:none" commentId>2023205682</span>
+          </span>
+          <p>خیلی ممنونم. خیلی وقته که به شروع یه وبلاگ فارسی با جکیل فکر می کنم. این پلاگ-این حتماً به دردم خواهد خورد.</p>
+
+        </div>
+      </article>
+
+        
+
+    </div>
+    
+    <div class="comment-chain">
+      <article id="2023940836">
+        <div class="comment-image-wrapper">
+          <img class="comment-avatar" src="https://www.gravatar.com/avatar/9a6fe434e31c7dd56d09ac05da2bee36?s=200&d=robohash" />
+        </div>
+        <div class="comment-body-wrapper">
+          <span class="comment-meta">
+            <small>
+              
+                <a href=https://disqus.com/by/mehdisadeghi/ target="_"><span commenter>Mehdi Sadeghi</span></a>
+              
+            </small>
+            <small> &nbsp; <a href="#2023940836">۲۴ اردیبهشت ۱۳۹۴</a></small>
+            <small> &nbsp; <a href="#comment-form" onclick="replyTo('2023940836')">پاسخ</a></small>
+            <span style="display:none" commentId>2023940836</span>
+          </span>
+          <p>الان برای درست کردن وبلاگ استاتیک چندین مولد دیگه هم نوشته شده، می‌تونی اونها رو هم ببینی. اما جکیل روی هم رفته ساده است.</p>
+
+        </div>
+      </article>
+
+        
+
+    </div>
+    
+    <div class="comment-chain">
+      <article id="2024497573">
+        <div class="comment-image-wrapper">
+          <img class="comment-avatar" src="https://www.gravatar.com/avatar/45e35a40e10161ada861168966e03b7b?s=200&d=robohash" />
+        </div>
+        <div class="comment-body-wrapper">
+          <span class="comment-meta">
+            <small>
+              
+                <a href=https://disqus.com/by/majidfatemian/ target="_"><span commenter>MajiD</span></a>
+              
+            </small>
+            <small> &nbsp; <a href="#2024497573">۲۴ اردیبهشت ۱۳۹۴</a></small>
+            <small> &nbsp; <a href="#comment-form" onclick="replyTo('2024497573')">پاسخ</a></small>
+            <span style="display:none" commentId>2024497573</span>
+          </span>
+          <p>ممنونم. از جکیل به خاطر یکپارچگی اش با گیت-هاب-پیجز خوشم میاد. ولی از مولدهای دیگه تا حالا استفاده نکردم. اگه پستی در موردشون داشته باشی خیلی خوشحال میشم که بخونم. 
+تازه با بلاگ شما آشنا شدم و اضافه اش کردم به فیدهام.</p>
+
+        </div>
+      </article>
+
+        
+
+    </div>
+    
+    <div class="comment-chain">
+      <article id="2219731929">
+        <div class="comment-image-wrapper">
+          <img class="comment-avatar" src="https://www.gravatar.com/avatar/0123c5fd95772d531fdab11f9ec76dab?s=200&d=robohash" />
+        </div>
+        <div class="comment-body-wrapper">
+          <span class="comment-meta">
+            <small>
+              
+                <a href=https://disqus.com/by/behroozam/ target="_"><span commenter>behroozam</span></a>
+              
+            </small>
+            <small> &nbsp; <a href="#2219731929">۰۴ شهریور ۱۳۹۴</a></small>
+            <small> &nbsp; <a href="#comment-form" onclick="replyTo('2219731929')">پاسخ</a></small>
+            <span style="display:none" commentId>2219731929</span>
+          </span>
+          <p>درود . راستش من نگاه که به کد های سایت شما میکنم دقیقا مثل خودم هستش منتهی شما تایم مشکلی نداره و به خوبی نشون داده میشه . میشه بگید چجور ؟ تو قسمت –site هم به خوبی ساخته میشن</p>
+
+        </div>
+      </article>
+
+        
+
+    </div>
+    
+    <div class="comment-chain">
+      <article id="2224646168">
+        <div class="comment-image-wrapper">
+          <img class="comment-avatar" src="https://www.gravatar.com/avatar/9a6fe434e31c7dd56d09ac05da2bee36?s=200&d=robohash" />
+        </div>
+        <div class="comment-body-wrapper">
+          <span class="comment-meta">
+            <small>
+              
+                <a href=https://disqus.com/by/mehdisadeghi/ target="_"><span commenter>Mehdi Sadeghi</span></a>
+              
+            </small>
+            <small> &nbsp; <a href="#2224646168">۰۷ شهریور ۱۳۹۴</a></small>
+            <small> &nbsp; <a href="#comment-form" onclick="replyTo('2224646168')">پاسخ</a></small>
+            <span style="display:none" commentId>2224646168</span>
+          </span>
+          <p>فایل کانفیگ سایتها را با هم مقایسه کن و تنظیمات روبی رو ببین. در مقاله wercker توضیح دادم چطور بلید میکنم.</p>
+
+        </div>
+      </article>
+
+        
+
+    </div>
+    
+    <div class="comment-chain">
+      <article id="2226461766">
+        <div class="comment-image-wrapper">
+          <img class="comment-avatar" src="https://www.gravatar.com/avatar/0123c5fd95772d531fdab11f9ec76dab?s=200&d=robohash" />
+        </div>
+        <div class="comment-body-wrapper">
+          <span class="comment-meta">
+            <small>
+              
+                <a href=https://disqus.com/by/behroozam/ target="_"><span commenter>behroozam</span></a>
+              
+            </small>
+            <small> &nbsp; <a href="#2226461766">۰۸ شهریور ۱۳۹۴</a></small>
+            <small> &nbsp; <a href="#comment-form" onclick="replyTo('2226461766')">پاسخ</a></small>
+            <span style="display:none" commentId>2226461766</span>
+          </span>
+          <p>با ورکر ست کردم . ولی بازم تاریخ رو میلادی نشون میده . صفحه gh-page تولید شده تو فایل html هم تاریخ صحیح . حتی وقتی با جکیل هم بیلد میکردم درست بود فایل سایت رو هم حذف کردم ولی درست نشد</p>
+
+        </div>
+      </article>
+
+        
+
+    </div>
+    
+    <div class="comment-chain">
+      <article id="2226483681">
+        <div class="comment-image-wrapper">
+          <img class="comment-avatar" src="https://www.gravatar.com/avatar/9a6fe434e31c7dd56d09ac05da2bee36?s=200&d=robohash" />
+        </div>
+        <div class="comment-body-wrapper">
+          <span class="comment-meta">
+            <small>
+              
+                <a href=https://disqus.com/by/mehdisadeghi/ target="_"><span commenter>Mehdi Sadeghi</span></a>
+              
+            </small>
+            <small> &nbsp; <a href="#2226483681">۰۸ شهریور ۱۳۹۴</a></small>
+            <small> &nbsp; <a href="#comment-form" onclick="replyTo('2226483681')">پاسخ</a></small>
+            <span style="display:none" commentId>2226483681</span>
+          </span>
+          <p>با ورکر یا بدون اون مهم نیست. باید روی کامپیوتر خودت بیلد کنی (اگر اونجا مشکل داری بحثش جداست) و بعد محتوای دایرکتوری _site رو کلا بریزی روی برنچ gh_pages ریپوزیتوری گیت‌هابت. در ضمن پلاگین‌ها باید در دایرکتوری پلاگین‌ها موجود باشند. بازم اگر نشد بیا رو irc یا جای مشابه بهت بگم.</p>
+
+        </div>
+      </article>
+
+        
+
+    </div>
+    
+    <div class="comment-chain">
+      <article id="2260539583">
+        <div class="comment-image-wrapper">
+          <img class="comment-avatar" src="https://www.gravatar.com/avatar/9a6fe434e31c7dd56d09ac05da2bee36?s=200&d=robohash" />
+        </div>
+        <div class="comment-body-wrapper">
+          <span class="comment-meta">
+            <small>
+              
+                <a href=https://disqus.com/by/mehdisadeghi/ target="_"><span commenter>Mehdi Sadeghi</span></a>
+              
+            </small>
+            <small> &nbsp; <a href="#2260539583">۲۷ شهریور ۱۳۹۴</a></small>
+            <small> &nbsp; <a href="#comment-form" onclick="replyTo('2260539583')">پاسخ</a></small>
+            <span style="display:none" commentId>2260539583</span>
+          </span>
+          <p>علت رو برات در گیتر نوشتم. باید اسم ریپوزیتوریت رو عوض کنی.</p>
+
+        </div>
+      </article>
+
+        
+
+    </div>
+    
+    <div class="comment-chain">
+      <article id="2594437717">
+        <div class="comment-image-wrapper">
+          <img class="comment-avatar" src="https://www.gravatar.com/avatar/75bd8ab60b3af20854f529fe58715b9c?s=200&d=robohash" />
+        </div>
+        <div class="comment-body-wrapper">
+          <span class="comment-meta">
+            <small>
+              
+                <a href=https://disqus.com/by/ali_haddadkar/ target="_"><span commenter>Ali Haddad</span></a>
+              
+            </small>
+            <small> &nbsp; <a href="#2594437717">۱۰ فروردین ۱۳۹۵</a></small>
+            <small> &nbsp; <a href="#comment-form" onclick="replyTo('2594437717')">پاسخ</a></small>
+            <span style="display:none" commentId>2594437717</span>
+          </span>
+          <p>سلام آقا من موقع بیلد کردن به مشکل میخورم.این اررور رو بهم میده.
+Dependency Error: Yikes! It looks like you don’t have /Users/ali/Documents/Project/My Project/personal website/blog/_plugins/jdate.rb or one of its dependencies installed. In order to use Jekyll as currently configured, you’ll need to install this gem. The full error message from Ruby is: ‘cannot load such file – jalalidate’ If you run into trouble, you can find helpful resources at http://jekyllrb.com/help/!</p>
+
+        </div>
+      </article>
+
+        
+
+    </div>
+    
+    <div class="comment-chain">
+      <article id="2594617800">
+        <div class="comment-image-wrapper">
+          <img class="comment-avatar" src="https://www.gravatar.com/avatar/9a6fe434e31c7dd56d09ac05da2bee36?s=200&d=robohash" />
+        </div>
+        <div class="comment-body-wrapper">
+          <span class="comment-meta">
+            <small>
+              
+                <a href=https://disqus.com/by/mehdisadeghi/ target="_"><span commenter>Mehdi Sadeghi</span></a>
+              
+            </small>
+            <small> &nbsp; <a href="#2594617800">۱۰ فروردین ۱۳۹۵</a></small>
+            <small> &nbsp; <a href="#comment-form" onclick="replyTo('2594617800')">پاسخ</a></small>
+            <span style="display:none" commentId>2594617800</span>
+          </span>
+          <p>به نظر می‌رسه روبی‌جم jalalidate رو نداری. اگر از باندل استفاده می‌کنی دستور زیر رو وارد کن:
+bundle install
+اگر تک تک جم‌ها رو نصب می‌کنی دستور زیر رو وارد کن:
+gem install jalalidate
+البته در اینصورت باید برای تک تک جم‌های داخل Gemfile اینکار رو تکرار کنی.
+اطلاعات بیشتر در مورد باندل:
+http://bundler.io/bundle_in…</p>
+
+
+        </div>
+      </article>
+
+        
+
+    </div>
+    
+    <div class="comment-chain">
+      <article id="2595173008">
+        <div class="comment-image-wrapper">
+          <img class="comment-avatar" src="https://www.gravatar.com/avatar/75bd8ab60b3af20854f529fe58715b9c?s=200&d=robohash" />
+        </div>
+        <div class="comment-body-wrapper">
+          <span class="comment-meta">
+            <small>
+              
+                <a href=https://disqus.com/by/ali_haddadkar/ target="_"><span commenter>Ali Haddad</span></a>
+              
+            </small>
+            <small> &nbsp; <a href="#2595173008">۱۰ فروردین ۱۳۹۵</a></small>
+            <small> &nbsp; <a href="#comment-form" onclick="replyTo('2595173008')">پاسخ</a></small>
+            <span style="display:none" commentId>2595173008</span>
+          </span>
+          <p>نه مشکل از اینا نبود ظاهرا روبی پیشفرضی که روی مک هست مشکل داشت.rvm نصب کردم و اخرین ورژن روبی رو گرفتم مشکلم حل شد.
+ممنون</p>
+
+        </div>
+      </article>
+
+        
+
+    </div>
+    
+    <div class="comment-chain">
+      <article id="2596487133">
+        <div class="comment-image-wrapper">
+          <img class="comment-avatar" src="https://www.gravatar.com/avatar/9a6fe434e31c7dd56d09ac05da2bee36?s=200&d=robohash" />
+        </div>
+        <div class="comment-body-wrapper">
+          <span class="comment-meta">
+            <small>
+              
+                <a href=https://disqus.com/by/mehdisadeghi/ target="_"><span commenter>Mehdi Sadeghi</span></a>
+              
+            </small>
+            <small> &nbsp; <a href="#2596487133">۱۱ فروردین ۱۳۹۵</a></small>
+            <small> &nbsp; <a href="#comment-form" onclick="replyTo('2596487133')">پاسخ</a></small>
+            <span style="display:none" commentId>2596487133</span>
+          </span>
+          <p>الان خاطرم آمد که من هم اواخر همین مشکل روی یک ماشین داشتم که با بازی با rvm حل شد.</p>
+
+        </div>
+      </article>
+
+        
+
+    </div>
+    
+    <div class="comment-chain">
+      <article id="2709687832">
+        <div class="comment-image-wrapper">
+          <img class="comment-avatar" src="https://www.gravatar.com/avatar/0d92f06a547bfe00c41f2df6603464de?s=200&d=robohash" />
+        </div>
+        <div class="comment-body-wrapper">
+          <span class="comment-meta">
+            <small>
+              
+                <a href=https://disqus.com/by/safeith/ target="_"><span commenter>safeith</span></a>
+              
+            </small>
+            <small> &nbsp; <a href="#2709687832">۱۴ خرداد ۱۳۹۵</a></small>
+            <small> &nbsp; <a href="#comment-form" onclick="replyTo('2709687832')">پاسخ</a></small>
+            <span style="display:none" commentId>2709687832</span>
+          </span>
+          <p>سلام
+می توانم سوال الان تاریخ جلالی چه طوری روی سایت شما فعال است ؟</p>
+
+        </div>
+      </article>
+
+        
+
+    </div>
+    
+    <div class="comment-chain">
+      <article id="2709842507">
+        <div class="comment-image-wrapper">
+          <img class="comment-avatar" src="https://www.gravatar.com/avatar/9a6fe434e31c7dd56d09ac05da2bee36?s=200&d=robohash" />
+        </div>
+        <div class="comment-body-wrapper">
+          <span class="comment-meta">
+            <small>
+              
+                <a href=https://disqus.com/by/mehdisadeghi/ target="_"><span commenter>Mehdi Sadeghi</span></a>
+              
+            </small>
+            <small> &nbsp; <a href="#2709842507">۱۴ خرداد ۱۳۹۵</a></small>
+            <small> &nbsp; <a href="#comment-form" onclick="replyTo('2709842507')">پاسخ</a></small>
+            <span style="display:none" commentId>2709842507</span>
+          </span>
+          <p>سایت من روی یک ریپوزیتوری قرار داره که اسمش با یوزر گیت‌هابم فرق داره. یک پلاگین هم داخل فولدر پلاگین‌هاست. یک بیلدر ورکر هم سایت رو بیلد می‌کنه و پوش می‌کنه روی گیت‌هاب. همه اینها رو در چند مقاله نوشتم. اطلاعات دقیق بدی بهتر می‌تونم راهنمایی کنم.</p>
+
+        </div>
+      </article>
+
+        
+
+    </div>
+    
+    <div class="comment-chain">
+      <article id="2710431732">
+        <div class="comment-image-wrapper">
+          <img class="comment-avatar" src="https://www.gravatar.com/avatar/0d92f06a547bfe00c41f2df6603464de?s=200&d=robohash" />
+        </div>
+        <div class="comment-body-wrapper">
+          <span class="comment-meta">
+            <small>
+              
+                <a href=https://disqus.com/by/safeith/ target="_"><span commenter>safeith</span></a>
+              
+            </small>
+            <small> &nbsp; <a href="#2710431732">۱۴ خرداد ۱۳۹۵</a></small>
+            <small> &nbsp; <a href="#comment-form" onclick="replyTo('2710431732')">پاسخ</a></small>
+            <span style="display:none" commentId>2710431732</span>
+          </span>
+          <p>ممنون از پاسختون ، بنده ابتدا jalalidate را روی سیستمم نصب کردم و بعد هم پلاگین که شما برای تاریخ شمسی ایجاد کرده بودید را داخل پلاگین ها قرار دادم  الان روی سیستم خودم همه چیز اوکی است و تاریخ شمسی می گیرم اما روی گیت هاب این طوری نیست، برای همین هم توی wercker یک اکانت ایجاد کردم و از فایل کانفیگ wercker شما استفاده کردم اما موقع بیلدچنین خطایی می گیریم
+Could not locate Gemfile or .bundle/ directory</p>
+
+        </div>
+      </article>
+
+        
+
+    </div>
+    
+    <div class="comment-chain">
+      <article id="2711483805">
+        <div class="comment-image-wrapper">
+          <img class="comment-avatar" src="https://www.gravatar.com/avatar/0d92f06a547bfe00c41f2df6603464de?s=200&d=robohash" />
+        </div>
+        <div class="comment-body-wrapper">
+          <span class="comment-meta">
+            <small>
+              
+                <a href=https://disqus.com/by/safeith/ target="_"><span commenter>safeith</span></a>
+              
+            </small>
+            <small> &nbsp; <a href="#2711483805">۱۵ خرداد ۱۳۹۵</a></small>
+            <small> &nbsp; <a href="#comment-form" onclick="replyTo('2711483805')">پاسخ</a></small>
+            <span style="display:none" commentId>2711483805</span>
+          </span>
+          <p>من مشکل باندل و عدم بیلدش در wercker را هم حل کردم اما کماکان تاریخ جلالی نمایش داده نمی شود روی گیت هاب اما روی سیستم خودم درست است، اگر فرصت داشتید به نگاهی بهش بندارید 
+http://safeith.github.io</p>
+
+        </div>
+      </article>
+
+        
+
+    </div>
+    
+    <div class="comment-chain">
+      <article id="2711677332">
+        <div class="comment-image-wrapper">
+          <img class="comment-avatar" src="https://www.gravatar.com/avatar/9a6fe434e31c7dd56d09ac05da2bee36?s=200&d=robohash" />
+        </div>
+        <div class="comment-body-wrapper">
+          <span class="comment-meta">
+            <small>
+              
+                <a href=https://disqus.com/by/mehdisadeghi/ target="_"><span commenter>Mehdi Sadeghi</span></a>
+              
+            </small>
+            <small> &nbsp; <a href="#2711677332">۱۵ خرداد ۱۳۹۵</a></small>
+            <small> &nbsp; <a href="#comment-form" onclick="replyTo('2711677332')">پاسخ</a></small>
+            <span style="display:none" commentId>2711677332</span>
+          </span>
+          <p>لینک بیلد رو برام بفرست تا نگاه کنم. در ضمن مطمئن شو که پلاگین و همه فایل‌ها که روی کامپیوتر خودت وجود دارند درون ریپازیتری گیت‌هابت هم وجود داشته باشند.</p>
+
+        </div>
+      </article>
+
+        
+
+    </div>
+    
+    <div class="comment-chain">
+      <article id="2712155479">
+        <div class="comment-image-wrapper">
+          <img class="comment-avatar" src="https://www.gravatar.com/avatar/0d92f06a547bfe00c41f2df6603464de?s=200&d=robohash" />
+        </div>
+        <div class="comment-body-wrapper">
+          <span class="comment-meta">
+            <small>
+              
+                <a href=https://disqus.com/by/safeith/ target="_"><span commenter>safeith</span></a>
+              
+            </small>
+            <small> &nbsp; <a href="#2712155479">۱۵ خرداد ۱۳۹۵</a></small>
+            <small> &nbsp; <a href="#comment-form" onclick="replyTo('2712155479')">پاسخ</a></small>
+            <span style="display:none" commentId>2712155479</span>
+          </span>
+          <p>سلام مجدد من مشکل باندل ها را هم حل کردم و الان روی سیستم شخصی همه چی اوکی است و wecker هم بیلد می شود اما تاریخ روی گیت هاب جلالی نمی شه 
+http://safeith.github.io
+https://raw.githubuserconte…</p>
+
+        </div>
+      </article>
+
+        
+
+    </div>
+    
+    <div class="comment-chain">
+      <article id="3081006121">
+        <div class="comment-image-wrapper">
+          <img class="comment-avatar" src="https://www.gravatar.com/avatar/b1aed92daaa01f8ff1d314fabd53d599?s=200&d=robohash" />
+        </div>
+        <div class="comment-body-wrapper">
+          <span class="comment-meta">
+            <small>
+              
+                <span commenter>ادریس</span>
+              
+            </small>
+            <small> &nbsp; <a href="#3081006121">۱۴ دی ۱۳۹۵</a></small>
+            <small> &nbsp; <a href="#comment-form" onclick="replyTo('3081006121')">پاسخ</a></small>
+            <span style="display:none" commentId>3081006121</span>
+          </span>
+          <p>تست</p>
+
+        </div>
+      </article>
+
+        
+
+    </div>
+    
+    <div class="comment-chain">
+      <article id="3081006811">
+        <div class="comment-image-wrapper">
+          <img class="comment-avatar" src="https://www.gravatar.com/avatar/b1aed92daaa01f8ff1d314fabd53d599?s=200&d=robohash" />
+        </div>
+        <div class="comment-body-wrapper">
+          <span class="comment-meta">
+            <small>
+              
+                <span commenter>ادریس</span>
+              
+            </small>
+            <small> &nbsp; <a href="#3081006811">۱۴ دی ۱۳۹۵</a></small>
+            <small> &nbsp; <a href="#comment-form" onclick="replyTo('3081006811')">پاسخ</a></small>
+            <span style="display:none" commentId>3081006811</span>
+          </span>
+          <p>جالبه فیلتر نیست دیسکاس شما!</p>
+
+        </div>
+      </article>
+
+        
+
+    </div>
+    
+    <div class="comment-chain">
+      <article id="3081009339">
+        <div class="comment-image-wrapper">
+          <img class="comment-avatar" src="https://www.gravatar.com/avatar/b1aed92daaa01f8ff1d314fabd53d599?s=200&d=robohash" />
+        </div>
+        <div class="comment-body-wrapper">
+          <span class="comment-meta">
+            <small>
+              
+                <span commenter>ادریس</span>
+              
+            </small>
+            <small> &nbsp; <a href="#3081009339">۱۴ دی ۱۳۹۵</a></small>
+            <small> &nbsp; <a href="#comment-form" onclick="replyTo('3081009339')">پاسخ</a></small>
+            <span style="display:none" commentId>3081009339</span>
+          </span>
+          <p>jsj</p>
+
+        </div>
+      </article>
+
+        
+
+    </div>
+    
+    <div class="comment-chain">
+      <article id="5a5e7a3bf5a58066cfaf8a53">
+        <div class="comment-image-wrapper">
+          <img class="comment-avatar" src="https://www.gravatar.com/avatar/4a9332842a945234c71e89f9b9780447?s=200&d=robohash" />
+        </div>
+        <div class="comment-body-wrapper">
+          <span class="comment-meta">
+            <small>
+              
+                <span commenter>فرهاد</span>
+              
+            </small>
+            <small> &nbsp; <a href="#5a5e7a3bf5a58066cfaf8a53">۲۶ دی ۱۳۹۶</a></small>
+            <small> &nbsp; <a href="#comment-form" onclick="replyTo('5a5e7a3bf5a58066cfaf8a53')">پاسخ</a></small>
+            <span style="display:none" commentId>5a5e7a3bf5a58066cfaf8a53</span>
+          </span>
+          <p>نه تنها با استفاده از مستندات این پلاگین نتونستم روی بلاگ خودم پیادش کنم ، بلکه سورس بلاگ شمام کاملا گشتم ولی مثل اینکه اینهارو توی تم اختصاصی بلاگتون قرار دادید و نتونستم اون بخشی که لازم دارم رو پیدا کنم.
+اگر ممکنه توضیحات بیشتری ارایه کنید.
+سپاسگزارم</p>
+
+        </div>
+      </article>
+
+        
+
+    </div>
+    
+    <div class="comment-chain">
+      <article id="5a5e8773a8498f278d922d98">
+        <div class="comment-image-wrapper">
+          <img class="comment-avatar" src="https://www.gravatar.com/avatar/0371f5b900b484368f9e1717d7d965b1?s=200&d=robohash" />
+        </div>
+        <div class="comment-body-wrapper">
+          <span class="comment-meta">
+            <small>
+              
+                <a href=https://mehdix.ir target="_"><span commenter>وبلاگ‌صاحاب</span></a>
+              
+            </small>
+            <small> &nbsp; <a href="#5a5e8773a8498f278d922d98">۲۶ دی ۱۳۹۶</a></small>
+            <small> &nbsp; <a href="#comment-form" onclick="replyTo('5a5e8773a8498f278d922d98')">پاسخ</a></small>
+            <span style="display:none" commentId>5a5e8773a8498f278d922d98</span>
+          </span>
+          <blockquote>
+  <p>مثل اینکه اینهارو توی تم اختصاصی بلاگتون قرار دادید</p>
+</blockquote>
+
+<p>درسته، من این چیزها رو به تم منتقل کردم. ولی تم وبلاگ اختصاصی نیست، خودش یک وبسایت جکیله. ریپازیتوری زیر رو ببین:</p>
+
+<p>https://github.com/mehdisadeghi/jekyll-theme-mehdix-rtl</p>
+
+        </div>
+      </article>
+
+        
+
+    </div>
+    
+    <div class="comment-chain">
+      <article id="5a6c5d751921a15a92da31b8">
+        <div class="comment-image-wrapper">
+          <img class="comment-avatar" src="https://www.gravatar.com/avatar/f37edf9bcd83c48588719cc27347dae0?s=200&d=robohash" />
+        </div>
+        <div class="comment-body-wrapper">
+          <span class="comment-meta">
+            <small>
+              
+                <a href=https://soroushsharing.gitlab.io/ target="_"><span commenter>AntiSec</span></a>
+              
+            </small>
+            <small> &nbsp; <a href="#5a6c5d751921a15a92da31b8">۰۷ بهمن ۱۳۹۶</a></small>
+            <small> &nbsp; <a href="#comment-form" onclick="replyTo('5a6c5d751921a15a92da31b8')">پاسخ</a></small>
+            <span style="display:none" commentId>5a6c5d751921a15a92da31b8</span>
+          </span>
+          <p>عالی بود :) 
+بنده هم برای <a href="https://soroushsharing.gitlab.io/">وبلاگم</a> از <a href="https://gohugo.io/">Hugo </a>استفاده  می کنم و کاملا راضی هستم.</p>
+
+        </div>
+      </article>
+
+        
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+        
+
+    </div>
+    
+  </div>
+  
+
+  <form id="comment-form" name="comment" netlify-honeypot="bot-field" netlify>
+    <input name="bot-field" style="display:none">
+    <input name="page_id" style="display:none" value="/jekyll-jalali-plugin">
+    <input id="reply-to" name="reply-to" style="display:none">
+    <label for="message">دیدگاه<sup class="required">*</sup> &nbsp;<small>می‌توانید با <a href="http://commonmark.org/help/" target="_">مارک‌داون</a> هم بنویسید.</small><br><small id="replyToVisualClue"></small>
+      <textarea id="message" name="message" required alt="no!!" onkeyup="preview()"></textarea>
+      <div id="preview"></div>
+    </label>
+    <label for="name">نام<sup class="required">*</sup>
+      <input id="name" type="text" name="name" required>
+    </label>
+    <label for="email">ایمیل<sup class="required">*</sup>
+      <input id="email" type="email" name="email" required>
+    </label>
+    <label for="website">وبسایت
+      <input id="website" type="url" name="website">
+    </label>
+    <div style="text-align:left">
+      <button type="submit" class="button">ارسال</button>
+    </div>
+  </form>
+
+</section>
+<script src="https://mehdix.ir/assets/js/showdown.min.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+  function preview() {
+    var converter = new showdown.Converter();
+    var markdown = document.getElementById("message").value;
+    document.getElementById("preview").innerHTML = converter.makeHtml(markdown);
+  }
+
+  function replyTo(commentID) {
+    var comment = document.getElementById(commentID);
+    document.getElementById("reply-to").value = comment.querySelector("span[commentId]").innerText;
+    document.getElementById("replyToVisualClue").innerText = "[در جواب " + comment.querySelector("span[commenter]").innerText + "]";
+  }
+</script>
+    
+  </section>
+
+</article>
+</div>
+    </main><footer>
+
+  <div class="wrapper">
+
+    
+
+    <p id="footer-description">بچه که بودیم همیشه برای بازی خونه می‌ساختیم. حالا هم نمونه‌اش رو در وب ساختم. اینجا سکوی انتشار مطالبی در مورد دانش تولید نرم‌افزار و ایده‌ها و علایق شخصی‌ام است، بویژه راه‌حل‌های مهندسی که باعث رشد و پیشرفتم شده است و می‌تواند مورد استفاده دیگران هم قرار بگیرد.
+</p>
+
+    <ul class="social-media-list">
+      
+      <li>
+        <i class="fab fa-github"></i>
+        <a href="https://github.com/mehdisadeghi">
+          <span class="username social-media-text">پروژه‌ها</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <i class="fab fa-twitter-square"></i>
+        <a href="https://twitter.com/msadeghii">
+          <span class="username social-media-text">توئیت‌ها</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <i class="fas fa-rss"></i>
+        <a href="https://feedburner.google.com/fb/a/mailverify?uri=mehdixir&amp;loc=en_US">
+          <span class="username social-media-text">خبرنامه</span></a>
+      </li>
+      <li>
+        <i class="fas fa-rss"></i>
+        <a href="http://feeds.feedburner.com/mehdixir">
+        <span class="username social-media-text">خوراک</span></a>
+      </li>
+      
+      
+        <li>
+          <i class="fas fa-envelope-open"></i>
+          <a href="mailto:sadeghi@mehdix.org">
+            <span class="username social-media-text">تماس</span></a></li>
+      
+    </ul>
+
+  <div id="footer-extra">
+    <small id="license">
+  <i class="fab fa-creative-commons"></i>
+  مطالب این وبلاگ تحت مجوز
+  <a rel="license" href="http://creativecommons.org/licenses/by/4.0/deed.fa">
+    کریتیو کامنز اتریبیوشن ۴.۰ اینترنشنال
+  </a>قرار دارد.
+</small>
+    <a id="atom" href="https://validator.w3.org/feed/check.cgi?url=https://mehdix.ir/feed.xml"><img src=https://mehdix.ir/assets/img/valid-atom.png alt="[Valid Atom 1.0]" title="Validate my Atom 1.0 feed" /></a>
+  </div>
+
+  </div>
+
+  <small id="build-time">Site generated on Tue, 06 Feb 2018 02:43:37 +0100</small>
+
+</footer><script src="https://mehdix.ir/assets/js/main.js"></script>
+     <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-57282325-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+ 
+  </body>
+</html>

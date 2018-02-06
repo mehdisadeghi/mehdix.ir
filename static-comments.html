@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="fa">
+  
+  <head><meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="author" content="مهدی صادقی" />
+<meta name="copyright" content="Commons Attribution 4.0 International" />
+<meta name="robot" content="" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="description" content="سکوی انتشار مطالبی در مورد دانش تولید نرم‌افزار و ایده‌ها و علایق شخصی‌ام." />
+
+<link rel="canonical" href="https://mehdix.ir/publishing-with-jekyll.html" />
+<link rel="icon" href="https://mehdix.ir/assets/img/me.png" />
+<link rel="stylesheet" href="https://mehdix.ir/assets/css/main.css" />
+<link rel="stylesheet" href="https://mehdix.ir/assets/fonts/fontawesomev5.0.2.css" />
+<meta name="keywords" content='دیسکاس,نتلیفای,کامنت‌دونی,دیدگاه,نظر' /><title>کامنت‌دونی استاتیک بجای دیسکاس - مهدی صادقی</title><!-- Begin Jekyll SEO tag v2.4.0 -->
+<title>کامنت‌دونی استاتیک بجای دیسکاس | مهدی صادقی</title>
+<meta name="generator" content="Jekyll v3.7.2" />
+<meta property="og:title" content="کامنت‌دونی استاتیک بجای دیسکاس" />
+<meta name="author" content="مهدی صادقی" />
+<meta property="og:locale" content="fa_IR" />
+<meta name="description" content="در ادامه شرح می‌دهم چرا و چگونه سیستم نظرات وبسایت را از دیسکاس به یک سیستم دست‌ساز تقریبا استاتیک منتقل کرده‌ام." />
+<meta property="og:description" content="در ادامه شرح می‌دهم چرا و چگونه سیستم نظرات وبسایت را از دیسکاس به یک سیستم دست‌ساز تقریبا استاتیک منتقل کرده‌ام." />
+<link rel="canonical" href="https://mehdix.ir/static-comments.html" />
+<meta property="og:url" content="https://mehdix.ir/static-comments.html" />
+<meta property="og:site_name" content="مهدی صادقی" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-12-30T00:00:00+01:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@msadeghii" />
+<meta name="twitter:creator" content="@مهدی صادقی" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://mehdix.ir/static-comments.html"},"url":"https://mehdix.ir/static-comments.html","author":{"@type":"Person","name":"مهدی صادقی"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://mehdix.ir/assets/img/me.png"},"name":"مهدی صادقی"},"description":"در ادامه شرح می‌دهم چرا و چگونه سیستم نظرات وبسایت را از دیسکاس به یک سیستم دست‌ساز تقریبا استاتیک منتقل کرده‌ام.","headline":"کامنت‌دونی استاتیک بجای دیسکاس","dateModified":"2017-12-30T00:00:00+01:00","datePublished":"2017-12-30T00:00:00+01:00","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  </head>
+
+  <body><header>
+  <div class="wrapper">
+    <a class="site-title" href="https://mehdix.ir/">مهدی صادقی</a>
+    <small id="motto"> در مورد نرم‌افزار و ایده‌هایم </small>
+  </div>
+</header>
+<main>
+      <div class="wrapper">
+
+<article class="post-content">
+
+  <div class="post-header">
+    <h1 class="post-title">کامنت‌دونی استاتیک بجای دیسکاس</h1>
+    <p>
+      <i class="fas fa-calendar"></i>
+      شنبه ۰۹ دی ۱۳۹۶<br>
+      
+      <i class="fas fa-stopwatch"></i>
+      ۶ دقیقه مطالعه
+    </p>
+  </div>
+
+  <p>در ادامه شرح می‌دهم چرا و چگونه سیستم نظرات وبسایت را از دیسکاس به یک سیستم دست‌ساز تقریبا استاتیک منتقل کرده‌ام.</p>
+
+<h2 id="چرا-تصمیم-گرفتم-دیسکاس-را-کنار-بگذارم">چرا تصمیم گرفتم دیسکاس را کنار بگذارم؟</h2>
+<p>به دو دلیل. اول اینکه دیسکاس بدون قند‌شکن در ایران قابل استفاده نیست. دیگر اینکه دیسکاس زیادی سنگین بود و مقدار زیادی اسکریپت غیرضروری در صفحات بارگزاری می‌کرد. سایت کم ترافیک من را بیهوده سنگین کرده بود و سود چندانی هم نداشت.</p>
+
+<p>مهمتر از همه اینها چالش ایجاد کامنت‌دونی استاتیک را دوست داشتم!</p>
+
+<h2 id="چه-آلترناتیوهایی-برای-دیسکاس-وجود-دارد">چه آلترناتیوهایی برای دیسکاس وجود دارد؟</h2>
+<p>استاتیک‌بازهای اینترنت دست به کارهای خلاقانه مختلفی برای داشتن یک کامنت‌دونی استاتیک زده‌اند. راهکارهای موجود روی سه محور اصلی می‌چرخد:</p>
+
+<ul>
+  <li>ایمیل دیدگاه‌ها</li>
+  <li>باز کردن پول‌ریکوئست در گیت‌هاب</li>
+  <li>اجرای سرور اختصاصی</li>
+</ul>
+
+<p>و همچنین:</p>
+
+<ul>
+  <li>استفاده از Firebase</li>
+  <li>صرف نظر از کامنت‌دونی</li>
+</ul>
+
+<h3 id="ارسال-نظر-با-ایمیل">ارسال نظر با ایمیل</h3>
+<p>در این روش به کمک ایمیل کاربر نظرش را ارسال می‌کند و وبلاگ‌صاحاب بعدا کامنت‌ها را به وبسایتش اضافه می‌کند. با نوشتن مقداری اسکریپت حتی می‌تواند این فرآیند را تا حدودی خودکار کرد. این روش به نوعی خالص‌ترین روش استاتیک است. برخی افراد از امکانات جیمیل مثل افزودن یک فیلتر بعد از ایمیل استفاده می‌کنند مثلا <code class="highlighter-rouge">john.doe+post42@gmail.com</code>.</p>
+
+<h3 id="گیتهاب-به-عنوان-کامنتدونی">گیت‌هاب به عنوان کامنت‌دونی</h3>
+<p>برخی افراد از ابزاری بنام <a href="https://staticman.net/">Staticman</a> استفاده می‌کنند. این برنامه به ازای هر نظر یک پول‌ریکوئست در مخزن وبسایت روی گیت‌هاب ایجاد می‌کند. نحوه تایید نظرات هم این است که وبلاگ‌صاحاب هم می‌تواند پول‌ریکوئست را مرج کند یا نکند. البته امکان مرج خودکار هم هست که در اینصورت نظرات نیاز به تایید ندارند. بعد از مرج سایت از نو ساخته شده و نظرات نمایش داده می‌شود.</p>
+
+<p>این برنامه اوپن‌سورس است و هاست رایگان هم دارد. هر کسی می‌تواند خودش هم آنرا هاست کند.</p>
+
+<h3 id="اجرای-یک-سرور-اختصاصی">اجرای یک سرور اختصاصی</h3>
+<p>این روش کم مقداری با روش قبلی همپوشانی دارد. این روش در حقیقت راه انداختن یک دیسکاس شخصی است. از اجرای یک <a href="https://github.com/mpalmer/jekyll-static-comments/blob/master/commentsubmit.php">اسکریپت PHP</a> ساده گرفته تا راه‌اندازی سروری کوچک و جمع و جور مثل <a href="https://posativ.org/isso/">isso</a> یا سرور عریض و طویلی مانند <a href="https://www.discourse.org/">Discourse</a>. هرکس بنا به ترافیک و نیاز و سلیقه‌اش یکی را انتخاب می‌کند. البته این لیست کامل نیست و پلاگین‌های جکیل و برنامه‌های ریز و درشت دیگری هم باید باشند (بیشتر ریز البته!)</p>
+
+<h3 id="استفاده-از-firebase">استفاده از Firebase</h3>
+<p><a href="http://firebase.google.com/">فایربیس</a> یکی از محصولات شرکت گوگله که ساخت اپلیکیشن‌های serverless رو ساده می‌کنه. یعنی اپلیکیشن موبایل یا وب مستقیما با فایربیس صحبت می‌کنه و می‌تونه از دیتابیس و سایر امکانات اون استفاده کنه. پیاده کردن کامنت‌دونی استاتیک به کمک فایربیس امکانپذیره. مثلا <a href="https://github.com/mimming/firebase-jekyll-comments">این پلاگین جکیل</a> یک کامنت‌دونی به کمک فایربیس می‌سازه.</p>
+
+<h3 id="صرف-نظر-از-کامنتدونی">صرف نظر از کامنت‌دونی</h3>
+<p>کم نیستند کسانی که از کامنت‌دونی صرف‌نظر می‌کنند و تعامل با خوانندگانشان را به شبکه‌های اجتماعی مانند توئیتر و یا هکرنیوز منتقل می‌کنند. عده‌ای هم که به نهایت بی‌نیازی رسیده‌اند برای دل خودشان می‌نویسند و از هرچه رنگ تعلق پذیرد آزاد شده‌اند و کلا قید کامنت‌دونی را زده‌اند!</p>
+
+<h2 id="الگوریتم-کلی-کامنتدونی-استاتیک">الگوریتم کلی کامنت‌دونی استاتیک</h2>
+<p>مهمترین تمایز کامنت‌دونی استاتیک با داینامیک در اینه که انتشار نظرات با تاخیر همراهه. چرا که سروری گوش به زنگ تغییرات در صفحه و ریفرش کردن اون نیست. اصلا امکان ریفرش کردن صفحه نیست و سایت باید ریبیلد بشه. یعنی مرحله جمع‌آوری نظرات و انتشار نظرات در وبسایت پیوسته نیستند. بنابراین یک کامنت‌دونی استاتیک به شکل زیر کار می‌کند:</p>
+
+<ul>
+  <li>جمع‌آوری نظر: ایمیل، گیت‌هاب، سرور شخصی، فایربیس</li>
+  <li>پردازش نظرات: حذف اسپم، سورت کردن و مانند اینها</li>
+  <li>تولید وبسایت:‌ ساخت دوباره صفحهات با نظرات بروز شده</li>
+</ul>
+
+<h2 id="من-کدامیک-از-روشهای-بالا-را-بکار-گرفتهام">من کدامیک از روش‌های بالا را بکار گرفته‌ام؟</h2>
+<p>هیچ‌کدام. من یک کامنت‌دونی استاتیک مبتنی بر <a href="/netlify.html">نتلیفای</a> ساختم.</p>
+
+<p>بسیاری از راهکارهایی که دیگران در وبسایت‌های استاتیکشان بکارگرفته‌اند لازمه‌اش اجرا کردن یک برنامه در یک سرور سوم است. من قصد داشتم همه چیز را در سرویس‌دهنده استاتیک وبسایتم خلاصه کنم. مدتی پیش در مورد <a href="/netlify.html">Netlify</a> نوشتم. من در حال حاضر وبسایت و مدیریت دامنه آن و بیلدسرور آن را به ترتیب از گیت‌هاب و <a href="http://dnsimple.com/">DNSimple</a> و <a href="/wercker-intro.html">ورکر</a> به نتلیفای منتقل کرده‌ام. این تغییر باعث ساده‌سازی قابل توجه وبسایت و روند بیلد کردن آن شده است.</p>
+
+<p>نتلیفای امکانی دارد برای ثبت نتایج فرم‌های HTML. یعنی بدون ایجاد سرور جداگانه می‌توان فرم‌هایی در وبسایت گنجاند و نتایج آنها را در کنترل پنل نتلیفای مشاهده کرد. اما نکته اصلی اینجاست که نتلیفای پس از ثبت نظرات می‌تواند یک بیلد تریگر کند یا فرم ثبت شده را به یک آدرس ایمیل ارسال کند یا یک سرویس خارجی را به کمک WebHook صدا بزند. من از این امکان نتلیفای برای ساخت کامنتدونی استفاده کردم.</p>
+
+<h2 id="طرح-کلی-کامنتدونی-من">طرح کلی کامنت‌دونی من</h2>
+<p>برنامه من سه بخش دارد:</p>
+
+<ol>
+  <li>جمع‌آوری نظرات ارسالی به کمک نتلیفای</li>
+  <li>پردازش نظرات و کامیت آنها در گیت‌هاب</li>
+  <li>افزودن کامنت‌دونی استاتیک به وبسایت جکیل</li>
+</ol>
+
+<h3 id="جمعآوری-به-کمک-نتلیفای">جمع‌آوری به کمک نتلیفای</h3>
+<p>این قسمت از همه ساده‌تر است. کافیست یک فرم HTML در هرکجای صفحه قرار بدهیم و به آن یک برچسب نتلیفای بزنیم:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nt">&lt;form</span> <span class="na">name=</span><span class="s">'comment'</span> <span class="na">netlify</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;label&gt;</span>دیدگاه
+      <span class="nt">&lt;textarea</span> <span class="na">id=</span><span class="s">"message"</span> <span class="na">name=</span><span class="s">"message"</span><span class="nt">&gt;&lt;/textarea&gt;</span>
+    <span class="nt">&lt;/label&gt;</span>
+    <span class="nt">&lt;label&gt;</span>نام
+      <span class="nt">&lt;input</span> <span class="na">id=</span><span class="s">"name"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">name=</span><span class="s">"name"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/label&gt;</span>
+      <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"submit"</span><span class="nt">&gt;</span>ارسال<span class="nt">&lt;/button&gt;</span>
+  <span class="nt">&lt;/form&gt;</span>
+</code></pre></div></div>
+
+<p>هر بار که این فرم به سرور ارسال بشود نتلیفای نتیجه آن را ثبت می‌کند. از طریق کنترل پنل و API می‌توان فرم‌ها و ارسال‌ها را مدیریت کرد.</p>
+
+<h3 id="پردازش-نظرات-پس-از-ثبت">پردازش نظرات پس از ثبت</h3>
+<p>برای اینکار یک <a href="https://github.com/mehdisadeghi/mehdix.ir/blob/master/build.sh">اسکریپت شل</a> و یک <a href="https://github.com/mehdisadeghi/mehdix.ir/blob/master/rebuild_comments.py">اسکریپت پایتون</a> نوشتم. با هر بار ارسال فرم، نتلیفای اسکریپت بیلد را اجرا می‌کند. این اسکریپت کارهای زیر را انجام می‌دهد:</p>
+
+<ol>
+  <li>پیش‌نیازهای اجرای اسکریپت پایتون را نصب می‌کند.</li>
+  <li>اسکریپت پایتون را جهت استخراج کامنتها از نتلیفای اجرا می‌کند.</li>
+  <li>فایلهای نظرات را به گیت‌هاب اضافه می‌کند.</li>
+  <li>سایت را از نو می‌سازد.</li>
+</ol>
+
+<p>از این جهار مرحله فقط گزینه شماره یک و دو به نتلیفای مربوط است و دیگر کاری با آن نداریم. اسکریپت پایتون ما کارهای زیر را انجام می‌دهد:</p>
+
+<ol>
+  <li>مقادیر ضروری از قبیل توکن نتلیفای و رشته‌ی سرّی را از محیط می‌خواند.</li>
+  <li>لیست نظرات را از نتلیفای دانلود می‌کند.</li>
+  <li>هر نظر را به فرمت مورد نظر وبسایت تبدیل می‌کند.</li>
+  <li>اطلاعاتی خصوصی را رمزنگاری می‌کند.</li>
+  <li>هر نظر را فایل مربوط به صفحه خودش اضافه می‌کند.</li>
+</ol>
+
+<p>حالا ما همه کامنت‌ها را به فرمت <a href="http://yaml.org/">YAML</a> تبدیل کرده‌ایم. <a href="https://github.com/mehdisadeghi/mehdix.ir/blob/master/_data/comments/13-years-old-bug-fixed.yml">هر نظر</a> فرمتی اینگونه خواهد داشت:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="pi">-</span> <span class="na">bucket</span><span class="pi">:</span> <span class="kt">!!binary</span> <span class="pi">|</span>
+    <span class="no">Z0FBQUFBQmFSN19RdWxHeU4tcGp5clR2Z2Z5d0ozZkRTRHV0OGtUYnpub1RIZ09qdkpaazVqQXZO</span>
+    <span class="no">bms5QURNQ25hcEp0cHZSaldEN01OaXBJNXQ5dUxRU215RS1HQjhOTlc5WGFEcWdfaG9hYnhpTzV5</span>
+    <span class="no">RExodlE9</span>
+  <span class="na">date</span><span class="pi">:</span> <span class="s">2017-04-12 11:00:06+00:00</span>
+  <span class="na">email</span><span class="pi">:</span> <span class="s">a84eca4314e52cf150347841e3a17cf1</span>
+  <span class="na">message</span><span class="pi">:</span> <span class="s">&lt;p&gt;بسیار عالی جناب صادقی&lt;br&gt;زحمات شما و دیگر دوستان نادیده‌گرفته نخواهد</span>
+    <span class="s">شد.&lt;br&gt;ممنون&lt;/p&gt;</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">Amir H.</span>
+  <span class="na">page_date</span><span class="pi">:</span> <span class="s">2017-04-08 00:00:00 +0200</span>
+  <span class="na">page_id</span><span class="pi">:</span> <span class="s">/13-years-old-bug-fixed</span>
+  <span class="na">page_title</span><span class="pi">:</span> <span class="s">باگ سیزده ساله تعمیر شد</span>
+  <span class="na">page_uuid</span><span class="pi">:</span> <span class="s">4b4fa077-5001-41b2-bdb3-f9f9638efdb2</span>
+  <span class="na">website</span><span class="pi">:</span> <span class="s">https://disqus.com/by/firouzian/</span>
+</code></pre></div></div>
+<p>بیشتر فیلدها گویا هستند. برخی مستقیما از فرم HTML پای همین صفحه آمده‌اند. برخی دیگر به کمک داده‌هایی که نتلیفای در اختیار می‌گذارد ساخته شده‌اند، مثلا آدرس صفحه‌ای که فرم از آنجا ارسال شده است. در مورد فیلد ایمیل و باکت جلوتر شرح می‌دهم.</p>
+
+<h3 id="افزودن-کامنتدونی-استاتیک-به-وبسایت-جکیل">افزودن کامنت‌دونی استاتیک به وبسایت جکیل</h3>
+<p>بعد از اجرای اسکریپت مرحله قبل نظرات هر پست درون <a href="https://github.com/mehdisadeghi/mehdix.ir/tree/master/_data/comments">فایلهای جداگانه</a> در مخزن وبسایت کامیت می‌شوند. تمام فیلدها را اسکریپت پایتون از دل نتلیفای بیرون کشیده و درون فایل‌ها ذخیره کرده می‌کند. حالا می‌ماند ساخت وبسایت با کامنت‌دونی. من از یک قابلیت جکیل بنام <code class="highlighter-rouge">Data Files</code> استفاده کردم. این‌ها فایل‌هایی هستند که در دایرکتوری <code class="highlighter-rouge">_data</code> ذخیره می‌شوند و در قالب می‌توان محتوای آنها را استفاده کرد. من تم وبسایت را طوری تغییر دادم که در صورتی که کامنت‌دونی استاتیک در کانفیگ جکیل فعال شده باشد زیر هر پست یک فرم تولید کند و همچنین از فایل‌ها کامنت‌های مربوط به هر مطلب را به صورت پاراگراف‌هایی قبل از فرم نظرات درج کند. جزئیات را می‌توانید با دیدن سورس همین صفحه بررسی کنید یا <a href="https://github.com/mehdisadeghi/jekyll-theme-mehdix-rtl/blob/master/_includes/static_comments.html">تم</a> را ببینید.</p>
+
+<h2 id="چالشها-و-ایدهها">چالش‌ها و ایده‌ها</h2>
+<p>مهاجرت به کامنت‌دونی استاتیک پروژه‌ی بزرگی بود و هنوز هم ادامه دارد. مشکلات زیادی داشتم که برخی از آنها را در ادامه می‌آورم.</p>
+
+<h3 id="استخراج-ایمیلها">استخراج ایمیل‌ها</h3>
+<p>ایمیل باید برای من قابل رویت باشد ولی از دید اسپمرها و سایرین پنهان باشد. از جایی که من دیتابیسی جز مخزن گیت‌هابم ندارم باید چاره‌ای برای این مشکل پیدا می‌کردم.</p>
+
+<p>من در دو فیلد ایمیل را ذخیره کرده‌ام. یکبار به صورت هش یکبار رمز. هش هم الگوریتمی یک طرفه است. بنابراین از هش نمی‌توان به ایمیل رسید. من از این هش فقط برای نمایش آواتار به کمک سرویس عالی <a href="https://en.gravatar.com/">گراواتار</a> استفاده کرده‌ام. اما اگر بخواهم خودم به ایمیل کامنت‌گذار دسترسی پیدا کنم چه؟ برای اینکار من ایمیل را رمز می‌کنم و در فیلد <code class="highlighter-rouge">bucket</code> ذخیره می‌کنم. فعلا مشکل نشت ایمیل‌ها برطرف شده ولی برای دیدن ایمیل مجبورم به شکل دستی باکت را دیکریپت کنم.</p>
+
+<h3 id="انتقال-کامنتهای-قدیمی">انتقال کامنتهای قدیمی</h3>
+<p>برای انتقال کامنتهای دیکساس به فرمت جدید یک <a href="https://github.com/mehdisadeghi/mehdix.ir/blob/master/disqus_converter.py">اسکریپت</a> دیگر پایتون نوشتم. کمی دنگ و فنگ داشت ولی کارش را انجام می‌دهد. این اسکریپت فایل XML دانلودی از سایت دیسکاس را تبدیل می‌کند به تعدادی فایل YAML با فرمتی که پیش از این دیدیم.</p>
+
+<h3 id="حذف-راحت-اسپم-و-مدیریت-کامنتها">حذف راحت اسپم و مدیریت کامنت‌ها</h3>
+<p>هنوز راه حلی ندارم. هر کامنتی مستقیما منتشر می‌شود. البته یک دیوار دفاعی ابتدایی در مقابل اسپم‌های رایج دارد.</p>
+
+<h3 id="ریپلای">ریپلای</h3>
+<p>راه حلی که برای این موضوع دارم شبیه کار گیت‌هاب است. بجای ریپلای مستقیم به نظرات، با کمک <a href="http://commonmark.org/help/">مارک‌داون</a> می‌توان با کوت کردن نوشته دیگران و قراردادن علامت <code class="highlighter-rouge">@</code> پیش از نام آنها پاسخی نوشت.</p>
+
+<h3 id="انتشار-به-صورت-پلاگین">انتشار به صورت پلاگین</h3>
+<p>در فکر انتشار کارم به صورت یک پلاگین جکیل هستم. طوری که براحتی بتوان آن را در هر وبسایتی مبتنی بر جکیل پیاده کرد.</p>
+
+<h2 id="نتیجهگیری">نتیجه‌گیری</h2>
+<p>جایگزین کردن دیسکاس با یک کامنت‌دونی خانگی و دست‌ساز برای من کار مفرّحی بود. چیزهایی یاد گرفتم و سایتم سبک‌تر شد. امیدوارم برای دیگران هم مفید باشد و اگر وبسایت استاتیک دارید به دردتان بخورد. اگر این نوشته را دوست داشتید نظر بدهید یا آن را با دوستانتان به اشتراک بگذارید.</p>
+
+
+
+  
+    <div id="related-posts">
+      <h3>مطالب مرتبط</h3>
+      <ul>
+        
+          <li><a href="/reply-to-comments.html">آگاه‌سازی ایمیلی برای کامنت‌دونی</a></li>
+        
+          <li><a href="/one-click-netlify-deploy.html">دیپلوی این وبسایت با یک کلیک</a></li>
+        
+        </ul>
+    </div>
+  
+
+  <small id="post-tags">
+    
+      <i class="fas fa-tag"></i>
+      <a rel="tag" href="/tag/%D8%AF%DB%8C%D8%B3%DA%A9%D8%A7%D8%B3.html">دیسکاس</a>
+    
+      <i class="fas fa-tag"></i>
+      <a rel="tag" href="/tag/%D9%86%D8%AA%D9%84%DB%8C%D9%81%D8%A7%DB%8C.html">نتلیفای</a>
+    
+      <i class="fas fa-tag"></i>
+      <a rel="tag" href="/tag/%DA%A9%D8%A7%D9%85%D9%86%D8%AA%E2%80%8C%D8%AF%D9%88%D9%86%DB%8C.html">کامنت‌دونی</a>
+    
+      <i class="fas fa-tag"></i>
+      <a rel="tag" href="/tag/%D8%AF%DB%8C%D8%AF%DA%AF%D8%A7%D9%87.html">دیدگاه</a>
+    
+      <i class="fas fa-tag"></i>
+      <a rel="tag" href="/tag/%D9%86%D8%B8%D8%B1.html">نظر</a>
+    
+
+    <i class="fas fa-code"></i>
+    
+    
+    <a href="https://raw.githubusercontent.com/mehdisadeghi/mehdix.ir/master/_source/_posts/2017-12-30-static-comments.md">سورس</a>
+    
+  </small>
+
+  <nav class="pagination">
+    
+      <a href="https://mehdix.ir/theme-rework.html" class="pagination--pager" title="دوباره‌نویسی تم وبسایت">قبلی</a>
+    
+
+    
+      <a href="https://mehdix.ir/return-to-firefox.html" class="pagination--pager" title="بازگشت به فایرفاکس">بعدی </a>
+    
+  </nav>
+
+  <section>
+    
+      
+<section id="static-comments">
+  
+  
+  
+  <h4 id="comments-header">دیدگاه‌ها</h4>
+  <div id="comments">
+    
+    <div class="comment-chain">
+      <article id="5a5640e8f5a5804c0a02d42d">
+        <div class="comment-image-wrapper">
+          <img class="comment-avatar" src="https://www.gravatar.com/avatar/351ce59c17f613b1cb50def014c374c8?s=200&d=robohash" />
+        </div>
+        <div class="comment-body-wrapper">
+          <span class="comment-meta">
+            <small>
+              
+                <a href=http://ros.ir/ target="_"><span commenter>طراحی سایت مشهد</span></a>
+              
+            </small>
+            <small> &nbsp; <a href="#5a5640e8f5a5804c0a02d42d">۲۰ دی ۱۳۹۶</a></small>
+            <small> &nbsp; <a href="#comment-form" onclick="replyTo('5a5640e8f5a5804c0a02d42d')">پاسخ</a></small>
+            <span style="display:none" commentId>5a5640e8f5a5804c0a02d42d</span>
+          </span>
+          <p>اقا دستتون درد نکنه خسته نباشید عالیییی بود</p>
+
+        </div>
+      </article>
+
+        
+
+    </div>
+    
+    <div class="comment-chain">
+      <article id="5a5c6ccd35c5153bf80a65e8">
+        <div class="comment-image-wrapper">
+          <img class="comment-avatar" src="https://www.gravatar.com/avatar/b8300d25ea925952e9baf08f5b3ed586?s=200&d=robohash" />
+        </div>
+        <div class="comment-body-wrapper">
+          <span class="comment-meta">
+            <small>
+              
+                <a href=http://shayegan.net target="_"><span commenter>شایگان</span></a>
+              
+            </small>
+            <small> &nbsp; <a href="#5a5c6ccd35c5153bf80a65e8">۲۵ دی ۱۳۹۶</a></small>
+            <small> &nbsp; <a href="#comment-form" onclick="replyTo('5a5c6ccd35c5153bf80a65e8')">پاسخ</a></small>
+            <span style="display:none" commentId>5a5c6ccd35c5153bf80a65e8</span>
+          </span>
+          <p>بسیار کاربردی بود. مرسی از زحماتتون</p>
+
+        </div>
+      </article>
+
+        
+
+    </div>
+    
+  </div>
+  
+
+  <form id="comment-form" name="comment" netlify-honeypot="bot-field" netlify>
+    <input name="bot-field" style="display:none">
+    <input name="page_id" style="display:none" value="/static-comments">
+    <input id="reply-to" name="reply-to" style="display:none">
+    <label for="message">دیدگاه<sup class="required">*</sup> &nbsp;<small>می‌توانید با <a href="http://commonmark.org/help/" target="_">مارک‌داون</a> هم بنویسید.</small><br><small id="replyToVisualClue"></small>
+      <textarea id="message" name="message" required alt="no!!" onkeyup="preview()"></textarea>
+      <div id="preview"></div>
+    </label>
+    <label for="name">نام<sup class="required">*</sup>
+      <input id="name" type="text" name="name" required>
+    </label>
+    <label for="email">ایمیل<sup class="required">*</sup>
+      <input id="email" type="email" name="email" required>
+    </label>
+    <label for="website">وبسایت
+      <input id="website" type="url" name="website">
+    </label>
+    <div style="text-align:left">
+      <button type="submit" class="button">ارسال</button>
+    </div>
+  </form>
+
+</section>
+<script src="https://mehdix.ir/assets/js/showdown.min.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+  function preview() {
+    var converter = new showdown.Converter();
+    var markdown = document.getElementById("message").value;
+    document.getElementById("preview").innerHTML = converter.makeHtml(markdown);
+  }
+
+  function replyTo(commentID) {
+    var comment = document.getElementById(commentID);
+    document.getElementById("reply-to").value = comment.querySelector("span[commentId]").innerText;
+    document.getElementById("replyToVisualClue").innerText = "[در جواب " + comment.querySelector("span[commenter]").innerText + "]";
+  }
+</script>
+    
+  </section>
+
+</article>
+</div>
+    </main><footer>
+
+  <div class="wrapper">
+
+    
+
+    <p id="footer-description">بچه که بودیم همیشه برای بازی خونه می‌ساختیم. حالا هم نمونه‌اش رو در وب ساختم. اینجا سکوی انتشار مطالبی در مورد دانش تولید نرم‌افزار و ایده‌ها و علایق شخصی‌ام است، بویژه راه‌حل‌های مهندسی که باعث رشد و پیشرفتم شده است و می‌تواند مورد استفاده دیگران هم قرار بگیرد.
+</p>
+
+    <ul class="social-media-list">
+      
+      <li>
+        <i class="fab fa-github"></i>
+        <a href="https://github.com/mehdisadeghi">
+          <span class="username social-media-text">پروژه‌ها</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <i class="fab fa-twitter-square"></i>
+        <a href="https://twitter.com/msadeghii">
+          <span class="username social-media-text">توئیت‌ها</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <i class="fas fa-rss"></i>
+        <a href="https://feedburner.google.com/fb/a/mailverify?uri=mehdixir&amp;loc=en_US">
+          <span class="username social-media-text">خبرنامه</span></a>
+      </li>
+      <li>
+        <i class="fas fa-rss"></i>
+        <a href="http://feeds.feedburner.com/mehdixir">
+        <span class="username social-media-text">خوراک</span></a>
+      </li>
+      
+      
+        <li>
+          <i class="fas fa-envelope-open"></i>
+          <a href="mailto:sadeghi@mehdix.org">
+            <span class="username social-media-text">تماس</span></a></li>
+      
+    </ul>
+
+  <div id="footer-extra">
+    <small id="license">
+  <i class="fab fa-creative-commons"></i>
+  مطالب این وبلاگ تحت مجوز
+  <a rel="license" href="http://creativecommons.org/licenses/by/4.0/deed.fa">
+    کریتیو کامنز اتریبیوشن ۴.۰ اینترنشنال
+  </a>قرار دارد.
+</small>
+    <a id="atom" href="https://validator.w3.org/feed/check.cgi?url=https://mehdix.ir/feed.xml"><img src=https://mehdix.ir/assets/img/valid-atom.png alt="[Valid Atom 1.0]" title="Validate my Atom 1.0 feed" /></a>
+  </div>
+
+  </div>
+
+  <small id="build-time">Site generated on Tue, 06 Feb 2018 02:43:37 +0100</small>
+
+</footer><script src="https://mehdix.ir/assets/js/main.js"></script>
+     <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-57282325-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+ 
+  </body>
+</html>
