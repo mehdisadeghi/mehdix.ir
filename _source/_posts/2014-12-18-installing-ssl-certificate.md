@@ -23,14 +23,11 @@ uuid: e367a6cc-329f-4a68-a995-d7aa579db246
 ## تولید کلیدهای اولیه
 اول به ماشین مورد نظر *ssh* می‌کنیم و دستور زیر رو جهت تولید یک کلید خصوصی وارد می‌کنیم:
 
-{% highlight bash %}
-openssl genrsa 2048 > key.pem
-{% endhighlight %}
+    openssl genrsa 2048 > key.pem
 
 فراموش نکنید که کلیدها رو به ماشین خودتون *scp* کنید. حالا یک **درخواست گواهینامه** تولید می‌کنیم:
-{% highlight bash %}
-openssl req -new -key key.pem -out csr.pem
-{% endhighlight %}
+
+    openssl req -new -key key.pem -out csr.pem
 
 به سوالات پرسیده شده جواب بدین و برای گزینه *Common Name* اسم دامنه خودتون را با پسوندش وارد کنید (بدون پیشوند). لزومی به وارد *Challenge Password* نیست.
 
@@ -42,15 +39,13 @@ openssl req -new -key key.pem -out csr.pem
 * AddTrustExternalCARoot.crt
 
 حال باید از روی اینها ما یک *Certificate Bundle* بسازیم:
-{% highlight bash %}
-cat STAR_yourdomain_ext.crt COMODORSADomainValidationSecureServerCA.crt COMODORSAAddTrustCA.crt AddTrustExternalCARoot.crt > bundle.cer
-{% endhighlight %}
+
+    cat STAR_yourdomain_ext.crt COMODORSADomainValidationSecureServerCA.crt COMODORSAAddTrustCA.crt AddTrustExternalCARoot.crt > bundle.cer
 
 ## کپی فایل‌های گواهینامه
 من روی سرورم اوبونتو ۱۴.۰۴ نصب کردم و برای نصب nginx تنها کافی بود که دستور زیر رو وارد کنم:
-{% highlight bash %}
-sudo apt-get install ngingx
-{% endhighlight %}
+
+    sudo apt-get install ngingx
 
 برای کپی کردن فایل‌ها مراحل زیر رو انجام می‌دیم:
 
@@ -63,41 +58,37 @@ sudo apt-get install ngingx
 
 ## تنظیم nginx
 حالا *nginx* رو تنظیم می‌کنیم که همه ترافیک *http*‌ رو بفرسته روی *https*:
-{% highlight bash %}
-sudo vim /etc/nginx/sites-available/default
-{% endhighlight %}
 
-{% highlight bash %}
-server {
-        listen 80 default_server;
+    $ sudo vim /etc/nginx/sites-available/default
 
-        server_name mehdix.org;
+    server {
+            listen 80 default_server;
 
-        return   301 https://$server_name$request_uri;
-}
-{% endhighlight %}
+            server_name mehdix.org;
+
+            return   301 https://$server_name$request_uri;
+    }
 
 روی پورت ۸۰ گوش کن و هرچه درخواست برای *mehdix.org* بدستت رسید بفرست با کد ۳۰۱ روی همین سرور ولی با *https*. حالا وقت تنظیمات خود *https* رسیده:
-{% highlight bash %}
-server {
-        listen 443;
 
-        server_name mehdix.org;
+    server {
+            listen 443;
 
-        root /usr/share/nginx/html;
-        index index.html index.htm;
+            server_name mehdix.org;
 
-        ssl on;
-        ssl_certificate /etc/nginx/ssl/bundle.cer;
-        ssl_certificate_key /etc/nginx/ssl/key.pem;
-}
-{% endhighlight %}
+            root /usr/share/nginx/html;
+            index index.html index.htm;
+
+            ssl on;
+            ssl_certificate /etc/nginx/ssl/bundle.cer;
+            ssl_certificate_key /etc/nginx/ssl/key.pem;
+    }
 
 و یک ریستات و والسلام:
-{% highlight bash %}
-sudo service nginx restart
-{% endhighlight %}
+
+    sudo service nginx restart
 
 و این هم رنگ خوش سبز *https* در کروم:
 
+{: .center}
 ![image](assets/pimg/https.png)
