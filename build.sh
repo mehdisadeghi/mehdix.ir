@@ -13,6 +13,8 @@ git config --global user.name "Mehdi Sadeghi"
 git config credential.helper "store --file=.git/credentials"
 echo "https://${GH_TOKEN}:@github.com" > .git/credentials
 
+git remote remove origin
+git remote add origin https://github.com/mehdisadeghi/mehdix.ir
 git checkout $BRANCH
 git pull origin $BRANCH
 
@@ -26,8 +28,6 @@ git commit --message "Netlify - Update static comments." > /dev/null
 
 if [ $? -eq 0 ]; then
   echo "Pushing new comments."
-  git remote remove origin
-  git remote add origin https://github.com/mehdisadeghi/mehdix.ir
   git push origin $BRANCH
 fi
 
