@@ -2,12 +2,11 @@ source: _source
 title: مهدی صادقی
 motto: در مورد نرم‌افزار و ایده‌هایم
 author: مهدی صادقی
-email: sadeghi@mehdix.org
-baseurl:  # the subpath of your site, e.g. /blog
+email: mehdi@mehdix.ir
+baseurl: "" # the subpath of your site, e.g. /blog
 url: https://mehdix.ir # the base hostname & protocol for your site
 keywords: کامپیوتر برنامه‌نویسی پایتون تکنولوژی مهندسی ایران وب
 copyright: Commons Attribution 4.0 International
-robot: ""
 description: >
   سکوی انتشار مطالبی در مورد دانش تولید نرم‌افزار و ایده‌ها و علایق شخصی‌ام.
 
@@ -21,10 +20,8 @@ twitter:
 github:
   username: mehdisadeghi
   repository: mehdix.ir
-fullname: مهدی صادقی
 favicon: assets/img/me.png
 logo: assets/img/me.png
-lang: fa_IR
 
 theme: jekyll-theme-mehdix-rtl
 
