@@ -10,11 +10,8 @@ git config --global user.name "Mehdi Sadeghi"
 git config credential.helper "store --file=.git/credentials"
 echo "https://${GH_TOKEN}:@github.com" > .git/credentials
 
-echo "Install missing dev tools"
-apt-get update && apt-get install -y python-pip libpython-dev
-
 echo "Install python deps for building comments."
-pip install requests pyyaml cryptography langdetect pathlib
+pip install requests pyyaml cryptography langdetect pathlib2
 
 echo "Build static comments if there are any."
 python rebuild_comments.py
