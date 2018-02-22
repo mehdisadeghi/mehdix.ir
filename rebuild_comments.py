@@ -2,14 +2,11 @@
 import os
 import json
 import hashlib
-try:
-  from pathlib import Path
-except ImportError:
-  from pathlib2 import Path
 from collections import OrderedDict
 
 import yaml
 import requests
+from pathlib2 import Path
 from cryptography.fernet import Fernet
 from langdetect import DetectorFactory, detect
 
@@ -20,9 +17,9 @@ DetectorFactory.seed = 0
 SECRET = os.environ['SECRET']
 COMMENT_DIR = os.environ.get('COMMENT_DIR', './_source/_data/comments')
 
-ACCESS_TOKEN = os.environ.get('NETLIFY_ACCESS_TOKEN')
-FORM_ID = os.environ.get('NETLIFY_FORM_ID')
-SITE_ID = os.environ.get('NETLIFY_SITE_ID')
+ACCESS_TOKEN = os.environ['NETLIFY_ACCESS_TOKEN']
+FORM_ID = os.environ['NETLIFY_FORM_ID']
+SITE_ID = os.environ['NETLIFY_SITE_ID']
 
 BASE = 'https://api.netlify.com/api/v1'
 SITE = '{base}/sites/{site_id}'.format(base=BASE, site_id=SITE_ID)
