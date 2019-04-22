@@ -9,11 +9,8 @@
 	{
 		"Jekyll":
 		{
-			"jekyll_drafts_path": "/home/mehdi/Projects/mehdix.ir/_source/_drafts",
+			"jekyll_auto_find_paths": true,
 			"jekyll_markdown_extension": "md",
-			"jekyll_posts_path": "/home/mehdi/Projects/mehdix.ir/_source/_posts",
-			"jekyll_templates_path": "/home/mehdi/Projects/mehdix.ir/_source/_templates",
-			"jekyll_uploads_path": "/home/mehdi/Projects/mehdix.ir/_source/assets"
 		},
 		"indent_with_spaces": true,
 		"tab_size": 2

@@ -33,4 +33,3 @@ fi
 
 echo "Building the website."
 jekyll build
-
