@@ -1,6 +1,5 @@
 mehdix.ir
 =========
-[![wercker status](https://app.wercker.com/status/7cdfaf1d4ea865468f4965954ed95247/s "wercker status")](https://app.wercker.com/project/bykey/7cdfaf1d4ea865468f4965954ed95247)
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/mehdisadeghi/mehdix.ir?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 ![](_source/assets/img/frontpage.png)

@@ -14,7 +14,7 @@ echo "Install python deps for building comments."
 pip install requests pyyaml cryptography langdetect pathlib2
 
 echo "Build static comments if there are any."
-python rebuild_comments.py
+python3.7 rebuild_comments.py
 
 # Disable exiting on errors automatically
 set +e
