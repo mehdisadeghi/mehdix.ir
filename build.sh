@@ -11,7 +11,7 @@ git config credential.helper "store --file=.git/credentials"
 echo "https://${GH_TOKEN}:@github.com" > .git/credentials
 
 echo "Install python deps for building comments."
-pip install requests pyyaml cryptography langdetect pathlib2
+pip3.7 install requests pyyaml cryptography langdetect pathlib2
 
 echo "Build static comments if there are any."
 python3.7 rebuild_comments.py
