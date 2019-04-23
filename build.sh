@@ -10,12 +10,14 @@ git config --global user.name "Mehdi Sadeghi"
 git config credential.helper "store --file=.git/credentials"
 echo "https://${GH_TOKEN}:@github.com" > .git/credentials
 
-echo "Install python deps for building comments."
 # Path comes from Netlify Build Image
-/opt/buildhome/python3.7/bin/pip3.7 install requests pyyaml cryptography langdetect pathlib2
+source /opt/buildhome/python3.7/bin/activate
+
+echo "Install python deps for building comments."
+pip install requests pyyaml cryptography langdetect pathlib2
 
 echo "Build static comments if there are any."
-python3.7 rebuild_comments.py
+python rebuild_comments.py
 
 # Disable exiting on errors automatically
 set +e
