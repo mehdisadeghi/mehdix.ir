@@ -1,4 +1,5 @@
 // Mail OP upon reply.
+"use strict";
 const nodemailer = require('nodemailer');
 const request = require('request-promise-native');
 
@@ -63,7 +64,7 @@ async function getOPEmail(replyToId){
       `https://api.netlify.com/api/v1/sites/${process.env.NETLIFY_SITE_ID}` +
       `/forms/${process.env.NETLIFY_FORM_ID}/submissions/${replyToId}`),
     qs: {
-      access_token: process.env.ACCESS_TOKEN
+      access_token: process.env.NETLIFY_ACCESS_TOKEN
     },
     json: true
   }
