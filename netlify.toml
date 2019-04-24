@@ -3,3 +3,4 @@
   publish = "_site"
   command = "./build.sh"
   functions = "lambdas/"
+  functionsSource = "_source/_functions/"
