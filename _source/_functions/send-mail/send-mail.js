@@ -14,7 +14,7 @@ exports.handler = async function(event, context) {
 
 // async..await is not allowed in global scope, must use a wrapper
 async function main(event, context){
-
+  console.log(event.body);
   body = JSON.parse(event.body);
   console.log(body);
 
