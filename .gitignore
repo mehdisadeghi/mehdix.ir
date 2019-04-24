@@ -8,3 +8,5 @@ vendor
 __pycache__
 .jekyll-metadata
 env.sh
+node_modules
+

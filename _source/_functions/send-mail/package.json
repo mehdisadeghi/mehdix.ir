@@ -1,0 +1,17 @@
+{
+  "name": "send-mail",
+  "version": "1.0.0",
+  "description": "",
+  "main": "send-mail.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "nodemailer": "^6.1.1",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.4",
+    "request-promise-native": "^1.0.7"
+  }
+}
