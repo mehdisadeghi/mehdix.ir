@@ -1,5 +1,6 @@
 mehdix.ir
 =========
+[![Netlify Status](https://api.netlify.com/api/v1/badges/1a868305-2645-4c6f-a0ec-4d5b9f8e0ae5/deploy-status)](https://app.netlify.com/sites/distracted-ardinghelli-9dda58/deploys)
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/mehdisadeghi/mehdix.ir?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 ![](_source/assets/img/frontpage.png)
