@@ -15,13 +15,14 @@ exports.handler = async function(event, context) {
 // async..await is not allowed in global scope, must use a wrapper
 async function main(event, context){
   console.log('Event:', event);
-  body = JSON.parse(event.body);
+  let body = JSON.parse(event.body);
+  console.log('After parse:', body);
 
-  if(!event.data['reply-to']){
+  if(!body.data['reply-to']){
     return Promise.resolve('Not a reply.');
   }
 
-  let opEmail = await getOPEmail(event.data['reply-to'])
+  let opEmail = await getOPEmail(body.data['reply-to'])
   console.log('OP Email:', opEmail);
 
   // create reusable transporter object using the default SMTP transport
@@ -35,21 +36,21 @@ async function main(event, context){
     }
   });
 
-  let replyLink = event.site_url + event.data.page_id + ".html#" + event.id;
+  let replyLink = body.site_url + body.data.page_id + ".html#" + body.id;
 
-  let txt = `${event.name} به دیدگاهت رو سایت مهدیکس [جواب](${replyLink}) داد:
+  let txt = `${body.name} به دیدگاهت رو سایت مهدیکس [جواب](${replyLink}) داد:
 
-    ${event.body}`;
+    ${body.body}`;
 
   let html = `<div dir="rtl">
-    <p>${event.name} به دیدگاهت رو سایت مهدیکس <a href="${replyLink}">جواب</a> داد:</p>
-    <blockquote><pre>${event.body}</pre></blockquoe></div>`;
+    <p>${body.name} به دیدگاهت رو سایت مهدیکس <a href="${replyLink}">جواب</a> داد:</p>
+    <blockquote><pre>${body.body}</pre></blockquoe></div>`;
 
   // send mail with defined transport object
   let info = await transporter.sendMail({
     from: 'mehdix.ir 👻🐶 <noreply@mehdix.ir>',
     to: opEmail,
-    subject: `${event.name} جواب داد ✔`,
+    subject: `${body.name} جواب داد ✔`,
     text: txt,
     html: html
   });
