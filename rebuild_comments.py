@@ -76,13 +76,15 @@ def decrypt(text):
 def update_comments(file, comments):
     '''Update comments in the YAML data files of each post.'''
     file.seek(0)
-    old_comments = yaml.load(file) or []
+    old_comments = yaml.safe_load(file) or []
 
     # Use comment date as ID
     old_comment_ids = [cmnt['created_at'] for cmnt in old_comments]
     # Avoid duplicates and avoid non-Persian comments. A naive protection against spam.
-    new_comments = list(filter(lambda x: x['created_at'] not in old_comment_ids and x['language'] == 'fa',
-        map(transform_comment, comments)))
+    new_comments = list(
+        filter(
+            lambda x: x['created_at'] not in old_comment_ids and x['language'] in ('fa', 'ar'),
+            map(transform_comment, comments)))
 
     if new_comments:
         yaml.dump(new_comments,
