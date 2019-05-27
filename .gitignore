@@ -11,4 +11,4 @@ env.sh
 node_modules
 .envrc
 .netlify
-
+.direnv
