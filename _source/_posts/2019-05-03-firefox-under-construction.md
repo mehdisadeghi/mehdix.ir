@@ -54,8 +54,8 @@ ac_add_options --enable-debug
 
 [باگی سیزده ساله]: /13-years-old-bug-fixed/
 [باگ مربوط به راست‌به‌چپ‌نویسی]: https://bugzilla.mozilla.org/show_bug.cgi?id=1417662
-[مشکلی]: https://gitlab.gnome.org/GNOME/gtk/commit/0128b8d33f47c9387ee342a1158f3038e02eff49
-[rr]:‌ http://rr-project.org/
+[مشکلی]: http://gitlab.gnome.org/GNOME/gtk/commit/0128b8d33f47c9387ee342a1158f3038e02eff49
+[rr]: https://rr-project.org/
 [کامپایل سریع]: https://developer.mozilla.org/en-US/docs/Mozilla/Developer_guide/Build_Instructions/Artifact_builds
 [Mercurial]: https://www.mercurial-scm.org/quickstart
 [روی سایت موزیلا]: https://developer.mozilla.org/en-US/docs/Mozilla/Developer_guide/Build_Instructions/Simple_Firefox_build/Linux_and_MacOS_build_preparation
