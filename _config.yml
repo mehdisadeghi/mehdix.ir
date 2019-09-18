@@ -42,3 +42,18 @@ comment_system: static
 #disqus_shortname: mehdix
 #google_analytics_id: UA-57282325-1
 feedburner_id: mehdixir
+
+
+defaults:
+-
+  scope:
+    path: ""
+    type: "posts"
+  values:
+    layout: "post"
+-
+  scope:
+    path: "projects"
+    type: "pages"
+  values:
+    layout: "project"
