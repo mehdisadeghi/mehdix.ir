@@ -34,5 +34,9 @@ if [ $? -eq 0 ]; then
   #git push origin2 $BRANCH
 fi
 
+echo "Installing bundler..."
+gem install bundler
+bundle install
+
 echo "Building the website."
-jekyll build
+bundler exec jekyll build
