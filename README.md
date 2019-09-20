@@ -13,7 +13,7 @@ For any discussion regarding creating static websites with Jekyll please refer t
 
 # Helfpul Tips
 - This website is based on [jekyll-theme-mehdix-rtl](https://github.com/mehdisadeghi/jekyll-theme-mehdix-rtl) theme.
-- Currently (2019) is hosted on Netlify servers.
+- It is currently hosted on Netlify servers (2019).
 - Form submissions are handled by Netlify.
 - `scripts/rebuild_comments.py` uses Netlify API and builds yaml collections for the static comments.
 - **Hosting on GitHub Pages will fail** due to lack of necessary gems on their build servers.
