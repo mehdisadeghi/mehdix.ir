@@ -26,7 +26,7 @@ set +e
 #git checkout $BRANCH
 #git pull origin $BRANCH
 
-git add ./_source/_data/comments
+git add src/_data/comments
 git commit --message "Netlify - Update static comments." > /dev/null
 
 if [ $? -eq 0 ]; then
