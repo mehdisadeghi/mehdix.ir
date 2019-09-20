@@ -15,7 +15,7 @@ from langdetect import DetectorFactory, detect
 DetectorFactory.seed = 0
 
 SECRET = os.environ["SECRET"]
-COMMENT_DIR = os.environ.get("COMMENT_DIR", "../src/_data/comments")
+COMMENT_DIR = os.environ.get("COMMENT_DIR", "src/_data/comments")
 
 ACCESS_TOKEN = os.environ["NETLIFY_ACCESS_TOKEN"]
 FORM_ID = os.environ["NETLIFY_FORM_ID"]
