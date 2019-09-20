@@ -9,10 +9,13 @@
 	{
 		"Jekyll":
 		{
-			"jekyll_auto_find_paths": true,
+			"jekyll_drafts_path": "/home/mx/Projects/mehdix.ir/src/_drafts",
 			"jekyll_markdown_extension": "md",
+			"jekyll_posts_path": "/home/mx/Projects/mehdix.ir/src/_posts",
+			"jekyll_templates_path": "/home/mx/Projects/mehdix.ir/src/_templates"
 		},
 		"indent_with_spaces": true,
 		"tab_size": 2
-	}
+	},
+	"virtualenv": "/home/mx/Projects/mehdix.ir/.direnv/python-3.7.3"
 }
