@@ -29,8 +29,9 @@ SUBMISSIONS_ENDPOINT = '{site}/forms/{form_id}/submissions?access_token={access_
 
 def get_comments():
     '''Get a map of post_uuid => list of comment dicts.'''
-    raw_comments = requests.get('{site}/forms/{form_id}/submissions'.format(site=SITE, form_id=FORM_ID),
-                                params={'access_token': ACCESS_TOKEN})
+    raw_comments = requests.get(
+        '{site}/forms/{form_id}/submissions'.format(site=SITE, form_id=FORM_ID),
+        params={'access_token': ACCESS_TOKEN})
     comments = json.loads(raw_comments.content.decode('utf-8'))
     comments.sort(key=lambda x: x['number'])
     result = OrderedDict()
@@ -60,17 +61,17 @@ def transform_comment(comment):
 
 
 def encrypt(data):
-	'''Encrypt the data using SECRET key.'''
-	f = Fernet(SECRET)
-	s = json.dumps(data)
-	return f.encrypt(s.encode('utf8'))
+    '''Encrypt the data using SECRET key.'''
+    f = Fernet(SECRET)
+    s = json.dumps(data)
+    return f.encrypt(s.encode('utf8'))
 
 
 def decrypt(text):
-	'''Decrypt the text using SECRET.'''
-	f = Fernet(SECRET)
-	s = f.decrypt(text.decode('utf8'))
-	return json.loads(s)
+    '''Decrypt the text using SECRET.'''
+    f = Fernet(SECRET)
+    s = f.decrypt(text.decode('utf8'))
+    return json.loads(s)
 
 
 def update_comments(file, comments):
@@ -88,9 +89,9 @@ def update_comments(file, comments):
 
     if new_comments:
         yaml.dump(new_comments,
-            file,
-            default_flow_style=False,
-            allow_unicode=True)
+                  file,
+                  default_flow_style=False,
+                  allow_unicode=True)
 
 
 def main():
