@@ -3,13 +3,26 @@ mehdix.ir
 [![Netlify Status](https://api.netlify.com/api/v1/badges/1a868305-2645-4c6f-a0ec-4d5b9f8e0ae5/deploy-status)](https://app.netlify.com/sites/distracted-ardinghelli-9dda58/deploys)
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/mehdisadeghi/mehdix.ir?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
-![](_source/assets/img/frontpage.png)
+![](src/assets/img/frontpage.png)
 
 This is the source code of my personal Persian [website](http://mehdix.ir). Persian aka Farsi is written right-to-left, however some people use Roman script to write Persian language in messaging applications and social networks.
 
 This repository can be of use to anybody willing to build a new right to left website. I gradually fix issues which I came across while writing new posts in my website. This website is produced using [Jekyll](http://jekyllrb.com/) static site generator.
 
 For any discussion regarding creating static websites with Jekyll please refer to the above mentioned Gitter channel.
+
+# Helfpul Tips
+- This website is based on [jekyll-theme-mehdix-rtl](https://github.com/mehdisadeghi/jekyll-theme-mehdix-rtl) theme.
+- Currently (2019) is hosted on Netlify servers.
+- Form submissions are handled by Netlify.
+- `scripts/rebuild_comments.py` uses Netlify API and builds yaml collections for the static comments.
+- **Hosting on GitHub Pages will fail** due to lack of necessary gems on their build servers.
+- A lambda function is used to inform OP (original poster) about replies to their comments.
+
+## Functions
+Sources are inside `src/_functions` directory. To build functions install `netlify` cli and run:
+
+    netlify functions:build
 
 # Make it yours
 Take the following steps to make your own website:
