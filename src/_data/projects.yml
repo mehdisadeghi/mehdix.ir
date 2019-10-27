@@ -1,0 +1,40 @@
+- name: بوکمارکر
+  date: Sat Jun 18 13:54:40 2016 +0200
+  website: https://chrome.google.com/webstore/detail/dogmmdcflcflabibfbecmfgaaobifimo
+  repository:
+    url: https://github.com/mehdisadeghi/bookmarker
+    tracker: https://github.com/mehdisadeghi/bookmarker/issues
+  description:
+    short: بوکمارکر یک افزونه‌ی مرورگر کروم است. کارش اینست که بوکمارک‌ها را جستجو کند. کافیست در نوار آدرس کروم `bb` وارد کنید و شروع کنید به تایپ کردن.
+    long:
+  language: JavaScript
+- name: قانون اساسی 
+  date: Sun Aug 7 13:09:58 2016 +0200
+  website: 
+  repository:
+    url: https://github.com/mehdisadeghi/iranconstitution
+    tracker: https://github.com/mehdisadeghi/iranconstitution/issues
+  description:
+    short: قانون اساسی جمهوری اسلامی ایران در فرمت `YAML`.
+    long: از سایت مرکز پژوهش‌های مجلس به عنوان منبع استفاده شده است. همه‌ی متن در یک فایل پیاده شده است.
+  language: YAML
+- name: مکتوب
+  date: Sat Dec 10 05:47:18 2016 +0100
+  website: https://chrome.google.com/webstore/detail/maktoob/oahgddeaidcccjknakhbamebomknkdfo
+  repository:
+    url: https://github.com/mehdisadeghi/maktoob
+    tracker: https://github.com/mehdisadeghi/maktoob/issues
+  description:
+    short: 
+    long: مکتوب یک افزونه‌ی مرورگر کروم است. کارش اینست که صفحات را خوانا کند. کافیست روی آیکنش در نوارابزار کروم کلیک کنید تا به جز متن صفحه همه چیز را پاک کند. مکتوب از Readability.js موزیلا استفاده می‌کند که در فایرفاکس استفاده شده است.
+  language: JavaScript
+- name: ساقی‌بات
+  date: Wed Feb 3 00:27:50 2016 +0100
+  website: https://t.me/SaaghiBot 
+  repository:
+    url: https://github.com/mehdisadeghi/SaaghiBot
+    tracker: https://github.com/mehdisadeghi/SaaghiBot/issues
+  description:
+    short: ساقی‌بات یک روبات تلگرام است. اسم خودمانی‌اش ساقی است. کارش اینست که بزم و دل ما را با یک دو بیتی از خیام شاد کند.
+    long:
+  language: nodejs

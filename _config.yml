@@ -57,3 +57,7 @@ defaults:
     type: "pages"
   values:
     layout: "project"
+
+navbar:
+  items:
+    - projects
