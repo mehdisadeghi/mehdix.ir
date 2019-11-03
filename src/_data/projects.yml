@@ -1,5 +1,6 @@
 - name: بوکمارکر
-  date: Sat Jun 18 13:54:40 2016 +0200
+  id: bookmarker
+  date: 2016-06-18T11:54:40+00:00
   website: https://chrome.google.com/webstore/detail/dogmmdcflcflabibfbecmfgaaobifimo
   repository:
     url: https://github.com/mehdisadeghi/bookmarker
@@ -9,7 +10,8 @@
     long:
   language: JavaScript
 - name: قانون اساسی 
-  date: Sun Aug 7 13:09:58 2016 +0200
+  id: iranconstitution
+  date: 2016-08-07T11:09:58+00:00
   website: 
   repository:
     url: https://github.com/mehdisadeghi/iranconstitution
@@ -19,7 +21,8 @@
     long: از سایت مرکز پژوهش‌های مجلس به عنوان منبع استفاده شده است. همه‌ی متن در یک فایل پیاده شده است.
   language: YAML
 - name: مکتوب
-  date: Sat Dec 10 05:47:18 2016 +0100
+  id: maktoob
+  date: 2016-12-10T04:47:18+00:00
   website: https://chrome.google.com/webstore/detail/maktoob/oahgddeaidcccjknakhbamebomknkdfo
   repository:
     url: https://github.com/mehdisadeghi/maktoob
@@ -29,7 +32,8 @@
     long: مکتوب یک افزونه‌ی مرورگر کروم است. کارش اینست که صفحات را خوانا کند. کافیست روی آیکنش در نوارابزار کروم کلیک کنید تا به جز متن صفحه همه چیز را پاک کند. مکتوب از Readability.js موزیلا استفاده می‌کند که در فایرفاکس استفاده شده است.
   language: JavaScript
 - name: ساقی‌بات
-  date: Wed Feb 3 00:27:50 2016 +0100
+  id: SaaghiBot
+  date: 2016-02-02T23:27:50+00:00
   website: https://t.me/SaaghiBot 
   repository:
     url: https://github.com/mehdisadeghi/SaaghiBot
