@@ -89,7 +89,7 @@ def update_comments(file, comments):
     new_comments = list(
         filter(
             lambda x: x["created_at"] not in old_comment_ids
-            and x["language"] in ("fa", "ar"),
+            ,#and x["language"] in ("fa", "ar"),
             map(transform_comment, comments),
         )
     )
