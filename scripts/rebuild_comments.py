@@ -2,118 +2,127 @@
 import hashlib
 import json
 import os
-from collections import OrderedDict
+from collections import defaultdict
 
 import requests
 import yaml
 from cryptography.fernet import Fernet
-from langdetect import DetectorFactory, detect
 from pathlib2 import Path
 
-# Stay consistent between builds
-DetectorFactory.seed = 0
 
-SECRET = os.environ["SECRET"]
-COMMENT_DIR = os.environ.get("COMMENT_DIR", "src/_data/comments")
-
-ACCESS_TOKEN = os.environ["NETLIFY_ACCESS_TOKEN"]
-FORM_ID = os.environ["NETLIFY_FORM_ID"]
-SITE_ID = os.environ["NETLIFY_SITE_ID"]
-
-BASE = "https://api.netlify.com/api/v1"
-SITE = "{base}/sites/{site_id}".format(base=BASE, site_id=SITE_ID)
-SUBMISSIONS_ENDPOINT = \
-    "{site}/forms/{form_id}/submissions?access_token={access_token}".format(
-        site=SITE, form_id=FORM_ID, access_token=ACCESS_TOKEN)
-
-
-def get_comments():
+def get_netlify_form_submissions(form_submissions_endpoint, access_token):
     """Get a map of post_uuid => list of comment dicts."""
     raw_comments = requests.get(
-        "{site}/forms/{form_id}/submissions".format(
-            site=SITE, form_id=FORM_ID),
-        params={"access_token": ACCESS_TOKEN},
+        form_submissions_endpoint,
+        params={"access_token": access_token},
     )
     comments = json.loads(raw_comments.content.decode("utf-8"))
     comments.sort(key=lambda x: x["number"])
-    result = OrderedDict()
+
+    result = defaultdict(list)
     for comment in comments:
-        comment["language"] = detect(comment["data"]["message"])
         key = comment["data"]["page_id"]
-        if key not in result:
-            result[key] = []
+        if key.startswith('/'):
+            key = key[1:]
         result[key].append(comment)
 
     return result
 
 
-def transform_comment(comment):
-    """Convert Netlify form data to a normal comment."""
-    return {
-        "id": comment["id"],
-        "created_at": comment["created_at"],
-        "reply_to": comment["data"].get("reply-to"),
-        "page_id": comment["data"]["page_id"],
-        "name": comment["data"]["name"],
-        "email": hashlib.md5(comment["data"]["email"].encode(
-            "ascii")).hexdigest(),
-        "bucket": encrypt(comment["data"]["email"]),
-        "website": comment["data"]["website"],
-        "message": comment["data"]["message"],
-        "spam": comment.get("spam"),
-        "language": comment.get("language"),
-    }
+def detect_language(text):
+    from langdetect import DetectorFactory, detect
+    # Stay consistent between builds
+    DetectorFactory.seed = 0
+
+    return detect(text)
 
 
-def encrypt(data):
-    """Encrypt the data using SECRET key."""
-    f = Fernet(SECRET)
-    s = json.dumps(data)
+def encrypt(text, secret):
+    """Encrypt the text using the secret."""
+    f = Fernet(secret)
+    s = json.dumps(text)
     return f.encrypt(s.encode("utf8"))
 
 
-def decrypt(text):
-    """Decrypt the text using SECRET."""
-    f = Fernet(SECRET)
+def decrypt(text, secret):
+    """Decrypt the text using the secret."""
+    f = Fernet(secret)
     s = f.decrypt(text.decode("utf8"))
     return json.loads(s)
 
 
-def update_comments(file, comments, page_id):
-    """Update comments in the YAML data files of each post."""
-    file.seek(0)
-    old_comments = yaml.safe_load(file) or []
+def make_transform_closure(secret):
+    def transform(comment):
+        return {
+            "id": comment["id"],
+            "created_at": comment["created_at"],
+            "reply_to": comment["data"].get("reply-to"),
+            "page_id": comment["data"]["page_id"],
+            "name": comment["data"]["name"],
+            "email": hashlib.md5(comment["data"]["email"].encode(
+                "ascii")).hexdigest(),
+            "bucket": encrypt(comment["data"]["email"], secret),
+            "website": comment["data"]["website"],
+            "message": comment["data"]["message"],
+        }
+    return transform
 
-    # Use comment date as ID
-    old_comment_ids = [cmnt["created_at"] for cmnt in old_comments]
-    # Avoid duplicates and avoid non-Persian comments.
+
+def update_comments_file(file, comments, page_id, transformer_fn):
+    """Update comments in the YAML data files of each post."""
+
+    existing = [c["created_at"] for c in yaml.safe_load(file) or []]
+
     # A naive protection against spam.
-    new_comments = list(
+    incoming = list(
         filter(
-            lambda x: x["created_at"]
-            not in old_comment_ids,  # and x["language"] in ("fa", "ar"),
-            map(transform_comment, comments),
+            lambda x: x["created_at"] not in existing,
+            map(transformer_fn, comments),
         )
     )
 
-    if new_comments:
+    if incoming:
+        print('Dumping yml for: {}'.format(page_id))
         yaml.dump(
-            new_comments, file, default_flow_style=False, allow_unicode=True)
+            incoming, file, default_flow_style=False, allow_unicode=True)
+    else:
+        print('Already updated: {}'.format(page_id))
 
 
 def main():
-    """Update comments."""
-    netlify_comments = get_comments()
-    Path(COMMENT_DIR).mkdir(parents=True, exist_ok=True)
-    for page_uuid, page_comments in netlify_comments.items():
-        print('Building', page_uuid)
-        if page_comments:
-            uid = os.path.basename(page_comments[0]["data"]["page_id"])
-            path = os.path.join(COMMENT_DIR, "{uid}.yml".format(uid=uid))
-            with open(path, "a+", encoding="utf8") as file:
-                update_comments(file, page_comments, page_uuid)
+    """Do everything."""
+    # Download comments from Netlify.
+    netlify_site_endpoint = \
+        "https://api.netlify.com/api/v1/sites/{site_id}".format(
+            site_id=os.environ["NETLIFY_SITE_ID"])
+
+    form_submissions_endpoint = \
+        "{netlify_site_endpoint}/forms/{form_id}/submissions".format(
+            netlify_site_endpoint=netlify_site_endpoint,
+            form_id=os.environ["NETLIFY_FORM_ID"])
+
+    netlify_form_submissions_per_page = get_netlify_form_submissions(
+        form_submissions_endpoint,
+        os.environ["NETLIFY_ACCESS_TOKEN"])
+
+    # Make sure the taget directory exists
+    comments_dst = os.environ.get("COMMENT_DIR", "src/_data/comments")
+    Path(comments_dst).mkdir(parents=True, exist_ok=True)
+
+    # Get the fn to transform external format to the internal
+    transformer = make_transform_closure(os.environ["SECRET"])
+
+    # Add new comments to the target yaml files.
+    for page_id, submissions in netlify_form_submissions_per_page.items():
+        comments_yamlfile = os.path.join(
+            comments_dst, "{}.yml".format(page_id))
+
+        with open(comments_yamlfile, "a+", encoding="utf8") as file:
+            file.seek(0)
+            update_comments_file(
+                file, submissions, page_id, transformer)
 
 
 if __name__ == "__main__":
     main()
-    print("Done.")
+    print("Finished building comments.")
