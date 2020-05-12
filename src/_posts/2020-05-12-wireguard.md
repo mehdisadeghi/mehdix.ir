@@ -109,6 +109,7 @@ PostDown = iptables -D FORWARD -i %i -j ACCEPT; iptables -t nat -D POSTROUTING -
 <source src="https://www.wireguard.com/talks/talk-demo-screencast.mp4">
 <caption>Source: www.wireguard.com</caption>
 </video>
+ویدیو از سایت وایرگارد است.
 
 [وایرگارد]: https://www.wireguard.com/
 [Jason A. Donenfeld]: https://www.zx2c4.com/
