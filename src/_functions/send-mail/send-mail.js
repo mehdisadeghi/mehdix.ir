@@ -48,7 +48,7 @@ async function main(event, context){
 
   // send mail with defined transport object
   let info = await transporter.sendMail({
-    from: `mehdix.ir <${body.data['reply-to']}@comments.mehdix.org>`,
+    from: `mehdix.ir <${body.data['reply-to']}@mehdix.ir>`,
     to: opEmail,
     subject: `${body.name} جواب داد ✔`,
     text: txt,
