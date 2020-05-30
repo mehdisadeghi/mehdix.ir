@@ -2,5 +2,4 @@
   base    = ""
   publish = "_site"
   command = "scripts/build.sh"
-  functions = "lambdas/"
-  functionsSource = "src/_functions/"
+  functions = "src/_functions/"
