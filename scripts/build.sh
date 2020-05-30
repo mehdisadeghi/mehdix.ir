@@ -4,6 +4,11 @@
 # Exit on any error
 set -e
 
+echo "Packaging lambda functions"
+pushd src/_functions/send-mail
+npm install
+popd
+
 echo "Set git credentials."
 git config --global user.email "msk1361@gmail.com"
 git config --global user.name "Mehdi Sadeghi"
