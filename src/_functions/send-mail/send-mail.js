@@ -44,11 +44,11 @@ async function main(event, context){
 
   let html = `<div dir="rtl">
     <p>${body.name} به دیدگاهت رو سایت مهدیکس <a href="${replyLink}">جواب</a> داد:</p>
-    <blockquote><pre>${body.body}</pre></blockquoe></div>`;
+    <blockquote>${body.body}</blockquoe></div>`;
 
   // send mail with defined transport object
   let info = await transporter.sendMail({
-    from: 'mehdix.ir 👻🐶 <noreply@mehdix.ir>',
+    from: `mehdix.ir <${body.data['reply-to']}@comments.mehdix.org>`,
     to: opEmail,
     subject: `${body.name} جواب داد ✔`,
     text: txt,
