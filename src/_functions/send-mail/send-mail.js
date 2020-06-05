@@ -32,12 +32,13 @@ const request = require('request-promise-native');
 // };
 
 
-exports.handler = async function(event, context, callback) {
-  callback(null, {
-    statusCode: 200,
-    body: await main(JSON.parse(event.body))
-  });
-}
+exports.handler = async function(event, context) {
+  try {
+    const body = await main(event, context);
+    return { statusCode: 200, body };
+  } catch (err) {
+    return { statusCode: 500, body: err.toString() };
+  }
 
 // async..await is not allowed in global scope, must use a wrapper
 async function main(submission) {
