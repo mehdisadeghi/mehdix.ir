@@ -34,7 +34,7 @@ const request = require('request-promise-native');
 
 exports.handler = async function(event, context) {
   try {
-    const body = await main(event, context);
+    const body = await main(JSON.parse(event.body));
     return { statusCode: 200, body };
   } catch (err) {
     return { statusCode: 500, body: err.toString() };
