@@ -65,11 +65,11 @@ async function main(submission) {
     });
   }
 
-  // Alwas inform the post author about new comments.
+  // Always inform the post author about new comments.
   let info = await transporter.sendMail({
     from: `mehdix.ir <${submission.id}@mehdix.ir>`,
     to: process.env.NOTIFICATIONS_EMAIL,
-    subject: `${submission.name} نظر داد ✔`,
+    subject: `${submission.name} داد سخن داد ✔`,
     text: mailTextBody,
     html: mailHTMLBody
   });
