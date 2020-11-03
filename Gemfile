@@ -10,7 +10,8 @@ source "https://rubygems.org"
 # Happy Jekylling!
 gem "jekyll", "~> 4.0"
 
-gem "jekyll-theme-mehdix-rtl", "~> 4.0"#, :path => '../jekyll-theme-mehdix-rtl'
+#gem "jekyll-theme-mehdix-rtl", "~> 4.0", :path => '../jekyll-theme-mehdix-rtl'
+gem "jekyll-theme-mehdix-rtl", :git => "https://github.com/mehdisadeghi/jekyll-theme-mehdix-rtl", :ref => "HEAD"
 gem "jekyll-tagging-related_posts", :git => "https://github.com/mehdisadeghi/jekyll-tagging-related_posts", :ref => "a58844c"
 
 # Windows and JRuby does not include zoneinfo files, so bundle the tzinfo-data gem

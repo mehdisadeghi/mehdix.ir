@@ -13,3 +13,4 @@ node_modules
 .netlify
 .direnv
 */.jekyll-cache/
+src/_data/
