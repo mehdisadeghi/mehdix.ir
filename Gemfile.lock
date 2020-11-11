@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: https://github.com/mehdisadeghi/jekyll-theme-mehdix-rtl
-  revision: 385a1c24185d9f1d5596f00ec9f4331dd0584cb4
+  revision: 9be109364bf85f1115b29956f526a3f87a2fdaff
   ref: HEAD
   specs:
     jekyll-theme-mehdix-rtl (4.0.1)
