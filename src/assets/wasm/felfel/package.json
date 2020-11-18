@@ -1,0 +1,21 @@
+{
+  "name": "felfel",
+  "collaborators": [
+    "Mehdi Sadeghi <mehdi@mehdix.org>"
+  ],
+  "description": "A Rust library and CLI tool for Farsi compound noun generation.",
+  "version": "0.1.1",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mehdisadeghi/felfel"
+  },
+  "files": [
+    "felfel_bg.wasm",
+    "felfel.js",
+    "felfel.d.ts"
+  ],
+  "module": "felfel.js",
+  "types": "felfel.d.ts",
+  "sideEffects": false
+}
