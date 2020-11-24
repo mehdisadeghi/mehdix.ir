@@ -38,11 +38,14 @@ collections:
   projects:
     output: true
 
-comment_system: static
 #disqus_shortname: mehdix
 #google_analytics_id: UA-57282325-1
 #feedburner_id: mehdixir
 
+comments:
+  enabled: true
+  type: static
+  recaptcha: true
 
 defaults:
 -
