@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<!--    <meta name="gamefile" content="game.zip"> -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>INSTEAD-EM</title>
+    <style>
+      body { font-family: 'Segoe UI', Roboto, Arial, sans-serif; }
+      .emscripten { padding-right: 0; margin-left: auto; margin-right: auto; display: block; }
+      div.emscripten { text-align: center; }      
+      div.emscripten_border { border: 0px solid black; }
+      /* the canvas *must not* have any border or padding, or mouse coords will be wrong */
+      canvas.emscripten { border: 0px none; background-color: black; }
+      #controls { margin-top: 20px; }
+      .ldBar-label {
+        padding: 5px;
+        font-weight: bold;
+        background-color: rgba(255, 255, 255, 0.5);
+        border-radius: 5px;
+      }
+      #emProgress .ldBar-label {
+        display: none;
+      }
+    </style>
+    <link rel="stylesheet" type="text/css" href="loading-bar.css"/>
+  </head>
+  <body>
+    <div id="preloader">
+      <div id="emPreloader" data-type="fill" data-img="sdl_instead.svg" class="ldBar label-center" style="width:200px; height: 200px; margin-left: auto; margin-right: auto" data-value="0"></div>
+      <div class="emscripten" id="emscripten-status">Downloading...</div>
+      <div style="margin: 5px;">&nbsp;</div>
+      <div id="emProgress" data-preset="line" class="ldBar no-label" style="width:400px; margin-left: auto; margin-right: auto;" data-value="0"></div>
+    </div>
+    <div id="emscripten-app" style="display:none">
+      <div class="emscripten_border">
+        <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()"></canvas>
+      </div>
+      <div id="controls" class="emscripten">
+<!--        <input type="checkbox" id="resize">Resize canvas
+        <input type="checkbox" id="pointerLock" checked>Lock/hide mouse pointer &nbsp;&nbsp;&nbsp; -->
+        <input type="button" value="Fullscreen" onclick='document.getElementById("canvas").requestFullscreen()'>
+      </div>
+    </div>
+    <script type="text/javascript" src="loading-bar.min.js"></script>
+    <script type="text/javascript" src="loader-em.js"></script>
+  </body>
+</html>

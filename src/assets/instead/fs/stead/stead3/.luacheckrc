@@ -1,0 +1,4 @@
+globals = {
+	'stead',
+	'LANG',
+}
