@@ -24,8 +24,8 @@ category: بازی
 از جایی که قصدم تنها انتشار نتیجه‌ی کارم بود همینجا مطلب را تمام می‌کنم. امیدوارم از بازی لذت ببرید.
 
 [مطلب قبلی‎ در مورد بازی]: ./quantum-cat.html/
-[اینجا]: http://localhost:4000/assets/instead/instead-em.html?cat.zip
-[بازی]: http://localhost:4000/assets/instead/instead-em.html?cat.zip
+[اینجا]: assets/instead/instead-em.html?cat.zip
+[بازی]: assets/instead/instead-em.html?cat.zip
 [SDL2]: https://www.libsdl.org/
 [emscripten]: emscripten.org/
 [llvm]: llvm.org/
