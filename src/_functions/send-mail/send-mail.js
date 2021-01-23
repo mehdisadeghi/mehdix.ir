@@ -29,7 +29,7 @@ async function main(submission) {
   console.log(submission);
 
   // The link back to the submission
-  let submissionURL = submission.site_url + submission.data.page_id + ".html#" + submission.id;
+  let submissionURL = submission.site_url + '/' + submission.data.page_id + ".html#" + submission.id;
 
   // Construct the mail body for the OP
   let mailTextBody = `${submission.name} به دیدگاهت رو سایت مهدیکس [جواب](${submissionURL}) داد:
