@@ -60,6 +60,12 @@ defaults:
     type: "pages"
   values:
     layout: "project"
+-
+  scope:
+    path: "tag"
+  values:
+    sitemap: false
+
 
 navbar:
   items:
