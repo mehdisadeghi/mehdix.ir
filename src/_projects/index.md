@@ -21,22 +21,9 @@ layout: default
         <h3>
           {% if proj %}<a href="{{proj.id}}">{{ project.name }}</a> {% else %}
           {{ project.name }}
-          {% endif %} &nbsp; <small><a href="{{ project.repository.url }}">سورس</a></small></h3>
+          {% endif %}
+        </h3>
       </li>
-      <li>
-        {{ project.description.short }}
-      </li>
-      <li>
-        {{ project.description.long }}
-      </li>
-      <li>
-        زبان برنامه‌نویسی: {{ project.language }}
-      </li>
-      {% if project.website %}
-      <li>
-        <a href="{{ project.website }}">Langing page</a>
-      </li>
-      {% endif %}
     </ul>
   </li>
 {% endfor %}
