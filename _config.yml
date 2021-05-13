@@ -23,8 +23,6 @@ github:
 favicon: assets/img/me.png
 logo: assets/img/me.png
 
-theme: jekyll-theme-mehdix-rtl
-
 permalink: :title.html
 timezone: Europe/Berlin
 
@@ -38,35 +36,35 @@ collections:
   projects:
     output: true
 
-#disqus_shortname: mehdix
-#google_analytics_id: UA-57282325-1
-#feedburner_id: mehdixir
-
 comments:
   enabled: true
   type: static
   recaptcha: true
+  static:
+    avatar:
+      visible: true
+  disqus:
+    # Used if the `comment_system` is set to `disqus`
+    shortname: ''
+
+#google_analytics_id: UA-57282325-1
 
 defaults:
--
-  scope:
+- scope:
     path: ""
     type: "posts"
   values:
     layout: "post"
--
-  scope:
+- scope:
     path: "projects"
     type: "pages"
   values:
     layout: "project"
--
-  scope:
+- scope:
     path: "tag"
   values:
     sitemap: false
 
-
 navbar:
   items:
-    - projects
+  - projects
