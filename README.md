@@ -1,6 +1,6 @@
 mehdix.ir
 =========
-[Matrix Room](https://matrix.to/#/!KIkzsncBDBFNgKjYbZ:matrix.org?via=matrix.org)
+[Matrix chat for questions](https://matrix.to/#/!KIkzsncBDBFNgKjYbZ:matrix.org?via=matrix.org)
 
 ![](src/assets/img/frontpage.png)
 
