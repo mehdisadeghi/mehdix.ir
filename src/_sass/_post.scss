@@ -1,13 +1,12 @@
-.post-header {
-    margin: 4em auto;
+.post-meta {
 }
 
 .post-title {
-    margin-bottom: $spacing-unit / 2;
+    margin-bottom: 0;
     letter-spacing: -1px;
     line-height: 1.5;
     text-align: center;
-    font-weight: bold;
+    /*font-weight: bold;*/
     font-size: 4em;
     color: $header-color;
 
