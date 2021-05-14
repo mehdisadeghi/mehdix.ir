@@ -4,27 +4,20 @@ layout: default
 {% assign projects_by_date = site.data.projects | sort: 'date' | reverse %}
 
 <h1 class="page-heading">❖ &nbsp; برنامه‌ها</h1>
-
-<ul class="post-list-mini projects">
+<ul class="post-list-mini">
 {% for project in projects_by_date %}
-  <li class="post-list-item" id="project-main-list">
+{% assign prefix = '/projects/,' | split: "," %}
+{% assign middle = project.id | split: '/' %}
+{% assign arr = prefix | concat: middle %}
+{% assign pid = arr | join: '' %}
+{% assign proj = site.projects | where:"id", pid | first %}
+  <li class="post-list-item">
     <span class="list-meta-col">
       {{ project.date | jdate: "%d %b %Y" | habify }}
     </span>
-    <ul class="post-list-mini">
-      {% assign prefix = '/projects/,' | split: "," %}
-      {% assign middle = project.id | split: '/' %}
-      {% assign arr = prefix | concat: middle %}
-      {% assign pid = arr | join: '' %}
-      {% assign proj = site.projects | where:"id", pid | first %}
-      <li>
-        <h3>
-          {% if proj %}<a href="{{proj.id}}">{{ project.name }}</a> {% else %}
-          {{ project.name }}
-          {% endif %}
-        </h3>
-      </li>
-    </ul>
+    <span class="list-line">
+      <a href="{{ proj.id }}">{{ project.name }}</a>
+    </span>
   </li>
 {% endfor %}
 </ul>

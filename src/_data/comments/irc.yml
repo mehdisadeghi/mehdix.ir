@@ -1,0 +1,103 @@
+- bucket: !!binary |
+    Z0FBQUFBQmRoX0JRRFUyQXZ0MlJLb0I3aFZnSF9UVEpQb0l5bmZlMWdJR1M0eGhSelhoekNrZnU2
+    V0NqZ2tvQzVVdW9RYjBTRVBvWE9NV09pTzdCSzN0VUM3SDFCT3p2UEZvWk1Ta3NTZ1Bid2NxZFFj
+    dnF1Q3M9
+  created_at: '2018-07-10T07:21:51.840Z'
+  email: a84eca4314e52cf150347841e3a17cf1
+  id: 5b445e8fd031813ed42ab6ae
+  language: fa
+  message: "البته می‌شه با برنامه‌هایی هم خلا دائمی وصل بودن رو حل کرد. مثلا من با\
+    \ کامپوترهای تک برده و\r\nQuassel\r\nیک چیزی درست کردم که همیشه وصل بود. البته\
+    \ الان قطعش کردم چون برده برام مهم‌تر بود.\r\nلینک برنامه:"
+  name: امیر اچ.
+  page_id: /irc
+  reply_to: ''
+  spam: null
+  website: ''
+- bucket: !!binary |
+    Z0FBQUFBQmRoX0JRcFQ4elBLVGttaV9XS0twcnNXcmVzR25nMEtldjNQTlpVeloybnRaVUp1SDIz
+    bTRvNi1CcUVqWlNySlF2ZzQzeUVuZjNfdG53QVFKc01Ta3hSbXFzaE45NktyNXJOcG9ZVVZkTWVS
+    OC11bnc9
+  created_at: '2018-07-23T11:15:54.044Z'
+  email: 0371f5b900b484368f9e1717d7d965b1
+  id: 5b55b8ea494e4a10667d850f
+  language: fa
+  message: چه کار جالبی کردی. به نظرم مهمترین قسمتش مشکل تغییر آی‌پیه. خوب می‌شد که
+    می‌نوشتی چکار کردی که بقیه هم پیدا کنندش و بخونند.
+  name: مهدی
+  page_id: /irc
+  reply_to: 5b445e8fd031813ed42ab6ae
+  spam: null
+  website: https://mehdix.ir
+- bucket: !!binary |
+    Z0FBQUFBQmRoX0JRRXJxaTZpZGdnZVkydlpLaWN6RUdvLVVOUUY5RGdsZVc4ZC1oMlNaZXNKS2lq
+    V3d5cnFhNkxlSzdtYlUwMW5sN3hYTDczc01aUy1YZVBfdkpHT21DYkNLZGhyZmpRTlE4emNsNTky
+    MGJCMlk9
+  created_at: '2018-08-26T01:56:24.481Z'
+  email: b1c5f58f4e46bb0ea75d8a2411945b92
+  id: 5b8208c8e1e4d75bd03df378
+  language: fa
+  message: "من هم مشکل شمارو دارم و با irssi هم قبلا همه تلاشمو کردم ولی به هیچ صراطی\
+    \ مستقیم نمیشه و فارسی رو درست نمایش نمیده\r\nحالا گذشته از اون، گزینه thelounge\
+    \ برای من خیلی مهیج‌تر و باحال‌تر و بالطبع کلی کاربردی‌تر هم هست.\r\nمن thelounge\
+    \ رو روی سرور نصب کردم، روی پورت 7000 ران کردم و پورت 7000 رو روی سرورم باز کردم\
+    \ (هم INPUT و هم OUTPUT) اما مشکل اینجاس که به هیچ سروری نمیتونه وصل شه و اصلا\
+    \ هم نفهمیدم از کجا باید لاگشو چک کنم که بفهمم دقیقا چه مشکلی سر راه اتصالش پیش\
+    \ میاد.\r\nاگه کمکی می‌کنه باید بگم که سرور من به صورت پیش‌فرض ارتباط‌هارو دراپ\
+    \ می‌کنه مگر اینکه پورتی رو من روش باز کنم و برای این مورد هم پورت 7000 رو باز\
+    \ کردم.\r\nسرور توسط دیجیتال اوشن میزبانی میشه و سیستم عامل هم CentOS 7.x و SELinux\
+    \ enabled و به جای firewalld از iptables استفاده می‌کنم.\r\nبرای تست علاوه بر\
+    \ سرورهای دیگه، روی فری‌نود پورت‌های مختلف ذکر شده توی وب‌سایتش (منجمله 7000)\
+    \ رو تست کردم."
+  name: منصور
+  page_id: /irc
+  reply_to: ''
+  spam: null
+  website: ''
+- bucket: !!binary |
+    Z0FBQUFBQmRoX0JRc2c3TlpTbE0zaWFZc2dtZFRzOXJLV3VNWVk2NkI1S1NXT09VSktXTElQU3lH
+    dVM0dVpPMXZvX0RUNnJYbmM5bkRoUC1RSWlMN2NpTlFFd28wOEZINmZLR3E1U0dsenp2QU9pRm5L
+    MlJMNzQ9
+  created_at: '2018-08-26T01:59:36.370Z'
+  email: b1c5f58f4e46bb0ea75d8a2411945b92
+  id: 5b8209883297121bb5e87e46
+  language: fa
+  message: در مورد تغییر آی‌پی با داشتن آی‌پی استاتیک یا استفاده از کانکشنی که امکان
+    قطعیش خیلی پایینه (اغلب سرویس‌دهنده‌های درست و حسابی میشه گفت قطعی ندارن) و یا
+    حتی استفاده از یه VPN میشه مشکل رو حل کرد. هرچند اگه اینترنت شما در حدی خوبه که
+    امکان قطع شدنش خیلی خیلی ضعیفه، پس نباید نگران آی‌پی بود چون آی‌پی حین اینکه نت
+    وصله که عوض نمیشه :-)
+  name: منصور
+  page_id: /irc
+  reply_to: ''
+  spam: null
+  website: ''
+- bucket: !!binary |
+    Z0FBQUFBQmRoX0JRdzB5MGowUE1yQlpWRVJ4NnVlSkctdTlpTHNXaks3Q3c5dlJzQnc4S2p1RGNJ
+    bU4tM0dieG5BQXR4b2Y1eWxfNWUzM0l4dEZfcUFCTlZpSWFDWk5nR0xMSDdZNkEyMUFKYzFOc0It
+    aXdRbU09
+  created_at: '2018-08-30T12:02:49.173Z'
+  email: 0371f5b900b484368f9e1717d7d965b1
+  id: 5b87dce93297124d0fe7293a
+  language: fa
+  message: حدس من اینه که لانژ می‌خواد به پورت‌های رایج آی‌آر‌سی روی سرورهای دیگه
+    وصل بشه که تو همه رو تو فایروالت بلاک کردی. تنها پورت ۷۰۰۰ رو باز گذاشتی که اونهم
+    فقط برای وب سرور لانژه. توی کانال آی‌آر‌سی خود لانژ بپرس.
+  name: مهدی
+  page_id: /irc
+  reply_to: 5b8208c8e1e4d75bd03df378
+  spam: null
+  website: https://mehdix.ir
+- bucket: !!binary |
+    Z0FBQUFBQmdTMHNKMDRLVHV3RE1FYzFIZFRqdEdBcElRdnhXTWxmMmpXeFE5RnF6RktxNHZsZDNs
+    OTNsS1dqSnpXc3lseW9zV3FZb1VwNmQ1QUFmTEJYbHVwWHp4RWM1aC02eENBWFdCeTR3YzZTZXVL
+    a2xwNlU9
+  created_at: '2020-05-13T12:53:23.809Z'
+  email: 1311bd6cd04223e5590417723a3c4c16
+  id: 5ebbedc3896b76a310bdf00c
+  message: میتونید از IRC Bouncer استفاده کنید. نیازی نیست خودتون یک سرور داشته باشید
+    اما در عوض بحث حریم خصوصی مطرح هست چون صاحب سرور میتونه پیام‌های شما رو بخونه.
+  name: فاروق کریمی زاده
+  page_id: /irc
+  reply_to: ''
+  website: http://pcworms.blog.ir

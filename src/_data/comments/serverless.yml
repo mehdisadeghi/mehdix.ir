@@ -1,0 +1,71 @@
+- bucket: !!binary |
+    Z0FBQUFBQmRoX0JRMDFCVERoek9pdkFSVzA5U05zQ0hwVWVlZG9QN0tEY0ZkakN5eXQ5LXhYV2Fq
+    ZloxMVF5UWUybGZ3YnlkUlBsa3ZSQUMtM2pxZ2NsOE5aQmJxTFBkbzBVWGdmeGNuNm1KdmNLYzhK
+    UDFiZ3c9
+  created_at: '2019-08-14T08:16:25.809Z'
+  email: 9b59b8c28023fa973234518e442128cc
+  id: 5d53c35922e4fce07e096f1d
+  language: fa
+  message: "مطلب جالبی بود. در دات نت هم سراغ Azure می روند برای اجرای سرورلس.\r\n\
+    ممنون."
+  name: افشار محبی
+  page_id: /serverless
+  reply_to: ''
+  spam: null
+  website: http://blog.afsharm.ir
+- bucket: !!binary |
+    Z0FBQUFBQmRoX0JRaHU3QThMOHFwRXdFNjlMNDAxNl9pN3pPblZ2aEhKQVZiN0d2dWU3WC12WjBl
+    ZENfYXNwMVo5Y0YxenlpWko4bHFQWjQzR3YyVFJBQTF5alV1UFhCRXU3ZjZlSFh3RTJ1RlM4R1dU
+    RFh6UW89
+  created_at: '2019-08-14T08:36:21.948Z'
+  email: 0371f5b900b484368f9e1717d7d965b1
+  id: 5d53c805c03f0f9b50341225
+  language: fa
+  message: ممنونم بابت مطالعه. فریم‌ورکی که معرفی کردم آژور را هم [پشتیبانی](https://serverless.com/framework/docs/providers/azure/)
+    می‌کنه.
+  name: وبلاگ‌صاحاب
+  page_id: /serverless
+  reply_to: 5d53c35922e4fce07e096f1d
+  spam: null
+  website: ''
+- bucket: !!binary |
+    Z0FBQUFBQmRoX0JRcFc5NlNXVXlKdW5YSE9rR3RIYUk3T1VfTnJvckFTekh5bHExMHFRNXdJdFhk
+    b1d5SEpUd2padV9RalNOM3d4WGFiWXhaM215ck1SYXQ5anVrQVdzNUlSbVlFeGdKdXc1V0NuSWhS
+    ejdWT2M9
+  created_at: '2019-08-29T13:53:44.567Z'
+  email: 73325239306589d852e78a452b89bf0c
+  id: 5d67d8e87be014a213deb03e
+  language: ar
+  message: ممنون بابت توضیحات خوبتون
+  name: حمزه
+  page_id: /serverless
+  reply_to: ''
+  spam: null
+  website: ''
+- bucket: !!binary |
+    Z0FBQUFBQmdTMHNKRk00TzNhaTBoM3lSQjJkam1EZFFGcENtbGdZVkJPOU5OX3FsdGtCRjRlN3pW
+    TnlyLXFpQkhOM2xPRUd3b2k4U202TUNPOHVmcl9uNU4zZ1I4N0REWTZnNUhXVnI3M1hQbnlfMmVY
+    d19DS3M9
+  created_at: '2020-05-14T20:08:26.206Z'
+  email: 522c647db04d8a03f20448323471da0f
+  id: 5ebda53a75f8c486d42a54f0
+  message: "سلام\r\nخوبی؟\r\nکامنت‌هارو چی‌کار کردی؟\r\nالان cms چیه؟وردپرس؟\r\nکامنت‌ها\
+    \ رو با چه سرویسی راه‌اندازی کردی اگر بقیه سایت استاتیک شده."
+  name: حمید
+  page_id: /serverless
+  reply_to: ''
+  website: ''
+- bucket: !!binary |
+    Z0FBQUFBQmdTMHNKOUktZGtnZFFQaUNtbTVrZS1Gcmo1U0szVW5WbmhaLTRDcUJtUGxKMlVLZnB0
+    TDhXMVI2NEc1Zy1COU5KWVFlYmhIV1RKQ3NvUDN0OVhydnMtSGktOXYzRldJVGF1MTQxeDBxTm9B
+    RkVJaUk9
+  created_at: '2020-05-14T21:13:32.508Z'
+  email: 0371f5b900b484368f9e1717d7d965b1
+  id: 5ebdb47cbbdbeb6fb12232a8
+  message: "سلام حمید،\r\nمقالات قبلی و سورس کد رو ببینی متوجه می‌شی.\r\nسایت رو خودم\
+    \ نوشتم و‌ با جکیل بیلد می‌کنم. کامنت‌ها نیمه استاتیکه چون سابمیت می‌شه رو هاست\
+    \ از اونجا می‌گیرم قبل از بیلد و اضافه می‌کنم به سایت."
+  name: مهدی
+  page_id: /serverless
+  reply_to: 5ebda53a75f8c486d42a54f0
+  website: https://mehdix.ir

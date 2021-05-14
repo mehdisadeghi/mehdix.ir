@@ -1,0 +1,223 @@
+- bucket: !!binary |
+    Z0FBQUFBQmRoX0JRdUZDZ0t2bTdrQ3NjNDdpNXlWMFBWZXRqU2hrcmhPT1hQREFWcWhzZk80TGJh
+    MWRxM0k0bTJpXzR6MGVOZzFWbHJaUktYM2RYSGtmdmdXbkotX0hnTUdVUjJaelJpMUgwOTNpNzFL
+    THFiQlk9
+  created_at: '2019-05-03T21:34:22.741Z'
+  email: af12e1f4486de7277b0b3700a1216cfb
+  id: 5cccb3de9a2f7538bb618e55
+  language: fa
+  message: "جدیدا خداروشکر فایرفاکس داره راه خوبی رو طی میکنه\r\nامیدوارم بتونن بهینه\
+    \ اش کنن\r\nجایی خونده بودم یکی از دلایلی که کروم اول از وبکیت استفاده کرد و از\
+    \ Gecko استفاده نکرد این بوده که کلا Gecko از زمانی که موزیلا این موتور رو از\
+    \ Netscape به ارث بود کمی دچار پیچیدگی زیاد از حد کدها بوده :)\r\nراستی قبلا وبلاگ\
+    \ شما رو خونده بودم ولی هرچقدر فکرمیکردم اسم خودتون و وبلاگ رو یادم نمیومد\r\n\
+    هر کاری کردم با سرچ باگ راست به چپ و ... پیدا کنم نشد تا آخر به زور از وبلاگ جادی\
+    \ پیدا کردم :)))"
+  name: علی
+  page_id: /firefox-under-construction
+  reply_to: ''
+  spam: null
+  website: ''
+- bucket: !!binary |
+    Z0FBQUFBQmRoX0JRR2hTRGRDU2ZiZVNsNzhqZ24zNno4aWdvWnNkZktHUURRREp6T3FJVzZZRjRN
+    UzA4aktfZ0k3TkRzSmJmU25fR1drRWRjU29KMVM2Mlh4elRsNzV2Smsyc0tNUFV3dEl4R0tpeDNf
+    cnFmNWM9
+  created_at: '2019-05-03T22:05:46.963Z'
+  email: 0371f5b900b484368f9e1717d7d965b1
+  id: 5cccbb3ac04ba3d4c44101e5
+  language: fa
+  message: "او!‌ ممنون که اینقدر وقت گذاشتی وبسایت رو پیدا کنی، وبلاگ‌صاحاب ازت تشکر\
+    \ مخصوص می‌کنه! \U0001F601\r\nاز قضا امروز بعد از ناقابل شش ماه این مطلب رو نوشته\
+    \ بودم و گفتم شاید از طریق خبرنامه یا فید اینقدر سریع مطلع شدی!\r\nبهرحال. کدهای\
+    \ بخش Gecko واقعا پیچیده است. البته بهتره بگم مستندات کافی نداره. سرچ توی اینترنت\
+    \ هم مقالات زمان نت‌اسکیپ و کلی نتیجه بدردنخور برمی‌گردونه. اما پرسش روی irc و\
+    \ درخواست info روی باگ‌ها کمک می‌کنه چون افراد مطلع کم نیستند. ولی حجم کار عظیمه.\
+    \ یعنی براوزر خیلی خیلی پروژه‌ی بزرگیه و ظاهرا کروم چون جدیدتر نوشته شده خوش‌دست‌تر\
+    \ بوده. اما موزیلا هم از وقتی پروژه‌ی سیستم‌عامل رو رها کرد دوباره شروع کرد به\
+    \ بهبود اساسی فایرفاکس که خیلی بهتر شده و بخش‌هایی هم به تدریج در دوباره‌نویسی\
+    \ با rust هستند. برای کامپایل فایرفاکس هم باید rust و ملحقات اون نصب باشه که بالا\
+    \ فراموش کردم بنویسم."
+  name: وبلاگ‌صاحاب
+  page_id: /firefox-under-construction
+  reply_to: 5cccb3de9a2f7538bb618e55
+  spam: null
+  website: ''
+- bucket: !!binary |
+    Z0FBQUFBQmRoX0JReXlHZTBoc0ZFNWhEYjAxUU9XM2VSV09WcUlfcC1PNTFWUk5KRlpaZjQzUy1W
+    WWo2STZXa200cjBETGVPMW40Sk43dnh4NGhhZFVyVk40ejBaN1NzRjFjQVVhaVJqSTNWNmRzMmhU
+    QVJzNlE9
+  created_at: '2019-05-05T06:32:03.288Z'
+  email: a84eca4314e52cf150347841e3a17cf1
+  id: 5cce8363b08761a37389d4f0
+  language: fa
+  message: "‫درود؛ مشکل خیلی بنیادی‌تر از این حرف‌هاست! این استاندارد ‪UAX 9‬ یونیکد\
+    \ در هیچ‌کدام از مرورگرها کار نمی‌کند.  مثلاً من در زیر یک متن دوجهته می‌نویسم:‬\r\
+    \n‫این یک متن دوجهته که به انگلیسی ‪Bidirection (OR BiDi)‬ به آن می‌گویند. این\
+    \ رو عیناً در ‪gedit‬ تایپ کن و ببین چه می‌شود.‬"
+  name: امیرحسین
+  page_id: /firefox-under-construction
+  reply_to: ''
+  spam: null
+  website: ''
+- bucket: !!binary |
+    Z0FBQUFBQmRoX0JRMWVVNzRsNW5Nb2twaExtejI3Z2JIYTQzNExSWkhfaWF3cGQ0aEdrai1SVlhU
+    YjlxcGt6NUlWdTg5djdPdlJMS3JnanA0eDhaRlgwM09vOUh0YnptcGtydS11NUkzd1daNG9nbHVa
+    RUFCOEU9
+  created_at: '2019-05-05T12:30:12.385Z'
+  email: 0371f5b900b484368f9e1717d7d965b1
+  id: 5cced7549b2a33a112081bb9
+  language: fa
+  message: "می‌تونی بیشتر توضیح بدی که منظورت از اینکه کار نمی‌کنه چیه؟ من مشکلی در\
+    \ تایپ در gedit نداشتم، یعنی همه چیز همونطوریه که انتظار داشتم.\r\nدر فایرفاکس\
+    \ هم مشکلی من دارم روش کار می‌کنم فقط مربوط به انتخاب و هایلایت کردن متن فارسی\
+    \ (و عربی و عبری)‌ با صفحه کلید می‌شه.\r\nمسئله اینه که ترکیب متن rtl و ltr به\
+    \ شکل ذاتی مشکل‌آفرینه و براش هم راه‌حلی وجود نداره. ما فقط می‌تونیم به شکلی کلی\
+    \ تجربه کاربر دوزبانه رو بهبود ببخشیم. به قول انگلیسی‌ها silver bullet نداریم\
+    \ :)"
+  name: وبلاگ‌صاحاب
+  page_id: /firefox-under-construction
+  reply_to: 5cce8363b08761a37389d4f0
+  spam: null
+  website: ''
+- bucket: !!binary |
+    Z0FBQUFBQmRoX0JRQlkzcDRuc1BiYUJ3R195OEc2ZE9WZ1FiVlN2RnB3MWd4czNuUGJPVm9IeEhN
+    MFZtTWdFcE5UWGV6cHlySTVyZjFheU9yTmVOYTJPSk8yNmlHTWpEN0M3LUdTMWVnaVpaay1ZZ2F4
+    Z1pOSUk9
+  created_at: '2019-05-05T17:04:06.921Z'
+  email: a84eca4314e52cf150347841e3a17cf1
+  id: 5ccf17869b2a331418081bb9
+  language: fa
+  message: "‫مثلاً جهت متن که سمت راست باشد فقط در فایرفاکس کار می‌کند؛ این لینک را\
+    \ نگاه کنید:‬\r\n‪https://tools.wmflabs.org/paste/view/raw/4625f46a‬"
+  name: امیرحسین
+  page_id: /firefox-under-construction
+  reply_to: 5cced7549b2a33a112081bb9
+  spam: null
+  website: ''
+- bucket: !!binary |
+    Z0FBQUFBQmRoX0JReEtOSGJIYWJDTEdNYjlVWWVkQmZfNVhYRmlRNHdqUWZ6LWVZWjhkWnZmYzl0
+    SE85Q0gyOE1lWFkzdDRRMlhlUkxWY3RSQWg4em04dWc4WG0xYmt6U2pSek9rT1Q2cXBOTXJ6Nm55
+    cVVzWWc9
+  created_at: '2019-05-05T21:39:07.896Z'
+  email: 0371f5b900b484368f9e1717d7d965b1
+  id: 5ccf57fb5aff37222b83a41a
+  language: fa
+  message: من لینک رو در فایرفاکس و کرومیوم روی لینوکسم نگاه کردم. در هر دو مرورگر
+    متن درست نمایش داده می‌شه (مثلا نقطه انتهای سمت چپ قرار داره). منتها فایرفاکس
+    متن رو از سمت راست شروع می‌کنه ولی کروم نه. ولی این لزوما یک خرابی بنیادی نیست،
+    اتفاقا سطحی است. فایرفاکس (مثل GTK) با خواندن مقداری از عبارت جهت آن زبان رو تشخیص
+    می‌ده ولی کرومیوم هرچند درست نمایش می‌ده اما جهت رو تغییر نمی‌ده که این هم احتمالا
+    انتخاب خود برنامه‌نویس‌ها بوده یا اینکه از برنامه‌نویسانی که این مشکل رو حس کردند
+    کسی تابحال داوطلب نشده مشکل رو رفع کنه.
+  name: مهدی
+  page_id: /firefox-under-construction
+  reply_to: 5ccf17869b2a331418081bb9
+  spam: null
+  website: ''
+- bucket: !!binary |
+    Z0FBQUFBQmRoX0JRLTg4aWJFemtZRTB6N2JMeDdYWXRYV2tNSG15THFvZkJJSlVZa0hzdzNRMlg0
+    a1FVcXotTG9XWEZPRWlqSXNHdmxDeDdxNW5MY2xxRFJDdzFBMDFQcGVWVGpOcXBFQV9iN0R0WHhD
+    X3VRVHc9
+  created_at: '2019-05-06T07:02:24.700Z'
+  email: a84eca4314e52cf150347841e3a17cf1
+  id: 5ccfdc00c950774a673533f3
+  language: fa
+  message: "‫درودی مجدد؛ آیا ‪GTK‬ این کار رو انجام می‌ده یا ‪Freebidi‬ ‫«۱»؟ چون\
+    \ من می‌دونم که حرف‌باز این کار رو نمی‌کنه «۲».‬‬‬\r\n‪http://fribidi.org/‬\r\n\
+    ‪https://harfbuzz.github.io/what-harfbuzz-doesnt-do.html‬"
+  name: امیرحسین
+  page_id: /firefox-under-construction
+  reply_to: 5ccf57fb5aff37222b83a41a
+  spam: null
+  website: ''
+- bucket: !!binary |
+    Z0FBQUFBQmRoX0JRUjR3aWNPd0lxc096d3A5TkUtQkhrb1IxTUhncjNQdlZxRXBFNnNETmlHV19X
+    dGtTMk9lS0g4SEdudDY2MUNUZl9OMUkzVklhMnpPbWRMTEtHSnZUa2Y4Tkw3bkZvQS1tdnZJZ2ll
+    RlBkQ1E9
+  created_at: '2019-05-14T07:17:05.245Z'
+  email: 0371f5b900b484368f9e1717d7d965b1
+  id: 5cda6b7114fc4ca6a0573525
+  language: fa
+  message: در مورد GTK می‌دونم که pango جهت رو تشخیص رو از روی بخش ابتدایی هر خط تشخیص
+    می‌ده، اینکه به نوبه‌ی خودش از چه چیزی استفاده کنه نگاه نکردم.
+  name: مهدی
+  page_id: /firefox-under-construction
+  reply_to: 5ccfdc00c950774a673533f3
+  spam: null
+  website: ''
+- bucket: !!binary |
+    Z0FBQUFBQmRoX0JRdXJFVmFTV3AzNXJVV3hQZmZLR3FZTFUtaFVBVktDS2hidXEzNjVxbEVra2tK
+    M3c5alpwbWhaUzlhbjBMZEhHMEMwYW94VGtVdVFhWlJVNDJRTDA1eUFHVjVkVExDYzB0WVI3Rmpo
+    MUxnenM9
+  created_at: '2019-05-15T14:41:53.519Z'
+  email: 7dc47934ba942297a531525287e596c5
+  id: 5cdc2531246d3e4514c9a388
+  language: fa
+  message: بسیار عالی
+  name: Farhad Hassan Pour
+  page_id: /firefox-under-construction
+  reply_to: ''
+  spam: null
+  website: https://farhadhp.github.io/
+- bucket: !!binary |
+    Z0FBQUFBQmRoX0JRR0VyTVplSnhvWmZBSEJYOHAwRU5sZFJOTFRDSkl2bnRQRGs5WVZCWUtQRjdU
+    Q3JNcy1SNDcxLVpuVnhtZW5LX1Vhd2JoaVJBM1BFd1FXRFU0eDBWX29rUmRXQXI3cFFDRGpIZS1N
+    OXRiM2M9
+  created_at: '2019-08-23T17:51:22.172Z'
+  email: 72e5de9e4b61d6376863ff9cc8224619
+  id: 5d60279a747f94e90b031ea1
+  language: fa
+  message: سلام لینک rr  صحیح نیست قسمتی از آدرس سایت خودتونم هست.
+  name: esmaeelE
+  page_id: /firefox-under-construction
+  reply_to: ''
+  spam: null
+  website: ''
+- bucket: !!binary |
+    Z0FBQUFBQmRoX0JRMTMwYmJhOENhSjZvN3JCTVEtcFNBRVhSVnBjLVFDWnowby1rWXNnbWtXSHMw
+    bU0ycXNyX2ZNdjZzZ20wN29MbjVEVXdSUGdNSHFBS1hFR042Z2dzel83bTJnejByXzI3OENseUo0
+    QnAtOVk9
+  created_at: '2019-08-24T09:53:11.311Z'
+  email: 0371f5b900b484368f9e1717d7d965b1
+  id: 5d610907d305766699fec2ff
+  language: fa
+  message: سلام. ممنون که خبر دادی، درستش کردم.
+  name: وبلاگ‌صاحاب
+  page_id: /firefox-under-construction
+  reply_to: 5d60279a747f94e90b031ea1
+  spam: null
+  website: ''
+- bucket: !!binary |
+    Z0FBQUFBQmdTMHNKcVBvakZLbFIwakpHTmNVMjZzZzA3ZjdHWGtZUVpqa0JpZTFQZmdyaTBWcjZn
+    THVfWmpMdGxoYk8yZU1HZ0ZoMWdFbGcta05CVXZqNUJPRk9aQ1BDT0Myb2N4Nk54V1hHcnJtMzkw
+    UDRDbjA9
+  created_at: '2020-04-10T17:32:57.821Z'
+  email: 72e5de9e4b61d6376863ff9cc8224619
+  id: 5e90adc99d67660191cc589d
+  message: "بررسی  این مشکل در فایرفاکس نسخه 75\r\nمقدار پیش‌فرض\r\nbidi.edit.caret_movement_style\t\
+    2\r\n\r\nاولا باید این مطلبو تقسیم کنم. \r\n۱) مطالب فارسی و انگلیسی نوشته شده\
+    \ (بدون قابلیت ویرایش) مثلا متون همین پست در وبلاگ شما جهت حرکت صحیح است. (برعکس\
+    \ نیست)\r\n۲) این اشکال فقط در قسمت‌هایی با قابلیت ویرایش پیش ‌می‌آید.\r\nمثلا\
+    \ همین باکس مربوط به کامنت‌ها.\r\n\r\nکه همانطور که اشاره کردین باتغییر مورد نظر\
+    \ به یک رفع شد.\r\n\r\nچرا از ابتدا این مقدار روی 1 نیست.\r\nدرواقع چه اشکالی\
+    \ ایجاد می‌کرده که روی 2 تنظیم شده؟\r\n\r\nنکته معترضه\r\nکلید‌های ترکیبی Ctrl+X\
+    \ جهت متن را عوض می‌کنند.\r\n"
+  name: esmaeelE
+  page_id: /firefox-under-construction
+  reply_to: ''
+  website: ''
+- bucket: !!binary |
+    Z0FBQUFBQmdTMHNKV21aRkZfczEtU0VqVEF2eW1QX3RjUGhTNDJVU1pDNDA1VUtTS3JJeUlMZnRT
+    UXR4SEhhMUctRWJJZXpUR19keENOUHFGRTh0ZGh1YldNNlh3ZUZMUFFQYThTR29OdWtELTRKZjFu
+    Zk53NHM9
+  created_at: '2020-04-10T20:16:45.172Z'
+  email: 0371f5b900b484368f9e1717d7d965b1
+  id: 5e90d42d0c0e9cc0b6f57da2
+  message: "در مدتی دنبال رفع این مشکل بودم و مقداری رو آی‌آر‌سی و همینطور باگ تراکر\
+    \ سوال کردم کسی نمی‌دونست. ظاهرا هم این کانفیگ جای خاصی استفاده نشده.\r\nنکته\
+    \ اینجاست که پیدا کردن آدم مطلع سخت بود، کد هم فهمش آسون نبود. به همین خاطر من\
+    \ با پیدا کردن همین کانفیگ قانع شدم و ادامه ندادم."
+  name: مهدی
+  page_id: /firefox-under-construction
+  reply_to: 5e90adc99d67660191cc589d
+  website: ''

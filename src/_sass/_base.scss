@@ -1,11 +1,6 @@
-* {
-    /*box-sizing: border-box;*/
-}
-
 html, body {
     margin: 0;
     height: 100%;
-    min-height: 100%;
 }
 
 body {
@@ -13,7 +8,6 @@ body {
     flex-direction: column;
 
     font-family: $base-font-family;    
-    font-size: $base-font-size;
     line-height: $base-line-height;
     color: $text-color;
     background-color: $background-color;
@@ -21,16 +15,15 @@ body {
 }
 
 main {
-  flex: auto;
+    flex: auto;
+    margin: 8px;
 }
 
 header, footer {
     flex: none;
+    padding: 8px;
 }
 
-/**
- * Set `margin-bottom` to maintain vertical rhythm
- */
 h1, h2, h3, h4, h5, h6,
 p, blockquote, pre,
 ul, ol, dl, figure,
@@ -69,13 +62,7 @@ ul {
 
 ol {
     list-style-type: persify;
-}
-
-li {
-    > ul,
-    > ol {
-         margin-bottom: 0;
-    }
+    list-style: persian;
 }
 
 a {

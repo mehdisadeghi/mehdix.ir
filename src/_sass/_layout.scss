@@ -8,10 +8,18 @@ header {
         50%{background-position:100% 50%}
         100%{background-position:0% 50%}
     }
+    color: $anti-color;
+    a {
+        color: $anti-color;
+        font-size: small;
+    }
+    nav {
+        display: inline;
+        margin-right: 1em;
+    }
 }
 
 .wrapper {
-    margin: 0 auto;
     max-width: -webkit-calc(800px - (#{$spacing-unit} * 2));
     max-width:         calc(800px - (#{$spacing-unit} * 2));
 
@@ -20,57 +28,14 @@ header {
     }
 }
 
-header nav {
-    display: inline;
-    margin-right: 1em;
-    a {
-        color: $anti-color;
-        font-size: small;
-    }
-}
-
 .site-title {
     font-size: 26px;
-    line-height: 56px;
     letter-spacing: -1px;
-    color: $anti-color;
-}
-
-.post-list {
-    list-style: none;
-
-    h2 {
-        font-weight: bold;
-    }
-
-    .post-list-item {
-        margin-bottom: $spacing-unit;
-    }
-
-    @include media-query($on-palm) {
-        padding-right: 0px;
-    }
 }
 
 .post-list-mini {
-    list-style: none;
-
-    a {
-        color: $text-color;
-    }
     .post-list-item {
         display: flex;
-    }
-    .list-meta-col {
-        flex-basis: 120px;
-        flex-shrink: 0;
-    }
-    .list-line {
-        flex-grow: 1;
-    }
-    h1, h2, h3, h4, h5, h6 {
-        margin-top: 0;
-        margin-bottom: 0;
     }
     @include media-query($on-palm) {
         padding-right: 1em;
@@ -85,19 +50,14 @@ header nav {
 .list-meta-col {
     @extend .meta;
     width: 160px;
-    text-align: right;
+    min-width: 160px;
 
     @include media-query(400px) {
         display: none;
     }
 }
 
-.post-list-header {
-    font-size: 4em;
-}
-
 #motto {
-    color: $anti-color;
     vertical-align: calc(40%);
 }
 
@@ -114,19 +74,6 @@ header nav {
 
 .center {
     text-align: center;
-}
-
-.icon {
-    > svg {
-        display: inline-block;
-        width: 16px;
-        height: 16px;
-        vertical-align: middle;
-
-        path {
-            fill: $grey-color;
-        }
-    }
 }
 
 .button {
@@ -154,5 +101,58 @@ header nav {
     }
     .is-active {
         font-size: x-large;
+    }
+}
+
+.emoji {
+    color:grey;
+    filter: grayscale(100%);
+}
+
+footer {
+    @extend header;
+}
+
+img#footer-gravatar {
+    margin-top: 1em;
+    clip-path: circle();
+    width: 100px;
+}
+
+.social-media-list {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 0;
+    li {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+#build-time {
+    font-family: monospace;
+    font-size:x-small;
+    display: flex;
+    justify-content: left;
+    color: lighten($brand-color, 40%);
+}
+
+@include media-query($on-palm) {
+    #footer-description,
+    #footer-gravatar,
+    #atom {
+        display: none;
+    }
+    #license {
+        font-size: xx-small;
+        text-align: center;
+    }
+}
+
+#footer-extra {
+    display: flex;
+    justify-content: space-between;
+    @include media-query($on-palm) {
+        justify-content: center;
     }
 }

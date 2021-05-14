@@ -1,0 +1,63 @@
+- bucket: !!binary |
+    Z0FBQUFBQmRoX0JRZ0RGSHVCUEEzd3Z0bkJpb2VOdzM4cGtrTDFDak03YTdrSU5Ba1VmTWVFVENM
+    M0dnSUhOZ3dqVG9RMllINlgyUUpxUktpek9ZY2l2UjZIejEwbmtwTHZXVW1adjlhQzVON3FkRTZr
+    Y19XRWM9
+  created_at: '2018-02-19T20:23:08.440Z'
+  email: 9b59b8c28023fa973234518e442128cc
+  id: 5a8b322c1921a15723cfc4b6
+  language: fa
+  message: روش جالبی در استخدام افراد است. ما سال گذشته مشابه همین روش را داشتیم منتها
+    به طور دستی. یعنی یک مسئله تعریف می کردیم و برای کاندیدای مورد نظر ایمیل می کردیم.
+    حتم دارم که استفاده از این سایت خیلی راحت تر و سریع تر خواهد بود.
+  name: افشار
+  page_id: /hackerrank
+  reply_to: ''
+  spam: null
+  website: http://blog.afsharm.com
+- bucket: !!binary |
+    Z0FBQUFBQmRoX0JRZy1YdHVEdGRUcnFINU5mMGxQb1ZHQlZaWmo3VDJhYmNsY3JyOVdqM1RHY3BX
+    SXBMa1plcnZFRlpidkxfUGFHWnBkMzk0dm1UcWdtNThzVk9WN0QxSGtYYUdvVVFkTXBtTFpfVThl
+    dVdwenc9
+  created_at: '2018-02-20T21:31:35.241Z'
+  email: 0371f5b900b484368f9e1717d7d965b1
+  id: 5a8c93b792226a2ce2b0c48a
+  language: fa
+  message: 'گویا مشابه همین کار رو هم دوستانی در ایران انجام دادند که متاسفانه نام
+    وبسایت خاطرم نیست. ولی بسیار تمیز بود. '
+  name: مهدی
+  page_id: /hackerrank
+  reply_to: 5a8b322c1921a15723cfc4b6
+  spam: null
+  website: https://mehdix.ir
+- bucket: !!binary |
+    Z0FBQUFBQmRoX0JRQy1vekVBRkZhTzQ3NWRfMUoyWkl3bmx1ejNiVHFseEc2VFZKR21aYmhCN0tY
+    bkJnLU1mMXpJQ3hyMWhQLXotV2t4RTJiakVPc0RiM0dFMGFBX29aZWV3WXJFemk4X3BfVFhMVjZp
+    bHNiSzA9
+  created_at: '2018-02-21T09:49:07.854Z'
+  email: 0e6cf43c7de72cf1a262154d8280f34d
+  id: 5a8d40934711a6489b6c6056
+  language: fa
+  message: 'جالبه، اینجا (انگلستان) هم اکثر شرکت ها از یک آزمون HackerRank برای مرحله
+    ی اول مصاحبه استفاده می کنند. '
+  name: شاهین
+  page_id: /hackerrank
+  reply_to: ''
+  spam: null
+  website: ''
+- bucket: !!binary |
+    Z0FBQUFBQmRoX0JRUktseGRrNUVmUUwtN3NJNThtaHVvcFo5MFNnM1BpbXNxNjZzVG9jSXY3bUdJ
+    ZGZuQkM1bG5ZMDVyWXlpRUs1TEN5aGJUOWh0VlBtR19YMExCWEctMWY0UzlUaExYRWpCVkF0V2RP
+    dFljcHM9
+  created_at: '2018-02-21T20:45:13.505Z'
+  email: 0371f5b900b484368f9e1717d7d965b1
+  id: 5a8dda590b79b70da364021a
+  language: fa
+  message: ' بهرحال فیلتر مفیدیه، اگر کسی الفبا رو ندونه دیگه به مراحل بعدی نمی‌رسه.
+    منتها مشکل برخی شرکتها اینه که زیاده‌روی می‌کنند و تستها رو بیهوده سخت می‌کنند.
+    معلومه که از میان هزاران هزار تست می‌شه چیزهایی انتخاب کرد که به عقل جن هم نرسه!
+    یعنی در صورت سخت‌گیری بیهوده کاندیدای مستعد هم ممکنه حذف بشه.'
+  name: مهدی
+  page_id: /hackerrank
+  reply_to: 5a8d40934711a6489b6c6056
+  spam: null
+  website: https://mehdix.ir

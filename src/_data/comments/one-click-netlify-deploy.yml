@@ -1,0 +1,39 @@
+- bucket: !!binary |
+    Z0FBQUFBQmRoX0JRSzJWNWVnWk5hN0lDNVFNWUpqVXdIUzhGdXFWeUVaWUM4RHhRMGdoN3cyZEZH
+    OGtKMlBfUnJFUG1EYk1sTWtnUzVjU21NbnpTU1RFTzI2SGVWQlBNNVR6RlBub3gzVUNROTlvbmw0
+    alQxMHM9
+  created_at: '2018-07-04T18:14:35.732Z'
+  email: be6e1c7468a24294b2120994349ff41f
+  id: 5b3d0e8b3297124eb6e0916d
+  language: fa
+  message: "سلام آقا مهدی و خدا قوت :)\r\nمی بخشید می خواستم از تم سایت تون و تمام\
+    \ امکانات ش مثل کامنت دونی استفاده کنم برای سایت خودم. ازین صفحه برای راه اندازی\
+    \ سریع استفاده کردم ولی مسئله ای که هست اینه من دقیقا تمی رو می خوام که سایت اصلی\
+    \ تون هست :) تو صفحه اول فقط عنوان و تاریخ باشه و .. ولی وقتی از روش بالا دیپلوی\
+    \ می کنیم نسخه دیگه ای از سایت ایجاد میشه. \r\nمی خواستم ببینم روشی هست که سریع\
+    \ بتونم سایت اصلی تون رو روی گیت هاب خودم راه اندازی کنم .\r\nبا تشکر فراوان از\
+    \ شما :))))"
+  name: احسان
+  page_id: /one-click-netlify-deploy
+  reply_to: ''
+  spam: null
+  website: http://ehsanrafiei.ir/
+- bucket: !!binary |
+    Z0FBQUFBQmRoX0JRZHlKa1A3SkdlMEtyOFNqMGZQY1dpOGZaUGR5ZzFlWWxJMDZOUGVaRHNJNE52
+    VnRYZDRYNmhRMUdJdnpSZlFpTkVKaThMY241WkEyZUNobXRsT19lZks2RXBMMFRLRWRDbHVsa0xq
+    QVR6VEU9
+  created_at: '2018-07-08T07:22:51.404Z'
+  email: 0371f5b900b484368f9e1717d7d965b1
+  id: 5b41bbcbb788d411a0fe8bbd
+  language: fa
+  message: "سلام احسان،\r\nرو گیت‌هابم دو تا ریپازیتوری هست، یکی مال تم وبسایته (همون\
+    \ که با یک کلیک دیپلوی کردی) یکی هم مال همین وبسایت که دنبالشی. اگر با دقت مقایسه‌شون\
+    \ کنی متوجه می‌شه که چکار کردم. ولی به عنوان راه‌حل سریع داخل فولدر source همین\
+    \ وبسایت فایلی هست بنام index.html که داخلش مقدار  layout رو گذاشتم minimal. این\
+    \ احتمالا چیزیه که دنبالشی.\r\nکامنت‌دونی کمی دنگ و فنگ داره توی پست‌های قبلی\
+    \ به گمونم توضیحاتی دادم، اونها رو ببین.\r\nآخرش هم خبر بده که چیکار کردی :)"
+  name: مهدی
+  page_id: /one-click-netlify-deploy
+  reply_to: 5b3d0e8b3297124eb6e0916d
+  spam: null
+  website: https://mehdix.ir

@@ -1,0 +1,105 @@
+- bucket: !!binary |
+    Z0FBQUFBQmRoX0JRd2htdjlmdVlNaGZzTUlDTV8wcHMxc3E5NkVnSFpEQXgxVWJUQ2h0X0UyRko0
+    ZXlSMk9MN1BMWmZDaTA4WjBOeEZLVUtNVTl0TzF4RWJ3dkpmY2RZcDk0Q2RJb3BCZVNnblpXUkEy
+    bUtuU2c9
+  created_at: '2018-11-20T17:11:02.171Z'
+  email: cda8f9955b321974b7cbadfa0ae8e5da
+  id: 5bf44026494e4a5cd785793e
+  language: fa
+  message: بسیار نوشته مفیدی بود، ممنون از لطف شما. لیست ترتیبی با اعداد لاتین واقعا
+    اعصاب را به هم میریخت! بسیاری از ناچاری لیست غیر ترتیبی همان ul را به کار می بردند
+    و اول هر li یک عدد فارسی وارد می‌کردند که کاملا خلاف استاندارد است. حالا باید
+    دونه دونه پستها را صاف و تمیز کنیم.
+  name: آرش بزرگمهر
+  page_id: /css-list-style-type
+  reply_to: ''
+  spam: null
+  website: htth://torahi.com
+- bucket: !!binary |
+    Z0FBQUFBQmVqWDB2ejgxWnFPSkZoaEl3UHdsU2o0ZGlaYTJkb0hvcHVKUkNDRkVnMl9tT09vT0dh
+    dldZQlRoYUFfOG9vUzFMbWdoV1l5NTVBQ0VOYlVCUFNyTVlYaWphdDZtTTdULUtYOTNpYm1ISXlQ
+    V0dOSk09
+  created_at: '2020-03-24T00:12:45.181Z'
+  email: 5ad5edd36751a0d71172093795d8e248
+  id: 5e79507d616d3b65257d3715
+  language: fa
+  message: نوشته خوبی بود ولی متاسفانه غیر از فایرفاکس هیچ مرورگر دیگه‌ای هنوز از
+    این روش پشتیبانی نمی‌کنه
+  name: مجتبی
+  page_id: /css-list-style-type
+  reply_to: ''
+  spam: null
+  website: ''
+- bucket: !!binary |
+    Z0FBQUFBQmVqWDB2RE1FNzl4M3I5VFkzLUh3N2FiU3o0T1ppZkxRcTVSdDU5MTFDNXVJYU9Qc2Vl
+    OGlaUURfcm1yaWZzR1pWODZwamVlbE02NFdfbHkwejQzM3FQdEZxZWxaeGJfeE1mNTZRSDREcFVZ
+    NjJkVDg9
+  created_at: '2020-03-27T11:23:47.093Z'
+  email: 0371f5b900b484368f9e1717d7d965b1
+  id: 5e7de24335ce82cd694f91e6
+  language: fa
+  message: درست می‌گی. بخش حروف ابجد تو کروم کار نمی‌کنه، در حقیقت من فقط تو فایرفاکس
+    چک کردم. باید کمی حوصله کرد و دید علت چیه. قاعده‌ی سی‌اس‌اس که استفاده کردم هنوز
+    استاندارد نیست و جالب اینجاست که [توسط گوگل](https://www.w3.org/TR/css-counter-styles-3/)
+    ارائه شده.
+  name: مهدی
+  page_id: /css-list-style-type
+  reply_to: 5e79507d616d3b65257d3715
+  spam: null
+  website: https://mehdix.ir
+- bucket: !!binary |
+    Z0FBQUFBQmVqWDB2S0dDd1hJQlJQclJyNG45WVlYakJnRG5yb1ByWjllaXhtRko4Q09YSmtObWIw
+    VEUzRnNjWi05N1RfWTQ5Y1JTU0hCa0N2em1fLXBLNGZOeUtmQXBPcXVhcHJsUHpmbklRM0xSZGRV
+    dkZ5Qkk9
+  created_at: '2020-03-27T12:36:17.884Z'
+  email: 5ad5edd36751a0d71172093795d8e248
+  id: 5e7df341a15cab7018f4b6a6
+  language: fa
+  message: من توی مستنداتش چک کردم و تا حالا فقط مرورگر فایرفاکس از این روش پشتیبانی
+    می‌کنه
+  name: مجتبی
+  page_id: /css-list-style-type
+  reply_to: ''
+  spam: null
+  website: ''
+- bucket: !!binary |
+    Z0FBQUFBQmdTMHNKdG02Z3htRXBsQ2hXdHJTRnJEaTU0Z0tldm45bmlPMlR4VWttbVZXQndCUTdB
+    Wms2RnlaZlU4a0lJNWl6bmlyR0pJY0FCM1E0WmtZWjh3YXF1TU1LSmhFUnVfREVvV1l4UjVZb0pH
+    eW03OTg9
+  created_at: '2020-04-15T20:30:15.102Z'
+  email: 0371f5b900b484368f9e1717d7d965b1
+  id: 5e976ed77ef989f869019545
+  message: من هم الان با دقت بیشتری بررسی کردم. مثلا در [ریپوزیتوری گیت‌هاب w3c‎](https://github.com/w3c/csswg-drafts/labels/css-counter-styles-3)
+    مشخصه که هنوز داره روش کار می‌شه و چیزهایی اضافه کم می‌شه یا در [مستندات موزیلا‎](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Lists_and_Counters/Using_CSS_counters)
+    هم خبری از گزارش پشتیبانی در مرورگرهای دیگه نیست که به خاطر تازگی این سنده. امیدوارم
+    که بقیه هم پیاده‌اش کنن.
+  name: مهدی
+  page_id: /css-list-style-type
+  reply_to: ''
+  website: https://mehdix.ir
+- bucket: !!binary |
+    Z0FBQUFBQmdTMHNKNmlVakZsS05jZHhFeGZyQ3Bpc3ltcEFwSmhabHdwdzYwT1VyeF84MnN2dEoy
+    WDNOb2ZGN3M5czctc0l1emNsLVJLOVN4Vzg2aHJ3d3d6R2FVaXJVcWl0LUV1Z1k0SFBKWUxMNWNM
+    M0ZzcEE9
+  created_at: '2020-04-15T20:44:02.884Z'
+  email: 0371f5b900b484368f9e1717d7d965b1
+  id: 5e977212909c8b5f3669ff71
+  message: "برای کرومیوم یک [درخواست](https://bugs.chromium.org/p/chromium/issues/detail?id=687225)\
+    \ ثبت شده که می‌شه دنبال کرد:\r\n[https://bugs.chromium.org/p/chromium/issues/detail?id=687225](https://bugs.chromium.org/p/chromium/issues/detail?id=687225)\r\
+    \n"
+  name: مهدی
+  page_id: /css-list-style-type
+  reply_to: 5e7df341a15cab7018f4b6a6
+  website: https://mehdix.ir
+- bucket: !!binary |
+    Z0FBQUFBQmdTMHNKVVl5S25IZDJGXzgwLWY4XzlyZ1EtcWRhVVhPNXFMUXpnUEgyMWxLLWdvQ2tq
+    M3hUanRUUl92NlZYSmUyWE1nbUJuWkNoamJ4UVRpQ1NrUU5KamRZOC0zOVF2STl1RkdKMGl4eWM0
+    enZuam89
+  created_at: '2020-04-15T20:48:22.204Z'
+  email: 5ad5edd36751a0d71172093795d8e248
+  id: 5e9773164ae6f1f808fc5336
+  message: ممنون
+  name: مجتبی
+  page_id: /css-list-style-type
+  reply_to: 5e977212909c8b5f3669ff71
+  website: ''
