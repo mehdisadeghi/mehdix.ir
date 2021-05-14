@@ -1,5 +1,0 @@
-[build]
-  base    = ""
-  publish = "_site"
-  command = "scripts/build.sh"
-  functions = "src/_functions/"
