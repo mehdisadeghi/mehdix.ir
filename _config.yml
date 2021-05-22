@@ -37,7 +37,7 @@ collections:
     output: true
 
 comments:
-  enabled: true
+  enabled: false
   type: static
   recaptcha: true
   static:

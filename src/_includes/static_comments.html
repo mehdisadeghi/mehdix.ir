@@ -20,6 +20,16 @@
   </div>
   {% endif %}
 
+  <p>
+کامنت‌دونی تا اطلاع ثانوی تعطیل است. لطفا در
+  <a href="https://lists.sr.ht/~mehdix/public-inbox">میلینگ‌لیست</a>
+یا
+  <a href="https://app.element.io/#/room/#mehdix.ir:matrix.org">کانال ماتریکس</a>
+دیدگاه خود را بنویسید.
+  </p>
+
+
+{% if site.comments.enabled %}
   <form id="comment-form" name="comment" netlify netlify-honeypot="shirini"
   {% if site.comments.recaptcha %} data-netlify-recaptcha="true" {% endif %}>
     <input name="page_id" style="display:none" value="{{page.id}}">
@@ -61,3 +71,4 @@
     document.getElementById("replyToVisualClue").innerText = "[در جواب " + comment.querySelector("span[commenter]").innerText + "]";
   }
 </script>
+{% endif %}
