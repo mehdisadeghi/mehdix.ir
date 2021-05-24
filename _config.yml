@@ -39,13 +39,9 @@ collections:
 comments:
   enabled: false
   type: static
-  recaptcha: true
   static:
     avatar:
       visible: true
-  disqus:
-    # Used if the `comment_system` is set to `disqus`
-    shortname: ''
 
 defaults:
 - scope:
