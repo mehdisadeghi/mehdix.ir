@@ -33,3 +33,55 @@
   page_id: /netlify
   reply_to: null
   website: https://mehdix.ir
+- bucket: !!binary |
+    Z0FBQUFBQmdwOWxaLU50anFxMjNzUG14T2xNa2Foa3pPSjlLRnc3bGdDSWlJdTRtWG5DVmdZX282
+    dmFsMzYzTmxuckxOLWxnZGdZMm5SQnBFRVRyM0VZbFg2STlIUDVybFhzM2JsaW1aNXFGOHFIb3BX
+    c0pscmM9
+  created_at: '2019-09-19T23:04:42.704Z'
+  email: 0371f5b900b484368f9e1717d7d965b1
+  id: 5d84098ae1148f18864b710a
+  message: "من تا حالا از NS استفاده نکردم. من تنها در رجیستری دامنه خودم آدرس نیم‌سرورهای\
+    \ نتلیفای رو دادم و در نتلیفای هم دامنه‌ام رو اضافه کردم و کار کرد. عکس تنظیماتش\
+    \ رو [اینجا](https://mehdix.org/~mx/netlifydns.png) ببین.\r\n\r\n![test](https://mehdix.org/~mx/netlifydns.png)"
+  name: وبلاگ‌صاحاب
+  page_id: /netlify
+  reply_to: 5a4cb6ae8df9df36f12c16c5
+  website: ''
+- bucket: !!binary |
+    Z0FBQUFBQmdwOWxaWUMtMWpvT1BLZFV1RXVaYVFWY3I3RHBUcEJZM2toWlV6NE5leFVCMmxsUzdZ
+    OENYaW42aTJFOHc5V0pLY0ljMDRFcVBHNWZMRXAyYVBWd0N3Z0R3ZnFMZUZ0YVQzb2hHNWZhbjRG
+    aTEwSWs9
+  created_at: '2019-09-19T23:12:58.226Z'
+  email: 0371f5b900b484368f9e1717d7d965b1
+  id: 5d840b7aec74166bd0db6a26
+  message: ممکنه اسم دامنه‌ات تو ایران فیلتر شده باشه ولی IPش نه.
+  name: وبلاگ‌صاحاب
+  page_id: /netlify
+  reply_to: 5d83a84c2d8d1af701b1c204
+  website: ''
+- bucket: !!binary |
+    Z0FBQUFBQmdwOWxadldsRUhNMXo5d3ZKS1NtZ3Z3RUxDbFE0OUtzUkd2Y1hLLUU5UDJ4b295UXZm
+    ZkVFczBLdVZkcmI5eEJ6N0JubXFMelpWOERzVlNMSTdRdkZKTGJodnc9PQ==
+  created_at: '2021-01-24T08:07:26.695Z'
+  email: 1188dce949020d94a897f2633434799c
+  id: 600d2abebb458b7d17c7e5d0
+  message: "متاسفانه دسترسی به سرویس app در netlify تو ایران بسته شده و بدون فیلترشکن\
+    \ به سایتت دسترسی نداریم.\U0001F614\r\n"
+  name: محمد
+  page_id: netlify
+  reply_to: ''
+  website: https://zmim.ir
+- bucket: !!binary |
+    Z0FBQUFBQmdwOWxaZVRrWkxVOThWcWpFbW93UjJOQW5VTWhWMG03QjEwSVRfMG5TeVFKVVkyRGZa
+    Z1hmd09iOHVOT3QwN2NXRE9Obno5VW4wY2dRcm5NV0lvMUJOZ05BZEd4NXlOWV9uR0F3a1lkRWtf
+    c3p6bWM9
+  created_at: '2021-01-24T10:19:24.958Z'
+  email: 0371f5b900b484368f9e1717d7d965b1
+  id: 600d49acb96e7e7f703ddbc1
+  message: ممنون که اطلاع دادی. البته تا حدودی قابل پیش‌بینی بود. بهرحال هر چیز بدردبخوری
+    یا از داخل فیلتر می‌شه یا از خارج. البته من بی‌خبر از این اوضاع در تدارک مهاجرت
+    به سرور سلف‌هاست خودم بودم، حالا سریع‌تر انجامش می‌دم.
+  name: مهدی
+  page_id: netlify
+  reply_to: 600d2abebb458b7d17c7e5d0
+  website: https://mehdix.ir

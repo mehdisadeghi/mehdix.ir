@@ -22,3 +22,51 @@
   page_id: /static-comments
   reply_to: null
   website: http://shayegan.net
+- bucket: !!binary |
+    Z0FBQUFBQmdwOWxaVTJwVFA4dFBZOS1wS0FCbWRaOHVWcWNSUDRHSnV6ZHFBN0U2eVNRQ0ZjXzBK
+    RmE3UXNvbDIyb0VSVXRRRnROU041OWhvTTZiSlJJSGpNQ2V3M3NLbG9FUFY1LXByOXlSUXRyUjA4
+    UHZWcW89
+  created_at: '2021-03-24T07:23:28.465Z'
+  email: 38932a20856bfd5f86642817d3d2d07a
+  id: 605ae8f0237098855233f7d3
+  message: درود بر شما.
+  name: رزین
+  page_id: static-comments
+  reply_to: ''
+  website: https://resinbazar.com/%D8%B1%D8%B2%DB%8C%D9%86/
+- bucket: !!binary |
+    Z0FBQUFBQmdwOWxaOHBCR2drMWZqMXVyajB5N19uVWFnQUFaSHpSdEpVeHloOUdNX3pNMVFLTDVZ
+    ZkhNcjNmSzJWQXFleWFHNnhjNkxvQ05uYTdzb2xINm1SZ3V5QnlCRzBiSWFjbUdGd1phaTZrdGpu
+    SEFTT3c9
+  created_at: '2020-10-04T11:19:29.881Z'
+  email: e9b807e5873c34a7b5ae297c0def155e
+  id: 5f79afc1035345b2c3a506a5
+  message: ممنون بابت کلی چیزها
+  name: محمد
+  page_id: /static-comments
+  reply_to: ''
+  website: ''
+- bucket: !!binary |
+    Z0FBQUFBQmdwOWxacWJ5YTRkN2tXS3F1VGVhSnVQUzdqZ190aHNfakl3OGRFbnpiallaWUpac0pZ
+    SFpXV3FsdUJPU3BCVEkxaHBMZl85bUg2c3U1VnJnb3NxTGg4V3ltRFE9PQ==
+  created_at: '2021-01-19T14:07:09.431Z'
+  email: 1188dce949020d94a897f2633434799c
+  id: 6006e78daf0dd40cc42c4750
+  message: می‌تونید از مستادون هم برای افزودن بخش دیدگاه‌ها استفاده کنید. [اینجا](https://www.zmim.ir/mastodon-comments/)
+    درباره‌اش نوشتم.
+  name: محمد
+  page_id: static-comments
+  reply_to: ''
+  website: https://zmim.ir
+- bucket: !!binary |
+    Z0FBQUFBQmdwOWxabDBhRlJhX3BScV9fczhHb2wxQ1VYQ3FsVDU5dVFjcjNGdWQtTW1PMXBwOXg5
+    V2M5UWxleVdMS09MNjExN0d6U3RvZ241T0I3ZXc0c2c1ZnB3WU9PVVFFYWxvVmdfdW9kbWN6aGxq
+    SW93WUE9
+  created_at: '2021-01-23T21:45:50.770Z'
+  email: 0371f5b900b484368f9e1717d7d965b1
+  id: 600c990ea3ee88d52f292424
+  message: ممنون بابت پیشنهادت. استفاده از مستادون برای نظرات خیلی جالب بود.
+  name: مهدی
+  page_id: static-comments
+  reply_to: 6006e78daf0dd40cc42c4750
+  website: https://mehdix.ir
