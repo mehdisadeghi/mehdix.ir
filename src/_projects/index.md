@@ -16,7 +16,7 @@ layout: default
       {{ project.date | jdate: "%d %b %Y" | habify }}
     </span>
     <span class="list-line">
-      <a href="{{ proj.id }}">{{ project.name }}</a>
+      <a href="{{ proj.id }}.html">{{ project.name }}</a>
     </span>
   </li>
 {% endfor %}
