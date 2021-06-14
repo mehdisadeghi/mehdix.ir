@@ -1,8 +1,7 @@
 all: build
-.PHONY: conf serve publish
-conf:
+.PHONY: init serve publish clean
+init:
 	bundle config set path vendor/bundle
-vendor:
 	bundle install
 build:
 	bundle exec jekyll build
@@ -10,4 +9,7 @@ serve:
 	bundle exec jekyll serve
 publish: build
 	rsync -r _site/* mehdix.org:/var/www/mehdix.ir/
+clean:
+	rm -rf _site
+	rm -rf **/.jekyll-cache
 
