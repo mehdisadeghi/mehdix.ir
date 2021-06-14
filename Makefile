@@ -8,5 +8,6 @@ build:
 	bundle exec jekyll build
 serve:
 	bundle exec jekyll serve
-publish:
+publish: build
 	rsync -r _site/* mehdix.org:/var/www/mehdix.ir/
+
