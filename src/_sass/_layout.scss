@@ -15,10 +15,6 @@ header {
     margin: 0 auto;
     max-width: -webkit-calc(800px - (#{$spacing-unit} * 2));
     max-width:         calc(800px - (#{$spacing-unit} * 2));
-
-    @include media-query($on-laptop) {
-        width: 89vw;
-    }
 }
 
 .site-title {
@@ -32,6 +28,9 @@ header {
     }
     @include media-query($on-palm) {
         padding-right: 1em;
+        .list-meta-col {
+        display: none;
+        }
     }
 }
 
@@ -42,8 +41,8 @@ header {
 
 .list-meta-col {
     @extend .meta;
-    width: 160px;
-    min-width: 160px;
+    width: 120px;
+    min-width: 120px;
 
     @include media-query(400px) {
         display: none;
@@ -148,4 +147,8 @@ img#footer-gravatar {
     @include media-query($on-palm) {
         justify-content: center;
     }
+}
+
+.dingbat {
+    font-size: 5em;
 }
