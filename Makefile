@@ -8,7 +8,7 @@ build:
 serve:
 	bundle exec jekyll serve
 publish: build
-	rsync -r _site/* mehdix.org:/var/www/mehdix.ir/
+	rsync -r _site/* mehdix.ir:/var/www/mehdix.ir/
 clean:
 	rm -rf _site
 	rm -rf **/.jekyll-cache
