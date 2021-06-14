@@ -17,21 +17,6 @@
         </a>
       </li>
       {% endif %}
-      {% if site.twitter.username %}
-      <li>
-        <i class="fab fa-twitter-square"></i>
-        <a href="https://twitter.com/{{ site.twitter.username }}">
-          <span class="username social-media-text">توئیت‌ها</span>
-        </a>
-      </li>
-      {% endif %}
-      {% if site.feedburner_id %}
-      <li>
-        <i class="fas fa-rss"></i>
-        <a href="https://feedburner.google.com/fb/a/mailverify?uri={{ site.feedburner_id }}&amp;loc=en_US">
-          <span class="username social-media-text">خبرنامه</span></a>
-      </li>
-      {% endif %}
       <li>
         <i class="fas fa-rss"></i>
         <a href="{{ 'feed.xml' | absolute_url }}">
