@@ -21,7 +21,7 @@ github:
 favicon: assets/img/me.png
 logo: assets/img/me.png
 
-permalink: :title.html
+permalink: :title:output_ext
 timezone: Europe/Berlin
 
 paginate: 20

@@ -6,6 +6,8 @@ repo_url: https://github.com/mehdisadeghi/bookmarker
 comments: false
 ---
 
+<pre style="white-space: pre-wrap">
+
 Memoirs of a Space Traveler
 Further Reminiscences of Ijon Tichy
 (the sequel to The Star Diaries)
@@ -763,3 +765,5 @@ Let Us Save the Universe
 
 
 Scan Notes, v3.0: Proofed carefully against DT, italics intact. The 8 images included in the zip file were spaced throughout the last story (Let Us Save The Universe). Since they were not essential to the story, I did not embed them in the RTF file.
+
+</pre>
