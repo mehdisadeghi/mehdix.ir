@@ -4,10 +4,6 @@ layout: default
 
 {% capture time %}{{ content | reading_time }}{% endcapture %}
 
-
-<main>
-<div class="wrapper">
-
 <article class="post-content">
   <div class="post-header">
     <h1 class="post-title">{{ page.title }}</h1>
@@ -52,5 +48,7 @@ layout: default
 {% include static_comments.html %}
 {% endif %}
 
+<div class="dingbat">
+  ❦
 </div>
-</main>
+

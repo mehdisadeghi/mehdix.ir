@@ -41,7 +41,17 @@
       <button type="submit" class="button">ارسال</button>
     </div>
   </form>
-
+{% else %}
+  <p class="message">
+کامنت‌دونی تا اطلاع ثانوی تعطیل است. لطفا در
+  <a href="https://lists.sr.ht/~mehdix/public-inbox">میلینگ‌لیست</a>
+یا
+  <a href="https://app.element.io/#/room/#mehdix.ir:matrix.org">کانال ماتریکس</a>
+یا
+  <a href="https://web.libera.chat/#mehdix.ir">کانال آی‌آر‌سی</a>
+دیدگاه خود را بنویسید.
+  </p>
+{% endif %}
 </section>
 <script src="{{ 'assets/js/showdown.min.js' | absolute_url }}" type="text/javascript">
 </script>
@@ -58,14 +68,4 @@
     document.getElementById("replyToVisualClue").innerText = "[در جواب " + comment.querySelector("span[commenter]").innerText + "]";
   }
 </script>
-{% else %}
-  <p class="message">
-کامنت‌دونی تا اطلاع ثانوی تعطیل است. لطفا در
-  <a href="https://lists.sr.ht/~mehdix/public-inbox">میلینگ‌لیست</a>
-یا
-  <a href="https://app.element.io/#/room/#mehdix.ir:matrix.org">کانال ماتریکس</a>
-یا
-  <a href="https://web.libera.chat/#mehdix.ir">کانال آی‌آر‌سی</a>
-دیدگاه خود را بنویسید.
-  </p>
-{% endif %}
+
