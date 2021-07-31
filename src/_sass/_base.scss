@@ -6,10 +6,9 @@ html, body {
 body {
     display: flex;
     flex-direction: column;
-
     font-family: $base-font-family;    
     line-height: $base-line-height;
-    color: $text-color;
+    color: $on-background-color;
     background-color: $background-color;
     overflow-wrap: break-word;
 }
@@ -31,14 +30,8 @@ ul, ol, dl, figure,
     margin-bottom: $spacing-unit / 2;
 }
 
-h1:not(.page-heading), h2:not(.footer-heading), h3, h4, h5, h6 {
-    margin-top: 2.1rem;
-    color: darken($header-color, 20%);
-}
-
 h1, h2, h3, h4, h5, h6 {
     font-weight: normal;
-    color: $header-color;
 }
 
 img {
@@ -53,7 +46,6 @@ figure > img {
 
 figcaption {
     font-size: $small-font-size;
-    color: $grey-color;
 }
 
 ul {
@@ -66,27 +58,17 @@ ol {
 }
 
 a {
-    color: $header-color;
     text-decoration: none;
+    color: $grey-color-dark;
 }
 
-blockquote {
-    font-family: $alt-font-family;
-    font-size: x-large;
-    font-style: italic;
-    
-    letter-spacing: -1px;
-    color: $grey-color;
-
-    >  p {
-        border-right: 4px solid lighten($brand-color, 30%);
-        padding-right: $spacing-unit / 2
-    }
+a:visited {
+    color: $grey-color-light;
 }
 
 pre {
     direction: ltr;
-    border: 1px solid $grey-color-light;
+    border: 1px solid lighten($on-background-color, 25%);
     border-radius: 3px;
     padding: 8px 12px;
     overflow-x: auto;
@@ -109,7 +91,39 @@ table {
         padding: 5px;
     }
     tr:nth-child(even) {
-        background-color: #f2f2f2;
+        background-color: $grey-color-light;
+    }
+}
+
+form {
+    margin-top: 15px;
+    font-size: .9rem;
+    padding: 15px;
+    label {
+        display: block;
+        margin-bottom: 1em;
+    }
+    input, textarea {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        font-family: $base-font-family;
+        font-size: small;
+        border: 1px solid lighten($primary-color, 20%);
+    }
+    input:focus, textarea:focus {
+        border-color: $primary-color;
+    }
+    button[type=submit] {
+        font-family: $alt-font-family;
+    }
+    textarea {
+        height: 10rem;
+        resize: vertical;
+        padding: 10px;
+    }
+    sup.required {
+        color: $primary-color;
     }
 }
 

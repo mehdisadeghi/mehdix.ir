@@ -6,7 +6,7 @@
 <section id="static-comments">
 
   {% if comments %}
-  <h4 id="comments-header">دیدگاه‌ها</h4>
+  <h2 id="comments-header">دیدگاه‌ها</h2>
   <div id="comments">
 
     {% for comment in comments %}
@@ -19,16 +19,6 @@
 
   </div>
   {% endif %}
-
-  <p>
-کامنت‌دونی تا اطلاع ثانوی تعطیل است. لطفا در
-  <a href="https://lists.sr.ht/~mehdix/public-inbox">میلینگ‌لیست</a>
-یا
-  <a href="https://app.element.io/#/room/#mehdix.ir:matrix.org">کانال ماتریکس</a>
-یا
-  <a href="https://web.libera.chat/#mehdix.ir">کانال آی‌آر‌سی</a>
-دیدگاه خود را بنویسید.
-  </p>
 
 {% if site.comments.enabled %}
   <form id="comment-form" name="comment">
@@ -68,4 +58,14 @@
     document.getElementById("replyToVisualClue").innerText = "[در جواب " + comment.querySelector("span[commenter]").innerText + "]";
   }
 </script>
+{% else %}
+  <p class="message">
+کامنت‌دونی تا اطلاع ثانوی تعطیل است. لطفا در
+  <a href="https://lists.sr.ht/~mehdix/public-inbox">میلینگ‌لیست</a>
+یا
+  <a href="https://app.element.io/#/room/#mehdix.ir:matrix.org">کانال ماتریکس</a>
+یا
+  <a href="https://web.libera.chat/#mehdix.ir">کانال آی‌آر‌سی</a>
+دیدگاه خود را بنویسید.
+  </p>
 {% endif %}

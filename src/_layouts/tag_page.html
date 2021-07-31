@@ -9,7 +9,7 @@ sitemap: false
     {% for post in page.posts %}
       <li class="post-list-item">
         <span class="list-meta-col">
-          <span class="date">{{ post.date | jdate: "%A %d %b %Y" | habify }}</span>
+        {{ post.date | jdate: "%d %b %Y" | habify }}
         </span>
         <span class="list-line"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></span>
       </li>
@@ -20,3 +20,4 @@ sitemap: false
     {{ site | tag_cloud }}
   </div>
 </div>
+

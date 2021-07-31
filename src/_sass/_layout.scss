@@ -1,9 +1,13 @@
 header {
-    background-color: darken(pink, 20%);
-    color: $anti-color;
+    background-color: $primary-color;
+    color: $on-primary-color;
     a {
-        color: $anti-color;
+        color: $on-primary-color;
         font-size: small;
+        text-decoration: none;
+    }
+    a:visited {
+    	color: $on-primary-color;
     }
     nav {
         display: inline;
@@ -36,7 +40,6 @@ header {
 
 .meta {
     font-size: $small-font-size;
-    color: $grey-color;
 }
 
 .list-meta-col {
@@ -55,7 +58,6 @@ header {
 
 .image-caption {
     text-align: center;
-    color: $grey-color;
     margin-top: $spacing-unit / 3;
 }
 
@@ -71,9 +73,9 @@ header {
 .button {
     border: none;
     padding: 5px 32px;
-    background-color: lighten($brand-color, 25%);
+    background-color: lighten($primary-color, 25%);
     border-radius: 2px;
-    color: $anti-color;
+    color: $on-primary-color;
 }
 
 @include media-query($on-palm) {
@@ -126,7 +128,7 @@ img#footer-gravatar {
     font-size:x-small;
     display: flex;
     justify-content: left;
-    color: lighten($brand-color, 40%);
+    color: lighten($on-primary-color, 40%);
 }
 
 @include media-query($on-palm) {
@@ -151,4 +153,10 @@ img#footer-gravatar {
 
 .dingbat {
     font-size: 5em;
+    color: $primary-color;
+}
+
+.message {
+    background-color: lighten($primary-color, 30%);
+    color: $on-background-color;
 }

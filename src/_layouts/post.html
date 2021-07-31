@@ -4,35 +4,25 @@ layout: default
 
 {% capture time %}{{ content | reading_time }}{% endcapture %}
 
-<article class="post-content">
 
+<main>
+<div class="wrapper">
+
+<article class="post-content">
   <div class="post-header">
     <h1 class="post-title">{{ page.title }}</h1>
     <p class="post-meta">
       <span class="emoji">📆</span>
-      {{ page.date | jdate: "%A %d %b %Y" | habify}}
-      
+      {{ page.date | jdate: "%A %d %b %Y" | habify}} توسط
+      <a href="{{ '/' | relative_url}}">{{ site.title }}</a>
       &nbsp;
-
       <span class="emoji">⏱️</span>
       {{ time | habify }} دقیقه مطالعه
     </p>
   </div>
-
   {{ content }}
-
-  {% if site.related_posts.size >= 1 %}
-    <div id="related-posts">
-      <h3>مطالب مرتبط</h3>
-      <ul>
-        {% for related_post in site.related_posts limit: 5 %}
-          <li><a href="{{ related_post.url }}">{{ related_post.title }}</a></li>
-        {% endfor %}
-        </ul>
-    </div>
-  {% endif %}
-
-  <small id="post-tags">
+</article>
+<aside id="post-tags">
     {% for tag in page.tags %}
       <span class="emoji">🏷️</span>
       <a rel="tag" href="{{ tag | tag_url  }}">{{tag}}</a>
@@ -45,26 +35,22 @@ layout: default
     {% else %}
     <a href="https://raw.githubusercontent.com/{{site.github.username}}/{{site.github.repository}}/master/{{site.source}}/{{page.path}}">سورس</a>
     {% endif %}
-  </small>
+</aside>
 
-  <nav class="pagination">
-    {% if page.next %}
-      <a href="{{ page.next.url | relative_url }}" class="pagination--pager" title="{{ page.next.title }}">قبلی</a>
-    {% else %}
-      <a href="#" class="pagination--pager disabled">قبلی</a>
-    {% endif %}
+{% if site.related_posts.size >= 1 %}
+    <aside id="related-posts">
+      <h3>مطالب مرتبط</h3>
+      <ul>
+        {% for related_post in site.related_posts limit: 5 %}
+          <li><a href="{{ related_post.url }}">{{ related_post.title }}</a></li>
+        {% endfor %}
+        </ul>
+    </aside>
+{% endif %}
 
-    {% if page.previous %}
-      <a href="{{ page.previous.url | relative_url }}" class="pagination--pager" title="{{ page.previous.title }}">بعدی </a>
-    {% else %}
-      <a href="#" class="pagination--pager disabled">بعدی </a>
-    {% endif %}
-  </nav>
+{% if site.comments.type == 'static' %}
+{% include static_comments.html %}
+{% endif %}
 
-  <section>
-    {% if site.comments.type == 'static' %}
-      {% include static_comments.html %}
-    {% endif %}
-  </section>
-
-</article>
+</div>
+</main>

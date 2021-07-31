@@ -1,20 +1,6 @@
 /*
  * Tag cloud sets. Numbers demonstrate repeat frequency for each tag
  */
-#post-tags {
-    a {
-        margin-left: 0.5em;
-    }
-}
-
-#tag-cloud [class^=set-] {
-    color: $text-color;
-
-    &:hover {
-        color: $brand-color;
-    }
-}
-
 .set-1 {
     font-size: 0.7em;
 }
