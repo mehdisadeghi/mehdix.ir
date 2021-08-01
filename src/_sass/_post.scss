@@ -1,13 +1,6 @@
 .post-title {
-    margin-bottom: 0;
-    letter-spacing: -1px;
-    line-height: 1.5;
     text-align: center;
     font-size: 4em;
-
-    @include media-query($on-laptop) {
-        font-size: 4em;
-    }
 
     @include media-query($on-palm) {
         font-size: 2em;
@@ -16,7 +9,6 @@
 
 .post-image {
     text-align: center;
-
     img {
         display: inline;
     }
@@ -75,4 +67,3 @@
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
 }
-

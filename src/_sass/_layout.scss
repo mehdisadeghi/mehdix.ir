@@ -3,7 +3,6 @@ header {
     color: $on-primary-color;
     a {
         color: $on-primary-color;
-        font-size: small;
         text-decoration: none;
     }
     a:visited {
@@ -132,7 +131,6 @@ img#footer-gravatar {
 }
 
 @include media-query($on-palm) {
-    #footer-description,
     #footer-gravatar,
     #atom {
         display: none;
