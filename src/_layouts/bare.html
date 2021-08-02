@@ -2,7 +2,6 @@
 <html dir="rtl" lang="fa" prefix="og: https://ogp.me/ns#">
   
   <head>
-    <link rel="shortcut icon" href="#">
     {% comment %} Don't use caching here. The header values that
     are page-specific will be invalid. It will take the results
     from the first page render (the oldes post) and resue it in
@@ -37,9 +36,13 @@
   </head>
 
   <body>
-
     {{- content -}}
-
-    <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
-  </body>
+	<script type="text/javasccript">
+		// Get code tags and change their dir attribute to ltr.
+		var codeTags = document.getElementsByTagName('code');
+		for (var i = 0; i < codeTags.length; i++) {
+			codeTags[i].setAttribute('dir', 'ltr');
+		}
+	</script>
+	</body>
 </html>

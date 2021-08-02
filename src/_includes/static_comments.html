@@ -53,6 +53,7 @@
   </p>
 {% endif %}
 </section>
+{% if site.comments.enabled %}
 <script src="{{ 'assets/js/showdown.min.js' | absolute_url }}" type="text/javascript">
 </script>
 <script type="text/javascript">
@@ -68,4 +69,4 @@
     document.getElementById("replyToVisualClue").innerText = "[در جواب " + comment.querySelector("span[commenter]").innerText + "]";
   }
 </script>
-
+{% endif %}
