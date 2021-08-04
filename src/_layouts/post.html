@@ -16,7 +16,7 @@ layout: default
       {{ time | habify }} دقیقه مطالعه
     </p>
   </div>
-  {{ content }}
+  {{ content | toc }}
 </article>
 <aside id="post-tags">
     {% for tag in page.tags %}
