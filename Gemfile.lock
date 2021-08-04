@@ -53,6 +53,9 @@ GEM
       jekyll (>= 3.7, < 5.0)
     jekyll-tagging-lite (1.2.0)
       nuggets (~> 0)
+    jekyll-toc (0.17.1)
+      jekyll (>= 3.9)
+      nokogiri (~> 1.11)
     jekyll-watch (2.2.1)
       listen (~> 3.0)
     kramdown (2.3.1)
@@ -67,6 +70,10 @@ GEM
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
     mercenary (0.4.0)
+    mini_portile2 (2.5.3)
+    nokogiri (1.11.3)
+      mini_portile2 (~> 2.5.0)
+      racc (~> 1.4)
     nokogiri (1.11.3-x86_64-linux)
       racc (~> 1.4)
     nuggets (0.9.9)
@@ -90,6 +97,7 @@ GEM
     webrick (1.7.0)
 
 PLATFORMS
+  aarch64-linux
   x86_64-linux
 
 DEPENDENCIES
@@ -102,6 +110,7 @@ DEPENDENCIES
   jekyll-sitemap
   jekyll-tagging-lite
   jekyll-tagging-related_posts!
+  jekyll-toc
   liquid_reading_time
   webrick
 

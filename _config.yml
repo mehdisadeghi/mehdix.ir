@@ -47,6 +47,7 @@ defaults:
     type: "posts"
   values:
     layout: "post"
+    toc: true
 - scope:
     path: "projects"
     type: "pages"
