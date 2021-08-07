@@ -48,6 +48,11 @@ figcaption {
     font-size: $small-font-size;
 }
 
+img + em {
+	display: block;
+	font-size: $small-font-size;
+}
+
 ul {
     list-style-type: square;
 }
