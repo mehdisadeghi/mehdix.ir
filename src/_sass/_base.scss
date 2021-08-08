@@ -97,7 +97,7 @@ table {
         padding: 5px;
     }
     tr:nth-child(even) {
-        background-color: $grey-color-light;
+        background-color: lighten($grey-color-light, 25%);
     }
 }
 
