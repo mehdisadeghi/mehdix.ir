@@ -68,7 +68,11 @@
     border-bottom-right-radius: 0;
 }
 
-.post-image {
+.post-image-float {
     max-width: 50%;
     float: left;
+}
+
+.post-content video {
+    width: 100%;
 }
