@@ -21,7 +21,7 @@
   {% endif %}
 
 {% if site.comments.enabled %}
-  <form id="comment-form" name="comment">
+  <form id="comment-form" name="comment" action="/cgi-bin/submit" method="POST">
     <input name="page_id" style="display:none" value="{{page.id}}">
     <input id="reply-to" name="reply-to" style="display:none">
     <label for="message">دیدگاه<sup class="required">*</sup> &nbsp;<small>می‌توانید با <a href="http://commonmark.org/help/" target="_">مارک‌داون</a> هم بنویسید.</small><br><small id="replyToVisualClue"></small>
@@ -36,6 +36,9 @@
     </label>
     <label for="website">وبسایت
       <input id="website" type="url" name="website">
+    </label>
+    <label for="puzzle">و تا یادم نرفته اسم اسب رستم دستان چی بود؟<sup class="required">*</sup>
+      <input id="puzzle" type="text" name="puzzle">
     </label>
     <div style="text-align:left">
       <button type="submit" class="button">ارسال</button>

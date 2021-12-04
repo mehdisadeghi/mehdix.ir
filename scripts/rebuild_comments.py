@@ -2,6 +2,7 @@
 import hashlib
 import json
 import os
+import sqlite3
 from collections import defaultdict
 
 import requests
@@ -51,7 +52,7 @@ def decrypt(text, secret):
     return json.loads(s)
 
 
-def make_transform_closure(secret):
+def netlify_transformer(secret):
     def transform(comment):
         return {
             "id": comment["id"],
@@ -67,6 +68,21 @@ def make_transform_closure(secret):
         }
     return transform
 
+def alef_transformer(secret):
+    def transform(comment):
+        return {
+            "id": str(comment["id"]),
+            "created_at": comment["time"],
+            "reply_to": comment["reply_to"],
+            "page_id": comment["page_id"],
+            "name": comment["name"],
+            "email": hashlib.md5(comment["email"].encode(
+                "ascii")).hexdigest(),
+            "bucket": encrypt(comment["email"], secret),
+            "website": comment["website"],
+            "message": comment["message"],
+        }
+    return transform
 
 def update_comments_file(file, comments, page_id, transformer_fn):
     """Update comments in the YAML data files of each post."""
@@ -89,8 +105,7 @@ def update_comments_file(file, comments, page_id, transformer_fn):
         print('Already updated: {}'.format(page_id))
 
 
-def main():
-    """Do everything."""
+def get_netlify_comments():
     # Download comments from Netlify.
     netlify_site_endpoint = \
         "https://api.netlify.com/api/v1/sites/{site_id}".format(
@@ -101,19 +116,47 @@ def main():
             netlify_site_endpoint=netlify_site_endpoint,
             form_id=os.environ["NETLIFY_FORM_ID"])
 
-    netlify_form_submissions_per_page = get_netlify_form_submissions(
+    return get_netlify_form_submissions(
         form_submissions_endpoint,
         os.environ["NETLIFY_ACCESS_TOKEN"])
 
+
+def netlify(secret):
+    return get_netlify_comments(), netlify_transformer(secret)
+
+
+def alef(dbpath, secret):
+    return get_alef_comments(dbpath), alef_transformer(secret)
+
+
+def get_alef_comments(dbpath):
+    def dict_factory(cursor, row):
+        d = {}
+        for idx, col in enumerate(cursor.description):
+            d[col[0]] = row[idx]
+        return d
+    with sqlite3.connect(dbpath) as con:
+        con.row_factory = dict_factory
+        cur = con.cursor()
+        cur.execute('SELECT * from comments')
+        res = defaultdict(list)
+        for row in cur.fetchall():
+            res[row['page_id']].append(row)
+        cur.close()
+        return res
+
+
+def main():
     # Make sure the taget directory exists
     comments_dst = os.environ.get("COMMENT_DIR", "src/_data/comments")
     Path(comments_dst).mkdir(parents=True, exist_ok=True)
 
     # Get the fn to transform external format to the internal
-    transformer = make_transform_closure(os.environ["SECRET"])
+    comments, transformer = alef(
+        os.getenv('DBPATH', 'mehdix.db'), os.environ["SECRET"])
 
     # Add new comments to the target yaml files.
-    for page_id, submissions in netlify_form_submissions_per_page.items():
+    for page_id, submissions in comments.items():
         comments_yamlfile = os.path.join(
             comments_dst, "{}.yml".format(page_id))
 

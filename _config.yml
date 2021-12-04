@@ -35,7 +35,7 @@ collections:
     output: true
 
 comments:
-  enabled: false
+  enabled: true
   type: static
   static:
     avatar:

@@ -100,3 +100,19 @@
   page_id: publishing-with-jekyll
   reply_to: 5fc3b49115a9a1011f1d93c8
   website: https://mehdix.ir
+- bucket: !!binary |
+    Z0FBQUFBQmhxLUVpX1B2WFpQLWE0SjcyRHRVWXJXTnhHcTFGZFhyRXZNX3AzSlVablBydWNrZTJm
+    bkNwM1p4bjZqTmpySUFoRW9mdDNxZV84UGNuNnlwR2wyTGZfdTJ5elc3YlJXMzhBUVRmcFpOWk1P
+    M3MwMDg9
+  created_at: '2021-12-04 21:43:06'
+  email: 2c0387ce5712a4c5ff24ea2ab397512b
+  id: '4'
+  message: 'بعد از چند سال کامنتدونی باز هم تغییر کرد و اینبار تبدیل شده است به یک
+    `CGI Script`. این هم تستی است تا ببنیم که چه می‌شود!
+
+
+    در ضمن، اسم اسب رستم دستان را هم باید دانست!'
+  name: برنامه‌نویس خسته
+  page_id: publishing-with-jekyll
+  reply_to: 5a418e8a218599497112ddaf
+  website: https://mehdix.ir

@@ -1,29 +1,39 @@
 mehdix.ir
 =========
-[Matrix chat for questions](https://matrix.to/#/!KIkzsncBDBFNgKjYbZ:matrix.org?via=matrix.org)
-
 ![](src/assets/img/frontpage.png)
 
 This is the source code of my personal Persian [website](http://mehdix.ir). Persian aka Farsi is written right-to-left, however some people use Roman script to write Persian language in messaging applications and social networks.
 
 This repository can be of use to anybody willing to build a new right to left website. I gradually fix issues which I came across while writing new posts in my website. This website is produced using [Jekyll](http://jekyllrb.com/) static site generator.
 
-For any discussion regarding creating static websites with Jekyll please refer to the above mentioned Gitter channel.
-
 # Helfpul Tips
-- This website is based on [jekyll-theme-mehdix-rtl](https://github.com/mehdisadeghi/jekyll-theme-mehdix-rtl) theme.
-- It is currently hosted on Netlify servers (2019).
-- Form submissions are handled by Netlify.
-- `scripts/rebuild_comments.py` uses Netlify API and builds yaml collections for the static comments.
 - **Hosting on GitHub Pages will fail** due to lack of necessary gems on their build servers.
-- A lambda function is used to inform OP (original poster) about replies to their comments.
+- See [jekyll-theme-mehdix-rtl](https://github.com/mehdisadeghi/jekyll-theme-mehdix-rtl) for a GitHub Actions build.
 
-## Functions
-Sources are inside `src/_functions` directory. To build functions install `netlify` cli and run:
+## Static Comments
+Having a comment section on a truely static website (a bunch of documents indeed) is 
+impossible. For HTML forms should be handled on a server. This website used Disqus
+in the beginning, then Netlify forms and now a [CGI](src/cgi-bin/submit) script on my own self-hosted server. The script stores submissions in a sqlite3 database. See the
+[schema.sql](scripts/schema.sql) for the data model. The [build script](scripts/build.sh) exports comments from the sqlite3 database into [data files](src/_data/comments). These files in turn are used to generate the static comments upon page builds.
 
-    netlify functions:build
+I use nginx and fcgiwrap for running the script. Some environment variables are necessary, such as database location and a simple value as puzzle solution.
 
-# Make it yours
+### nginx & fcgiwrap
+The latest comment section uses a CGI script along with a sqlite3 database. For running CGI scripts I used [fcgiwrap](https://github.com/gnosek/fcgiwrap/). After installation on Ubuntu I enabled the `fcgiwrap.service`. I use the following block to handle `cgi-bin` path on nginx:
+
+```
+location /cgi-bin/ {
+    gzip off;
+    fastcgi_pass  unix:/var/run/fcgiwrap.socket;
+    include /etc/nginx/fastcgi_params;
+    fastcgi_param ALEF_DB       "/path/to/my/sqlite/db";
+    fastcgi_param ALEF_PUZZLE   "puzzle_answer";
+    fastcgi_param SCRIPT_FILENAME  $document_root$fastcgi_script_name;
+}
+```
+The comment form submits a POST request to `cgi-bin/submit` URL which will be handle by this script. The `scripts/rebuild_commends.py` is updated to rebuild comments from the sqlite3 database. The path should be available at `ALEF_DB` env variable. See the [Makefile](Makefile) for the build commands.
+
+# Make it yours [outdated]
 Take the following steps to make your own website:
 
   1. Fork the repository
