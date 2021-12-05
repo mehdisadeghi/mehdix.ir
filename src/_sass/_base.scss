@@ -9,9 +9,11 @@ body {
     font-family: $base-font-family;    
     line-height: $base-line-height;
     color: $on-background-color;
-    background-color: #ffdae0;
-     /*$background-color;*/
+    /*background-color: lighten($primary-color, 20%);*/
     overflow-wrap: break-word;
+    /*background-image: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c);*/
+    background-image: linear-gradient(0.25turn, #ff5a77, #6951df00, #00ff349c);
+
 }
 
 main {
