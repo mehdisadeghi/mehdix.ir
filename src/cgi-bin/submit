@@ -8,7 +8,10 @@ echo -en "Content-type: text/plain;charset=UTF-8\r\n\r\n"
 
 trap '
 echo --
-echo $SERVER_NAME
+echo User Agent: $HTTP_USER_AGENT
+echo IP Address: $REMOTE_ADDR
+echo
+echo mehdix.ir
 ' EXIT
 
 # Read $CONTENT_LENGTH bytes into POST_STRING variable.
@@ -36,12 +39,14 @@ done
 # Make sure mandatory fields are present
 ([ -z "$var_message" ] || [ -z "$var_name" ] || [ -z "$var_email" ]) && {
 	echo "لطفا برای ثبت دیدگاه متن و نام و ایمیل را وارد کنید."
+	echo "mehdix.ir: missing mandatory form fields." >&2
 	exit 1
 }
 
 # Make sure anti spam field is present and correct
 ([ -z "$var_puzzle" ] || [ "$var_puzzle" != "$ALEF_PUZZLE" ]) && {
 	echo "معما رو درست حل نکردی رفیق. نمی‌شه، شرمنده."
+	echo "mehdix.ir: wrong puzzle." >&2
 	exit 1
 }
 
@@ -96,11 +101,16 @@ echo دیدگاهت ثبت شد و با اولین بیلد وبسایت منت�
 
 sub="https://mehdix.ir/$var_page_id.html#1"
 
-cat <<EOF | sendmail -f alef@mehdix.org mail@43.yt
-${var_name} به دیدگاهت رو سایت مهدیکس [جواب](${sub}) داد:
+# mail is from mailutils package
+cat <<EOF | mail mehdi@mehdix.org -s "دیدگاه جدید" \
+	-a "From: کامنتدونی <noreply@mehdix.ir>" \
+	-a "Content-Type: text/plain; charset=UTF-8"
+${var_name} به دیدگاهت رو سایت مهدیکس جواب داد:
 
 	$var_message
 
+${sub}
+
 --
-Alef
+کامنتدونی
 EOF

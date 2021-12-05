@@ -5,6 +5,7 @@ all: build
 init: init_db
 	bundle config set path vendor/bundle
 	bundle install
+	pip install -r scripts/requirements.txt
 
 build: comments
 	bundle exec jekyll build
