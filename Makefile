@@ -12,6 +12,7 @@ build: comments
 
 comments:
 	@echo rebuilding alef comments
+	cp mehdix.db{,_backup}
 	rsync -v mehdix.ir:/var/lib/alef/mehdix.db mehdix.db
 	python scripts/rebuild_comments.py
 
