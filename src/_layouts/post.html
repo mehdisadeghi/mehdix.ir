@@ -1,54 +1,59 @@
 ---
-layout: default
+layout: headless
 ---
 
 {% capture time %}{{ content | reading_time }}{% endcapture %}
 
-<article class="post-content">
-  <div class="post-header">
-    <h1 class="post-title">{{ page.title }}</h1>
-    <p class="post-meta">
-      <span class="emoji">📆</span>
-      {{ page.date | jdate: "%A %d %b %Y" | habify}} توسط
-      <a href="{{ '/' | relative_url}}">{{ site.title }}</a>
-      &nbsp;
-      <span class="emoji">⏱️</span>
-      {{ time | habify }} دقیقه مطالعه
-    </p>
+<div class="card">
+
+  <article class="post-content">
+    <div class="post-header">
+      <h1 class="post-title">{{ page.title }}</h1>
+
+      <p class="post-meta">
+        <span class="emoji">📆</span>
+        {{ page.date | jdate: "%A %d %b %Y" | habify}} توسط
+        <a href="{{ '/' | relative_url}}">{{ site.title }}</a>
+        &nbsp;
+        <span class="emoji">⏱️</span>
+        {{ time | habify }} دقیقه مطالعه
+
+      </p>
+    </div>
+    {{ content | toc }}
+  </article>
+  <aside id="post-tags">
+      {% for tag in page.tags %}
+        <span class="emoji">🏷️</span>
+        <a rel="tag" href="{{ tag | tag_url  }}">{{tag}}</a>
+      {% endfor %}
+
+      <span class="emoji">📜</span>
+      {% assign slash = site.source | slice: 0 %}
+      {% if slash == '/' %}
+      <a href="https://raw.githubusercontent.com/{{site.github.username}}/{{site.github.repository}}/master/{{ page.path }}">سورس</a>
+      {% else %}
+      <a href="https://raw.githubusercontent.com/{{site.github.username}}/{{site.github.repository}}/master/{{site.source}}/{{page.path}}">سورس</a>
+      {% endif %}
+  </aside>
+
+  {% if site.related_posts.size >= 1 %}
+      <aside id="related-posts">
+        <h3>مطالب مرتبط</h3>
+        <ul>
+          {% for related_post in site.related_posts limit: 5 %}
+            <li><a href="{{ related_post.url }}">{{ related_post.title }}</a></li>
+          {% endfor %}
+          </ul>
+      </aside>
+  {% endif %}
+
+  {% if site.comments.type == 'static' %}
+  {% include static_comments.html %}
+  {% endif %}
+
+  <div class="dingbat">
+    ❦
   </div>
-  {{ content | toc }}
-</article>
-<aside id="post-tags">
-    {% for tag in page.tags %}
-      <span class="emoji">🏷️</span>
-      <a rel="tag" href="{{ tag | tag_url  }}">{{tag}}</a>
-    {% endfor %}
 
-    <span class="emoji">📜</span>
-    {% assign slash = site.source | slice: 0 %}
-    {% if slash == '/' %}
-    <a href="https://raw.githubusercontent.com/{{site.github.username}}/{{site.github.repository}}/master/{{ page.path }}">سورس</a>
-    {% else %}
-    <a href="https://raw.githubusercontent.com/{{site.github.username}}/{{site.github.repository}}/master/{{site.source}}/{{page.path}}">سورس</a>
-    {% endif %}
-</aside>
-
-{% if site.related_posts.size >= 1 %}
-    <aside id="related-posts">
-      <h3>مطالب مرتبط</h3>
-      <ul>
-        {% for related_post in site.related_posts limit: 5 %}
-          <li><a href="{{ related_post.url }}">{{ related_post.title }}</a></li>
-        {% endfor %}
-        </ul>
-    </aside>
-{% endif %}
-
-{% if site.comments.type == 'static' %}
-{% include static_comments.html %}
-{% endif %}
-
-<div class="dingbat">
-  ❦
 </div>
-

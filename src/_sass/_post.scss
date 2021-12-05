@@ -5,6 +5,15 @@
     @include media-query($on-palm) {
         font-size: 2em;
     }
+
+    margin-top: 0.5em;
+    line-height: 1.2;
+    font-size: 3em;
+}
+
+.post-meta {
+    font-size: small;
+    color: $grey-color-dark;
 }
 
 .post-image {
@@ -15,6 +24,7 @@
 }
 
 .post-content {
+    padding: .5em;
     ul, ol {
         margin-left: $spacing-unit / 2;
     }

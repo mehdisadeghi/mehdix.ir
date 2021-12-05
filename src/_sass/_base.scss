@@ -9,13 +9,14 @@ body {
     font-family: $base-font-family;    
     line-height: $base-line-height;
     color: $on-background-color;
-    background-color: $background-color;
+    background-color: #ffdae0;
+     /*$background-color;*/
     overflow-wrap: break-word;
 }
 
 main {
     flex: auto;
-    margin: 8px;
+    margin: 18px;
 }
 
 header, footer {

@@ -50,7 +50,7 @@ defaults:
     toc: false
 - scope:
     path: "projects"
-    type: "pages"
+    type: "posts"
   values:
     layout: "project"
 - scope:

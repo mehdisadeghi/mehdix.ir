@@ -12,12 +12,24 @@ header {
         display: inline;
         margin-right: 1em;
     }
+    padding: 0;
 }
 
-.wrapper {
+.fixed-width {
     margin: 0 auto;
     max-width: -webkit-calc(800px - (#{$spacing-unit} * 2));
     max-width:         calc(800px - (#{$spacing-unit} * 2));
+}
+
+main .fixed-width {
+    height: 100%;
+}
+
+.card {
+    height: 100%;
+    background-color: $on-primary-color;
+    border-style: dashed;
+    margin-bottom: 1em;
 }
 
 .site-title {
