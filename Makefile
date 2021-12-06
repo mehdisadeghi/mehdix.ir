@@ -16,7 +16,7 @@ comments:
 	rsync -v mehdix.ir:/var/lib/alef/mehdix.db mehdix.db
 	python scripts/rebuild_comments.py
 
-serve:
+serve: build
 	bundle exec jekyll serve
 
 publish: build

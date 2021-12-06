@@ -84,9 +84,10 @@ main .fixed-width {
 .button {
     border: none;
     padding: 5px 32px;
-    background-color: lighten($primary-color, 25%);
+    background-color: $primary-color;
     border-radius: 2px;
     color: $on-primary-color;
+    cursor: pointer;
 }
 
 @include media-query($on-palm) {
