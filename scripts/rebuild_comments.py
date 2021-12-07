@@ -71,7 +71,7 @@ def netlify_transformer(secret):
 def alef_transformer(secret):
     def transform(comment):
         return {
-            "id": str(comment["id"]),
+            "id": comment['legacy_id'] or str(comment["id"]),
             "created_at": comment["time"],
             "reply_to": comment["reply_to"],
             "page_id": comment["page_id"],
@@ -157,6 +157,8 @@ def main():
 
     # Add new comments to the target yaml files.
     for page_id, submissions in comments.items():
+        if page_id.startswith('/'):
+            page_id = page_id[1:]
         comments_yamlfile = os.path.join(
             comments_dst, "{}.yml".format(page_id))
 

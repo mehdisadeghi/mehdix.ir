@@ -50,8 +50,16 @@ done
 	exit 1
 }
 
-false && [ -n "$var_reply_to" ] && {
-	echo is a reply: $var_reply_to
+true && [ -n "$var_reply_to" ] && {
+	#echo is a reply: $var_reply_to
+	#echo getting the email of the OP
+	op_email_query=$(cat <<-EOF
+	SELECT DISTINCT email FROM comments
+	WHERE id = "$var_reply_to" or legacy_id = "$var_reply_to";
+	EOF
+	)
+	op_email=$(sqlite3 "$ALEF_DB" "$op_email_query")
+	#echo "$op_email"
 }
 
 false && [ -n "$var_website" ] && {
@@ -88,21 +96,46 @@ CREATE TABLE IF NOT EXISTS comments (
 EOF
 }
 
-# If file exists and is writable
-[ -w "$ALEF_DB" ] && cat <<EOF | sqlite3 "$ALEF_DB"
-INSERT INTO comments
-	(time, name, email, page_id, reply_to, website, spam, message)
-VALUES (datetime(), "$var_name", "$var_email", "$var_page_id",
-	"$var_reply_to", "$var_website", "$spam", "$var_message");
+INSERT_QUERY=$(cat <<-EOF
+	INSERT INTO comments
+		(time, name, email, page_id, reply_to, website, spam, message)
+	VALUES (datetime(), "$var_name", "$var_email", "$var_page_id",
+		"$var_reply_to", "$var_website", "$spam", "$var_message")
+	RETURNING ID;
 EOF
+)
+#echo ALEF_DB "$ALEF_DB"
+#echo INSERT_QUERY "$INSERT_QUERY"
+
+# If file exists and is writable
+[ -w "$ALEF_DB" ] && NEW_ID=$(sqlite3 "$ALEF_DB" "$INSERT_QUERY")
+
+#sqlite3 "$ALEF_DB" "$INSERT_QUERY"
+#echo NEW_ID "$NEW_ID"
 
 # Report success
 echo دیدگاهت ثبت شد و با اولین بیلد وبسایت منتشر خواهد شد.
 
-sub="https://mehdix.ir/$var_page_id.html#1"
+sub="https://mehdix.ir/$var_page_id.html#$NEW_ID"
 
 # mail is from mailutils package
+#Inform the author about the new comment
 cat <<EOF | mail mehdi@mehdix.org -s "دیدگاه جدید" \
+	-a "From: کامنتدونی <noreply@mehdix.ir>" \
+	-a "Content-Type: text/plain; charset=UTF-8"
+${var_name} به دیدگاهت رو سایت مهدیکس جواب داد:
+
+	$var_message
+
+${sub}
+
+--
+کامنتدونی
+EOF
+
+
+#Inform the OP about the new comment
+[ -n "$op_email" ] && cat <<EOF | mail "$op_email" -s "دیدگاه جدید" \
 	-a "From: کامنتدونی <noreply@mehdix.ir>" \
 	-a "Content-Type: text/plain; charset=UTF-8"
 ${var_name} به دیدگاهت رو سایت مهدیکس جواب داد:

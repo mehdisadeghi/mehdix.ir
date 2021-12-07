@@ -28,4 +28,3 @@ clean:
 
 init_db: scripts/schema.sql
 	sqlite3 ${DBPATH} < scripts/schema.sql
-
