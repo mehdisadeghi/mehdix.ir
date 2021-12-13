@@ -39,7 +39,7 @@ comments:
   type: static
   static:
     avatar:
-      visible: true
+      visible: false
 
 defaults:
 - scope:
