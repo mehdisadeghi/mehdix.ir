@@ -1,6 +1,6 @@
 ---
 title: گربه‌ی کوانتومی
-category: سرگرمی
+category: تفریح
 tags: ترجمه پچ بازی
 uuid: 706b7c28-7f75-47e6-a49d-d576d11ce4af
 ---
