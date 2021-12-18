@@ -14,10 +14,9 @@ published: true
   grid-template-rows: 1fr 1fr 3fr;
   grid-gap: 1rem;
 }
-
 </style>
 
-<form id="harf" name="harf" netlify>
+<form id="harf">
 		<input name="bot-field" style="display:none">
     <label for="name">اسمت </label>
     <input id="name" type="text" name="name">

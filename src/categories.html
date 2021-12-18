@@ -10,8 +10,6 @@ sitemap: false
     {% capture category_name %}{{ category | first }}{% endcapture %}
     <li class="archive-group" style="padding-bottom:1.5em"> 
         <h3 class="category-head">{{ category_name }}</h3>
-
-        <!--a name="{{ category_name | slugize }}"></a-->
         <ol>
           {% for post in site.categories[category_name] %}
             <li class="archive-item">
@@ -19,7 +17,6 @@ sitemap: false
             </li>
           {% endfor %}
         </ol>
-
     </li>
   {% endfor %}
 </ol>

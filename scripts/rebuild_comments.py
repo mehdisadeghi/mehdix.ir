@@ -1,4 +1,3 @@
-"""Netlify comments processing script."""
 import hashlib
 import json
 import os
