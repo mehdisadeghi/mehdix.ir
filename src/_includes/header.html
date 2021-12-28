@@ -2,8 +2,9 @@
   <div class="fixed-width">
     <a class="site-title" href="{{ '/' | relative_url}}">{{ site.title }}</a>
     <small id="motto"> {{ site.motto }} </small>
-    {% if site.navbar %}
-    <nav><a href="{{ 'projects' | relative_url }}">برنامه‌ها</a></nav>
-    {% endif %}
+    <nav>
+      <a href="{{ 'projects' | relative_url }}">برنامه‌ها</a>
+      <a href="{{ 'categories' | relative_url }}">سرفصل‌ها</a>
+    </nav>
   </div>
 </header>

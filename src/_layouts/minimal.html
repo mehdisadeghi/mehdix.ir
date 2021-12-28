@@ -2,14 +2,14 @@
 layout: default
 ---
 <div class="card">
-  <h1 class="page-heading">❖ &nbsp; همه‌ی نوشته‌ها</h1>
-  <ul class="post-list-mini">
+  <h1>❖ &nbsp; همه‌ی نوشته‌ها</h1>
+  <ul class="list-meta">
     {% for post in site.posts %}
       <li class="post-list-item">
         <span class="list-meta-col">
           {{ post.date | jdate: "%d %b %Y" | habify }}
         </span>
-        <span class="list-line">
+        <span>
           <a href="{{ post.url }}">{{ post.title }}</a>
         </span>
       </li>

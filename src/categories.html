@@ -1,22 +1,24 @@
 ---
-layout: page
+layout: default
 permalink: /categories/
 title: سرفصل‌ها
 sitemap: false
 ---
-
-<ol style="list-style:none">
+<div class="card">
   {% for category in site.categories %}
-    {% capture category_name %}{{ category | first }}{% endcapture %}
-    <li class="archive-group" style="padding-bottom:1.5em"> 
-        <h3 class="category-head">{{ category_name }}</h3>
-        <ol>
-          {% for post in site.categories[category_name] %}
-            <li class="archive-item">
-              <h4><a href="{{ site.baseurl }}{{ post.url }}">{{post.title}}</a></h4>
-            </li>
-          {% endfor %}
-        </ol>
-    </li>
+  {% capture category_name %}{{ category | first }}{% endcapture %}
+  <h1>❖ &nbsp; {{ category_name }}</h1>
+  <ul class="list-meta">
+    {% for post in site.categories[category_name] %}
+      <li>
+        <span class="list-meta-col">
+          {{ post.date | jdate: "%d %b %Y" | habify }}
+        </span>
+        <span>
+          <a href="{{ post.url }}">{{ post.title }}</a>
+        </span>
+      </li>
+    {% endfor %}
+  </ul>
   {% endfor %}
-</ol>
+</div>

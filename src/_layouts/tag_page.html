@@ -3,15 +3,15 @@ layout: default
 robots: noindex
 sitemap: false
 ---
-<div class="tag-page">
-  <h1 class="page-heading">❖ &nbsp; {{ page.tag }}</h1>
-  <ul class="post-list-mini">
+<div class="card">
+  <h1>❖ &nbsp; {{ page.tag }}</h1>
+  <ul class="list-meta">
     {% for post in page.posts %}
       <li class="post-list-item">
         <span class="list-meta-col">
         {{ post.date | jdate: "%d %b %Y" | habify }}
         </span>
-        <span class="list-line"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></span>
+        <span><a href="{{ post.url | relative_url }}">{{ post.title }}</a></span>
       </li>
     {% endfor %}
   </ul>

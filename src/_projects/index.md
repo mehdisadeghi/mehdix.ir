@@ -4,8 +4,8 @@ layout: default
 {% assign projects_by_date = site.data.projects | sort: 'date' | reverse %}
 
 <div class="card">
-  <h1 class="page-heading">❖ &nbsp; برنامه‌ها</h1>
-  <ul class="post-list-mini">
+  <h1>❖ &nbsp; برنامه‌ها</h1>
+  <ul class="list-meta">
   {% for project in projects_by_date %}
   {% assign prefix = '/projects/,' | split: "," %}
   {% assign middle = project.id | split: '/' %}
@@ -16,7 +16,7 @@ layout: default
       <span class="list-meta-col">
         {{ project.date | jdate: "%d %b %Y" | habify }}
       </span>
-      <span class="list-line">
+      <span>
         <a href="{{ proj.id }}.html">{{ project.name }}</a>
       </span>
     </li>

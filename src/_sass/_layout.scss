@@ -32,21 +32,18 @@ main .fixed-width {
     margin-bottom: 1em;
 }
 
+.list-meta li {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    @include media-query($on-palm) {
+        display: grid;
+        grid-template-columns: auto;
+    }
+}
+
 .site-title {
     font-size: 26px;
     letter-spacing: -1px;
-}
-
-.post-list-mini {
-    .post-list-item {
-        display: flex;
-    }
-    @include media-query($on-palm) {
-        padding-right: 1em;
-        .list-meta-col {
-        display: none;
-        }
-    }
 }
 
 .meta {
@@ -55,8 +52,6 @@ main .fixed-width {
 
 .list-meta-col {
     @extend .meta;
-    width: 120px;
-    min-width: 120px;
 
     @include media-query(400px) {
         display: none;
@@ -139,7 +134,7 @@ img#footer-gravatar {
     font-family: monospace;
     font-size:x-small;
     display: flex;
-    justify-content: left;
+    justify-content: center;
     color: lighten($on-primary-color, 40%);
 }
 

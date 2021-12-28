@@ -57,7 +57,3 @@ defaults:
     path: "tag"
   values:
     sitemap: false
-
-navbar:
-  items:
-  - projects

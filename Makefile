@@ -25,6 +25,7 @@ publish: build
 clean:
 	rm -rf _site
 	rm -rf **/.jekyll-cache
+	rm -rf **/.yml
 
 init_db: scripts/schema.sql
 	sqlite3 ${DBPATH} < scripts/schema.sql
