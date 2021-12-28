@@ -120,10 +120,14 @@ echo دیدگاهت ثبت شد و با اولین بیلد وبسایت منت�
 
 sub="https://mehdix.ir/$var_page_id.html#$NEW_ID"
 
+# Convert internationalized header to RFC2047 format
+from_author="$(mailutils flt2047 --charset=utf-8 'کامنتدونی')"
+from_header="From: $from_author <noreply@mehdix.ir>"
+
 # mail is from mailutils package
 #Inform the author about the new comment
 cat <<EOF | mail mehdi@mehdix.org -s "دیدگاه جدید" \
-	-a "From: کامنتدونی <noreply@mehdix.ir>" \
+	-a "$from_header" \
 	-a "Content-Type: text/plain; charset=UTF-8"
 ${var_name} به دیدگاهت رو سایت مهدیکس جواب داد:
 
@@ -135,10 +139,9 @@ ${sub}
 کامنتدونی
 EOF
 
-
 #Inform the OP about the new comment
 [ -n "$op_email" ] && cat <<EOF | mail "$op_email" -s "دیدگاه جدید" \
-	-a "From: کامنتدونی <noreply@mehdix.ir>" \
+	-a "$from_header" \
 	-a "Content-Type: text/plain; charset=UTF-8"
 ${var_name} به دیدگاهت رو سایت مهدیکس جواب داد:
 
