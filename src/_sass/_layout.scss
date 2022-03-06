@@ -29,6 +29,7 @@ main .fixed-width {
     height: 100%;
     background-color: $on-primary-color;
     border-style: dashed;
+    border-color: lighten($primary-color, 20%);
     margin-bottom: 1em;
 }
 

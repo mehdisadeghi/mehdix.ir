@@ -1,6 +1,8 @@
 #static-comments {
-        background-color: lighten($primary-color, 30%);
-    }
+    margin: 5px;
+    background-color: lighten($primary-color, 30%);
+}
+
 #comments article {
     display: flex;
     font-size: .9rem;

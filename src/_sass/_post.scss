@@ -38,8 +38,7 @@
     }
     blockquote {
         font-family: $alt-font-family;
-        font-size: x-large;
-        font-style: italic;
+        font-size: large;
         letter-spacing: -1px;
         >  p {
             border-right: 4px solid lighten($on-primary-color, 30%);
