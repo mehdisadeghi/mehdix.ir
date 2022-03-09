@@ -1,0 +1,21 @@
+---
+layout: bare
+title: مارک‌داون
+---
+<div style="margin: 1em;">
+  <form>
+    <p>اینجا مارک‌داون بنویسید و نتیجه را در زیر ببینید. <a href="http://commonmark.org/help/" target="_"> این راهنما</a>&nbsp;را هم ببینید.</p>
+      <textarea id="message" onkeyup="preview()"></textarea>
+      <div id="preview"></div>
+  </form>
+</div>
+
+<script src="{{ 'assets/js/showdown.min.js' | absolute_url }}" type="text/javascript">
+</script>
+<script type="text/javascript">
+  function preview() {
+    var converter = new showdown.Converter();
+    var markdown = document.getElementById("message").value;
+    document.getElementById("preview").innerHTML = converter.makeHtml(markdown);
+  }
+</script>
