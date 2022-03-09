@@ -12,12 +12,8 @@ layout: headless
 
       <p class="post-meta">
         <span class="emoji">📆</span>
-        {{ page.date | jdate: "%A %d %b %Y" | habify}} توسط
-        <a href="{{ '/' | relative_url}}">{{ site.title }}</a>
-        &nbsp;
-        <span class="emoji">⏱️</span>
-        {{ time | habify }} دقیقه مطالعه
-
+        {{ page.date | jdate: "%A %d %b %Y" | habify}}
+	&nbsp;توسط <a href="{{ '/' | relative_url}}">{{ site.title }}</a>
       </p>
     </div>
     {{ content | toc }}

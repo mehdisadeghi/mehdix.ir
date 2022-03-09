@@ -1,11 +1,9 @@
-html, body {
-    margin: 0;
-    height: 100%;
-}
+*{margin:0;box-sizing:border-box;}
 
 body {
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
     font-family: $base-font-family;    
     line-height: $base-line-height;
     color: $on-background-color;
@@ -14,14 +12,12 @@ body {
     background-color: lighten($grey-color-light, 35%);
 }
 
-main {
-    flex: auto;
-    margin: 18px;
+header, footer {
+    padding: 0 .5em;
 }
 
-header, footer {
-    flex: none;
-    padding: 8px;
+main {
+  flex: 1;
 }
 
 h1, h2, h3, h4, h5, h6,
@@ -75,9 +71,8 @@ a:visited {
 
 pre {
     direction: ltr;
-    border: 1px solid lighten($on-background-color, 25%);
+    border: 1px solid lighten($primary-color, 25%);
     border-radius: 3px;
-    padding: 8px 12px;
     overflow-x: auto;
     > code {
         font-size: 15px;
@@ -103,9 +98,7 @@ article table {
 }
 
 form {
-    margin-top: 15px;
     font-size: .9rem;
-    padding: 15px;
     label {
         display: block;
         margin-bottom: 1em;
