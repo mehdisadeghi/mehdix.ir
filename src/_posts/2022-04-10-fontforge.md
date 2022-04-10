@@ -35,4 +35,8 @@ Your browser does not support the video tag.
 Your browser does not support the video tag.
 </video>
 
+آپدیت: شرمنده به جهت کم‌تجربگی سمت راست مانیتور در کادر نیفتاده. خوشبختانه اصل ماجرا قابل استفاده است بجز لیبره‌افیس که در انتها در پنجره دیده نمی‌شه که خروج را اسکرین‌شات گرفتم در زیر قابل دیدن است.
+
+![](assets/pimg/fontforge_baba.png)
+
 زنده باشید
