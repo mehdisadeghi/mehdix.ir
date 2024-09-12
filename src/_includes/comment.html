@@ -21,7 +21,9 @@
       <span style="display:none" commentId>{{ include.comment.id }}</span>
     </span>
     {{ include.comment.message | replace: "<p>", '' | replace: "</p>", newLine | replace: "<br>", newLine | strip_html | markdownify }}
+    {% unless include.is_stale %}
     <small class="comment-meta"> &nbsp; <a href="#comment-form" onclick="replyTo('{{ include.comment.id }}')">پاسخ</a></small>
+    {% endunless %}
   </div>
 
 </article>
@@ -29,7 +31,7 @@
 <div class="reply">
 {% for cc in include.comments %}
   {% if cc.reply_to == include.comment.id %}
-    {% include comment.html comment=cc comments=include.comments%}
+    {% include comment.html comment=cc comments=include.comments is_stale=include.is_stale %}
   {% endif %}
 {% endfor %}
 </div>

@@ -98,6 +98,7 @@ CREATE TABLE IF NOT EXISTS comments (
 EOF
 }
 
+# RETURNING needs at least sqlite version 3.35.0
 INSERT_QUERY=$(cat <<-EOF
 	INSERT INTO comments
 		(time, name, email, page_id, reply_to, website, spam, message)

@@ -5,22 +5,24 @@
 
 <section id="static-comments">
 
-  {% if comments %}
   <h2 id="comments-header">دیدگاه‌ها</h2>
-  <div id="comments">
 
+  {% if comments %}
+  <div id="comments">
     {% for comment in comments %}
       {% if comment.reply_to == nil or comment.reply_to == '' %}
       <div class="comment-chain">
-        {% include comment.html comment=comment comments=comments%}
+        {% include comment.html comment=comment comments=comments is_stale=page.is_stale %}
       </div>
       {% endif %}
     {% endfor%}
-
   </div>
   {% endif %}
 
 {% if site.comments.enabled %}
+  {% if page.is_stale %}
+  <p class="message center">فرصت اظهارنظر برای این پست تمام شده است.</p>
+  {% else %}
   <form id="comment-form" name="comment" action="/cgi-bin/submit" method="POST">
     <input name="page_id" style="display:none" value="{{page.id}}">
     <input id="reply-to" name="reply-to" style="display:none">
@@ -43,6 +45,7 @@
       <button type="submit" class="button">ارسال</button>
     </div>
   </form>
+  {% endif %}
 {% else %}
   <p class="message">
 کامنت‌دونی تا اطلاع ثانوی تعطیل است. لطفا در
@@ -64,3 +67,5 @@
   }
 </script>
 {% endif %}
+
+<blockquote class="message center">بهترین راه برای تماس با من <a href="mailto:{{site.email}}">ایمیل</a> است. دیدگاه‌ها دیر به دیر منتشر می‌شوند.</blockquote>

@@ -41,6 +41,7 @@ comments:
   static:
     avatar:
       visible: false
+  stale_days: 180
 
 defaults:
 - scope:
