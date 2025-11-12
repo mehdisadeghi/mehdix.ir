@@ -1,3 +1,10 @@
+# /// script
+# requires-python = ">=3.14"
+# dependencies = [
+#     "cryptography",
+#     "pyyaml",
+# ]
+# ///
 import json
 import os
 import sqlite3

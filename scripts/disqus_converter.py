@@ -1,3 +1,11 @@
+# /// script
+# requires-python = ">=3.14"
+# dependencies = [
+#     "python-iso8601",
+#     "pyyaml",
+#     "xmltodict",
+# ]
+# ///
 '''Convert disquls XML comments to YAML.'''
 import os
 import pathlib

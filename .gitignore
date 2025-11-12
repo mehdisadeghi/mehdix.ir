@@ -1,4 +1,5 @@
 .*
 vendor
 node_*
+_sitevendor
 _site

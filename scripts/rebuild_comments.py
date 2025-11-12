@@ -1,3 +1,12 @@
+#!/usr/bin/env python3
+# /// script
+# requires-python = ">=3.14"
+# dependencies = [
+#     "cryptography",
+#     "pyyaml",
+#     "requests",
+# ]
+# ///
 import hashlib
 import json
 import os
@@ -7,7 +16,7 @@ from collections import defaultdict
 import requests
 import yaml
 from cryptography.fernet import Fernet
-from pathlib2 import Path
+from pathlib import Path
 
 
 def get_netlify_form_submissions(form_submissions_endpoint, access_token):

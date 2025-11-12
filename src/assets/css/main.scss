@@ -1,43 +1,10 @@
 ---
 ---
-@charset "utf-8";
-
-$base-font-family: 'Droid Arabic Naskh','DejaVu Sans',serif;
-$alt-font-family: 'Droid Arabic Naskh';
-
-$base-font-size:   16px;
-$small-font-size:  $base-font-size * 0.875;
-$base-line-height: normal;
-$spacing-unit:     30px;
-
-
-/* https://material.io/design/color/the-color-system.html */
-$primary-color:    #FF5A77;
-$background-color: #FFFFFF;
-$on-primary-color: #FFFFFF;
-$on-background-color: #000000;
-
-$grey-color-light: lighten($on-background-color, 60%);
-$grey-color-dark:  lighten($on-background-color, 25%);
-
-$on-palm:          400px;
-$on-laptop:        800px;
-
-$assets-dir:	   '{{ "assets" | absolute_url }}';
-
-@mixin media-query($device) {
-  @media screen and (max-width: $device) {
-    @content;
-  }
-}
-
-@import
-  "fonts",
-  "base",
-  "layout",
-  "post",
-  "comments",
-  "tagcloud",
-  "print",
-  "pygments"
-;
+@use "base";
+@use "comments";
+@use "fonts";
+@use "layout";
+@use "post";
+@use "print";
+@use "pygments";
+@use "tagcloud";

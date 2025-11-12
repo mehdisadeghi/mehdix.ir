@@ -1,15 +1,18 @@
+@use "sass:color";
+@use "vars";
+
 *{margin:0;box-sizing:border-box;}
 
 body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    font-family: $base-font-family;    
-    line-height: $base-line-height;
-    color: $on-background-color;
+    font-family: vars.$base-font-family;
+    line-height: vars.$base-line-height;
+    color: vars.$on-background-color;
 
     overflow-wrap: break-word;
-    background-color: lighten($grey-color-light, 35%);
+    background-color: color.adjust(vars.$grey-color-light, vars.$lightness: 35%, vars.$space: hsl);
 }
 
 header, footer {
@@ -24,7 +27,7 @@ h1, h2, h3, h4, h5, h6,
 p, blockquote, pre,
 ul, ol, dl, figure,
 %vertical-rhythm {
-    margin-bottom: $spacing-unit / 2;
+    margin-bottom: calc(vars.$spacing-unit / 2);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -42,12 +45,12 @@ figure > img {
 }
 
 figcaption {
-    font-size: $small-font-size;
+    font-size: vars.$small-font-size;
 }
 
 img + em {
 	display: block;
-	font-size: $small-font-size;
+	font-size: vars.$small-font-size;
 	text-align: center;
 }
 
@@ -62,16 +65,16 @@ ol {
 
 a {
     text-decoration: none;
-    color: $grey-color-dark;
+    color: vars.$grey-color-dark;
 }
 
 a:visited {
-    color: $grey-color-light;
+    color: vars.$grey-color-light;
 }
 
 pre {
     direction: ltr;
-    border: 1px solid lighten($primary-color, 25%);
+    border: 1px solid color.adjust(vars.$primary-color, vars.$lightness: 25%, vars.$space: hsl);
     border-radius: 3px;
     overflow-x: auto;
     > code {
@@ -93,7 +96,7 @@ article table {
         padding: 5px;
     }
     tr:nth-child(even) {
-        background-color: lighten($grey-color-light, 25%);
+        background-color: color.adjust(vars.$grey-color-light, vars.$lightness: 25%, vars.$space: hsl);
     }
 }
 
@@ -107,15 +110,15 @@ form {
         display: block;
         width: 100%;
         box-sizing: border-box;
-        font-family: $base-font-family;
+        font-family: vars.$base-font-family;
         font-size: small;
-        border: 1px solid lighten($primary-color, 20%);
+        border: 1px solid color.adjust(vars.$primary-color, vars.$lightness: 20%, vars.$space: hsl);
     }
     input:focus, textarea:focus {
-        border-color: $primary-color;
+        border-color: vars.$primary-color;
     }
     button[type=submit] {
-        font-family: $alt-font-family;
+        font-family: vars.$alt-font-family;
     }
     textarea {
         height: 10rem;
@@ -123,12 +126,12 @@ form {
         padding: 10px;
     }
     sup.required {
-        color: $primary-color;
+        color: vars.$primary-color;
     }
 }
 
 blockquote {
-    border-right: 5px solid lighten($primary-color, 20%);
+    border-right: 5px solid color.adjust(vars.$primary-color, vars.$lightness: 20%, vars.$space: hsl);
 }
 
 @counter-style abjad {

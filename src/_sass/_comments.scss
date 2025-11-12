@@ -1,5 +1,8 @@
+@use "sass:color";
+@use "vars";
+
 #static-comments {
-    background-color: lighten($primary-color, 30%);
+    background-color: color.adjust(vars.$primary-color, vars.$lightness: 30%, vars.$space: hsl);
     padding: .5em;
 }
 
@@ -22,7 +25,7 @@
         blockquote > p {
             padding: 10px;
         }
-        @include media-query($on-palm) {
+        @include vars.media-query(vars.$on-palm) {
             .comment-image-wrapper {
                 display: none;
             }
@@ -51,7 +54,7 @@
 }
 
 .reply {
-    margin-right: $spacing-unit;
+    margin-right: vars.$spacing-unit;
 }
 
 #preview {
@@ -62,4 +65,3 @@
         margin-top: 0;
     }
 }
-

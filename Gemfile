@@ -1,4 +1,5 @@
 source "https://rubygems.org"
+ruby ">= 3.0.0"
 
 gem "jekyll", "~> 4.3.3"
 gem "json"
@@ -15,3 +16,9 @@ group :jekyll_plugins do
   gem "webrick"
   gem "jekyll-toc"
 end
+
+gem "logger", "~> 1.7"
+
+gem "csv", "~> 3.3"
+
+gem "base64", "~> 0.3.0"
