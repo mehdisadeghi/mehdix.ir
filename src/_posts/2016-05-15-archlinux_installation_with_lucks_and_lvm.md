@@ -250,3 +250,6 @@ APPEND cryptdevice=UUID=<uuid of the /dev/sda2>:lvm root=/dev/mapper/X1-root rw
 
 ## گام بعدی
 گام بعدی نصب gnome-shell روی لپ تاپ است که در مقاله‌ای دیگر می‌نویسم.
+
+### اصلاحیه‌ها
+- ۱۴۰۴/۰۸/۲۴: تبدیل رمزگزاری به رمزگذاری با تشکر از esmaeelE
