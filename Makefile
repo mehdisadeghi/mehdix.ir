@@ -5,9 +5,10 @@ all: build
 SECRET:=$(or $(SECRET), $(shell pass infra/mehdix.ir/secret | head -n1))
 
 init: init_db
+	@type bundler >/dev/null
+	@type uv >/dev/null
 	bundle config set path vendor/bundle
 	bundle install
-	uv sync
 
 build:
 	bundle exec jekyll build
@@ -19,7 +20,7 @@ comments:
 	export SECRET=${SECRET} && uv run ./scripts/rebuild_comments.py
 
 serve: build
-	bundle exec jekyll serve
+	bundle exec jekyll serve -w
 
 publish: build
 	rsync -vr _site/* mehdix.ir:/var/www/mehdix.ir/
