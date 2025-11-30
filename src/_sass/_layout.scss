@@ -34,7 +34,6 @@ footer {
 .fixed-width {
     margin-left: auto;
     margin-right: auto;
-    max-width: -webkit-calc(800px - (#{vars.$spacing-unit} * 2));
     max-width:         calc(800px - (#{vars.$spacing-unit} * 2));
 }
 
@@ -61,14 +60,10 @@ footer {
     letter-spacing: -1px;
 }
 
-.meta {
-    font-size: vars.$small-font-size;
-}
-
 .list-meta-col {
-    @extend .meta;
+    font-size: vars.$small-font-size;
 
-    @include vars.media-query(400px) {
+    @include vars.media-query(vars.$on-palm) {
         display: none;
     }
 }
@@ -106,7 +101,7 @@ footer {
     }
 }
 
-.a-pagination {
+.pagination {
     font-feature-settings: "liga" 1,"lnum" 1;
     text-align: center;
     * {
@@ -173,6 +168,5 @@ img#footer-gravatar {
 }
 
 .message {
-    background-color: color.adjust(vars.$primary-color, vars.$lightness: 30%, vars.$space: hsl);
     color: vars.$on-background-color;
 }

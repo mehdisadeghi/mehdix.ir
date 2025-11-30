@@ -14,7 +14,7 @@ layout: default
 
   {% if paginator.total_pages > 1 %}
 
-    <nav class="a-pagination">
+    <nav class="pagination">
       {% if paginator.previous_page %}
 
         <a href="{{ paginator.previous_page_path | relative_url }}"><i class="fas fa-forward"></i></a>
@@ -24,7 +24,7 @@ layout: default
         {% if page == paginator.page %}
           <span class="is-active">{{ page | habify}}</span>
         {% elsif page == 1 %}
-          <a href="{{ paginator.previous_page_path | relative_url }}">{{ page | habify }}</a>
+          <a href="{{ '/' | relative_url }}">{{ page | habify }}</a>
         {% else %}
           <a href="{{ site.paginate_path | replace: ':num', page | relative_url }}">{{ page | habify }}</a>
         {% endif %}

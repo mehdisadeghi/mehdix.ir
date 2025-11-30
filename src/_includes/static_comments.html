@@ -3,12 +3,12 @@
 {% capture key %}{{ page.id | remove_first: "/" }}{% endcapture %}
 {% assign comments = site.data.comments[key] %}
 
-<section id="static-comments">
+<section id="comments">
 
-  <h2 id="comments-header">دیدگاه‌ها</h2>
+  <h2 id="comments-header"><a href="#comments">دیدگاه‌ها</a></h2>
 
   {% if comments %}
-  <div id="comments">
+  <div class="comments-list">
     {% for comment in comments %}
       {% if comment.reply_to == nil or comment.reply_to == '' %}
       <div class="comment-chain">
@@ -42,6 +42,7 @@
       <input id="puzzle" type="text" name="puzzle">
     </label>
     <div style="text-align:left">
+<p class="center">بهترین راه برای تماس با من <a href="mailto:{{site.email}}">ایمیل</a> است. دیدگاه‌ها دیر به دیر منتشر می‌شوند.</p>
       <button type="submit" class="button">ارسال</button>
     </div>
   </form>
@@ -57,6 +58,7 @@
 دیدگاه خود را بنویسید.
   </p>
 {% endif %}
+
 </section>
 {% if site.comments.enabled %}
 <script type="text/javascript">
@@ -67,5 +69,3 @@
   }
 </script>
 {% endif %}
-
-<blockquote class="message center">بهترین راه برای تماس با من <a href="mailto:{{site.email}}">ایمیل</a> است. دیدگاه‌ها دیر به دیر منتشر می‌شوند.</blockquote>

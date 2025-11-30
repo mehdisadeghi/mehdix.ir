@@ -1,7 +1,8 @@
 DBPATH=mehdix.db
 all: build
-.PHONY: init serve publish clean
+.PHONY: init serve publish clean fmt
 
+SECRET:=$(or $(SECRET), $(shell pass infra/mehdix.ir/secret | head -n1))
 
 init: init_db
 	bundle config set path vendor/bundle
@@ -15,10 +16,10 @@ comments:
 	@echo rebuilding alef comments
 	cp mehdix.db $$(date -I)-mehdix.db 2>/dev/null || true
 	rsync -v mehdix.ir:/var/lib/alef/mehdix.db mehdix.db
-	uv run ./scripts/rebuild_comments.py
+	export SECRET=${SECRET} && uv run ./scripts/rebuild_comments.py
 
 serve: build
-	bundle exec jekyll serve
+	bundle exec jekyll serve ${ARGS}
 
 publish: build
 	rsync -vr _site/* mehdix.ir:/var/www/mehdix.ir/
@@ -30,3 +31,6 @@ clean:
 
 init_db: schema.sql
 	sqlite3 ${DBPATH} < schema.sql
+
+fmt:
+	npx prettier --write "src/**/*.scss"

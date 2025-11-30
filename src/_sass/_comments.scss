@@ -1,35 +1,17 @@
 @use "sass:color";
 @use "vars";
 
-#static-comments {
-    background-color: color.adjust(vars.$primary-color, vars.$lightness: 30%, vars.$space: hsl);
+#comments {
+    background-color: color.scale(vars.$primary-color, $saturation: -45%, $lightness: 94%);
     padding: .5em;
 }
 
-#comments article {
+.comments-list article {
     display: flex;
-    font-size: .9rem;
+    font-size: smaller;
     p {
         white-space: pre-wrap;
-    }
-}
-
-.comment-chain {
-    .sub-comment {
-        margin: 5%;
-        padding: 3%;
-        font-size: smaller;
-        p {
-            margin-bottom: 0;
-        }
-        blockquote > p {
-            padding: 10px;
-        }
-        @include vars.media-query(vars.$on-palm) {
-            .comment-image-wrapper {
-                display: none;
-            }
-        }
+        line-height: 1.5em;
     }
 }
 
@@ -55,10 +37,24 @@
 
 .reply {
     margin-right: vars.$spacing-unit;
+
+    article {
+        p {
+            margin-bottom: 0;
+        }
+        blockquote > p {
+            padding: 10px;
+        }
+        @include vars.media-query(vars.$on-palm) {
+            .comment-image-wrapper {
+                display: none;
+            }
+        }
+    }
 }
 
 #preview {
-    font-size: small;;
+    font-size: small;
     padding: 10px;
     p {
         white-space: pre-wrap;

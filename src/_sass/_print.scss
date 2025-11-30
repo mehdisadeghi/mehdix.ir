@@ -1,9 +1,11 @@
-@media print { 
-    .site-header, .site-footer,
-    #disqus_thread, #static-comments {
+@use "vars";
+
+@media print {
+    header, footer,
+    #disqus_thread, #comments {
         display: none;
     }
 
     h1 { font-size: 18pt; }
-    h2 { font-size: 16pt; color: #000; }
+    h2 { font-size: 16pt; color: vars.$on-background-color; }
 }

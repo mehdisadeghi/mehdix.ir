@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html dir="rtl" lang="fa" prefix="og: https://ogp.me/ns#">
-  
+
   <head>
     {% comment %} Don't use caching here. The header values that
     are page-specific will be invalid. It will take the results
@@ -25,7 +25,7 @@
     <title>{{ site.title }}</title>
     {% endif %}
 
-    <link hreflang="fa" rel=alternate type=application/atom+xml title="فید مقالات" href="{{ post.url | absolute_url }}/feed.xml">
+    <link hreflang="fa" rel=alternate type=application/atom+xml title="فید مقالات" href="{{ '/feed.xml' | absolute_url }}">
 
     {% seo title=false %}
   </head>
