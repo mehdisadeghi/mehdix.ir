@@ -1,12 +1,8 @@
 ---
-layout: bare
+layout: base
+header: yes
+footer: yes
 ---
-{%- include_cached header.html -%}
-
 <main>
-  <div class="fixed-width content">
-    {{- content -}}
-  </div>
+  {{ content }}
 </main>
-
-{%- include_cached footer.html -%}

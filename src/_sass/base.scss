@@ -1,0 +1,351 @@
+@use "vars";
+
+@font-face {
+  font-family: "Noqte";
+  font-style: normal;
+  font-weight: 400;
+  src: url(../fonts/noqte.woff2) format("woff2");
+}
+
+/* noto-naskh-arabic-regular - arabic_latin */
+@font-face {
+  font-display: swap;
+  font-family: "Noto Naskh Arabic";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/noto-naskh-arabic-v43-arabic_latin-regular.woff2")
+    format("woff2");
+}
+
+/* noto-naskh-arabic-700 - arabic_latin */
+@font-face {
+  font-display: swap;
+  font-family: "Noto Naskh Arabic";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../fonts/noto-naskh-arabic-v43-arabic_latin-700.woff2")
+    format("woff2");
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+p,
+blockquote,
+li,
+figcaption,
+td,
+th,
+dt,
+dd,
+caption {
+  hyphens: auto;
+  text-wrap: pretty;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+// Auto-direction for content areas only (not titles, tags, navigation)
+.post-content :is(p, li, figcaption, td, th, dt, dd, h2, h3, h4, h5, h6),
+#comments :is(p, li),
+blockquote {
+  unicode-bidi: plaintext;
+}
+
+// Flow spacing (main uses flex gap for direct children)
+* + :is(p, ul, ol, blockquote, figure, pre) {
+  margin-top: vars.$space-sm;
+}
+* + :is(h1, h2, h3, h4, h5, h6) {
+  margin-top: vars.$space-lg;
+}
+:is(h1, h2, h3, h4, h5, h6) + * {
+  margin-top: vars.$space-sm;
+}
+
+:is(header, footer, section, article, label) a:visited {
+  color: currentColor;
+}
+
+@media print {
+  header,
+  footer,
+  aside,
+  #comments,
+  .dingbat {
+    display: none;
+  }
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding-block: 0.5em;
+  font-family: vars.$base-font-family;
+  line-height: vars.$base-line-height;
+  color: var(--text);
+  background-color: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+main {
+  flex: 1;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+figure > img {
+  display: block;
+}
+
+figcaption {
+  font-size: vars.$small-font-size;
+}
+
+ul {
+  list-style-type: square;
+}
+
+ol {
+  list-style-type: persian;
+}
+
+a {
+  text-decoration: none;
+  color: var(--text);
+}
+
+a:visited {
+  color: var(--text-muted);
+}
+
+pre {
+  direction: ltr;
+  overflow: auto;
+}
+
+div.highlight {
+  padding: 0.5em;
+  border-radius: var(--border-radius);
+}
+
+pre > code {
+  font-size: 15px;
+}
+
+table {
+  width: 100%;
+  border: 1px solid var(--text-muted);
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+tr {
+  border-bottom: 1px solid var(--text-muted);
+}
+
+td {
+  padding: 5px;
+}
+
+tr:nth-child(even) {
+  background-color: var(--bg);
+}
+
+form {
+  font-size: 0.9rem;
+  label {
+    display: block;
+    margin-top: 0.5em;
+  }
+  input,
+  textarea {
+    display: block;
+    width: 100%;
+    font-family: vars.$base-font-family;
+    font-size: vars.$small-font-size;
+    border: 1px solid var(--accent-border);
+    background-color: var(--surface);
+    color: var(--text);
+  }
+  input:focus,
+  textarea:focus {
+    border-color: var(--accent);
+  }
+  button[type="submit"] {
+    font-family: vars.$alt-font-family;
+  }
+  textarea {
+    height: 10rem;
+    resize: vertical;
+    padding: 10px;
+  }
+  sup.required {
+    color: var(--accent);
+    vertical-align: baseline;
+  }
+}
+
+@counter-style abjad {
+  system: additive;
+  range: 1 1000;
+  additive-symbols:
+    1000 "\63A",
+    900 "\638",
+    800 "\636",
+    700 "\630",
+    600 "\62E",
+    500 "\62B",
+    400 "\62A",
+    300 "\634",
+    200 "\631",
+    100 "\642",
+    90 "\635",
+    80 "\641",
+    70 "\639",
+    60 "\633",
+    50 "\646",
+    40 "\645",
+    30 "\644",
+    20 "\6A9",
+    10 "\649",
+    9 "\637",
+    8 "\62D",
+    7 "\632",
+    6 "\648",
+    5 "\FEEB",
+    4 "\62F",
+    3 "\62C",
+    2 "\628",
+    1 "\627\644\641";
+}
+
+@counter-style abjad-persian {
+  system: additive;
+  range: 1 1000;
+  additive-symbols:
+    1000 "\63A",
+    900 "\638",
+    800 "\636",
+    700 "\630",
+    600 "\62E",
+    500 "\62B",
+    400 "\62A",
+    300 "\634",
+    200 "\631",
+    100 "\642",
+    90 "\635",
+    80 "\641",
+    70 "\639",
+    60 "\633",
+    50 "\646",
+    40 "\645",
+    30 "\644",
+    20 "\6AF",
+    10 "\649",
+    9 "\637",
+    8 "\62D",
+    7 "\698",
+    6 "\648",
+    5 "\FEEB",
+    4 "\62F",
+    3 "\686",
+    2 "\67E",
+    1 "\627\644\641";
+  suffix: ". ";
+  pad: 3 "-";
+}
+
+// Highlighted sections (blockquotes, comments)
+section,
+blockquote {
+  border-radius: var(--border-radius);
+}
+
+.highlighted,
+blockquote {
+  background-color: var(--accent-soft);
+  color: var(--on-accent-soft);
+  padding: 15px;
+  border-radius: var(--border-radius);
+}
+
+// Utilities
+.center {
+  text-align: center;
+}
+
+.button {
+  border: none;
+  padding: 5px 32px;
+  background-color: var(--accent);
+  border-radius: 2px;
+  color: var(--on-accent);
+  cursor: pointer;
+}
+
+.emoji {
+  filter: grayscale(100%);
+  vertical-align: sub;
+}
+
+/* tag cloud rules */
+.set-1 {
+  font-size: 0.7em;
+}
+.set-2 {
+  font-size: 0.8em;
+}
+.set-3 {
+  font-size: 0.9em;
+}
+.set-4 {
+  font-size: 1em;
+}
+.set-5 {
+  font-size: 1.1em;
+}
+.set-6 {
+  font-size: 1.2em;
+}
+.set-7 {
+  font-size: 1.3em;
+}
+.set-8 {
+  font-size: 1.4em;
+}
+.set-9 {
+  font-size: 1.5em;
+}
+.set-10 {
+  font-size: 1.6em;
+}

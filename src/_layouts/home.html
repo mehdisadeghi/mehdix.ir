@@ -1,12 +1,11 @@
 ---
 layout: default
 ---
-<div class="card">
+<div class="card home">
   <h1>❖ &nbsp; مقالات</h1>
   <ul class="post-list">
     {% for post in paginator.posts %}
       <li class="post-list-item">
-        <!--span class="meta date">{{ post.date | jdate: "%A %d %b %Y" | habify }}</span-->
         <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
         {{ post.content | strip_html | truncatewords: 35 }}
       </li>
@@ -22,11 +21,11 @@ layout: default
 
       {% for page in (1..paginator.total_pages) %}
         {% if page == paginator.page %}
-          <span class="is-active">{{ page | habify}}</span>
+          <span class="is-active">{{ page}}</span>
         {% elsif page == 1 %}
-          <a href="{{ '/' | relative_url }}">{{ page | habify }}</a>
+          <a href="{{ '/' | relative_url }}">{{ page }}</a>
         {% else %}
-          <a href="{{ site.paginate_path | replace: ':num', page | relative_url }}">{{ page | habify }}</a>
+          <a href="{{ site.paginate_path | replace: ':num', page | relative_url }}">{{ page }}</a>
         {% endif %}
       {% endfor %}
 

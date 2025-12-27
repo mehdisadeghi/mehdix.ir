@@ -1,0 +1,13 @@
+*.mp4 -diff
+*.ogg -diff
+*.ogv -diff
+*.png -diff
+*.jpg -diff
+*.pdf -diff
+*.gif -diff
+*.zip -diff
+*.apk -diff
+*.ico -diff
+*.woff -diff
+*.woff2 -diff
+*.wasm -diff

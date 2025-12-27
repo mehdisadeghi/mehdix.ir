@@ -1,21 +1,14 @@
 ---
 title: قانون اساسی
-layout: project
-publish: true
-repo_url: https://github.com/mehdisadeghi/iranconstitution
+date: 2016-08-07
+description: قانون اساسی جمهوری اسلامی ایران در فرمت `YAML`.
+language: YAML
+data_sources:
+  - description: سایت مرکز پژوهش‌های مجلس
+    url: https://rc.majlis.ir
+repository:
+  url: https://github.com/mehdisadeghi/iranconstitution
+  tracker: https://github.com/mehdisadeghi/iranconstitution/issues
 comments: true
+layout: project
 ---
-
-قانون اساسی جمهوری اسلامی ایران در فرمت `YAML`.
-
-#### زبان برنامه‌نویسی
-از فرمت `YAML` برای نوشتن فایل استفاده شده است.
-
-#### داده‌های مورد استفاده
-از سایت مرکز پژوهش‌های مجلس به عنوان منبع استفاده شده است. همه‌ی متن در یک فایل پیاده شده است.
-
-#### ریپازیتوری
-قانون اساسی روی گیت‌هاب [هاست](https://github.com/mehdisadeghi/iranconstitution) شده است.
-
-#### گزارش مشکلات و پیشنهادات
-لطفا روی گیت‌هاب گزارش کنید.

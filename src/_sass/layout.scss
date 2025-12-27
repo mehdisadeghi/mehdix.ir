@@ -1,0 +1,300 @@
+@use "vars";
+
+// Site header & footer
+:is(#site-header, #site-footer) {
+  background-color: var(--accent);
+  color: var(--on-accent);
+}
+
+#site-footer {
+  display: flex;
+  flex-direction: column;
+}
+
+:is(#site-header, #site-footer) a {
+  color: var(--on-accent);
+  text-decoration: none;
+}
+
+#site-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+#site-header nav {
+  flex: 1;
+}
+
+#theme-toggle {
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: inherit;
+  font-size: 1.5em;
+  padding: 0;
+  line-height: 0;
+  transform: translateY(-0.1em);
+}
+
+#site-footer {
+  padding-block: 0.5em;
+}
+
+#site-footer img.feed {
+  height: 30px;
+}
+
+#motto {
+  vertical-align: middle;
+}
+
+#footer-gravatar {
+  clip-path: circle();
+  width: 50px;
+  float: right;
+  margin: 0.5em;
+}
+
+.social-media-list {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#footer-extra {
+  display: grid;
+  grid: auto-flow / 1fr auto max-content;
+}
+
+#footer-build-time {
+  margin-top: auto;
+  margin-bottom: calc(-1 * vars.$space-sm);
+  text-align: center;
+  font-family: monospace;
+  font-size: x-small;
+  color: var(--on-accent);
+}
+
+// Mobile overrides
+@include vars.media-query(vars.$on-palm) {
+  #motto,
+  #footer-gravatar,
+  #footer-atom,
+  #site-footer.feed,
+  .list-meta-col,
+  .reply .comment-avatar {
+    display: none;
+  }
+
+  #footer-extra {
+    justify-content: center;
+  }
+
+  #footer-license {
+    font-size: xx-small;
+    text-align: center;
+  }
+
+  .post-title {
+    font-size: 2em;
+  }
+}
+
+// Desktop-only styles (mobile-first approach)
+@media (min-width: vars.$on-palm) {
+  .post-list-item {
+    display: flex;
+    list-style: none;
+  }
+}
+
+// Layout containers
+.highlighter-rouge {
+  max-width: 95vw;
+}
+
+// Floating card layout
+#site-header,
+#site-footer,
+main {
+  width: calc(100% - vars.$space-md);
+  max-width: vars.$content-width;
+  margin-inline: auto;
+  padding: vars.$space-sm;
+  border-radius: var(--border-radius);
+}
+
+main {
+  margin-block: 0.5em;
+  background-color: var(--surface);
+  display: flex;
+  flex-direction: column;
+  gap: vars.$space-sm;
+}
+
+.site-title {
+  font-size: 26px;
+  letter-spacing: -1px;
+}
+
+// List page
+.list-meta {
+  padding-inline-start: 1.5em;
+  list-style-position: inside;
+}
+
+.list-meta-col {
+  flex: 0 0 16ch;
+  padding-inline-end: 1em;
+  font-size: vars.$small-font-size;
+}
+
+time {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.3em;
+  max-width: 16ch;
+}
+
+// Content components
+.image-caption {
+  text-align: center;
+  margin-top: vars.$space-sm;
+}
+
+.footnotes {
+  font-size: vars.$small-font-size;
+  font-family: vars.$alt-font-family;
+}
+
+.pagination {
+  font-feature-settings:
+    "liga" 1,
+    "lnum" 1;
+  text-align: center;
+}
+
+.pagination > * {
+  line-height: 1.3;
+  font-weight: 500;
+  display: inline-block;
+  padding: 0.5em 0.75em;
+}
+
+.pagination .is-active {
+  font-size: x-large;
+}
+
+.dingbat {
+  font-size: 5em;
+  color: var(--accent);
+  text-align: center;
+}
+
+// Post
+.post-title {
+  text-align: center;
+  padding-top: vars.$space-sm;
+  line-height: 1.2;
+  font-size: 3em;
+  cursor: pointer;
+}
+
+.post-meta,
+.comment-meta {
+  display: flex;
+  gap: 0.5em;
+}
+
+.post-meta {
+  font-size: vars.$small-font-size;
+  color: var(--text-muted);
+}
+
+.post-image {
+  text-align: center;
+}
+
+.post-image img {
+  margin-inline: auto;
+}
+
+.post-content :is(ul, ol) {
+  margin-left: vars.$space-md;
+}
+
+.post-content :is(iframe, video) {
+  width: 100%;
+}
+
+.post-content figure {
+  margin: 0 auto;
+  text-align: center;
+  max-width: 400px;
+}
+
+.post-image-float {
+  max-width: 50%;
+  float: left;
+}
+
+.home .post-list-item {
+  margin-bottom: vars.$space-md;
+}
+
+// Comments (uses .highlighted styling from base.scss)
+#comments {
+  background-color: var(--accent-soft);
+  color: var(--on-accent-soft);
+  padding: 0.5em;
+}
+
+.comments-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.comments-list article {
+  font-size: vars.$small-font-size;
+}
+
+.comments-list article p {
+  white-space: pre-wrap;
+  line-height: 1.5em;
+}
+
+#comments-header a {
+  color: var(--text-muted);
+}
+
+#comments-header img.feed {
+  height: 20px;
+  filter: grayscale(100%);
+}
+
+.comment-avatar {
+  max-width: 2.5em;
+  min-width: 2.5em;
+}
+
+.reply {
+  margin-right: 2.5em;
+}
+
+.reply article {
+  margin-top: 0.5em;
+}
+
+.reply article blockquote > p {
+  padding: 10px;
+}
+
+#preview {
+  font-size: vars.$small-font-size;
+  padding: 10px;
+}
+
+#preview p {
+  white-space: pre-wrap;
+}

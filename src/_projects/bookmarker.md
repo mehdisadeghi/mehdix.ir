@@ -1,25 +1,14 @@
 ---
 title: بوکمارکر
-layout: project
-publish: true
-repo_url: https://github.com/mehdisadeghi/bookmarker
+date: 2016-06-18
+description: بوکمارکر یک افزونه‌ی مرورگر کروم است. کارش اینست که بوکمارک‌ها را جستجو کند. کافیست در نوار آدرس کروم `bb` وارد کنید و شروع کنید به تایپ کردن.
+language: JavaScript
+website: https://chrome.google.com/webstore/detail/dogmmdcflcflabibfbecmfgaaobifimo
+data_sources:
+  - description: از API کروم استفاده می‌کند و داده‌ای ذخیره نمی‌کند
+repository:
+  url: https://github.com/mehdisadeghi/bookmarker
+  tracker: https://github.com/mehdisadeghi/bookmarker/issues
 comments: false
+layout: project
 ---
-
-بوکمارکر یک افزونه‌ی مرورگر کروم است. کارش اینست که بوکمارک‌ها را جستجو کند. کافیست در نوار آدرس کروم `bb` وارد کنید و شروع کنید به تایپ کردن.
-
-#### زبان برنامه‌نویسی
-بوکمارکر با کمک `JavaScript` نوشته شده است.
-
-#### داده‌های مورد استفاده
-بوکمارکر تنها از API کروم استفاده می‌کند و داده‌ای ندارد و ذخیره نمی‌کند.
-
-#### نصب
-بوکمارکر را می‌توان از ‬فروشگاه آنلاین گوگل روی کرومیوم یا کروم ‎‬[نصب](https://chrome.google.com/webstore/detail/dogmmdcflcflabibfbecmfgaaobifimo) کرد.
-
-#### ریپازیتوری
-بوکمارکر روی گیت‌هاب [هاست](https://github.com/mehdisadeghi/bookmarker) شده است.
-
-#### گزارش مشکلات و پیشنهادات
-مشکلات را در گیت‌هاب [گزارش](https://github.com/mehdisadeghi/bookmarker/issues) کنید.
-

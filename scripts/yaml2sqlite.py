@@ -8,11 +8,9 @@
 import json
 import os
 import sqlite3
-from datetime import datetime
 
 import yaml
 from cryptography.fernet import Fernet
-from dateutil import parser
 
 
 def encrypt(text, secret):

@@ -1,6 +1,5 @@
 ---
 title: صفحه‌بندی در جکیل
-category: جکیل
 tags: [جکیل, صفحه‌بندی, pagination]
 uuid: 98e60af1-25f7-49fc-881a-44a6ddbcec0b
 ---
@@ -37,11 +36,11 @@ layout: default
     {% for post in paginator.posts %}
       <li>
         <span class="post-meta">
-        <span class="date">{{ post.date | jdate: "%A %d %b %Y" | habify }}
+        <span class="date">{{ post.date | jdate_html }}
         </span></span>
 
         <h2>
-          <a class="post-link" 
+          <a class="post-link"
             href="{{ site.baseurl | urljoin: post.url}}">{{ post.title }}</a>
         </h2>
         {{ post.excerpt }}
@@ -62,8 +61,8 @@ layout: default
     <span class="previous">جدیدتر ندارد</span>
   {% endif %}
   &nbsp❖&nbsp<span class="page_number ">
-  برگه‌ی {{ paginator.page | habify}} از {{ paginator.total_pages | habify}}
-  </span> 
+  برگه‌ی {{ paginator.page}} از {{ paginator.total_pages}}
+  </span>
   &nbsp❖&nbsp
   {% if paginator.next_page %}
     <a href="{{ paginator.next_page_path }}" class="next">قدیمی‌تر</a>
@@ -86,7 +85,7 @@ layout: default
   <div style="border-top:1px dotted;">
     <p>
       {% if page.next %}
-      <a href="{{ page.next.url }}" style="float: left"> 
+      <a href="{{ page.next.url }}" style="float: left">
         {{ page.next.title }} >> </a>
       {% endif %}
 

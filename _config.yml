@@ -4,14 +4,14 @@ title: مهدی صادقی
 motto: در مورد نرم‌افزار و ایده‌هایم
 author: مهدی صادقی
 email: mehdi@mehdix.ir
-baseurl: "" # the subpath of your site, e.g. /blog
-url: https://mehdix.ir # the base hostname & protocol for your site
+baseurl: ""
+url: https://mehdix.ir
 keywords: کامپیوتر برنامه‌نویسی پایتون تکنولوژی مهندسی ایران وب
 copyright: Commons Attribution 4.0 International
 description: >
   سکوی انتشار مطالبی در مورد دانش تولید نرم‌افزار و ایده‌ها و علایق شخصی‌ام.
 
-long_description: > # this means to ignore newlines until "baseurl:"
+long_description: >
   بچه که بودیم همیشه برای بازی خونه می‌ساختیم. حالا هم نمونه‌اش رو در وب ساختم.
   اینجا سکوی انتشار مطالبی در مورد دانش تولید نرم‌افزار و ایده‌ها و علایق شخصی‌ام است،
   بویژه راه‌حل‌های مهندسی که باعث رشد و پیشرفتم شده است و می‌تواند مورد استفاده دیگران هم قرار بگیرد.
@@ -20,7 +20,7 @@ github:
   username: mehdisadeghi
   repository: mehdix.ir
 favicon: assets/img/me.png
-logo: assets/img/me.png
+avatar: assets/img/me.png
 
 permalink: :title:output_ext
 timezone: Europe/Berlin
@@ -28,20 +28,9 @@ timezone: Europe/Berlin
 paginate: 20
 paginate_path: /page:num/
 
-tag_page_layout: tag_page
-tag_page_dir: tag
-
 collections:
   projects:
     output: true
-
-comments:
-  enabled: true
-  type: static
-  static:
-    avatar:
-      visible: false
-  stale_days: 180
 
 defaults:
 - scope:
@@ -49,13 +38,8 @@ defaults:
     type: "posts"
   values:
     layout: "post"
-    toc: false
 - scope:
-    path: "projects"
-    type: "posts"
+    path: ""
+    type: "projects"
   values:
     layout: "project"
-- scope:
-    path: "tag"
-  values:
-    sitemap: false

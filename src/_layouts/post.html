@@ -1,55 +1,59 @@
 ---
-layout: headless
+layout: default
+header: no
+footer: no
 ---
 
-{% capture time %}{{ content | reading_time }}{% endcapture %}
-
-<div class="card">
-
-  <article class="post-content">
-    <div class="post-header">
-      <h1 class="post-title">{{ page.title }}</h1>
-
-      <p class="post-meta">
-        <span class="emoji">📆</span>
-        {{ page.date | jdate: "%A %d %b %Y" | habify}}
-	&nbsp;توسط <a href="{{ '/' | relative_url}}">{{ site.title }}</a>
-      </p>
+<article class="post-content">
+  <header>
+    <h1 class="post-title">{{ page.title }}</h1>
+    <div class="post-meta">
+      <span class="emoji" dir="ltr" title="{{ page.date }}">📆</span>
+      {{ page.date | jdate_html: "%A %d %b %Y"}}
+      &nbsp;توسط
+      <a href="{{ '/' | relative_url}}">{{ site.title }}</a>
     </div>
-    {{ content | toc }}
-  </article>
-  <aside id="post-tags">
-      {% for tag in page.tags %}
-        <span class="emoji">🏷️</span>
-        <a rel="tag" href="{{ tag | tag_url  }}">{{tag}}</a>
-      {% endfor %}
+  </header>
+  {{ content | toc }}
+</article>
+<footer class="post-meta">
+    {% for tag in page.tags %}
 
-      <span class="emoji">📜</span>
-      {% assign slash = site.source | slice: 0 %}
-      {% if slash == '/' %}
-      <a href="https://raw.githubusercontent.com/{{site.github.username}}/{{site.github.repository}}/master/{{ page.path }}">سورس</a>
-      {% else %}
-      <a href="https://raw.githubusercontent.com/{{site.github.username}}/{{site.github.repository}}/master/{{site.source}}/{{page.path}}">سورس</a>
-      {% endif %}
-  </aside>
+      <a rel="tag" href="{{ tag | tag_url  }}"><span class="emoji">🏷️</span> {{tag}}</a>
+    {% endfor %}
 
-  {% if site.related_posts.size >= 1 %}
-      <aside id="related-posts">
-        <h3>مطالب مرتبط</h3>
-        <ul>
-          {% for related_post in site.related_posts limit: 5 %}
-            <li><a href="{{ related_post.url | relative_url }}">{{ related_post.title }}</a></li>
-          {% endfor %}
-          </ul>
-      </aside>
+    <span class="emoji">📜</span>
+    {% assign slash = site.source | slice: 0 %}
+    {% if slash == '/' %}
+    <a href="https://raw.githubusercontent.com/{{site.github.username}}/{{site.github.repository}}/master/{{ page.path }}">سورس</a>
+    {% else %}
+    <a href="https://raw.githubusercontent.com/{{site.github.username}}/{{site.github.repository}}/master/{{site.source}}/{{page.path}}">سورس</a>
+    {% endif %}
+</footer>
+
+{% if page.related_posts.size >= 1 %}
+    <aside id="related-posts">
+      <h3>مطالب مرتبط</h3>
+      <ul>
+        {% for related_post in page.related_posts %}
+          <li><a href="{{ related_post.url | relative_url }}">{{ related_post.title }}</a></li>
+        {% endfor %}
+        </ul>
+    </aside>
+{% endif %}
+<aside>
+<nav class="pagination">
+  {% if page.next %}
+    <a href="{{ page.next.url | relative_url }}" title="j">{{ page.next.title }} →</a>
   {% endif %}
-
-  {% if site.comments.type == 'static' %}
-  {% include static_comments.html %}
+  {% if page.previous %}
+    <a href="{{ page.previous.url | relative_url }}" title="k">← {{ page.previous.title }}</a>
   {% endif %}
+</nav>
+</aside>
 
-  <div class="dingbat">
-    ❦
-  </div>
+{% include comments_section.html %}
 
+<div class="dingbat">
+  ❦
 </div>

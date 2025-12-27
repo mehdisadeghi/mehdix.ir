@@ -1,0 +1,42 @@
+---
+layout: default
+---
+{% if page.group_by %}
+  {% assign groups = "" | split: "" %}
+  {% for item in site[page.group_by] %}
+    {% assign groups = groups | push: item %}
+  {% endfor %}
+  {% if page.group_by == 'categories' %}
+    {% assign uncategorized = site.posts | where_exp: "post", "post.categories.size == 0" %}
+    {% if uncategorized.size > 0 %}
+      {% assign fake = "" | split: "" | push: "بدون سرفصل" | push: uncategorized %}
+      {% assign groups = groups | push: fake %}
+    {% endif %}
+  {% endif %}
+{% else %}
+  {% if page.collection %}
+    {% assign items = site[page.collection] | sort: 'date' | reverse %}
+  {% else %}
+    {% assign items = page.items | default: site.posts %}
+  {% endif %}
+  {% assign single = "" | split: "" | push: page.title | push: items %}
+  {% assign groups = "" | split: "" | push: single %}
+{% endif %}
+
+{{ content }}
+{% for group in groups %}
+<h1>❖ &nbsp; {{ group[0] | default: "همه‌ی نوشته‌ها" }}</h1>
+<ol class="list-meta">
+  {% for item in group[1] %}
+    <li class="post-list-item">
+      <span class="list-meta-col">{{ item.date | jdate_html }}</span>
+      <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
+    </li>
+  {% endfor %}
+</ol>
+{% endfor %}
+
+{% if page.tag_cloud %}
+<hr>
+<div id="tag-cloud">{{ site | tag_cloud }}</div>
+{% endif %}

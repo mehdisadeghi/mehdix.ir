@@ -1,0 +1,63 @@
+{% assign key = page.id | remove_first: "/" %}
+{% assign comments = site.data.comments[key] %}
+
+<section id="comments">
+  <h2 id="comments-header"><a href="#comments">
+    دیدگاه‌ها
+  </a>
+    <a href="{{ page.id | absolute_url }}.xml"><img class="feed" src="{{ 'assets/img/feed.svg' | relative_url }}" alt="فید نظرات" title="فید نظرات"/></a>
+  </h2>
+  {% if comments %}
+  <div class="comments-list">
+    {% for comment in comments %}
+      {% if comment.reply_to == nil or comment.reply_to == '' %}
+      {% include comment.html comment=comment comments=comments is_stale=page.is_stale %}
+      {% endif %}
+    {% endfor%}
+  </div>
+  {% endif %}
+
+  {% if site.comments.enabled == false %}
+  <p class="center">
+    کامنت‌دونی تا اطلاع ثانوی تعطیل است.
+  </p>
+
+  {% elsif page.comments == false %}
+  <p class="center">امکان اظهارنظر برای این پست در حال حاضر وجود ندارد.</p>
+  {% elsif page.is_stale %}
+  <p class="center">فرصت اظهارنظر برای این پست تمام شده است.</p>
+  {% else %}
+  <form id="comment-form" name="comment" action="/cgi-bin/submit" method="POST">
+    <input name="page_id" style="display:none" value="{{page.id}}">
+    <input id="reply-to" name="reply-to" style="display:none">
+    <label for="message"><a href="#message">دیدگاه</a><sup class="required">*</sup>
+      <small>می‌توانید با <a href="http://commonmark.org/help/" target="_">مارک‌داون</a> هم بنویسید. این هم <a href="preview.html">زمین بازی</a>.</small>
+      <small id="replyToVisualClue"></small>
+      <textarea id="message" name="message" required></textarea>
+    </label>
+    <label for="name">نام<sup class="required">*</sup>
+      <input id="name" type="text" name="name" required>
+    </label>
+    <label for="email">ایمیل<sup class="required">*</sup>
+      <input id="email" type="email" name="email" required>
+    </label>
+    <label for="website">وبسایت
+      <input id="website" type="url" name="website">
+    </label>
+    <label for="puzzle">و تا یادم نرفته اسم اسب رستم دستان چی بود؟<sup class="required">*</sup>
+      <input id="puzzle" type="text" name="puzzle">
+    </label>
+    <p class="center">بهترین راه برای تماس با من <a href="mailto:{{site.email}}">ایمیل</a> است. دیدگاه‌ها دیر به دیر منتشر می‌شوند.</p>
+    <div style="text-align:left">
+      <button type="submit" class="button">ارسال</button>
+    </div>
+  </form>
+  <script>
+    function replyTo(commentID) {
+      var comment = document.getElementById(commentID);
+      document.getElementById("reply-to").value = comment.querySelector("span[commentId]").innerText;
+      document.getElementById("replyToVisualClue").innerText = "[در جواب " + comment.querySelector("span[commenter]").innerText + "]";
+    }
+  </script>
+  {% endif %}
+</section>

@@ -1,6 +1,6 @@
 ---
 title: حق دسترسی فایل‌ها در لینوکس به زبان ساده (۲) 
-tags: لینوکس فایل حق دسترسی umask id inode permission
+tags: لینوکس فایل دسترسی
 category: راهنما
 uuid: d03f3f59-8454-4644-801a-0f1f765da7be
 ---

@@ -1,10 +1,9 @@
-<header>
-  <div class="fixed-width">
-    <a class="site-title" href="{{ '/' | relative_url}}">{{ site.title }}</a>
-    <small id="motto"> {{ site.motto }} </small>
-    <nav>
-      <a href="{{ 'projects' | relative_url }}">برنامه‌ها</a>
-      <a href="{{ 'categories' | relative_url }}">سرفصل‌ها</a>
-    </nav>
-  </div>
+<header id="site-header">
+  <a class="site-title" href="{{ '/' | relative_url}}">{{ site.title }}</a>
+  <small id="motto"> {{ site.motto }} </small>
+  <nav>
+    <a href="{{ 'projects' | relative_url }}">برنامه‌ها</a>
+    <a href="{{ 'categories' | relative_url }}">سرفصل‌ها</a>
+  </nav>
+  <button id="theme-toggle" aria-label="Toggle dark mode">☀</button>
 </header>

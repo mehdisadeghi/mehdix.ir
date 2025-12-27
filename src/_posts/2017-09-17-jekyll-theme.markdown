@@ -1,6 +1,5 @@
 ---
 title: انتشار قالب جکیلِ وبسایت
-category: جکیل
 tags: جکیل روبی
 uuid: 8a6802dc-3e8f-4ba4-8c0e-c4b1a1d70db1
 ---

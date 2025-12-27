@@ -1,15 +1,14 @@
 ---
 title: لیستی با حروف ابجد
 category: راهنما
-tags: [ابجد, css, list-style-type, وب, counter-style, شماره‌گذاری, استیل]
-published: True
+tags: ابجد css وب
 uuid: 7e35945f-ed23-4e1e-ab83-1aacff21a23b
 ---
 شاید برای شما هم پیش آمده باشد که خواسته باشید لیستی را در وب به سبک و سیاق کشورمان با ارقام فارسی و یا حروف ابجد شماره‌گذاری کنید. در گذشته این کار امکانپذیر نبود. اما خب، امروز هر کار دلمان بخواهد می‌توانیم انجام بدهیم.
 
 
 ## استیل شماره‌گذاری
-هدف این پست معرفی [پیشنهاد جدیدی](http://www.w3.org/TR/css-counter-styles-3/) بنام `CSS Counter Styles Level 3` است که توسط کنسرسیوم جهانی وب به 3 CSS اضافه شده است. این پیشنهاد همچنان در دست تکمیل است و نسخه‌های مختلف آن را می‌توان در [سایت اینترنتی](https://drafts.csswg.org/css-counter-styles-3/) گروه کاری[^1] CSS  مشاهده کرد. 
+هدف این پست معرفی [پیشنهاد جدیدی](http://www.w3.org/TR/css-counter-styles-3/) بنام `CSS Counter Styles Level 3` است که توسط کنسرسیوم جهانی وب به 3 CSS اضافه شده است. این پیشنهاد همچنان در دست تکمیل است و نسخه‌های مختلف آن را می‌توان در [سایت اینترنتی](https://drafts.csswg.org/css-counter-styles-3/) گروه کاری[^1] CSS  مشاهده کرد.
 
 در حالت عادی یک لیست مرتب شده[^2] در HTML اینطور تعریف می‌شود:
 
@@ -42,16 +41,16 @@ uuid: 7e35945f-ed23-4e1e-ab83-1aacff21a23b
 
 ~~~text
 'list-style-type'
-  Value:  	disc | circle | square | decimal | 
-  decimal-leading-zero | lower-roman | upper-roman | 
-  lower-greek | lower-latin | upper-latin | armenian | 
+  Value:  	disc | circle | square | decimal |
+  decimal-leading-zero | lower-roman | upper-roman |
+  lower-greek | lower-latin | upper-latin | armenian |
   georgian | lower-alpha | upper-alpha | none | inherit
   Initial:  	disc
   Applies to:  	elements with 'display: list-item'
   Inherited:  	yes
   Percentages:  	N/A
   Media:  	visual
-  Computed value:  	as specified 
+  Computed value:  	as specified
 ~~~
 
 اما در نسخه سوم CSS طبق توضیحی که در شرح این [پیش‌نویس](https://drafts.csswg.org/css-counter-styles-3) آمده است مقادیر جدیدی برای این پراپرتی پذیرفته می‌شود، منجمله _persian_. بنابراین مقدار این پراپرتی را برابر با _persian_ قرار می‌دهیم تا به نتیجه دلخواه برسیم:
@@ -112,7 +111,7 @@ uuid: 7e35945f-ed23-4e1e-ab83-1aacff21a23b
   [ fallback: <counter-style-name>; ]
 }
 
-where 
+where
 <counter-style-name> = <custom-ident>
 ~~~
 
@@ -127,7 +126,7 @@ where
 به گفته ویکی‌پدیای فارسی (و انگلیسی) ترتیب حروف ابجد اینگونه است:
 
  الف 	ب 	ج 	د 	ه 	و 	ز 	ح 	ط 	ی 	ک 	ل 	م 	ن 	س 	ع 	ف 	ص 	ق 	ر 	ش 	ت 	ث 	خ 	ذ 	ض 	ظ 	غ
- 
+
 ما هم برای همین ترتیب و با توجه به ارزش عددی هر حرف که در همان مقاله آمده است یک استیل شماره‌گذاری می‌سازیم:
 
 
@@ -165,5 +164,3 @@ where
 
 [^1]: Working Group
 [^2]: Ordered List
-
-

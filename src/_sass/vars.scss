@@ -1,0 +1,89 @@
+// Typography
+$base-font-family: "Noto Naskh Arabic", "DejaVu Sans", serif;
+$alt-font-family: "Noto Naskh Arabic";
+$base-font-size: 16px;
+$small-font-size: $base-font-size * 0.875;
+$base-line-height: normal;
+
+// Layout
+$content-width: 740px;
+$on-palm: 400px;
+
+// Spacing scale
+$space-sm: 0.5em;
+$space-md: 1em;
+$space-lg: 1.5em;
+
+// ===================
+// Monochromatic HSL Color System
+// ===================
+
+:root {
+  // Brand hue - change this to rebrand the entire site
+  --hue: 350;
+
+  // Primary scale (hue-based)
+  --primary-50: hsl(var(--hue), 100%, 98%);
+  --primary-100: hsl(var(--hue), 100%, 92%);
+  --primary-200: hsl(var(--hue), 100%, 85%);
+  --primary-500: hsl(var(--hue), 100%, 68%);
+
+  // Gray scale (neutral)
+  --gray-50: hsl(0, 0%, 100%);
+  --gray-200: hsl(0, 0%, 90%);
+  --gray-300: hsl(0, 0%, 80%);
+  --gray-400: hsl(0, 0%, 65%);
+  --gray-500: hsl(0, 0%, 50%);
+  --gray-700: hsl(0, 0%, 25%);
+  --gray-800: hsl(0, 0%, 15%);
+  --gray-850: hsl(0, 0%, 12%);
+  --gray-900: hsl(0, 0%, 0%);
+
+  // Primary dark variants (for dark mode - lighter to maintain contrast)
+  --primary-400: hsl(var(--hue), 50%, 45%);
+  --primary-600: hsl(var(--hue), 40%, 25%);
+  --primary-700: hsl(var(--hue), 70%, 35%);
+
+  // Semantic tokens (light mode)
+  --bg: var(--gray-300);
+  --surface: var(--gray-50);
+  --text: var(--gray-900);
+  --text-muted: var(--gray-500);
+  --accent: var(--primary-500);
+  --accent-soft: var(--primary-50);
+  --accent-border: var(--primary-200);
+  --on-accent: var(--gray-50);
+  --on-accent-soft: var(--gray-900);
+
+  --border-radius: 0.3em;
+}
+
+@mixin dark-theme {
+  --bg: var(--gray-850);
+  --surface: var(--gray-800);
+  --text: var(--gray-200);
+  --text-muted: var(--gray-400);
+  --accent: var(--primary-400);
+  --accent-soft: var(--primary-600);
+  --accent-border: var(--primary-700);
+  --on-accent: var(--gray-50);
+  --on-accent-soft: var(--gray-200);
+}
+
+// Dark mode (OS preference)
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    @include dark-theme;
+  }
+}
+
+// Dark mode (manual override)
+:root[data-theme="dark"] {
+  @include dark-theme;
+}
+
+@mixin media-query($device) {
+  @media screen and (max-width: $device) {
+    @content;
+  }
+}

@@ -1,15 +1,40 @@
 ---
-layout: headless
+layout: default
 ---
+<article class="post-content">
+  <header>
+    <h1 class="post-title">{{ page.title }}</h1>
+  </header>
 
-<div class="card">
-  <article class="project post-content">
+  <p>{{ page.description | markdownify | remove: '<p>' | remove: '</p>' }}</p>
 
-    <div class="post-header">
-      <h1 class="post-title">{{ page.title }}</h1>
-    </div>
+  <h4>زبان برنامه‌نویسی</h4>
+  <p>با کمک <code>{{ page.language }}</code> نوشته شده است.</p>
 
-    {{ content }}
+  {% if page.data_sources %}
+  <h4>داده‌های مورد استفاده</h4>
+  <ul>
+    {% for source in page.data_sources %}
+      <li>
+        {% if source.url %}
+          <a href="{{ source.url }}">{{ source.description }}</a>
+        {% else %}
+          {{ source.description }}
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+  {% endif %}
 
-  </article>
-</div>
+  {% if page.website %}
+  <h4>نصب</h4>
+  <p><a href="{{ page.website }}">{{ page.website }}</a></p>
+  {% endif %}
+
+  <h4>ریپازیتوری</h4>
+  <p><a href="{{ page.repository.url }}">{{ page.repository.url }}</a></p>
+
+  <h4>گزارش مشکلات و پیشنهادات</h4>
+  <p><a href="{{ page.repository.tracker }}">{{ page.repository.tracker }}</a></p>
+
+</article>
