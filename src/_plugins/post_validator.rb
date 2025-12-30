@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Jekyll
   class PostValidator < Generator
     safe true
@@ -5,7 +7,7 @@ module Jekyll
 
     def generate(site)
       all_categories = Set.new
-      tag_sources = {}  # tag => [posts using it as tag]
+      tag_sources = {} # tag => [posts using it as tag]
 
       site.posts.docs.each do |post|
         Array(post.data["category"]).each { |c| all_categories << c }

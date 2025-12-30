@@ -1,6 +1,6 @@
 ---
 title: پچ بنویس و التماس کن
-tags: پچ سازوکار gtk gnome گنوم مشارکت
+tags: gtk gnome مشارکت
 uuid: e2cb01d2-b3ff-4f99-8402-b47613c36cb4
 category: یادداشت
 ---

@@ -1,7 +1,7 @@
 ---
 title: پروتکل چت اینترنت و اسکرین
 category: راهنما
-tags: چت irc اسکرین screen
+tags: چت irc
 uuid: fbea88aa-24a4-45e3-a9ce-d4f245650710
 ---
 

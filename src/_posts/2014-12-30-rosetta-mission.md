@@ -1,6 +1,8 @@
 ---
 title: ماموریت روزتا
-tags: فضا سرگرمی هابی تفریح
+tags:
+  - فضا
+  - تفریح
 uuid: 81b19830-234e-42a9-b5ce-b1ba6218ff8d
 
 ---
@@ -15,4 +17,6 @@ uuid: 81b19830-234e-42a9-b5ce-b1ba6218ff8d
  برای پروژه روزتا کارتون‌ها و انیمیشن‌های زیبایی ساخته شده که در کانال یوتیوب سازمان فضایی اروپا قابل دیدنه. من اینجا یکی از این ویدیوها رو، به نام *Ambition*، که حال و هوایی حماسی داره قرار می‌دم. اگر سرعت اینترنت قابل قبولی دارین حتما تماشا کنید. خودم که هر چندوقت یکبار میام و می‌بینم!
 
 
-<iframe src="https://new.livestream.com/accounts/362/events/3544091/videos/66902310/player?autoPlay=false&height=360&mute=false&width=640" width="640" height="360" frameborder="0" scrolling="no"></iframe>
+<iframe width="640" height="360" src="https://www.youtube.com/embed/HD2zrF3I_II?si=Z80a5dPsJNBEGSRB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+آپدیت دی‌ماه ۱۴۰۴:‌ویدیو را با یک ویدیو از یوتیوب جایگزین کردم. [ویدیوی اصلی](https://web.archive.org/web/20161215100957/https://livestream.com/ESA/cometlanding/videos/66904455) ظاهرا مدتهاست از دسترس خارج شده.

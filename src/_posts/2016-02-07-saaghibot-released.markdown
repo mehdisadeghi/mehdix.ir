@@ -1,7 +1,7 @@
 ---
 title: انتشار ساقی‌بات
 layout: post
-tags: تلگرام بات telegram bot ساقی SaaghiBot
+tags: تلگرام بات ساقی
 uuid: ac09dbf5-7bec-47ca-a3ce-763fa62356ae
 category: پروژه
 ---

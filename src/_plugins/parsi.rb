@@ -1,3 +1,27 @@
+# frozen_string_literal: true
+
+# Persian text and Jalali calendar utilities for Jekyll.
+
+# Persian text utilities
+module Parsi
+  NUMERALS = {
+    "0" => "۰", "1" => "۱", "2" => "۲", "3" => "۳", "4" => "۴",
+    "5" => "۵", "6" => "۶", "7" => "۷", "8" => "۸", "9" => "۹"
+  }.freeze
+
+  def self.numerals(str)
+    NUMERALS.reduce(str.to_s) { |s, (latin, persian)| s.gsub(latin, persian) }
+  end
+
+  module Filter
+    def persian(input)
+      Parsi.numerals(input.to_s)
+    end
+  end
+end
+
+Liquid::Template.register_filter(Parsi::Filter)
+
 # Jalali (Persian/Solar Hijri) calendar conversion.
 #
 # Algorithm: Converts Gregorian dates to Jalali using the 33-year cycle.
@@ -11,30 +35,19 @@
 #
 # Epoch offset (355666): Days between Gregorian epoch (Jan 1, 1 CE) and
 # Jalali epoch (Farvardin 1, year 1 = March 22, 622 CE).
-
-module JCal
+module Jalali
   WEEKDAYS = %w[شنبه یکشنبه دوشنبه سه‌شنبه چهارشنبه پنجشنبه جمعه].freeze
   MONTHS = %w[فروردین اردیبهشت خرداد تیر مرداد شهریور مهر آبان آذر دی بهمن اسفند].freeze
   MONTH_DAYS = [31, 31, 31, 31, 31, 31, 30, 30, 30, 30, 30, 29].freeze
-
   WEEKDAYS_SHORT = %w[ش ی د س چ پ ج].freeze
 
-  PERSIAN_NUMS = {
-    "0" => "۰", "1" => "۱", "2" => "۲", "3" => "۳", "4" => "۴",
-    "5" => "۵", "6" => "۶", "7" => "۷", "8" => "۸", "9" => "۹",
-  }.freeze
-
-  def self.to_persian(str)
-    PERSIAN_NUMS.reduce(str.to_s) { |s, (latin, persian)| s.gsub(latin, persian) }
-  end
-
-  class JDate
+  class Date
     attr_reader :year, :month, :day, :weekday, :time
 
     def initialize(date)
       @time = date.is_a?(Time) ? date : Time.parse(date.to_s)
-      @year, @month, @day = JCal.gregorian_to_jalali(@time.year, @time.month, @time.day)
-      @weekday = (@time.wday + 1) % 7  # Saturday = 0
+      @year, @month, @day = Jalali.gregorian_to_jalali(@time.year, @time.month, @time.day)
+      @weekday = (@time.wday + 1) % 7 # Saturday = 0
     end
 
     def month_name
@@ -46,7 +59,7 @@ module JCal
     end
 
     def leap?
-      JCal.leap?(@year)
+      Jalali.leap?(@year)
     end
 
     def day_of_year
@@ -97,7 +110,7 @@ module JCal
         when "%%" then "%"
         end
       end
-      persian_digits ? JCal.to_persian(result) : result
+      persian_digits ? Parsi.numerals(result) : result
     end
   end
 
@@ -111,19 +124,19 @@ module JCal
     g_cumulative = [0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334]
 
     # Days from Gregorian epoch, adjusted for Jalali epoch offset (355666)
-    gy2 = gm > 2 ? gy + 1 : gy
-    days = 355666 +
-           (365 * gy) +
-           ((gy2 + 3) / 4) -
-           ((gy2 + 99) / 100) +
-           ((gy2 + 399) / 400) +
-           gd +
-           g_cumulative[gm - 1]
+    gy2 = (gm > 2) ? gy + 1 : gy
+    days = 355_666 +
+      (365 * gy) +
+      ((gy2 + 3) / 4) -
+      ((gy2 + 99) / 100) +
+      ((gy2 + 399) / 400) +
+      gd +
+      g_cumulative[gm - 1]
 
     # Extract Jalali year from 33-year cycles
     # 12053 days = 33 years, 1461 days = 4 years
-    jy = -1595 + (33 * (days / 12053))
-    days %= 12053
+    jy = -1595 + (33 * (days / 12_053))
+    days %= 12_053
 
     jy += 4 * (days / 1461)
     days %= 1461
@@ -151,11 +164,8 @@ module JCal
   def self.leap?(jy)
     [1, 5, 9, 13, 17, 22, 26, 30].include?(jy % 33)
   end
-end
 
-# Jekyll Liquid filters
-module Jekyll
-  module JDateFilter
+  module Filter
     FORMAT_CLASSES = {
       "%A" => "weekday", "%a" => "weekday",
       "%B" => "month", "%b" => "month",
@@ -163,30 +173,33 @@ module Jekyll
       "%Y" => "year", "%y" => "year",
       "%m" => "month-num",
       "%j" => "day-of-year",
-      "%H" => "hour", "%M" => "minute", "%S" => "second",
+      "%H" => "hour", "%M" => "minute", "%S" => "second"
     }.freeze
 
     def jdate(date, format = "%d %b %Y")
       return "" if date.nil? || date.to_s.empty?
-      JCal::JDate.new(date).strftime(format, persian_digits: true)
+
+      Jalali::Date.new(date).strftime(format, persian_digits: true)
     rescue
       date.to_s
     end
 
     def jdate_html(date, format = "%d %b %Y")
       return "" if date.nil? || date.to_s.empty?
-      j = JCal::JDate.new(date)
+
+      j = Jalali::Date.new(date)
 
       html = format.gsub(/%[AaBbdeYymjHMS]/) do |spec|
         value = j.strftime(spec, persian_digits: true)
         %(<span class="#{FORMAT_CLASSES[spec]}">#{value}</span>)
       end
 
-      %(<time datetime="#{j.time.iso8601}">#{html}</time>)
+      gregorian = j.time.strftime("%-d %B %Y")
+      %(<time datetime="#{j.time.iso8601}" title="\u200E#{gregorian}">#{html}</time>)
     rescue
       date.to_s
     end
   end
 end
 
-Liquid::Template.register_filter(Jekyll::JDateFilter)
+Liquid::Template.register_filter(Jalali::Filter)

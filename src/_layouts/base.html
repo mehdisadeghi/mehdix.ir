@@ -39,59 +39,14 @@
       {% if layout.header %} {% include header.html %} {% endif %}
     {% endunless %}
 
+    <input type="range" id="hue-slider" min="0" max="360" value="350" aria-label="Adjust theme hue">
+
     {{ content }}
 
     {% unless page.footer == false %}
       {% if layout.footer %} {% include footer.html %} {% endif %}
     {% endunless %}
 
-    <script>
-      (function() {
-        const darkQuery = window.matchMedia('(prefers-color-scheme: dark)');
-        const storageKey = 'theme';
-        const toggle = document.getElementById('theme-toggle');
-
-        function isDark() {
-          const theme = document.documentElement.getAttribute('data-theme');
-          return theme === 'dark' || (!theme && darkQuery.matches);
-        }
-
-        function updateIcon() {
-          if (toggle) toggle.textContent = isDark() ? '☼' : '☀';
-        }
-
-        const saved = sessionStorage.getItem(storageKey);
-        if (saved) {
-          document.documentElement.setAttribute('data-theme', saved);
-        }
-        updateIcon();
-
-        function toggleTheme() {
-          const next = isDark() ? 'light' : 'dark';
-          document.documentElement.setAttribute('data-theme', next);
-          sessionStorage.setItem(storageKey, next);
-          updateIcon();
-        }
-
-        toggle?.addEventListener('click', toggleTheme);
-        document.querySelector('.post-title')?.addEventListener('click', toggleTheme);
-
-        darkQuery.addEventListener('change', function() {
-          if (!sessionStorage.getItem(storageKey)) {
-            document.documentElement.removeAttribute('data-theme');
-          }
-          updateIcon();
-        });
-
-        // j/k navigation between posts
-        document.addEventListener('keydown', function(e) {
-          if (e.target.matches('input, textarea')) return;
-          const nav = document.querySelector('.pagination');
-          if (!nav) return;
-          if (e.key === 'j') nav.querySelector('a[title="j"]')?.click();
-          if (e.key === 'k') nav.querySelector('a[title="k"]')?.click();
-        });
-      })();
-    </script>
+    <script src="{{ 'assets/js/main.js' | relative_url }}" defer></script>
   </body>
 </html>

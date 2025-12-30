@@ -28,16 +28,16 @@ $space-lg: 1.5em;
   --primary-200: hsl(var(--hue), 100%, 85%);
   --primary-500: hsl(var(--hue), 100%, 68%);
 
-  // Gray scale (neutral)
-  --gray-50: hsl(0, 0%, 100%);
-  --gray-200: hsl(0, 0%, 90%);
-  --gray-300: hsl(0, 0%, 80%);
-  --gray-400: hsl(0, 0%, 65%);
-  --gray-500: hsl(0, 0%, 50%);
-  --gray-700: hsl(0, 0%, 25%);
-  --gray-800: hsl(0, 0%, 15%);
-  --gray-850: hsl(0, 0%, 12%);
-  --gray-900: hsl(0, 0%, 0%);
+  // Gray scale (tinted with hue for monochromatic feel)
+  --gray-50: hsl(var(--hue), 10%, 98%);
+  --gray-200: hsl(var(--hue), 8%, 90%);
+  --gray-300: hsl(var(--hue), 8%, 80%);
+  --gray-400: hsl(var(--hue), 6%, 65%);
+  --gray-500: hsl(var(--hue), 5%, 50%);
+  --gray-700: hsl(var(--hue), 8%, 25%);
+  --gray-800: hsl(var(--hue), 10%, 15%);
+  --gray-850: hsl(var(--hue), 10%, 12%);
+  --gray-900: hsl(var(--hue), 15%, 10%);
 
   // Primary dark variants (for dark mode - lighter to maintain contrast)
   --primary-400: hsl(var(--hue), 50%, 45%);
@@ -48,13 +48,18 @@ $space-lg: 1.5em;
   --bg: var(--gray-300);
   --surface: var(--gray-50);
   --text: var(--gray-900);
-  --text-muted: var(--gray-500);
+  --text-muted: var(--primary-600);
   --accent: var(--primary-500);
   --accent-soft: var(--primary-50);
   --accent-border: var(--primary-200);
   --on-accent: var(--gray-50);
+  --on-accent: oklch(
+    from var(--accent) clamp(0.1, (0.8 - l) * 20, 0.95) 0.02 h
+  );
   --on-accent-soft: var(--gray-900);
-
+  --on-accent-soft: oklch(
+    from var(--accent-soft) clamp(0.1, (0.8 - l) * 20, 0.95) 0.02 h
+  );
   --border-radius: 0.3em;
 }
 
@@ -62,12 +67,18 @@ $space-lg: 1.5em;
   --bg: var(--gray-850);
   --surface: var(--gray-800);
   --text: var(--gray-200);
-  --text-muted: var(--gray-400);
+  --text-muted: var(--primary-50);
   --accent: var(--primary-400);
   --accent-soft: var(--primary-600);
   --accent-border: var(--primary-700);
   --on-accent: var(--gray-50);
+  --on-accent: oklch(
+    from var(--accent) clamp(0.1, (0.8 - l) * 20, 0.95) 0.02 h
+  );
   --on-accent-soft: var(--gray-200);
+  --on-accent-soft: oklch(
+    from var(--accent-soft) clamp(0.1, (0.8 - l) * 20, 0.95) 0.02 h
+  );
 }
 
 // Dark mode (OS preference)
@@ -80,10 +91,4 @@ $space-lg: 1.5em;
 // Dark mode (manual override)
 :root[data-theme="dark"] {
   @include dark-theme;
-}
-
-@mixin media-query($device) {
-  @media screen and (max-width: $device) {
-    @content;
-  }
 }

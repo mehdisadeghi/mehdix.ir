@@ -37,6 +37,40 @@
   transform: translateY(-0.1em);
 }
 
+#hue-slider {
+  display: none;
+  width: calc(100% - vars.$space-md);
+  max-width: vars.$content-width;
+  margin: 0.5em auto;
+  height: 8px;
+
+  &.visible {
+    display: block;
+  }
+  border-radius: 4px;
+  appearance: none;
+  background: linear-gradient(
+    to right,
+    hsl(0 100% 50%),
+    hsl(60 100% 50%),
+    hsl(120 100% 50%),
+    hsl(180 100% 50%),
+    hsl(240 100% 50%),
+    hsl(300 100% 50%),
+    hsl(360 100% 50%)
+  );
+
+  &::-webkit-slider-thumb {
+    appearance: none;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--on-accent);
+    border: 2px solid var(--accent);
+    cursor: grab;
+  }
+}
+
 #site-footer {
   padding-block: 0.5em;
 }
@@ -76,7 +110,7 @@
 }
 
 // Mobile overrides
-@include vars.media-query(vars.$on-palm) {
+@media screen and (max-width: vars.$on-palm) {
   #motto,
   #footer-gravatar,
   #footer-atom,
@@ -147,6 +181,17 @@ main {
   flex: 0 0 16ch;
   padding-inline-end: 1em;
   font-size: vars.$small-font-size;
+  color: var(--gray-700);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .list-meta-col {
+    color: var(--gray-300);
+  }
+}
+
+:root[data-theme="dark"] .list-meta-col {
+  color: var(--gray-300);
 }
 
 time {
@@ -203,20 +248,38 @@ time {
 .post-meta,
 .comment-meta {
   display: flex;
+  flex-wrap: wrap;
   gap: 0.5em;
 }
 
 .post-meta {
   font-size: vars.$small-font-size;
-  color: var(--text-muted);
+  color: var(--gray-700);
 }
 
-.post-image {
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .post-meta {
+    color: var(--gray-300);
+  }
+}
+
+:root[data-theme="dark"] .post-meta {
+  color: var(--gray-300);
+}
+
+// Keep tag emoji and text together
+.post-meta a[rel="tag"] {
+  white-space: nowrap;
+}
+
+.post-image,
+.post-content p:has(> img) {
   text-align: center;
-}
 
-.post-image img {
-  margin-inline: auto;
+  img {
+    display: block;
+    margin-inline: auto;
+  }
 }
 
 .post-content :is(ul, ol) {
@@ -224,7 +287,15 @@ time {
 }
 
 .post-content :is(iframe, video) {
-  width: 100%;
+  max-width: 100%;
+}
+
+// Scale fixed-size game iframes on mobile (keeps internal viewport intact)
+.post-content iframe[style*="820px"] {
+  --scale: min(1, calc((100cqi - 1rem) / 820));
+  transform: scale(var(--scale));
+  transform-origin: top center;
+  margin-bottom: calc(-620px * (1 - var(--scale)));
 }
 
 .post-content figure {
@@ -238,8 +309,16 @@ time {
   float: left;
 }
 
-.home .post-list-item {
+.with-excerpt .post-list-item {
+  flex-direction: column;
   margin-bottom: vars.$space-md;
+  list-style-type: none;
+
+  h3,
+  .post-meta,
+  p {
+    margin: 0;
+  }
 }
 
 // Comments (uses .highlighted styling from base.scss)

@@ -2,8 +2,7 @@
 title: آشنایی با سرویس Wercker
 tags:
 - اتوماسیون
-- ورکر
-- قلاب‌وب
+- webhook
 category: معرفی
 uuid: 64345752-3e17-404f-a228-b511414da94f
 ---

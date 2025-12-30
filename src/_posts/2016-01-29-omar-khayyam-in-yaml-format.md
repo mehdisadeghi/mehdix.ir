@@ -1,7 +1,7 @@
 ---
 title: انتشار ۱۰۶ رباعی خیام با فرمت YAML
 category: پروژه
-tags: خیام رباعی دیتا data yaml
+tags: خیام داده yaml
 uuid: aa73cf05-3395-4ed7-940c-5e3282febea2
 ---
 

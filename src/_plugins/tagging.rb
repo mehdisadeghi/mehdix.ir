@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Jekyll plugin for generating tag pages and tag cloud with weighted sizes.
 #
 # Provides:
@@ -5,17 +7,31 @@
 #   - {{ tag | tag_url }} filter - returns URL for a tag
 #   - {{ site | tag_cloud }} filter - returns HTML links with size classes
 #
+# Tag parsing:
+#   - Supports quoted multi-word tags: tags: "Peter Hintjens" book
+#   - Supports YAML arrays: tags: [foo, bar] or multiline
+#
 # Config (optional):
 #   tag_page_dir:     "tag"         # output directory
 #   tag_page_layout:  "tag_page"    # layout to use
 
 module Jekyll
+  # Parse tags string, respecting quoted multi-word tags.
+  # "Pieter Hintjens" book → ["Pieter Hintjens", "book"]
+  def self.parse_tags(value)
+    return [] if value.nil?
+    return value if value.is_a?(Array)
+    return [value] unless value.is_a?(String)
+
+    value.scan(/"([^"]+)"|(\S+)/).flatten.compact
+  end
+
   # Converts a tag to a URL-safe slug.
   # Removes zero-width characters (ZWNJ, ZWJ, ZWSP) common in Persian/Arabic text.
   def self.slugify(tag)
     tag.to_s.downcase
-       .gsub(/[\u200B-\u200D\uFEFF]/, "") # remove zero-width chars
-       .gsub(/\s+/, "-")                    # spaces to dashes
+      .gsub(/[\u200B-\u200D\uFEFF]/, "") # remove zero-width chars
+      .gsub(/\s+/, "-") # spaces to dashes
   end
 
   class TagPageGenerator < Generator
@@ -61,9 +77,9 @@ module Jekyll
       #   3. .ceil                        →  round up (so 0.1 becomes 1, not 0)
       #   4. .clamp(1, buckets)           →  ensure result stays in 1..N range
       #
-      counts.sort.map { |tag, n|
-        [tag, ((n - min).to_f / (max - min) * buckets).ceil.clamp(1, buckets)]
-      }.to_h
+      counts.sort.to_h.transform_values do |n|
+        ((n - min).to_f / (max - min) * buckets).ceil.clamp(1, buckets)
+      end
     end
   end
 
@@ -99,7 +115,7 @@ module Jekyll
       baseurl = site.config["baseurl"].to_s
       slug = Jekyll.slugify(tag)
 
-      File.join(baseurl, dir, slug, "")  # trailing "" ensures trailing slash
+      File.join(baseurl, dir, slug, "") # trailing "" ensures trailing slash
     end
 
     # Returns HTML for all tags as links with size classes.
@@ -110,11 +126,32 @@ module Jekyll
       site = @context.registers[:site]
       buckets = site.config["tag_buckets"] || {} # Injected at build time
 
-      buckets.map { |tag, size_class|
+      buckets.map do |tag, size_class|
         %(<a href="#{tag_url(tag)}" class="set-#{size_class}">#{tag}</a>)
-      }.join(" ")
+      end.join(" ")
     end
   end
 end
 
 Liquid::Template.register_filter(Jekyll::TaggingFilters)
+
+# Parse quoted tags from raw front matter (runs before TagPageGenerator)
+Jekyll::Hooks.register :site, :post_read do |site|
+  site.posts.docs.each do |doc|
+    next unless doc.data["tags"]
+
+    full_path = File.join(site.source, doc.relative_path)
+    next unless File.exist?(full_path)
+
+    content = File.read(full_path)
+    if content =~ /\A---\s*\n(.*?)\n---/m
+      front_matter = $1
+      if front_matter =~ /^tags:\s*(.+)$/
+        raw_tags = $1.strip
+        unless raw_tags.start_with?("[", "-")
+          doc.data["tags"] = Jekyll.parse_tags(raw_tags)
+        end
+      end
+    end
+  end
+end

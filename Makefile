@@ -1,29 +1,21 @@
-DBPATH=mehdix.db
-POSTS_DIR=src/_posts
-DRAFTS_DIR=src/_drafts
-TEMPLATE=src/_templates/post.yaml
+DBPATH ?= mehdix.db
+POSTS_DIR = src/_posts
+DRAFTS_DIR = src/_drafts
+TEMPLATE = src/_templates/post.yaml
 
-.PHONY: init serve publish clean fmt post draft promote
+.PHONY: all init build serve publish clean fmt lint post draft promote comments init_db
 
-all:
-	bundle exec jekyll serve -D
+all: serve
 
-init: init_db
+init:
 	bundle config set path vendor/bundle
 	bundle install
 
 build:
 	bundle exec jekyll build
 
-comments:
-	@echo rebuilding alef comments
-	cp mehdix.db $$(date -I)-mehdix.db 2>/dev/null || true
-	rsync -v mehdix.ir:/var/lib/alef/mehdix.db mehdix.db
-	SECRET=$(or $(SECRET), $(shell pass infra/mehdix.ir/secret | head -n1)) \
-	uv run ./scripts/rebuild_comments.py
-
-serve: build
-	bundle exec jekyll serve ${ARGS}
+serve:
+	bundle exec jekyll serve -D
 
 publish: build
 	rsync -vr _site/* mehdix.ir:/var/www/mehdix.ir/
@@ -31,14 +23,21 @@ publish: build
 clean:
 	rm -rf _site
 	rm -rf **/.jekyll-cache
-	rm -rf **/.yml
-
-init_db: schema.sql
-	sqlite3 ${DBPATH} < schema.sql
 
 fmt:
-	bundle exec rufo src/_plugins
-	npx prettier --write "src/**/*.scss"
+	bundle exec standardrb --fix
+	npx prettier --write 'src/**/*.scss'
+
+lint:
+	bundle exec standardrb
+
+init_db:
+	sqlite3 $(DBPATH) < schema.sql
+
+comments:
+	cp $(DBPATH) $$(date -I)-mehdix.db 2>/dev/null || true
+	rsync -v mehdix.ir:/var/lib/alef/mehdix.db $(DBPATH)
+	SECRET=$${SECRET:-$$(pass infra/mehdix.ir/secret | head -n1)} bundle exec rake comments
 
 post:
 	@read -p "Post title: " title && \

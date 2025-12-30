@@ -1,6 +1,6 @@
 ---
 title: "قانون اساسی به فرم YAML"
-tags: قانون متادیتا yaml ایران
+tags: قانون داده متاداده yaml ایران
 uuid: 79de2ab4-ac94-4f4e-b40e-171de96d4d04
 category: پروژه
 published: true

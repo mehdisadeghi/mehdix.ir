@@ -1,6 +1,6 @@
 ---
 title: باگ سیزده ساله تعمیر شد
-tags: gtk gnome باگ همکاری پیگیری
+tags: gtk gnome باگ مشارکت
 uuid: 4b4fa077-5001-41b2-bdb3-f9f9638efdb2
 category: یادداشت
 ---

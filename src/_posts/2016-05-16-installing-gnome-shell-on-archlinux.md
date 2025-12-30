@@ -1,6 +1,6 @@
 ---
 title: نصب نوم ۳ روی آرچ‌لینوکس
-tags: آرچ امنیت yubikey gnome-shell گنوم نوم
+tags: آرچ امنیت لینوکس
 uuid: 560a0848-785c-4184-8a44-d88d5faacf05
 category: راهنما
 ---

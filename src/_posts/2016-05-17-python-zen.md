@@ -1,6 +1,6 @@
 ---
 title: python -m this
-tags: ذن تفریح
+tags: ذن
 uuid: 0b64d07f-6c08-475b-a509-463df5458039
 ---
 کوان‌های ذن پایتون.

@@ -1,6 +1,6 @@
 ---
 title: کارت هوشمند
-tags: yubikey GnuPG smartcard امنیت رمزنگاری اسمارت‌کارت
+tags: امنیت سخت‌افزار GnuPG
 uuid: 99e28963-3c19-49d7-961b-f4c25c59ad7e
 category: راهنما
 ---

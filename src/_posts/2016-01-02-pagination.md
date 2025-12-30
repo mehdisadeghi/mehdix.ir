@@ -1,6 +1,6 @@
 ---
 title: صفحه‌بندی در جکیل
-tags: [جکیل, صفحه‌بندی, pagination]
+tags: جکیل صفحه‌بندی
 uuid: 98e60af1-25f7-49fc-881a-44a6ddbcec0b
 ---
 

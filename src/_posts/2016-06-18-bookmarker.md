@@ -1,6 +1,6 @@
 ---
 title: بوکمارکر
-tags: افزونه کرومیوم بوکمارک extension bookmark chromium
+tags: پلاگین بوکمارک
 uuid: 29e00ded-3fd4-418f-a449-9ccbda0bf92e
 category: پروژه
 ---

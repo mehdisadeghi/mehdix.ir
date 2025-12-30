@@ -69,11 +69,11 @@ h6 {
   text-wrap: balance;
 }
 
-// Auto-direction for content areas only (not titles, tags, navigation)
+// Isolate bidirectional text while keeping RTL alignment
 .post-content :is(p, li, figcaption, td, th, dt, dd, h2, h3, h4, h5, h6),
 #comments :is(p, li),
 blockquote {
-  unicode-bidi: plaintext;
+  unicode-bidi: isolate;
 }
 
 // Flow spacing (main uses flex gap for direct children)
@@ -123,6 +123,10 @@ img {
   vertical-align: middle;
 }
 
+.post-content img {
+  background-color: white;
+}
+
 figure > img {
   display: block;
 }
@@ -146,6 +150,27 @@ a {
 
 a:visited {
   color: var(--text-muted);
+}
+
+// Content headings: tinted with primary
+main :is(h1, h2, h3, h4, h5, h6) {
+  color: var(--text-muted);
+
+  a {
+    color: inherit;
+    &:visited {
+      color: inherit;
+    }
+  }
+}
+
+// Content links: distinct color (blends accent toward text for contrast)
+main a {
+  color: color-mix(in oklch, var(--accent) 60%, var(--text));
+
+  &:visited {
+    color: color-mix(in oklch, var(--accent) 40%, var(--text));
+  }
 }
 
 pre {
@@ -247,42 +272,6 @@ form {
     3 "\62C",
     2 "\628",
     1 "\627\644\641";
-}
-
-@counter-style abjad-persian {
-  system: additive;
-  range: 1 1000;
-  additive-symbols:
-    1000 "\63A",
-    900 "\638",
-    800 "\636",
-    700 "\630",
-    600 "\62E",
-    500 "\62B",
-    400 "\62A",
-    300 "\634",
-    200 "\631",
-    100 "\642",
-    90 "\635",
-    80 "\641",
-    70 "\639",
-    60 "\633",
-    50 "\646",
-    40 "\645",
-    30 "\644",
-    20 "\6AF",
-    10 "\649",
-    9 "\637",
-    8 "\62D",
-    7 "\698",
-    6 "\648",
-    5 "\FEEB",
-    4 "\62F",
-    3 "\686",
-    2 "\67E",
-    1 "\627\644\641";
-  suffix: ". ";
-  pad: 3 "-";
 }
 
 // Highlighted sections (blockquotes, comments)

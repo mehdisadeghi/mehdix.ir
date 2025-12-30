@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "kramdown/converter/html"
 require "kramdown/parser/kramdown"
 
@@ -29,8 +31,8 @@ module PersianFootnotes
     end
     display_number = to_persian(number)
     "<sup id=\"fnref:#{name}#{repeat}\">" \
-    "<a href=\"#fn:#{name}\" class=\"footnote\" rel=\"footnote\" role=\"doc-noteref\">" \
-    "#{display_number}</a></sup>"
+      "<a href=\"#fn:#{name}\" class=\"footnote\" rel=\"footnote\" role=\"doc-noteref\">" \
+      "#{display_number}</a></sup>"
   end
 end
 
@@ -52,7 +54,8 @@ module Kramdown
       FOOTNOTE_MARKER_START = /\[\^(#{UNICODE_ID_NAME})\]/
 
       # Update existing parser registrations with new regex patterns
-      @@parsers[:footnote_definition] = Data.new(:footnote_definition, FOOTNOTE_DEFINITION_START, nil, "parse_footnote_definition")
+      @@parsers[:footnote_definition] =
+        Data.new(:footnote_definition, FOOTNOTE_DEFINITION_START, nil, "parse_footnote_definition")
       @@parsers[:footnote_marker] = Data.new(:footnote_marker, FOOTNOTE_MARKER_START, '\[', "parse_footnote_marker")
     end
   end

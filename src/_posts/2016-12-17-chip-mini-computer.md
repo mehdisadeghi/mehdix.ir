@@ -1,6 +1,6 @@
 ---
 title: کامپیوتر نه دلاری
-tags: سخت‌افزار چیپ بورد آرم
+tags: سخت‌افزار sbc arm
 uuid: a9499fe5-12c0-4714-aec3-b29a5dbb5487
 category: یادداشت
 ---

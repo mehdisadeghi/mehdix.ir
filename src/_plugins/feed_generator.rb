@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Jekyll
   class CommentFeedGenerator < Generator
     safe true
@@ -14,11 +16,11 @@ module Jekyll
       @site = site
       @base = base
       @dir = dir
-      @name = post.id + ".xml"
+      @name = "#{post.id}.xml"
 
-      self.process(@name)
-      self.read_yaml(File.join(base, "_layouts"), "feed_per_post.xml")
-      self.data["post_id"] = post.id.sub! "/", ""
+      process(@name)
+      read_yaml(File.join(base, "_layouts"), "feed_per_post.xml")
+      data["post_id"] = post.id.sub! "/", ""
     end
   end
 end

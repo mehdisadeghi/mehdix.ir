@@ -22,7 +22,7 @@ uuid: 12645986-3012-408d-8d5a-11ecfdb00b0d
 
 از جایی که قصدم تنها انتشار نتیجه‌ی کارم بود همینجا مطلب را تمام می‌کنم. امیدوارم از بازی لذت ببرید.
 
-[مطلب قبلی‎ در مورد بازی]: ./quantum-cat.html/
+[مطلب قبلی‎ در مورد بازی]: ./quantum-cat.html
 [اینجا]: assets/instead/instead-em.html?cat.zip
 [بازی]: assets/instead/instead-em.html?cat.zip
 [SDL2]: https://www.libsdl.org/

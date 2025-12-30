@@ -1,6 +1,6 @@
 ---
 title: مکتوب
-tags: افزونه کرومیوم مکتوب extension maktoob chromium
+tags: پلاگین
 uuid: 20d96df6-7bad-4fbf-b6b1-4263a6585e9f
 category: پروژه
 ---

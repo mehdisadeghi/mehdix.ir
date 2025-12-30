@@ -2,4 +2,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="copyright" content="{{ site.copyright }}" />
 <meta name="robots" content="{{ site.robot }}" />
+<script>
+  (function() {
+    var t = sessionStorage.getItem('theme');
+    if (t) document.documentElement.setAttribute('data-theme', t);
+  })();
+</script>
 <link rel="stylesheet" href="{{ 'assets/css/main.css' | relative_url }}" />

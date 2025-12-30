@@ -1,7 +1,16 @@
 ---
 layout: default
 ---
-{% if page.group_by %}
+{% if page.paginate and page.paginator %}
+  {% assign items = page.paginator.posts %}
+{% elsif page.group_by == 'year' %}
+  {% assign groups = "" | split: "" %}
+  {% assign posts_by_year = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
+  {% for year_group in posts_by_year %}
+    {% assign pair = "" | split: "" | push: year_group.name | push: year_group.items %}
+    {% assign groups = groups | push: pair %}
+  {% endfor %}
+{% elsif page.group_by %}
   {% assign groups = "" | split: "" %}
   {% for item in site[page.group_by] %}
     {% assign groups = groups | push: item %}
@@ -19,22 +28,75 @@ layout: default
   {% else %}
     {% assign items = page.items | default: site.posts %}
   {% endif %}
-  {% assign single = "" | split: "" | push: page.title | push: items %}
-  {% assign groups = "" | split: "" | push: single %}
 {% endif %}
 
+{% unless page.group_by %}
+  {% assign single = "" | split: "" | push: page.title | push: items %}
+  {% assign groups = "" | split: "" | push: single %}
+{% endunless %}
+
+{% if page.title and page.group_by %}
+<h1>❖ &nbsp; {{ page.title }}</h1>
+{% endif %}
 {{ content }}
 {% for group in groups %}
-<h1>❖ &nbsp; {{ group[0] | default: "همه‌ی نوشته‌ها" }}</h1>
-<ol class="list-meta">
+{% if page.group_by == 'year' %}
+<h1>❖ &nbsp; <span title="{{ group[0] }}">{{ group[1].first.date | jdate: "%Y" }}</span></h1>
+{% else %}
+{% if page.paginate %}
+<h1>❖ &nbsp; {{ group[0] | default: "نوشته‌ها" | persian }}</h1>
+{% else %}
+<h1>❖ &nbsp; {{ group[0] | default: "همه‌ی نوشته‌ها" | persian }}</h1>
+{% endif %}
+{% endif %}
+<ol class="list-meta{% if page.excerpt %} with-excerpt{% endif %}">
   {% for item in group[1] %}
     <li class="post-list-item">
+      {% if page.excerpt %}
+      <h3><a href="{{ item.url | relative_url }}">{{ item.title }}</a></h3>
+      <p class="post-meta">{{ item.date | jdate_html }}</p>
+      <p>{{ item.content | strip_html | truncatewords: 35 }}</p>
+      {% else %}
       <span class="list-meta-col">{{ item.date | jdate_html }}</span>
       <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
+      {% endif %}
     </li>
   {% endfor %}
 </ol>
 {% endfor %}
+
+{% if page.paginate and page.paginator.total_pages > 1 %}
+<nav class="pagination">
+  {% if page.paginator.previous_page %}
+    <a href="{{ page.paginator.previous_page_path | relative_url }}" title="k">→</a>
+  {% endif %}
+
+  {% assign start = page.paginator.page | minus: 2 %}
+  {% if start < 1 %}{% assign start = 1 %}{% endif %}
+  {% assign end = start | plus: 4 %}
+  {% if end > page.paginator.total_pages %}{% assign end = page.paginator.total_pages %}{% endif %}
+
+  {% if start > 1 %}…{% endif %}
+
+  {% for p in (start..end) %}
+    {% if p == page.paginator.page %}
+      <span class="is-active">{{ p | persian }}</span>
+    {% elsif p == 1 %}
+      <a href="{{ '/' | relative_url }}">{{ p | persian }}</a>
+    {% else %}
+      <a href="/page{{ p }}/">{{ p | persian }}</a>
+    {% endif %}
+  {% endfor %}
+
+  {% if end < page.paginator.total_pages %}…{% endif %}
+
+  {% if page.paginator.next_page %}
+    <a href="{{ page.paginator.next_page_path | relative_url }}" title="j">←</a>
+  {% endif %}
+
+  <a href="{{ '/all/' | relative_url }}">همه</a>
+</nav>
+{% endif %}
 
 {% if page.tag_cloud %}
 <hr>

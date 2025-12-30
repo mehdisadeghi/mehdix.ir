@@ -26,7 +26,6 @@ permalink: :title:output_ext
 timezone: Europe/Berlin
 
 paginate: 20
-paginate_path: /page:num/
 
 collections:
   projects:

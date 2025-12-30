@@ -1,6 +1,6 @@
 ---
 title: راست به چپ نویسی در گیتهاب
-tags: گیتهاب rtl
+tags: rtl
 uuid: 32388e64-2c5c-48f2-9eaa-5424df1a763e
 category: راهنما
 ---
