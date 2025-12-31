@@ -5,7 +5,7 @@ TEMPLATE = src/_templates/post.yaml
 
 .PHONY: all init build serve publish clean fmt lint post draft promote comments init_db
 
-all: serve
+all: dev
 
 init:
 	bundle config set path vendor/bundle
@@ -15,6 +15,9 @@ build:
 	bundle exec jekyll build
 
 serve:
+	bundle exec jekyll serve
+
+dev:
 	bundle exec jekyll serve -D
 
 publish: build
