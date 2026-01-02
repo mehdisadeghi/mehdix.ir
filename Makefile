@@ -1,9 +1,10 @@
+REMOTE ?= mehdix.ir:/var/lib/alef/mehdix.db
 DBPATH ?= mehdix.db
 POSTS_DIR = src/_posts
 DRAFTS_DIR = src/_drafts
 TEMPLATE = src/_templates/post.yaml
 
-.PHONY: all init build serve publish clean fmt lint post draft promote comments init_db
+.PHONY: all init build serve publish clean fmt lint test post draft promote comments comments-sync
 
 all: dev
 
@@ -26,6 +27,7 @@ publish: build
 clean:
 	rm -rf _site
 	rm -rf **/.jekyll-cache
+	rm -rf vendor .bundle
 
 fmt:
 	bundle exec standardrb --fix
@@ -34,13 +36,12 @@ fmt:
 lint:
 	bundle exec standardrb
 
-init_db:
-	sqlite3 $(DBPATH) < schema.sql
+comments-sync:
+	cp $(DBPATH) $(DBPATH).$$(date -I) 2>/dev/null || true
+	scp $(REMOTE) $(DBPATH)
 
 comments:
-	cp $(DBPATH) $$(date -I)-mehdix.db 2>/dev/null || true
-	rsync -v mehdix.ir:/var/lib/alef/mehdix.db $(DBPATH)
-	SECRET=$${SECRET:-$$(pass infra/mehdix.ir/secret | head -n1)} bundle exec rake comments
+	SECRET=$${SECRET:-$$(pass infra/mehdix.ir/secret | head -n1)} DBPATH=$(DBPATH) bundle exec rake comments
 
 post:
 	@read -p "Post title: " title && \

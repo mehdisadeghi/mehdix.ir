@@ -7,10 +7,6 @@ ruby ">= 3"
 gem "jekyll"
 gem "logger"
 
-group :jekyll_plugins do
-  gem "jekyll-seo-tag"
-end
-
 group :comments do
   gem "fernet"
   gem "sqlite3"

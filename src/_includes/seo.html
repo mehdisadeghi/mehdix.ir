@@ -1,0 +1,43 @@
+{% capture seo_title %}{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}{% endcapture %}
+{% capture seo_description %}{% if page.description %}{{ page.description }}{% elsif page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}{% endcapture %}
+{% capture canonical_url %}{{ page.url | absolute_url | replace: '/index.html', '/' }}{% endcapture %}
+{% capture page_type %}{% if page.date %}article{% else %}website{% endif %}{% endcapture %}
+{% capture seo_image %}{% if page.image %}{{ page.image | absolute_url }}{% elsif page.content contains '<img' %}{{ page.content | split: '<img' | slice: 1 | first | split: 'src="' | last | split: '"' | first | absolute_url }}{% endif %}{% endcapture %}
+
+<meta name="generator" content="Jekyll v{{ jekyll.version }}" />
+<meta name="author" content="{{ site.author }}" />
+<meta name="description" content="{{ seo_description | strip_newlines | escape }}" />
+<link rel="canonical" href="{{ canonical_url }}" />
+<meta property="og:locale" content="{{ site.lang }}" />
+<meta property="og:title" content="{{ seo_title | escape }}" />
+<meta property="og:description" content="{{ seo_description | strip_newlines | escape }}" />
+<meta property="og:url" content="{{ canonical_url }}" />
+<meta property="og:site_name" content="{{ site.title | escape }}" />
+<meta property="og:type" content="{{ page_type }}" />
+{% if page.date %}<meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}" />
+{% endif %}{% if seo_image != "" %}<meta property="og:image" content="{{ seo_image }}" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="{{ seo_image }}" />
+{% else %}<meta name="twitter:card" content="summary" />
+{% endif %}<meta property="twitter:title" content="{{ seo_title | escape }}" />
+<script type="application/ld+json">
+{% if page.date %}{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "author": {"@type": "Person", "name": "{{ site.author }}"},
+  "dateModified": "{{ page.date | date_to_xmlschema }}",
+  "datePublished": "{{ page.date | date_to_xmlschema }}",
+  "description": "{{ seo_description | strip_newlines | escape }}",
+  "headline": "{{ seo_title | escape }}",
+  "mainEntityOfPage": {"@type": "WebPage", "@id": "{{ canonical_url }}"},
+  "url": "{{ canonical_url }}"
+}{% else %}{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "author": {"@type": "Person", "name": "{{ site.author }}"},
+  "description": "{{ seo_description | strip_newlines | escape }}",
+  "headline": "{{ seo_title | escape }}",
+  "name": "{{ site.title | escape }}",
+  "url": "{{ canonical_url }}"
+}{% endif %}
+</script>

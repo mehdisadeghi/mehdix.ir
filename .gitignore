@@ -4,3 +4,5 @@ node_*
 _sitevendor
 _site
 *.db
+*.db.*
+test.db

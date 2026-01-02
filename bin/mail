@@ -1,0 +1,26 @@
+#!/bin/sh
+# Mock mail command for development - prints email to stderr instead of sending
+
+to="$1"; shift
+subject=""
+headers=""
+
+while getopts "s:a:" opt; do
+  case $opt in
+    s) subject="$OPTARG" ;;
+    a) headers="${headers:+$headers|}$OPTARG" ;;
+  esac
+done
+
+body=$(cat)
+
+echo "==========================================" >&2
+echo "To: $to" >&2
+echo "Subject: $subject" >&2
+IFS='|'
+for h in $headers; do
+echo "$h" >&2
+done
+echo "==========================================" >&2
+echo "$body" >&2
+echo "==========================================" >&2

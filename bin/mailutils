@@ -1,0 +1,19 @@
+#!/bin/sh
+# Mock mailutils for development - just pass through the text
+# Real mailutils flt2047 encodes to RFC2047 format
+
+case "$1" in
+  flt2047)
+    shift
+    while true; do
+      case "$1" in
+        --*) shift ;;
+        *) break ;;
+      esac
+    done
+    echo "$@"
+    ;;
+  *)
+    echo "$@"
+    ;;
+esac
