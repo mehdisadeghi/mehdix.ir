@@ -4,7 +4,7 @@ begin
   require "htmlbeautifier"
 
   Jekyll::Hooks.register [:pages, :documents], :post_render do |doc|
-    next unless doc.output_ext == ".html"
+    next unless [".html", ".xml"].include?(doc.output_ext)
 
     doc.output = HtmlBeautifier.beautify(doc.output)
   end

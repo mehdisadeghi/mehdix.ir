@@ -23,7 +23,7 @@ layout: default
     {% endif %}
   {% endif %}
 {% else %}
-  {% if page.collection %}
+  {% if page.collection and site[page.collection] %}
     {% assign items = site[page.collection] | sort: 'date' | reverse %}
   {% else %}
     {% assign items = page.items | default: site.posts %}

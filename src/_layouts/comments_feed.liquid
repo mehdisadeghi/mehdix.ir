@@ -1,0 +1,20 @@
+---
+layout: atom
+feed_suffix: "دیدگاه‌های خوانندگان"
+---
+{% for comment in site.data.comments[page.post_id] %}
+<entry>
+  <author>
+    <name>{{ comment.name | xml_escape }}</name>
+    {% if comment.website %}<uri>{{ comment.website | xml_escape }}</uri>{% endif %}
+  </author>
+  <id>{{ comment.id }}</id>
+  <title></title>
+  <updated>{{ comment.created_at | date: "%Y-%m-%dT%H:%M:%SZ" }}</updated>
+  <link rel="alternate" type="text/html" href="{{ page.url | absolute_url }}#{{ comment.id }}" />
+  <content type="html">
+    <![CDATA[<div dir="rtl">{{ comment.message }}</div>]]>
+  </content>
+  <summary>{{ comment.message | strip_html | truncatewords: 100 | xml_escape }}</summary>
+</entry>
+{% endfor %}

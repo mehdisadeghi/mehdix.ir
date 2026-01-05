@@ -9,7 +9,7 @@
     support for helping me to figure this out.
     {% endcomment %}
 
-    {% include head.html %}
+    {% include head.liquid %}
 
     {% if page.tags %}
       <meta name="keywords" content='{{ page.tags | join: "," }}' />
@@ -31,12 +31,12 @@
 
     <link hreflang="fa" rel=alternate type=application/atom+xml title="فید مقالات" href="{{ '/feed.xml' | absolute_url }}">
 
-    {% include seo.html %}
+    {% include seo.liquid %}
   </head>
 
   <body>
     {% unless page.header == false %}
-      {% if layout.header %} {% include header.html %} {% endif %}
+      {% if layout.header %} {% include header.liquid %} {% endif %}
     {% endunless %}
 
     <input type="range" id="hue-slider" min="0" max="360" value="350" aria-label="Adjust theme hue">
@@ -44,7 +44,7 @@
     {{ content }}
 
     {% unless page.footer == false %}
-      {% if layout.footer %} {% include footer.html %} {% endif %}
+      {% if layout.footer %} {% include footer.liquid %} {% endif %}
     {% endunless %}
 
     <script src="{{ 'assets/js/main.js' | relative_url }}" defer></script>

@@ -11,7 +11,7 @@
   <div class="comments-list">
     {% for comment in comments %}
       {% if comment.reply_to == nil or comment.reply_to == '' %}
-      {% include comment.html comment=comment comments=comments is_stale=page.is_stale %}
+      {% include comment.liquid comment=comment comments=comments is_stale=page.is_stale %}
       {% endif %}
     {% endfor%}
   </div>

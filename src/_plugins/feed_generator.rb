@@ -19,8 +19,9 @@ module Jekyll
       @name = "#{post.id}.xml"
 
       process(@name)
-      read_yaml(File.join(base, "_layouts"), "feed_per_post.xml")
+      read_yaml(File.join(base, "_layouts"), "comments_feed.liquid")
       data["post_id"] = post.id.sub! "/", ""
+      data["feed_title"] = post.data["title"]
     end
   end
 end

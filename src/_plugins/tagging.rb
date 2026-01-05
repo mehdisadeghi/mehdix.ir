@@ -89,7 +89,7 @@ module Jekyll
       @base = site.source
 
       dir = site.config["tag_page_dir"] || "tag"
-      layout = site.config["tag_page_layout"] || "tag"
+      layout = site.config["tag_page_layout"] || "tag.liquid"
 
       # Build the output path: /tag/my-tag/index.html
       slug = Jekyll.slugify(tag)
@@ -98,7 +98,7 @@ module Jekyll
 
       # Required Jekyll::Page setup
       process(@name)
-      read_yaml(File.join(@base, "_layouts"), "#{layout}.html")
+      read_yaml(File.join(@base, "_layouts"), layout)
 
       data["tag"] = tag
       data["title"] = tag

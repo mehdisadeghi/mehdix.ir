@@ -10,9 +10,20 @@
   <xsl:template match="/">
     <html dir="rtl" xmlns="http://www.w3.org/1999/xhtml">
       <body style="margin:auto;display:grid;width:540px;font-family:Arial;background-color:#EEEEEE;grid-gap:19px">
-        <h1><strong>خلاصه‌ی مقالات*</strong></h1>
+        <h1>
+          <xsl:value-of select="atom:feed/atom:title"/>
+          <xsl:if test="atom:feed/atom:subtitle">
+            <xsl:text> - </xsl:text>
+            <strong>
+              <xsl:value-of select="atom:feed/atom:subtitle"/>
+              <xsl:if test="atom:feed/atom:generator">*</xsl:if>
+            </strong>
+          </xsl:if>
+        </h1>
         <xsl:apply-templates select="atom:feed/atom:entry"/>
-        <small>*فید حاوی متن کامل مقالات است.</small>
+        <xsl:if test="atom:feed/atom:generator">
+          <small>*<xsl:value-of select="atom:feed/atom:generator"/></small>
+        </xsl:if>
       </body>
     </html>
   </xsl:template>
