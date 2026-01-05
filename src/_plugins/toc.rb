@@ -1,17 +1,18 @@
 # frozen_string_literal: true
 
-# Simple TOC generator.
-# Usage: {{ content | toc }}
-# Enable per-page with `toc: true` in front matter.
+# Heading utilities: TOC generation and anchor links.
+# - TOC: {{ content | toc }} - enable per-page with `toc: true` in front matter
+# - Anchor links: automatically wraps heading content for shareable URLs
 
 module Jekyll
+  HEADING_RE = /<(h[2-6]) id="([^"]+)"[^>]*>(.+?)<\/\1>/m
+
   module TocFilter
-    HEADING_RE = /<(h[2-6]) id="([^"]+)"[^>]*>(.+?)<\/\1>/m
 
     def toc(content)
       return content unless @context.registers[:page]["toc"]
 
-      headings = content.scan(HEADING_RE).map do |tag, id, text|
+      headings = content.scan(Jekyll::HEADING_RE).map do |tag, id, text|
         clean_text = text.gsub(/<[^>]+>/, "")
         {level: tag[1].to_i, id: id, text: clean_text}
       end
@@ -54,3 +55,10 @@ module Jekyll
 end
 
 Liquid::Template.register_filter(Jekyll::TocFilter)
+
+# Wrap heading content in anchor links for shareable section URLs
+Jekyll::Hooks.register [:posts, :pages], :post_render do |doc|
+  doc.output.gsub!(Jekyll::HEADING_RE) do
+    %(<#{$1} id="#{$2}"><a href="##{$2}">#{$3}</a></#{$1}>)
+  end
+end

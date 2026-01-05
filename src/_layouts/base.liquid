@@ -9,7 +9,17 @@
     support for helping me to figure this out.
     {% endcomment %}
 
-    {% include head.liquid %}
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="copyright" content="{{ site.copyright }}" />
+    <meta name="robots" content="{{ site.robot }}" />
+    <script>
+      (function() {
+        var t = sessionStorage.getItem('theme');
+        if (t) document.documentElement.setAttribute('data-theme', t);
+      })();
+    </script>
+    <link rel="stylesheet" href="{{ 'assets/css/main.css' | relative_url }}" />
 
     {% if page.tags %}
       <meta name="keywords" content='{{ page.tags | join: "," }}' />
@@ -35,16 +45,18 @@
   </head>
 
   <body>
-    {% unless page.header == false %}
-      {% if layout.header %} {% include header.liquid %} {% endif %}
+    {% unless layout.header == false %}
+      {% include header.liquid %}
     {% endunless %}
 
     <input type="range" id="hue-slider" min="0" max="360" value="350" aria-label="Adjust theme hue">
 
-    {{ content }}
+    <main>
+      {{ content }}
+    </main>
 
-    {% unless page.footer == false %}
-      {% if layout.footer %} {% include footer.liquid %} {% endif %}
+    {% unless layout.footer == false %}
+      {% include footer.liquid %}
     {% endunless %}
 
     <script src="{{ 'assets/js/main.js' | relative_url }}" defer></script>

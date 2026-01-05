@@ -44,7 +44,7 @@ module Jekyll
       @name = "index.html"
 
       process(@name)
-      read_yaml(File.join(base, "_layouts"), index_page.data["layout"] + ".html")
+      read_yaml(File.join(base, "_layouts"), index_page.data["layout"] + ".liquid")
 
       self.data = index_page.data.dup
       data["paginator"] = paginator

@@ -29,7 +29,13 @@
   </div>
 
   <div id="footer-extra">
-    {% include license.liquid %}
+    <small id="footer-license">
+      <i class="fab fa-creative-commons"></i>
+      مطالب این وبلاگ تحت مجوز
+      <a rel="license" href="http://creativecommons.org/licenses/by/4.0/deed.fa">
+        کریتیو کامنز اتریبیوشن ۴.۰ اینترنشنال
+      </a>قرار دارد.
+    </small>
     <a href="{{ 'feed.xml' | absolute_url }}"><img class="feed" src="{{ 'assets/img/feed.svg' | relative_url }}" alt="فید مقالات" title="فید مقالات"/></a>
     <a id="footer-atom" href="https://validator.w3.org/feed/check.cgi?url={{ 'feed.xml' | absolute_url }}"><img src="{{ 'assets/img/valid-atom.png' | relative_url }}" alt="[Valid Atom 1.0]" title="Validate my Atom 1.0 feed" /></a>
   </div>

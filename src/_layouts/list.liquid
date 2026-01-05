@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: base
 ---
 {% if page.paginate and page.paginator %}
   {% assign items = page.paginator.posts %}
@@ -19,6 +19,12 @@ layout: default
     {% assign uncategorized = site.posts | where_exp: "post", "post.categories.size == 0" %}
     {% if uncategorized.size > 0 %}
       {% assign fake = "" | split: "" | push: "بدون سرفصل" | push: uncategorized %}
+      {% assign groups = groups | push: fake %}
+    {% endif %}
+  {% elsif page.group_by == 'tags' %}
+    {% assign untagged = site.posts | where_exp: "post", "post.tags.size == 0" %}
+    {% if untagged.size > 0 %}
+      {% assign fake = "" | split: "" | push: "بدون برچسب" | push: untagged %}
       {% assign groups = groups | push: fake %}
     {% endif %}
   {% endif %}
@@ -44,9 +50,9 @@ layout: default
 <h1>❖ &nbsp; <span title="{{ group[0] }}">{{ group[1].first.date | jdate: "%Y" }}</span></h1>
 {% else %}
 {% if page.paginate %}
-<h1>❖ &nbsp; {{ group[0] | default: "نوشته‌ها" | persian }}</h1>
+<h1>❖ &nbsp; {{ group[0] | default: "نوشته‌ها" }}</h1>
 {% else %}
-<h1>❖ &nbsp; {{ group[0] | default: "همه‌ی نوشته‌ها" | persian }}</h1>
+<h1>❖ &nbsp; {{ group[0] | default: "همه‌ی نوشته‌ها" }}</h1>
 {% endif %}
 {% endif %}
 <ol class="list-meta{% if page.excerpt %} with-excerpt{% endif %}">

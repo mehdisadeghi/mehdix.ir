@@ -1,4 +1,4 @@
-@use "vars";
+@use "base";
 
 // Site header & footer
 :is(#site-header, #site-footer) {
@@ -39,8 +39,8 @@
 
 #hue-slider {
   display: none;
-  width: calc(100% - vars.$space-md);
-  max-width: vars.$content-width;
+  width: calc(100% - base.$space-md);
+  max-width: base.$content-width;
   margin: 0.5em auto;
   height: 8px;
 
@@ -102,7 +102,7 @@
 
 #footer-build-time {
   margin-top: auto;
-  margin-bottom: calc(-1 * vars.$space-sm);
+  margin-bottom: calc(-1 * base.$space-sm);
   text-align: center;
   font-family: monospace;
   font-size: x-small;
@@ -110,7 +110,7 @@
 }
 
 // Mobile overrides
-@media screen and (max-width: vars.$on-palm) {
+@media screen and (max-width: base.$on-palm) {
   #motto,
   #footer-gravatar,
   #footer-atom,
@@ -135,7 +135,7 @@
 }
 
 // Desktop-only styles (mobile-first approach)
-@media (min-width: vars.$on-palm) {
+@media (min-width: base.$on-palm) {
   .post-list-item {
     display: flex;
     list-style: none;
@@ -151,10 +151,10 @@
 #site-header,
 #site-footer,
 main {
-  width: calc(100% - vars.$space-md);
-  max-width: vars.$content-width;
+  width: calc(100% - base.$space-md);
+  max-width: base.$content-width;
   margin-inline: auto;
-  padding: vars.$space-sm;
+  padding: base.$space-sm;
   border-radius: var(--border-radius);
 }
 
@@ -163,7 +163,7 @@ main {
   background-color: var(--surface);
   display: flex;
   flex-direction: column;
-  gap: vars.$space-sm;
+  gap: base.$space-sm;
 }
 
 .site-title {
@@ -180,7 +180,7 @@ main {
 .list-meta-col {
   flex: 0 0 16ch;
   padding-inline-end: 1em;
-  font-size: vars.$small-font-size;
+  font-size: base.$small-font-size;
   color: var(--gray-700);
 }
 
@@ -204,12 +204,12 @@ time {
 // Content components
 .image-caption {
   text-align: center;
-  margin-top: vars.$space-sm;
+  margin-top: base.$space-sm;
 }
 
 .footnotes {
-  font-size: vars.$small-font-size;
-  font-family: vars.$alt-font-family;
+  font-size: base.$small-font-size;
+  font-family: base.$alt-font-family;
 }
 
 .pagination {
@@ -239,7 +239,7 @@ time {
 // Post
 .post-title {
   text-align: center;
-  padding-top: vars.$space-sm;
+  padding-top: base.$space-sm;
   line-height: 1.2;
   font-size: 3em;
   cursor: pointer;
@@ -253,7 +253,7 @@ time {
 }
 
 .post-meta {
-  font-size: vars.$small-font-size;
+  font-size: base.$small-font-size;
   color: var(--gray-700);
 }
 
@@ -283,7 +283,7 @@ time {
 }
 
 .post-content :is(ul, ol) {
-  margin-left: vars.$space-md;
+  margin-left: base.$space-md;
 }
 
 .post-content :is(iframe, video) {
@@ -311,7 +311,7 @@ time {
 
 .with-excerpt .post-list-item {
   flex-direction: column;
-  margin-bottom: vars.$space-md;
+  margin-bottom: base.$space-md;
   list-style-type: none;
 
   h3,
@@ -335,7 +335,7 @@ time {
 }
 
 .comments-list article {
-  font-size: vars.$small-font-size;
+  font-size: base.$small-font-size;
 }
 
 .comments-list article p {
@@ -370,7 +370,7 @@ time {
 }
 
 #preview {
-  font-size: vars.$small-font-size;
+  font-size: base.$small-font-size;
   padding: 10px;
 }
 

@@ -1,10 +1,18 @@
 # frozen_string_literal: true
 
-# Adds CGI support to Jekyll's development server.
-# Handles POST requests to /cgi-bin/* by executing scripts from _site/cgi-bin/
+# CGI support: executable permissions on build, POST handling in dev server.
 
 require "webrick"
 require "open3"
+
+Jekyll::Hooks.register :site, :post_write do |site|
+  cgi_dir = File.join(site.dest, "cgi-bin")
+  next unless Dir.exist?(cgi_dir)
+
+  Dir.glob(File.join(cgi_dir, "*")).each do |script|
+    File.chmod(0o755, script) if File.file?(script)
+  end
+end
 
 module Jekyll
   module Commands

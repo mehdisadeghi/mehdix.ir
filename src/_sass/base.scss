@@ -1,4 +1,97 @@
-@use "vars";
+// Typography
+$base-font-family: "Noto Naskh Arabic", "DejaVu Sans", serif;
+$alt-font-family: "Noto Naskh Arabic";
+$base-font-size: 16px;
+$small-font-size: $base-font-size * 0.875;
+$base-line-height: normal;
+
+// Layout
+$content-width: 740px;
+$on-palm: 400px;
+
+// Spacing scale
+$space-sm: 0.5em;
+$space-md: 1em;
+$space-lg: 1.5em;
+
+// ===================
+// Monochromatic HSL Color System
+// ===================
+
+:root {
+  // Brand hue - change this to rebrand the entire site
+  --hue: 350;
+
+  // Primary scale (hue-based)
+  --primary-50: hsl(var(--hue), 100%, 98%);
+  --primary-100: hsl(var(--hue), 100%, 92%);
+  --primary-200: hsl(var(--hue), 100%, 85%);
+  --primary-500: hsl(var(--hue), 100%, 68%);
+
+  // Gray scale (tinted with hue for monochromatic feel)
+  --gray-50: hsl(var(--hue), 10%, 98%);
+  --gray-200: hsl(var(--hue), 8%, 90%);
+  --gray-300: hsl(var(--hue), 8%, 80%);
+  --gray-400: hsl(var(--hue), 6%, 65%);
+  --gray-500: hsl(var(--hue), 5%, 50%);
+  --gray-700: hsl(var(--hue), 8%, 25%);
+  --gray-800: hsl(var(--hue), 10%, 15%);
+  --gray-850: hsl(var(--hue), 10%, 12%);
+  --gray-900: hsl(var(--hue), 15%, 10%);
+
+  // Primary dark variants (for dark mode - lighter to maintain contrast)
+  --primary-400: hsl(var(--hue), 50%, 45%);
+  --primary-600: hsl(var(--hue), 40%, 25%);
+  --primary-700: hsl(var(--hue), 70%, 35%);
+
+  // Semantic tokens (light mode)
+  --bg: var(--gray-300);
+  --surface: var(--gray-50);
+  --text: var(--gray-900);
+  --text-muted: var(--primary-600);
+  --accent: var(--primary-500);
+  --accent-soft: var(--primary-50);
+  --accent-border: var(--primary-200);
+  --on-accent: var(--gray-50);
+  --on-accent: oklch(
+    from var(--accent) clamp(0.1, (0.8 - l) * 20, 0.95) 0.02 h
+  );
+  --on-accent-soft: var(--gray-900);
+  --on-accent-soft: oklch(
+    from var(--accent-soft) clamp(0.1, (0.8 - l) * 20, 0.95) 0.02 h
+  );
+  --border-radius: 0.3em;
+}
+
+@mixin dark-theme {
+  --bg: var(--gray-850);
+  --surface: var(--gray-800);
+  --text: var(--gray-200);
+  --text-muted: var(--primary-50);
+  --accent: var(--primary-400);
+  --accent-soft: var(--primary-600);
+  --accent-border: var(--primary-700);
+  --on-accent: var(--gray-50);
+  --on-accent: oklch(
+    from var(--accent) clamp(0.1, (0.8 - l) * 20, 0.95) 0.02 h
+  );
+  --on-accent-soft: var(--gray-200);
+  --on-accent-soft: oklch(
+    from var(--accent-soft) clamp(0.1, (0.8 - l) * 20, 0.95) 0.02 h
+  );
+}
+
+// Dark mode (OS preference)
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    @include dark-theme;
+  }
+}
+
+// Dark mode (manual override)
+:root[data-theme="dark"] {
+  @include dark-theme;
+}
 
 @font-face {
   font-family: "Noqte";
@@ -78,13 +171,13 @@ blockquote {
 
 // Flow spacing (main uses flex gap for direct children)
 * + :is(p, ul, ol, blockquote, figure, pre) {
-  margin-top: vars.$space-sm;
+  margin-top: $space-sm;
 }
 * + :is(h1, h2, h3, h4, h5, h6) {
-  margin-top: vars.$space-lg;
+  margin-top: $space-lg;
 }
 :is(h1, h2, h3, h4, h5, h6) + * {
-  margin-top: vars.$space-sm;
+  margin-top: $space-sm;
 }
 
 :is(header, footer, section, article, label) a:visited {
@@ -106,8 +199,8 @@ body {
   flex-direction: column;
   min-height: 100vh;
   padding-block: 0.5em;
-  font-family: vars.$base-font-family;
-  line-height: vars.$base-line-height;
+  font-family: $base-font-family;
+  line-height: $base-line-height;
   color: var(--text);
   background-color: var(--bg);
   -webkit-font-smoothing: antialiased;
@@ -132,7 +225,7 @@ figure > img {
 }
 
 figcaption {
-  font-size: vars.$small-font-size;
+  font-size: $small-font-size;
 }
 
 ul {
@@ -171,6 +264,11 @@ main a {
   &:visited {
     color: color-mix(in oklch, var(--accent) 40%, var(--text));
   }
+}
+
+code {
+  direction: ltr;
+  unicode-bidi: isolate;
 }
 
 pre {
@@ -216,8 +314,8 @@ form {
   textarea {
     display: block;
     width: 100%;
-    font-family: vars.$base-font-family;
-    font-size: vars.$small-font-size;
+    font-family: $base-font-family;
+    font-size: $small-font-size;
     border: 1px solid var(--accent-border);
     background-color: var(--surface);
     color: var(--text);
@@ -227,7 +325,7 @@ form {
     border-color: var(--accent);
   }
   button[type="submit"] {
-    font-family: vars.$alt-font-family;
+    font-family: $alt-font-family;
   }
   textarea {
     height: 10rem;
